@@ -1,5 +1,5 @@
 # Summary
 
-* [What is GLSL?](README.md)
+* [What is PixelsWorld?](README.md)
 * [Run GLSL](contents/GLSL/RunGLSL.md)
 
