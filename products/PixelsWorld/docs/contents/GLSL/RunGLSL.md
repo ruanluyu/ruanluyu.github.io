@@ -1,9 +1,9 @@
 #Run GLSL Code
 ---
 - Make sure you are in **GLSL(GPU)** mode; 
-- Then edit the **World rule**; 
 <br>
 ![GLSL Mode](GLSLMode.png)
+- Then edit the **World rule**; 
 - You will see there is already some code in the showed up panel; 
 ```glsl:default.shader
 void main(){
