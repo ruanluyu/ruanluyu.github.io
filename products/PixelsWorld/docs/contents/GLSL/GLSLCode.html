@@ -17,7 +17,11 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
                 
             
                 
@@ -200,46 +204,47 @@ The main idea of GLSL is that you write the rules of <strong>how pixels render t
 <li>Only the <strong>Fragment shader</strong> you need to write in PixelsWorld. </li>
 <li>PixelsWorld will combine some extra code behind your code to link with After Effects platform. We list the code here for your reference. </li>
 </ul>
-<pre><code class="lang-glsl:extra.shader">#define gl_Position uv2xy(uv)
-#define gl_FragCoord uv2xy(uv)
-#define gl_FragColor outColor
-out vec4 outColor;
-in vec2 uv;
-uniform float slider[10];
-uniform float angle[10];
-uniform bool checkbox[10];
-uniform vec2 point[10];
-uniform vec3 point3d[10];
-uniform vec4 color[10];
-uniform sampler2D layer[10];
-uniform sampler2D inLayer;
-uniform float time;
-uniform float width;
-uniform float height;
-uniform vec2 origin;
-uniform vec2 resolution;
-uniform vec2 reverseUV;
+<div><p class="code-filename">extra.shader</p></div>
+<pre class="language-"><code class="lang-glsl"><span class="token preprocessor builtin">#define</span> gl_Position <span class="token function">uv2xy</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragCoord <span class="token function">uv2xy</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragColor outColor
+<span class="token keyword">out</span> <span class="token keyword">vec4</span> outColor<span class="token punctuation">;</span>
+<span class="token keyword">in</span> <span class="token keyword">vec2</span> uv<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> slider<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> angle<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">bool</span> checkbox<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> point<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> point3d<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> color<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> layer<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayer<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> time<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> width<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> height<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> origin<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> resolution<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> reverseUV<span class="token punctuation">;</span>
 
-vec4 getColor(int layerId,vec2 coord)
-{
-    vec2 one = vec2(1.0);
-    if(layerId==-1) return texture2D(inLayer,(one-reverseUV) * coord + reverseUV * (one-coord));
-    else if(layerId&gt;=0 &amp;&amp; layerId&lt;=9) return texture2D(layer[layerId],(one-reverseUV) * coord + reverseUV * (one-coord));
-    return vec4(0.0);
-}
-vec4 getColor(vec2 coord)
-{
-    vec2 one = vec2(1.0);
-    return texture2D(inLayer,(one-reverseUV) * coord + reverseUV * (one-coord));
-}
-vec2 uv2xy(vec2 myuv){
-    return myuv*resolution;
-}
-vec2 xy2uv(vec2 myxy){
-    return myxy/resolution;
-}
+<span class="token keyword">vec4</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token keyword">int</span> layerId<span class="token punctuation">,</span><span class="token keyword">vec2</span> coord<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">vec2</span> one <span class="token operator">=</span> <span class="token keyword">vec2</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>layerId<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>inLayer<span class="token punctuation">,</span><span class="token punctuation">(</span>one<span class="token operator">-</span>reverseUV<span class="token punctuation">)</span> <span class="token operator">*</span> coord <span class="token operator">+</span> reverseUV <span class="token operator">*</span> <span class="token punctuation">(</span>one<span class="token operator">-</span>coord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>layerId<span class="token operator">&gt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> layerId<span class="token operator">&lt;=</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>layer<span class="token punctuation">[</span>layerId<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">(</span>one<span class="token operator">-</span>reverseUV<span class="token punctuation">)</span> <span class="token operator">*</span> coord <span class="token operator">+</span> reverseUV <span class="token operator">*</span> <span class="token punctuation">(</span>one<span class="token operator">-</span>coord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">vec4</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> coord<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">vec2</span> one <span class="token operator">=</span> <span class="token keyword">vec2</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>inLayer<span class="token punctuation">,</span><span class="token punctuation">(</span>one<span class="token operator">-</span>reverseUV<span class="token punctuation">)</span> <span class="token operator">*</span> coord <span class="token operator">+</span> reverseUV <span class="token operator">*</span> <span class="token punctuation">(</span>one<span class="token operator">-</span>coord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">vec2</span> <span class="token function">uv2xy</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> myuv<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> myuv<span class="token operator">*</span>resolution<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">vec2</span> <span class="token function">xy2uv</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> myxy<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> myxy<span class="token operator">/</span>resolution<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// Your glsl code will show up here.
+<span class="token comment">// Your glsl code will show up here.</span>
 </code></pre>
 
                                 
@@ -274,7 +279,7 @@ vec2 xy2uv(vec2 myxy){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GLSL Code","level":"1.2","depth":1,"next":{"title":"Run GLSL","level":"1.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"previous":{"title":"What is PixelsWorld?","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api"],"pluginsConfig":{"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"light"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/GLSLCode.md","mtime":"2019-08-16T14:52:48.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T15:04:41.410Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GLSL Code","level":"1.2","depth":1,"next":{"title":"Run GLSL","level":"1.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"previous":{"title":"What is PixelsWorld?","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/GLSLCode.md","mtime":"2019-08-16T14:52:48.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T16:14:17.966Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
