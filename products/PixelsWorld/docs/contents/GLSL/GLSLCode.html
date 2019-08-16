@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Run GLSL · GitBook</title>
+        <title>GLSL Code · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="RunGLSL.html" />
     
-    <link rel="prev" href="GLSLCode.html" />
+    
+    <link rel="prev" href="../../" />
     
 
     </head>
@@ -104,7 +106,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="GLSLCode.html">
+        <li class="chapter active" data-level="1.2" data-path="GLSLCode.html">
             
                 <a href="GLSLCode.html">
             
@@ -118,7 +120,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="RunGLSL.html">
+        <li class="chapter " data-level="1.2.1" data-path="RunGLSL.html">
             
                 <a href="RunGLSL.html">
             
@@ -166,7 +168,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Run GLSL</a>
+        <a href="../.." >GLSL Code</a>
     </h1>
 </div>
 
@@ -181,33 +183,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="run-glsl-code">Run GLSL Code</h1>
+                                <h1 id="render-glsl-code-with-pixelsworld">Render GLSL code with PixelsWorld</h1>
 <hr>
-<ul>
-<li>Make sure you are in <strong>GLSL(GPU)</strong> mode; </li>
-<li>Then edit the <strong>World rule</strong>; 
-<br>
-<img src="GLSLMode.png" alt="GLSL Mode"></li>
-<li><p>You will see there is already some code in the showed up panel; </p>
-<pre><code class="lang-glsl:default.shader">void main(){
-  outColor = getColor(uv);
-}
-</code></pre>
+<p>In this chapter, we will have a quick look of how to make PixelsWorld run GLSL code. </p>
+<h2 id="but-what-is-glsl">But what is GLSL?</h2>
+<p>GLSL is abbreviation of <strong>OpenGL Shader Language</strong>, it is a GPU based render language powered by OpenGL. 
+The main idea of GLSL is that you write the rules of <strong>how pixels render themselves</strong>, then the GPU can hire lots of <em>&quot;worker&quot;</em> to do the calculation for you.  </p>
 <blockquote>
-<p>This code is just send the input pixels to the output. </p>
+<p>If you want to learn more about the grammar of GLSL, we recommand you having a look at <a href="https://www.shadertoy.com/" target="_blank">shadertoy.com</a>. Find some interesting but simple effects and figure out why this works. </p>
 </blockquote>
-</li>
-<li><p>You can change the <code>getColor(uv)</code> to <code>vec4(uv,0.0,1.0)</code> for geting a beautiful uv color pattern; </p>
-<pre><code class="lang-glsl:uvcolor.shader">void main(){
-  outColor = vec4(uv,0.0,1.0);
-}
-</code></pre>
-</li>
-<li>Then, press the <strong>&quot;Ok&quot;</strong> button. </li>
-<li>If everything is right, you will get something in the scene like this:
-<br>
-<img src="UVColor.png" alt="UV color pattern"></li>
-</ul>
+<h2 id="message-for-veteran-">Message for veteran :</h2>
+<blockquote>
+<p><strong>PixelsWorld V1.0</strong> uses <strong>#version 330 core</strong>. </p>
+</blockquote>
+<p> Only the <strong>Fragment shader</strong> you need to write in PixelsWorld. </p>
 
                                 
                                 </section>
@@ -241,7 +230,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Run GLSL","level":"1.2.1","depth":2,"previous":{"title":"GLSL Code","level":"1.2","depth":1,"path":"contents/GLSL/GLSLCode.md","ref":"contents/GLSL/GLSLCode.md","articles":[{"title":"Run GLSL","level":"1.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api"],"pluginsConfig":{"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"light"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/RunGLSL.md","mtime":"2019-08-16T14:38:26.726Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T14:38:32.797Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GLSL Code","level":"1.2","depth":1,"next":{"title":"Run GLSL","level":"1.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"previous":{"title":"What is PixelsWorld?","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api"],"pluginsConfig":{"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"hide-published-with":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"light"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/GLSLCode.md","mtime":"2019-08-16T14:12:50.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-16T14:38:32.797Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

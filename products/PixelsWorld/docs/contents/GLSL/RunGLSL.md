@@ -1,17 +1,24 @@
-#Render GLSL code with PixelsWorld
+#Run GLSL Code
 ---
-In this chapter, we will have a quick look of how to make PixelsWorld run GLSL code. 
+- Make sure you are in **GLSL(GPU)** mode; 
+- Then edit the **World rule**; 
+<br>
+![GLSL Mode](GLSLMode.png)
+- You will see there is already some code in the showed up panel; 
+```glsl:default.shader
+void main(){
+	outColor = getColor(uv);
+}
+```
+>This code is just send the input pixels to the output. 
 
-##But what is GLSL?
-GLSL is abbreviation of **OpenGL Shader Language**, it is a GPU based render language powered by OpenGL. 
-The main idea of GLSL is that you write the rules of **how pixels render themselves**, then the GPU can hire lots of *"worker"* to do the calculation for you.  
-> If you want to learn more about the grammar of GLSL, we recommand you having a look at [shadertoy.com](https://www.shadertoy.com/). Find some interesting but simple effects and figure out why this works. 
-
-
-
-##Message for veteran : 
-> **PixelsWorld V1.0** uses **#version 330 core**. 
- 
- Only the **Fragment shader** you need to write in PixelsWorld. 
-
-
+- You can change the ``` getColor(uv) ``` to ```vec4(uv,0.0,1.0)``` for geting a beautiful uv color pattern; 
+```glsl:uvcolor.shader
+void main(){
+	outColor = vec4(uv,0.0,1.0);
+}
+```
+- Then, press the **"Ok"** button. 
+- If everything is right, you will get something in the scene like this:
+<br>
+![UV color pattern](UVColor.png)
