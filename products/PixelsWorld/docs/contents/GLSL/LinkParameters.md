@@ -14,13 +14,17 @@ As you can see, there are 7 types of parameters are provided.
 - Layers
 
 Each of them have 10 controler for using. 
-> **Example :**
-> ```glsl:link_slider.shader
-> void main(){
->    outColor = vec4(uv,slider[0],1.0);
->}
-> ``` 
-> If you change the slider 0, the color in your scene would change.
+
+**Example :**
+```glsl:link_slider.shader
+ void main(){
+    outColor = vec4(uv,slider[0],1.0);
+}
+```
+<br>
+![uvslider](uvslider.gif)
+ 
+ If you change the slider 0, the color in your scene would change.
 
 ##Details
 The  parameters decleared in PixelsWorld are as below : 
