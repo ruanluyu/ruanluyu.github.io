@@ -1,6 +1,6 @@
 #Render GLSL code with PixelsWorld
 ---
-In this chapter, we will have a quick look at how to make PixelsWorld run GLSL code. 
+In this chapter, we will have a quick look at how to let PixelsWorld run GLSL code for us. 
 
 ##But what is GLSL?
 GLSL is abbreviation of **OpenGL Shader Language**, it is a GPU based render language powered by OpenGL. 
