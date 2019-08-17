@@ -21,10 +21,11 @@ Each of them have 10 controler for using.
     outColor = vec4(uv,slider[0],1.0);
 }
 ```
+ If you change the slider 0, the color in your scene would change.
 <br>
 ![uvslider](uvslider.gif)
  
- If you change the slider 0, the color in your scene would change.
+
 
 ##Details
 The  parameters decleared in PixelsWorld are as below : 
