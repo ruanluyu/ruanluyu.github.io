@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>uv2xy,xy2uv · GitBook</title>
+        <title>Link parameters · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="LinkParameters.html" />
     
-    
-    <link rel="prev" href="getColor.html" />
+    <link rel="prev" href="uvxy.html" />
     
 
     </head>
@@ -181,7 +179,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2.2" data-path="uvxy.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="uvxy.html">
             
                 <a href="uvxy.html">
             
@@ -199,7 +197,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="LinkParameters.html">
+        <li class="chapter active" data-level="1.3.3" data-path="LinkParameters.html">
             
                 <a href="LinkParameters.html">
             
@@ -312,7 +310,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >uv2xy,xy2uv</a>
+        <a href="../.." >Link parameters</a>
     </h1>
 </div>
 
@@ -327,43 +325,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="uv2xyxy2uv">uv2xy,xy2uv</h1>
+                                <h1 id="link-parameters">Link parameters</h1>
 <hr>
-<p>This two functions can translate a vec2 between <strong>UV Coordinate</strong> and <strong>XY Coordinate</strong>.
-It just do some multiplication and division for you. </p>
-<h2 id="uv2xyvec2">uv2xy(vec2)</h2>
-<p><strong>Description : </strong></p>
+<p>The outside parameters are provided for you to do some animation. 
+<br>
+<img src="parameters.png" alt="Parameters"></p>
+<p>As you can see, there are 7 types of parameters are provided. </p>
 <ul>
-<li>Calculate the xy position for a given uv position. </li>
+<li>Sliders</li>
+<li>Angles</li>
+<li>Points</li>
+<li>3D Points</li>
+<li>Checkboxes</li>
+<li>Colors</li>
+<li>Layers</li>
 </ul>
-<p><strong>Parameters : </strong></p>
-<ul>
-<li>vec2 : uv position.</li>
-</ul>
-<p><strong>Return : </strong></p>
-<ul>
-<li>vec2 : xy position.</li>
-</ul>
+<p>Each of them have 10 controler for using. </p>
 <blockquote>
-<p><strong>NOTE : </strong>
- If your layer size is 1280 x 720. The <code>uv2xy(vec2(0.1,0.5));</code> will return <code>vec2(128.0,360.0);</code></p>
+<p><strong>Example :</strong></p>
 </blockquote>
-<h2 id="xy2uvvec2">xy2uv(vec2)</h2>
-<p><strong>Description : </strong></p>
-<ul>
-<li>Calculate the uv position for a given xy position. </li>
-</ul>
-<p><strong>Parameters : </strong></p>
-<ul>
-<li>vec2 : xy position.</li>
-</ul>
-<p><strong>Return : </strong></p>
-<ul>
-<li>vec2 : uv position.</li>
-</ul>
+<p>!FILENAME link_slider.shader ```glsl</p>
 <blockquote>
-<p><strong>NOTE : </strong>
- If your layer size is 1920 x 1080. The <code>xy2uv(vec2(192,108));</code> will return <code>vec2(0.1,0.1);</code></p>
+<p>void main(){
+   outColor = vec4(uv,slider[0],1.0);
+}
+``` 
+If you change the slider 0, the color in your scene would change.</p>
+</blockquote>
+<h2 id="details">Details</h2>
+<p>The  parameters decleared in PixelsWorld are as below : </p>
+<div><p class="code-filename">parameters.shader</p></div>
+<pre class="language-"><code class="lang-glsl"><span class="token keyword">uniform</span> <span class="token keyword">float</span> slider<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> angle<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">bool</span> checkbox<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> point<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> point3d<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> color<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> layer<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayer<span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p><strong>NOTE : </strong></p>
+<ul>
+<li>The <strong>&quot;inLayer&quot;</strong> means Input layer. </li>
+<li>The <strong>sampler2D</strong> is a value type provided by GLSL, you don&apos;t need to understand this value type. If you want to use the layer parameter. Please see the <a href="getColor.html">&quot;getColor&quot;</a> section</li>
+<li><strong>&quot;uniform&quot;</strong> means global value. This is to tell the GPU that &quot;You don&apos;t need to malloc memory and initialize them for each <em>&apos;GPU worker&apos;</em>, just do these when the <em>&quot;GPU Boss of works&quot;</em> start working. &quot; So on the other hand, <strong>&quot;uniform&quot;</strong> declearation almost shows up outside your function. </li>
+</ul>
 </blockquote>
 
                                 
@@ -398,7 +405,7 @@ It just do some multiplication and division for you. </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"uv2xy,xy2uv","level":"1.3.2.2","depth":3,"next":{"title":"Link parameters","level":"1.3.3","depth":2,"path":"contents/GLSL/LinkParameters.md","ref":"contents/GLSL/LinkParameters.md","articles":[]},"previous":{"title":"getColor","level":"1.3.2.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/uvxy.md","mtime":"2019-08-17T11:42:07.189Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-17T12:11:51.096Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Link parameters","level":"1.3.3","depth":2,"next":{"title":"Debug","level":"1.3.4","depth":2,"ref":"","articles":[]},"previous":{"title":"uv2xy,xy2uv","level":"1.3.2.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/LinkParameters.md","mtime":"2019-08-17T12:11:45.408Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-17T12:11:51.096Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
