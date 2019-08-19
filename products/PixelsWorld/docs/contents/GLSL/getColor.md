@@ -27,4 +27,4 @@ This function has two versions. **getColor(vec2)** and **getColor(int ,vec2)**.
 
 >**NOTE : **
 > - So in other words, ```getColor(-1,uv);``` totally equals to ```getColor(uv);```
-> - ```getColor(n,uv);``` can return the pixels in layer[n] $(0\le n \le 9)$. 
+> - ```getColor(n,uv);``` can return the pixels of layer[n]. 
