@@ -10,4 +10,3 @@ Javascript can be executed by function ```pw.js("Your code")``` on **Lua (CPU & 
 ```lua:executeJS.lua
 pw.js("alert('Hello PixelsWorld!')");
 ```
- 
