@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>getColor · GitBook</title>
+        <title>Lua Code (coming soon...) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="uvxy.html" />
     
-    
-    <link rel="prev" href="Functions.html" />
+    <link rel="prev" href="../GLSL/Advanced_settings.html" />
     
 
     </head>
@@ -127,9 +125,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="GLSLCode.html">
+        <li class="chapter " data-level="1.3" data-path="../GLSL/GLSLCode.html">
             
-                <a href="GLSLCode.html">
+                <a href="../GLSL/GLSLCode.html">
             
                     
                     GLSL Code
@@ -141,9 +139,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="RunGLSL.html">
+        <li class="chapter " data-level="1.3.1" data-path="../GLSL/RunGLSL.html">
             
-                <a href="RunGLSL.html">
+                <a href="../GLSL/RunGLSL.html">
             
                     
                     Run GLSL
@@ -154,9 +152,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="Functions.html">
+        <li class="chapter " data-level="1.3.2" data-path="../GLSL/Functions.html">
             
-                <a href="Functions.html">
+                <a href="../GLSL/Functions.html">
             
                     
                     Functions
@@ -168,9 +166,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.2.1" data-path="getColor.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../GLSL/getColor.html">
             
-                <a href="getColor.html">
+                <a href="../GLSL/getColor.html">
             
                     
                     getColor
@@ -181,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" data-path="uvxy.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../GLSL/uvxy.html">
             
-                <a href="uvxy.html">
+                <a href="../GLSL/uvxy.html">
             
                     
                     uv2xy,xy2uv
@@ -199,9 +197,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="LinkParameters.html">
+        <li class="chapter " data-level="1.3.3" data-path="../GLSL/LinkParameters.html">
             
-                <a href="LinkParameters.html">
+                <a href="../GLSL/LinkParameters.html">
             
                     
                     Link parameters
@@ -212,9 +210,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="debug.html">
+        <li class="chapter " data-level="1.3.4" data-path="../GLSL/debug.html">
             
-                <a href="debug.html">
+                <a href="../GLSL/debug.html">
             
                     
                     Debug
@@ -225,9 +223,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="Advanced_settings.html">
+        <li class="chapter " data-level="1.3.5" data-path="../GLSL/Advanced_settings.html">
             
-                <a href="Advanced_settings.html">
+                <a href="../GLSL/Advanced_settings.html">
             
                     
                     Advanced settings
@@ -243,9 +241,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../Lua/Lua.html">
+        <li class="chapter active" data-level="1.4" data-path="Lua.html">
             
-                <a href="../Lua/Lua.html">
+                <a href="Lua.html">
             
                     
                     Lua Code (coming soon...)
@@ -586,9 +584,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../Lua/JavaScript.html">
+        <li class="chapter " data-level="1.5" data-path="JavaScript.html">
             
-                <a href="../Lua/JavaScript.html">
+                <a href="JavaScript.html">
             
                     
                     JavaScript Code
@@ -599,9 +597,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../Lua/CMD.html">
+        <li class="chapter " data-level="1.6" data-path="CMD.html">
             
-                <a href="../Lua/CMD.html">
+                <a href="CMD.html">
             
                     
                     CMD Code
@@ -642,7 +640,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >getColor</a>
+        <a href="../.." >Lua Code (coming soon...)</a>
     </h1>
 </div>
 
@@ -657,48 +655,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="getcolor">getColor</h1>
-<hr>
-<p>This function has two versions. <strong>getColor(vec2)</strong> and <strong>getColor(int ,vec2)</strong>.</p>
-<h2 id="getcolorvec2">getColor(vec2)</h2>
-<p><strong>Description : </strong></p>
-<ul>
-<li>Get the color of <strong>inLayer</strong> in specified position. </li>
-</ul>
-<p><strong>Parameters : </strong></p>
-<ul>
-<li>vec2 : uv position.</li>
-</ul>
-<p><strong>Return : </strong></p>
-<ul>
-<li>vec4 : a RGBA color.</li>
-</ul>
-<blockquote>
-<p><strong>NOTE : </strong>
-We highly recommend using <code>getColor(uv);</code> to obtain pixels, we cannot guarantee that <code>texture2d(gl_Position,sampler2d);</code> can return the right pixel. </p>
-</blockquote>
-<h2 id="getcolorintvec2">getColor(int,vec2)</h2>
-<p><strong>Description : </strong></p>
-<ul>
-<li>Get the color of <strong>specified layer</strong> in specified position. </li>
-</ul>
-<p><strong>Parameters : </strong></p>
-<ul>
-<li>int : layer id, -1 means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. </li>
-<li>vec2 : uv coordinates.</li>
-</ul>
-<p><strong>Return : </strong></p>
-<ul>
-<li>vec4 : a RGBA color. </li>
-</ul>
-<blockquote>
-<p><strong>NOTE : </strong></p>
-<ul>
-<li>So in other words, <code>getColor(-1,uv);</code> totally equals to <code>getColor(uv);</code></li>
-<li><code>getColor(n,uv);</code> can return the pixels of layer[n]. </li>
-</ul>
-</blockquote>
-
+                                
                                 
                                 </section>
                             
@@ -731,7 +688,7 @@ We highly recommend using <code>getColor(uv);</code> to obtain pixels, we cannot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"getColor","level":"1.3.2.1","depth":3,"next":{"title":"uv2xy,xy2uv","level":"1.3.2.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]},"previous":{"title":"Functions","level":"1.3.2","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"1.3.2.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"1.3.2.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/getColor.md","mtime":"2019-08-19T10:37:29.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T11:42:37.617Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lua Code (coming soon...)","level":"1.4","depth":1,"next":{"title":"Run Lua","level":"1.4.1","depth":2,"ref":"","articles":[]},"previous":{"title":"Advanced settings","level":"1.3.5","depth":2,"path":"contents/GLSL/Advanced_settings.md","ref":"contents/GLSL/Advanced_settings.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/Lua.md","mtime":"2019-08-19T11:42:14.856Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T11:42:37.617Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
