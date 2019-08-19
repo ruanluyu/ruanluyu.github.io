@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Debug · GitBook</title>
+        <title>JavaScript Code · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,6 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Advanced_settings.html" />
-    
-    
-    <link rel="prev" href="LinkParameters.html" />
     
 
     </head>
@@ -127,9 +123,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="GLSLCode.html">
+        <li class="chapter " data-level="1.3" data-path="../GLSL/GLSLCode.html">
             
-                <a href="GLSLCode.html">
+                <a href="../GLSL/GLSLCode.html">
             
                     
                     GLSL Code
@@ -141,9 +137,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="RunGLSL.html">
+        <li class="chapter " data-level="1.3.1" data-path="../GLSL/RunGLSL.html">
             
-                <a href="RunGLSL.html">
+                <a href="../GLSL/RunGLSL.html">
             
                     
                     Run GLSL
@@ -154,9 +150,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="Functions.html">
+        <li class="chapter " data-level="1.3.2" data-path="../GLSL/Functions.html">
             
-                <a href="Functions.html">
+                <a href="../GLSL/Functions.html">
             
                     
                     Functions
@@ -168,9 +164,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="getColor.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../GLSL/getColor.html">
             
-                <a href="getColor.html">
+                <a href="../GLSL/getColor.html">
             
                     
                     getColor
@@ -181,9 +177,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" data-path="uvxy.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../GLSL/uvxy.html">
             
-                <a href="uvxy.html">
+                <a href="../GLSL/uvxy.html">
             
                     
                     uv2xy,xy2uv
@@ -199,9 +195,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="LinkParameters.html">
+        <li class="chapter " data-level="1.3.3" data-path="../GLSL/LinkParameters.html">
             
-                <a href="LinkParameters.html">
+                <a href="../GLSL/LinkParameters.html">
             
                     
                     Link parameters
@@ -212,9 +208,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4" data-path="debug.html">
+        <li class="chapter " data-level="1.3.4" data-path="../GLSL/debug.html">
             
-                <a href="debug.html">
+                <a href="../GLSL/debug.html">
             
                     
                     Debug
@@ -225,9 +221,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="Advanced_settings.html">
+        <li class="chapter " data-level="1.3.5" data-path="../GLSL/Advanced_settings.html">
             
-                <a href="Advanced_settings.html">
+                <a href="../GLSL/Advanced_settings.html">
             
                     
                     Advanced settings
@@ -256,9 +252,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../Lua/JavaScript.html">
+        <li class="chapter active" data-level="1.5" data-path="JavaScript.html">
             
-                <a href="../Lua/JavaScript.html">
+                <a href="JavaScript.html">
             
                     
                     JavaScript Code
@@ -312,7 +308,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Debug</a>
+        <a href="../.." >JavaScript Code</a>
     </h1>
 </div>
 
@@ -327,14 +323,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="debug">Debug</h1>
+                                <h1 id="javascript-code">JavaScript Code</h1>
 <hr>
-<p>Open the debug checkbox in the plugin panel. </p>
-<p>A debug window will show up. This is where error message will appear. <br>
-<img src="debug.png" alt="Debug window"></p>
-<blockquote>
-<p>If you want to print some message here. Please use the <strong>Lua (CPU &amp; GPU)</strong>  language mode. </p>
-</blockquote>
+<p>Javascript can be executed by function <code>pw.js(&quot;Your code&quot;)</code> on <strong>Lua (CPU &amp; GPU)</strong> language mode. </p>
+<p><img src="LuaMode.png" alt="LuaMode"></p>
+<div><p class="code-filename">executeJS.lua</p></div>
+<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span><span class="token function">js</span><span class="token punctuation">(</span><span class="token string">&quot;alert(&apos;Hello PixelsWorld!&apos;)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -368,7 +363,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Debug","level":"1.3.4","depth":2,"next":{"title":"Advanced settings","level":"1.3.5","depth":2,"path":"contents/GLSL/Advanced_settings.md","ref":"contents/GLSL/Advanced_settings.md","articles":[]},"previous":{"title":"Link parameters","level":"1.3.3","depth":2,"path":"contents/GLSL/LinkParameters.md","ref":"contents/GLSL/LinkParameters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/debug.md","mtime":"2019-08-19T10:29:08.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T11:20:53.391Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript Code","level":"1.5","depth":1,"next":{"title":"CMD Code (coming soon...)","level":"1.6","depth":1,"ref":"","articles":[]},"previous":{"title":"Lua Code (coming soon...)","level":"1.4","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/JavaScript.md","mtime":"2019-08-19T11:20:48.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T11:20:53.391Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
