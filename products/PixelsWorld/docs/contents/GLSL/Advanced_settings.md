@@ -2,10 +2,11 @@
 ---
 There are several advanced settings in the effect panel.
 
-##Language
-
+##Language 
 It controls which compiler to be used. 
+
 ---
+
 ##Reverse U/V
 This will change the inner value ```uniform vec2 uv```. But it will not change the orientation of the inLayer or layer parameters. 
 
@@ -43,4 +44,4 @@ void main(){
 }
 ```
 
-> If you want to built same pixel style effect. Swith this option to **Nearest pixel**
+> If you want to build the same pixel style effect. Swith this option to **Nearest pixel**
