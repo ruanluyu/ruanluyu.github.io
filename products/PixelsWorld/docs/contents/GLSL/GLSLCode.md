@@ -11,7 +11,7 @@ The main idea of GLSL is that you write the rules of **how pixels render themsel
 > **PixelsWorld V1.0** uses **#version 330 core**. 
  
 - Only the **Fragment shader** you need to write in PixelsWorld. 
-- PixelsWorld will combine some extra code behind your code to link with After Effects platform. We list the code here for your reference. 
+- PixelsWorld will combine some extra code before your code to link with After Effects platform. We list the code here for your reference. 
 
 ```glsl:extra.shader
 #define gl_Position uv2xy(uv)
