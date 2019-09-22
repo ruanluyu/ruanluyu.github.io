@@ -1,4 +1,4 @@
-#How can I get/use it? 
+#How to get/use it? 
 ---
 ##Download and install
 - You can purchase and download the PixelsWorld [here](https://milai.tech/products/PixelsWorld).

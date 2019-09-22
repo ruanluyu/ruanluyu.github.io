@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JavaScript Code · GitBook</title>
+        <title>Run Lua · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,8 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CMD.html" />
+    <link rel="next" href="RunGLSL.html" />
     
+    
+    <link rel="prev" href="Lua.html" />
     
 
     </head>
@@ -301,7 +303,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.3.1" data-path="RunLua.html">
+        <li class="chapter active" data-level="2.3.1" data-path="RunLua.html">
             
                 <a href="RunLua.html">
             
@@ -618,7 +620,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.4" data-path="JavaScript.html">
+        <li class="chapter " data-level="2.4" data-path="JavaScript.html">
             
                 <a href="JavaScript.html">
             
@@ -678,7 +680,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >JavaScript Code</a>
+        <a href="../.." >Run Lua</a>
     </h1>
 </div>
 
@@ -693,13 +695,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="javascript-code">JavaScript Code</h1>
+                                <h1 id="run-lua">Run Lua</h1>
 <hr>
-<p>Javascript can be executed by function <code>pw.js(&quot;Your code&quot;)</code> on <strong>Lua (CPU &amp; GPU)</strong> language mode. </p>
+<p>Switch your luange to <strong>Lua ( CPU &amp; GPU )</strong></p>
 <p><img src="LuaMode.png" alt="LuaMode"></p>
-<div><p class="code-filename">executeJS.lua</p></div>
-<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span><span class="token function">js</span><span class="token punctuation">(</span><span class="token string">&quot;alert(&apos;Hello PixelsWorld!&apos;)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>And input the code below : </p>
+<div><p class="code-filename">hello.lua</p></div>
+<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span>debug<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+a <span class="token operator">=</span> <span class="token number">5</span><span class="token operator">+</span><span class="token number">6</span>
+b <span class="token operator">=</span> <span class="token string">&quot;PixelsWorld&quot;</span>
+c <span class="token operator">=</span> <span class="token string">&quot;is cool!&quot;</span>
+d <span class="token operator">=</span> time
+e <span class="token operator">=</span> pw<span class="token punctuation">.</span><span class="token function">ch</span><span class="token punctuation">(</span><span class="token string">&quot;slider&quot;</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+f <span class="token operator">=</span> <span class="token string">&quot;5 + 6 = &quot;</span> <span class="token operator">..</span> a <span class="token operator">..</span> <span class="token string">&quot;\nMessage : &quot;</span> <span class="token operator">..</span> b <span class="token operator">..</span> <span class="token string">&quot; &quot;</span> <span class="token operator">..</span> c <span class="token operator">..</span> <span class="token string">&quot;\nCurrent time is : &quot;</span> <span class="token operator">..</span> d <span class="token operator">..</span> <span class="token string">&quot; (s)\nValue of slider0 is : &quot;</span> <span class="token operator">..</span> e
+pw<span class="token punctuation">.</span><span class="token function">report</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
 </code></pre>
+<p>If you open the debug window (by checking the <strong>debug</strong> checkbox), you will get some message like this : </p>
+<p><img src="LuaHelloRes.png" alt="LuaHelloRes"></p>
 
                                 
                                 </section>
@@ -733,7 +745,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript Code","level":"2.4","depth":1,"next":{"title":"CMD Code","level":"2.5","depth":1,"path":"contents/Lua/CMD.md","ref":"contents/Lua/CMD.md","articles":[]},"previous":{"title":"pw.debug module","level":"2.3.6.2","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/JavaScript.md","mtime":"2019-08-19T11:21:49.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-22T17:42:42.650Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Run Lua","level":"2.3.1","depth":2,"next":{"title":"Run GLSL","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"Lua Code (coming soon...)","level":"2.3","depth":1,"path":"contents/Lua/Lua.md","ref":"contents/Lua/Lua.md","articles":[{"title":"Run Lua","level":"2.3.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},{"title":"Run GLSL","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},{"title":"Copy input pixels to output","level":"2.3.3","depth":2,"ref":"","articles":[]},{"title":"pw module","level":"2.3.4","depth":2,"ref":"","articles":[{"title":"pw.getPixel()","level":"2.3.4.1","depth":3,"ref":"","articles":[]},{"title":"pw.setPixel()","level":"2.3.4.2","depth":3,"ref":"","articles":[]},{"title":"pw.ch()","level":"2.3.4.3","depth":3,"ref":"","articles":[]},{"title":"pw.in2out()","level":"2.3.4.4","depth":3,"ref":"","articles":[]},{"title":"pw.render()","level":"2.3.4.5","depth":3,"ref":"","articles":[]},{"title":"pw.glsl()","level":"2.3.4.6","depth":3,"ref":"","articles":[]},{"title":"pw.xy2uv()","level":"2.3.4.7","depth":3,"ref":"","articles":[]},{"title":"pw.uv2xy()","level":"2.3.4.8","depth":3,"ref":"","articles":[]},{"title":"pw.js()","level":"2.3.4.9","depth":3,"ref":"","articles":[]},{"title":"pw.cmd()","level":"2.3.4.10","depth":3,"ref":"","articles":[]},{"title":"pw.lua()","level":"2.3.4.11","depth":3,"ref":"","articles":[]},{"title":"pw.report()","level":"2.3.4.12","depth":3,"ref":"","articles":[]}]},{"title":"Link parameters","level":"2.3.5","depth":2,"ref":"","articles":[]},{"title":"Debug","level":"2.3.6","depth":2,"ref":"","articles":[{"title":"pw.report","level":"2.3.6.1","depth":3,"ref":"","articles":[]},{"title":"pw.debug module","level":"2.3.6.2","depth":3,"ref":"","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/RunLua.md","mtime":"2019-09-22T17:08:47.374Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-22T17:42:42.650Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
