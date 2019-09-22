@@ -39,7 +39,6 @@ uniform float width;
 uniform float height;
 uniform vec2 origin;
 uniform vec2 resolution;
-uniform vec2 reverseUV;
 
 
 vec4 getColor(int layerId,vec2 coord)

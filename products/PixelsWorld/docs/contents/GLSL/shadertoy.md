@@ -51,6 +51,5 @@ Here is a list of variables that will be modified:
 - height
 - origin
 - resolution
-- reverseUV
 - INPUT_LAYER_INDEX
 - OUTPUT_LAYER_INDEX
