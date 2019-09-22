@@ -19,7 +19,7 @@ This function has two versions. **getColor(vec2)** and **getColor(int ,vec2)**.
  - Get the color of **specified layer** in specified position. 
 
 **Parameters : **
-- int : layer id, -1 means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. 
+- int : layer id, -1 (or INPUT_LAYER_INDEX) means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (OUTPUT_LAYER_INDEX (which is -2) is provided in Lua render mode)
 - vec2 : uv coordinates.
 
 **Return : **
