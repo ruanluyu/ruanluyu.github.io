@@ -14,6 +14,8 @@ The main idea of GLSL is that you write the rules of **how pixels render themsel
 - PixelsWorld will combine some extra code before your code to link with After Effects platform. We list the code here for your reference. 
 
 ```glsl:extra.shader
+#version 330 core
+
 #define gl_Position uv2xy(uv)
 #define gl_FragCoord uv2xy(uv)
 #define gl_FragColor outColor
