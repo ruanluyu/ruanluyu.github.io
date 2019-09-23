@@ -16,7 +16,7 @@
 
 **Sample code :**
 - Here is a sample code that renders a beautiful time-dependent uv color pattern. 
-```lua:setPixel.lua
+```lua:setColor.lua
 for y=0,height do
 	for x=0,width do
 		pw.setColor(x,y,1,x/width,y/height,math.sin(time*10)/2+.5)

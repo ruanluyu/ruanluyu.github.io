@@ -1,14 +1,20 @@
-#CMD Code
+#pw.cmd(cmdCode)
 ---
-CMD commands can be executed by function ```pw.cmd("Your cmd commands")``` on **Lua (CPU & GPU)** language mode. 
 
+**Description :**
 
+- Run CMD code. 
 
-![LuaMode](LuaMode.png)
+**Parameters :**
 
+- pw.cmd(cmdCode). 
+- cmdCode : string
 
-```lua:executeCMD.lua
-//Works on Windows platform
-pw.cmd("echo Hello PixelsWorld! & pause");
-```
- 
+**Return :**
+- No return. 
+
+**Sample code :**
+```lua:cmd.lua
+pw.cmd("echo Hello PixelsWorld! & Pause ")
+``` 
+

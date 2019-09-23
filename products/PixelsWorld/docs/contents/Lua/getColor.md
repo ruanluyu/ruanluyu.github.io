@@ -18,7 +18,7 @@
 
 **Sample code :**
 - Here is a sample code that calculates the average value of A,R,G,B channels. 
-```lua:getPixel.lua
+```lua:getColor.lua
 pw.in2out()
 local sumA, sumR,sumG,sumB
 sumA = 0
