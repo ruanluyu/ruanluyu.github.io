@@ -5,21 +5,7 @@ There are several advanced settings in the effect panel.
 ##Language 
 It controls which compiler to be used. 
 
----
 
-##Reverse U/V
-This will change the inner value ```uniform vec2 uv```. But it will not change the orientation of the inLayer or layer parameters. 
-
-If you uncheck the **reverse u** and **reverse v**. The UV coordinate will be placed on the left top cornerr of your layer. 
-
-By default the **reverse v** is checked. Because almost all the shader code is built on the left bottom coordinate. 
-
-To quickly understand this option. You can use the bottom shader code to test:
-```glsl:reverse_test.shader
-void main(){
-	outColor = getColor(uv) + vec4(uv,0,0);
-}
-```
 ---
 
 ##Wrap U/V sampler

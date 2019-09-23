@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JavaScript Code · GitBook</title>
+        <title>pw.ch() · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,8 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CMD.html" />
+    <link rel="next" href="in2out.html" />
     
+    
+    <link rel="prev" href="setColor.html" />
     
 
     </head>
@@ -392,7 +394,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.4.3" data-path="ch.html">
+        <li class="chapter active" data-level="2.3.4.3" data-path="ch.html">
             
                 <a href="ch.html">
             
@@ -588,7 +590,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.4" data-path="JavaScript.html">
+        <li class="chapter " data-level="2.4" data-path="JavaScript.html">
             
                 <a href="JavaScript.html">
             
@@ -648,7 +650,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >JavaScript Code</a>
+        <a href="../.." >pw.ch()</a>
     </h1>
 </div>
 
@@ -663,12 +665,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="javascript-code">JavaScript Code</h1>
+                                <h1 id="pwchnameid">pw.ch(name,id)</h1>
 <hr>
-<p>Javascript can be executed by function <code>pw.js(&quot;Your code&quot;)</code> on <strong>Lua (CPU &amp; GPU)</strong> language mode. </p>
-<p><img src="LuaMode.png" alt="LuaMode"></p>
-<div><p class="code-filename">executeJS.lua</p></div>
-<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span><span class="token function">js</span><span class="token punctuation">(</span><span class="token string">&quot;alert(&apos;Hello PixelsWorld!&apos;)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p><strong>Description :</strong></p>
+<ul>
+<li>Get value of parameters. </li>
+</ul>
+<p><strong>Parameters :</strong></p>
+<ul>
+<li>pw.ch(&quot;slider&quot;, id).</li>
+<li>pw.ch(&quot;angle&quot;, id).</li>
+<li>pw.ch(&quot;checkbox&quot;, id).</li>
+<li>pw.ch(&quot;point&quot;, id [, dim]).</li>
+<li>pw.ch(&quot;3dpoint&quot;, id, [, dim]).</li>
+<li>pw.ch(&quot;color&quot;, id, [, dim]).</li>
+<li>pw.ch(&quot;layer&quot;,id, x, y).</li>
+<li>id : integer in range 0~9.</li>
+<li>dim : integer start from 0. Its range is based on the params&apos; type. </li>
+<li>x,y : integers.</li>
+</ul>
+<p><strong>Return :</strong></p>
+<ul>
+<li>&quot;slider&quot; : returns 1 float.</li>
+<li>&quot;angle&quot; : returns 1 float.</li>
+<li>&quot;checkbox&quot; : returns 1 float , 0.0 or 1.0.</li>
+<li>&quot;point&quot; : returns 2 floats, if dim is specified, returns 1 floats.</li>
+<li>&quot;3dpoint&quot; : returns 3 floats, if dim is specified, returns 1 floats.</li>
+<li>&quot;color&quot; : returns <strong>3 floats</strong>, which  represents R, G, B, if dim is specified, returns 1 floats.</li>
+<li>&quot;layer&quot; : returns 4 floats, which represents A, R, G, B.</li>
+</ul>
+<p><strong>Sample code :</strong></p>
+<div><p class="code-filename">ch.lua</p></div>
+<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span><span class="token function">report</span><span class="token punctuation">(</span><span class="token string">&quot;The blue color of color 7 is &quot;</span> <span class="token operator">..</span> pw<span class="token punctuation">.</span><span class="token function">ch</span><span class="token punctuation">(</span><span class="token string">&quot;color&quot;</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 
                                 
@@ -703,7 +731,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript Code","level":"2.4","depth":1,"next":{"title":"CMD Code","level":"2.5","depth":1,"path":"contents/Lua/CMD.md","ref":"contents/Lua/CMD.md","articles":[]},"previous":{"title":"pw.debug module","level":"2.3.6.2","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/JavaScript.md","mtime":"2019-08-19T11:21:49.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-23T07:45:58.497Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"pw.ch()","level":"2.3.4.3","depth":3,"next":{"title":"pw.in2out()","level":"2.3.4.4","depth":3,"path":"contents/Lua/in2out.md","ref":"contents/Lua/in2out.md","articles":[]},"previous":{"title":"pw.setColor()","level":"2.3.4.2","depth":3,"path":"contents/Lua/setColor.md","ref":"contents/Lua/setColor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/ch.md","mtime":"2019-09-23T07:44:29.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-23T07:45:58.497Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

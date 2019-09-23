@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JavaScript Code · GitBook</title>
+        <title>pw.setColor() · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,8 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CMD.html" />
+    <link rel="next" href="ch.html" />
     
+    
+    <link rel="prev" href="getColor.html" />
     
 
     </head>
@@ -377,7 +379,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.4.2" data-path="setColor.html">
+        <li class="chapter active" data-level="2.3.4.2" data-path="setColor.html">
             
                 <a href="setColor.html">
             
@@ -588,7 +590,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.4" data-path="JavaScript.html">
+        <li class="chapter " data-level="2.4" data-path="JavaScript.html">
             
                 <a href="JavaScript.html">
             
@@ -648,7 +650,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >JavaScript Code</a>
+        <a href="../.." >pw.setColor()</a>
     </h1>
 </div>
 
@@ -663,12 +665,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="javascript-code">JavaScript Code</h1>
+                                <h1 id="pwsetcolorxyargb">pw.setColor(x,y,A,R,G,B)</h1>
 <hr>
-<p>Javascript can be executed by function <code>pw.js(&quot;Your code&quot;)</code> on <strong>Lua (CPU &amp; GPU)</strong> language mode. </p>
-<p><img src="LuaMode.png" alt="LuaMode"></p>
-<div><p class="code-filename">executeJS.lua</p></div>
-<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span><span class="token function">js</span><span class="token punctuation">(</span><span class="token string">&quot;alert(&apos;Hello PixelsWorld!&apos;)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p><strong>Description :</strong></p>
+<ul>
+<li>Set the pixel data in specific position</li>
+</ul>
+<p><strong>Parameters :</strong></p>
+<ul>
+<li>pw.setColor(x,y,A,R,G,B)</li>
+<li>x,y : integer</li>
+<li>A,R,G,B : floats in range 0-1 (No clamp in 32 bpc)        </li>
+</ul>
+<p><strong>Return :</strong></p>
+<ul>
+<li>No return</li>
+</ul>
+<p><strong>Sample code :</strong></p>
+<ul>
+<li>Here is a sample code that renders a beautiful time-dependent uv color pattern. </li>
+</ul>
+<div><p class="code-filename">setPixel.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token keyword">for</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>height <span class="token keyword">do</span>
+    <span class="token keyword">for</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>width <span class="token keyword">do</span>
+        pw<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token operator">/</span>width<span class="token punctuation">,</span>y<span class="token operator">/</span>height<span class="token punctuation">,</span>math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>time<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">.5</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
 </code></pre>
 
                                 
@@ -703,7 +725,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript Code","level":"2.4","depth":1,"next":{"title":"CMD Code","level":"2.5","depth":1,"path":"contents/Lua/CMD.md","ref":"contents/Lua/CMD.md","articles":[]},"previous":{"title":"pw.debug module","level":"2.3.6.2","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/JavaScript.md","mtime":"2019-08-19T11:21:49.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-23T07:45:58.497Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"pw.setColor()","level":"2.3.4.2","depth":3,"next":{"title":"pw.ch()","level":"2.3.4.3","depth":3,"path":"contents/Lua/ch.md","ref":"contents/Lua/ch.md","articles":[]},"previous":{"title":"pw.getColor()","level":"2.3.4.1","depth":3,"path":"contents/Lua/getColor.md","ref":"contents/Lua/getColor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/setColor.md","mtime":"2019-09-23T07:26:52.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-23T07:45:58.497Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
