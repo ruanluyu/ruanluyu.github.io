@@ -12,6 +12,8 @@
 - pw.debug.remain(numToRemain)
 - numToRemain
 
+> Note : ```pw.debug.remain()``` is equal to ```pw.debug.remain(1)```
+
 **Return :**
 - No return.
 

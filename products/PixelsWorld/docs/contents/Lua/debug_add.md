@@ -9,8 +9,11 @@
 
 **Parameters :**
 
+- pw.debug.add()
 - pw.debug.add(message)
 - message : string
+
+> Note : ```pw.debug.add()``` will do nothing with debug window, while ```pw.debug.add("")``` will add a line break ("\n"). 
 
 **Return :**
 - No return.

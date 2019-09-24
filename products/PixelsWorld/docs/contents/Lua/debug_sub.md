@@ -12,6 +12,8 @@
 - pw.debug.sub(numToSub)
 - numToSub : int, define the number of lines to be deleted.  
 
+> Note : ```pw.debug.sub()``` is equal to ```pw.debug.sub(1)```
+
 **Return :**
 - No return.
 
