@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Run Lua · GitBook</title>
+        <title>Run Lua code · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -310,7 +310,7 @@
                     
                         <b>2.3.1.</b>
                     
-                    Run Lua
+                    Run Lua code
             
                 </a>
             
@@ -325,7 +325,7 @@
                     
                         <b>2.3.2.</b>
                     
-                    Run GLSL
+                    Run GLSL in Lua
             
                 </a>
             
@@ -534,47 +534,77 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.6" >
+        <li class="chapter " data-level="2.3.6" data-path="debug.html">
             
-                <span>
+                <a href="debug.html">
             
                     
                         <b>2.3.6.</b>
                     
                     Debug
             
-                </span>
+                </a>
             
 
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.3.6.1" >
+        <li class="chapter " data-level="2.3.6.1" data-path="debug_add.html">
             
-                <span>
+                <a href="debug_add.html">
             
                     
                         <b>2.3.6.1.</b>
                     
-                    pw.report
+                    pw.debug.add
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="2.3.6.2" >
+        <li class="chapter " data-level="2.3.6.2" data-path="debug_sub.html">
             
-                <span>
+                <a href="debug_sub.html">
             
                     
                         <b>2.3.6.2.</b>
                     
-                    pw.debug module
+                    pw.debug.sub
             
-                </span>
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.3" data-path="debug_remain.html">
+            
+                <a href="debug_remain.html">
+            
+                    
+                        <b>2.3.6.3.</b>
+                    
+                    pw.debug.remain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.4" data-path="debug_clear.html">
+            
+                <a href="debug_clear.html">
+            
+                    
+                        <b>2.3.6.4.</b>
+                    
+                    pw.debug.clear
+            
+                </a>
             
 
             
@@ -650,7 +680,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Run Lua</a>
+        <a href="../.." >Run Lua code</a>
     </h1>
 </div>
 
@@ -665,7 +695,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="run-lua">Run Lua</h1>
+                                <h1 id="run-lua-code">Run Lua code</h1>
 <hr>
 <p>Switch your luange to <strong>Lua ( CPU &amp; GPU )</strong></p>
 <p><img src="LuaMode.png" alt="LuaMode"></p>
@@ -680,6 +710,15 @@ e <span class="token operator">=</span> pw<span class="token punctuation">.</spa
 f <span class="token operator">=</span> <span class="token string">&quot;5 + 6 = &quot;</span> <span class="token operator">..</span> a <span class="token operator">..</span> <span class="token string">&quot;\nMessage : &quot;</span> <span class="token operator">..</span> b <span class="token operator">..</span> <span class="token string">&quot; &quot;</span> <span class="token operator">..</span> c <span class="token operator">..</span> <span class="token string">&quot;\nCurrent time is : &quot;</span> <span class="token operator">..</span> d <span class="token operator">..</span> <span class="token string">&quot; (s)\nValue of slider0 is : &quot;</span> <span class="token operator">..</span> e
 pw<span class="token punctuation">.</span><span class="token function">report</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
 </code></pre>
+<blockquote>
+<ul>
+<li><code>a..b</code> means combine variable a and b as string.</li>
+<li><code>pw.debug.clear()</code> cleans the message showed up in debug window.</li>
+<li><a href="report.html"><code>pw.report()</code></a> reports message to debug window. </li>
+<li><a href="ch.html"><code>pw.ch()</code></a> fetches the value of a specified parameters.</li>
+<li>You are allowed to add <code>;</code> in the end of each line, but it is not indispensable. Lua regards the <code>\n</code>(line break) as the end mark of one section of code. </li>
+</ul>
+</blockquote>
 <p>If you open the debug window (by checking the <strong>debug</strong> checkbox), you will get some message like this : </p>
 <p><img src="LuaHelloRes.png" alt="LuaHelloRes"></p>
 
@@ -715,7 +754,7 @@ pw<span class="token punctuation">.</span><span class="token function">report</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Run Lua","level":"2.3.1","depth":2,"next":{"title":"Run GLSL","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"Lua Code","level":"2.3","depth":1,"path":"contents/Lua/LuaCode.md","ref":"contents/Lua/LuaCode.md","articles":[{"title":"Run Lua","level":"2.3.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},{"title":"Run GLSL","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},{"title":"Copy input pixels to output","level":"2.3.3","depth":2,"path":"contents/Lua/cpin2out.md","ref":"contents/Lua/cpin2out.md","articles":[]},{"title":"pw module","level":"2.3.4","depth":2,"path":"contents/Lua/pwModule.md","ref":"contents/Lua/pwModule.md","articles":[{"title":"pw.report()","level":"2.3.4.1","depth":3,"path":"contents/Lua/report.md","ref":"contents/Lua/report.md","articles":[]},{"title":"pw.getColor()","level":"2.3.4.2","depth":3,"path":"contents/Lua/getColor.md","ref":"contents/Lua/getColor.md","articles":[]},{"title":"pw.setColor()","level":"2.3.4.3","depth":3,"path":"contents/Lua/setColor.md","ref":"contents/Lua/setColor.md","articles":[]},{"title":"pw.ch()","level":"2.3.4.4","depth":3,"path":"contents/Lua/ch.md","ref":"contents/Lua/ch.md","articles":[]},{"title":"pw.in2out()","level":"2.3.4.5","depth":3,"path":"contents/Lua/in2out.md","ref":"contents/Lua/in2out.md","articles":[]},{"title":"pw.glsl()","level":"2.3.4.6","depth":3,"path":"contents/Lua/glsl.md","ref":"contents/Lua/glsl.md","articles":[]},{"title":"pw.full_glsl()","level":"2.3.4.7","depth":3,"path":"contents/Lua/full_glsl.md","ref":"contents/Lua/full_glsl.md","articles":[]},{"title":"pw.js()","level":"2.3.4.8","depth":3,"path":"contents/Lua/js.md","ref":"contents/Lua/js.md","articles":[]},{"title":"pw.cmd()","level":"2.3.4.9","depth":3,"path":"contents/Lua/cmd2.md","ref":"contents/Lua/cmd2.md","articles":[]},{"title":"pw.lua()","level":"2.3.4.10","depth":3,"path":"contents/Lua/lua2.md","ref":"contents/Lua/lua2.md","articles":[]}]},{"title":"Link parameters","level":"2.3.5","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},{"title":"Debug","level":"2.3.6","depth":2,"ref":"","articles":[{"title":"pw.report","level":"2.3.6.1","depth":3,"ref":"","articles":[]},{"title":"pw.debug module","level":"2.3.6.2","depth":3,"ref":"","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter","copy-code-button"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/RunLua.md","mtime":"2019-09-22T17:08:47.374Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T02:06:46.627Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Run Lua code","level":"2.3.1","depth":2,"next":{"title":"Run GLSL in Lua","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"Lua Code","level":"2.3","depth":1,"path":"contents/Lua/LuaCode.md","ref":"contents/Lua/LuaCode.md","articles":[{"title":"Run Lua code","level":"2.3.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},{"title":"Run GLSL in Lua","level":"2.3.2","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},{"title":"Copy input pixels to output","level":"2.3.3","depth":2,"path":"contents/Lua/cpin2out.md","ref":"contents/Lua/cpin2out.md","articles":[]},{"title":"pw module","level":"2.3.4","depth":2,"path":"contents/Lua/pwModule.md","ref":"contents/Lua/pwModule.md","articles":[{"title":"pw.report()","level":"2.3.4.1","depth":3,"path":"contents/Lua/report.md","ref":"contents/Lua/report.md","articles":[]},{"title":"pw.getColor()","level":"2.3.4.2","depth":3,"path":"contents/Lua/getColor.md","ref":"contents/Lua/getColor.md","articles":[]},{"title":"pw.setColor()","level":"2.3.4.3","depth":3,"path":"contents/Lua/setColor.md","ref":"contents/Lua/setColor.md","articles":[]},{"title":"pw.ch()","level":"2.3.4.4","depth":3,"path":"contents/Lua/ch.md","ref":"contents/Lua/ch.md","articles":[]},{"title":"pw.in2out()","level":"2.3.4.5","depth":3,"path":"contents/Lua/in2out.md","ref":"contents/Lua/in2out.md","articles":[]},{"title":"pw.glsl()","level":"2.3.4.6","depth":3,"path":"contents/Lua/glsl.md","ref":"contents/Lua/glsl.md","articles":[]},{"title":"pw.full_glsl()","level":"2.3.4.7","depth":3,"path":"contents/Lua/full_glsl.md","ref":"contents/Lua/full_glsl.md","articles":[]},{"title":"pw.js()","level":"2.3.4.8","depth":3,"path":"contents/Lua/js.md","ref":"contents/Lua/js.md","articles":[]},{"title":"pw.cmd()","level":"2.3.4.9","depth":3,"path":"contents/Lua/cmd2.md","ref":"contents/Lua/cmd2.md","articles":[]},{"title":"pw.lua()","level":"2.3.4.10","depth":3,"path":"contents/Lua/lua2.md","ref":"contents/Lua/lua2.md","articles":[]}]},{"title":"Link parameters","level":"2.3.5","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},{"title":"Debug","level":"2.3.6","depth":2,"path":"contents/Lua/debug.md","ref":"contents/Lua/debug.md","articles":[{"title":"pw.debug.add","level":"2.3.6.1","depth":3,"path":"contents/Lua/debug_add.md","ref":"contents/Lua/debug_add.md","articles":[]},{"title":"pw.debug.sub","level":"2.3.6.2","depth":3,"path":"contents/Lua/debug_sub.md","ref":"contents/Lua/debug_sub.md","articles":[]},{"title":"pw.debug.remain","level":"2.3.6.3","depth":3,"path":"contents/Lua/debug_remain.md","ref":"contents/Lua/debug_remain.md","articles":[]},{"title":"pw.debug.clear","level":"2.3.6.4","depth":3,"path":"contents/Lua/debug_clear.md","ref":"contents/Lua/debug_clear.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter","copy-code-button"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/RunLua.md","mtime":"2019-09-24T02:23:32.472Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T03:41:58.389Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

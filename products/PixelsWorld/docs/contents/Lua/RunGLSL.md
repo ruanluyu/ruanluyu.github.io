@@ -1,4 +1,4 @@
-#Run GLSL
+#Run GLSL in Lua
 ---
 
 ##Usage
