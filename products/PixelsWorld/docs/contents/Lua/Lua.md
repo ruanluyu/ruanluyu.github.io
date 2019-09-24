@@ -15,6 +15,6 @@
 
 **Sample code :**
 ```lua:lua.lua
-pw.lua("pw.report(\"114+514 = \"..(114+514))")
+pw.lua("pw.report(\"123+456 = \"..(123+456))")
 ``` 
 
