@@ -53,3 +53,4 @@ Here is a list of variables that will be modified:
 - resolution
 - INPUT_LAYER_INDEX
 - OUTPUT_LAYER_INDEX
+- os
