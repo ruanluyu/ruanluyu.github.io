@@ -15,9 +15,10 @@ The main idea of GLSL is that you write the rules of **how pixels render themsel
 
 ```glsl:extra.shader
 #version 330 core
-#define os 0 // If you are on windows platform
-#define os 1 // If you are on mac platform
-#define os -1 // If you are on unknown platform
+#define platform 0 // If you are on windows platform
+#define platform 1 // If you are on mac platform
+#define platform -1 // If you are on unknown platform
+#define host 0 // If you are on Ae host 
 #define gl_Position uv2xy(uv)
 #define gl_FragCoord uv2xy(uv)
 #define gl_FragColor outColor
