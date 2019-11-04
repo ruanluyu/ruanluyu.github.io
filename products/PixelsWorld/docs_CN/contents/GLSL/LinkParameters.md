@@ -43,5 +43,5 @@ uniform sampler2D inLayer;
 ```
 > 注意
 > -  **"inLayer"** 代表输入层。 
-> - **sampler2D** 是一种由 GLSL提供的值，不用理解该值的类型。如果你想了解图层参数，请参考  ["getColor"](getColor.md) 
-> - **"uniform"** 代表全局值。 它会告诉GPU 不需要对每个"GPU子工作"分配内存并初始化，只需在，**"uniform"** 一般在您的函数之外声明（↑↑这里要改）
+> - **sampler2D** 是一种由 GLSL提供的变量类型，不用理解该变量类型。如果你想了解图层参数，请参考  ["getColor"](getColor.md) 
+> - **"uniform"** 代表全局变量。 它会告诉GPU 不需要对每个"GPU工人"分配内存并初始化该值，只需在"GPU老板"开始工作的时候分配内存即可。**"uniform"** 一般在被声明在你写的函数外面，您一般不需要写这种变量类型。
