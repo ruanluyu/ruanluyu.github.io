@@ -2,8 +2,6 @@
 ---
 ##Download and install
 - You can purchase and download the PixelsWorld [here](https://milai.tech/products/PixelsWorld).
-> ###NOTE:
-> Now the PixelsWorld is still being developed. Only beta version is available. **This version(beta version) is NOT allowed commercial purpose using. And the Shader Codes included in this version are all under the Non-Commercial-License. This means part of presets in the beta version will not show up in the purchased one. Please note.**
 
 - Drag the "MiLai" folder to : 
 >**(Your Ae root path)/Support Files/Plug-ins/**

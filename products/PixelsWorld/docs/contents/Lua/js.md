@@ -11,7 +11,8 @@
 - jsCode : string
 
 **Return :**
-- No return. 
+- Its first return is the resault of js code. 
+- Its second return is the error message.  
 
 **Sample code :**
 ```lua:js.lua

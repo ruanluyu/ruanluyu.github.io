@@ -1,0 +1,809 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>pw.debug.add · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="debug_sub.html" />
+    
+    
+    <link rel="prev" href="debug.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. 介绍</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    PixelsWorld是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    如何获得与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. Render mode</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../GLSL/GLSLCode.html">
+            
+                <a href="../GLSL/GLSLCode.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    如何使用GLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../GLSL/RunGLSL.html">
+            
+                <a href="../GLSL/RunGLSL.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    运行GLSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../GLSL/Functions.html">
+            
+                <a href="../GLSL/Functions.html">
+            
+                    
+                        <b>2.1.2.</b>
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../GLSL/getColor.html">
+            
+                <a href="../GLSL/getColor.html">
+            
+                    
+                        <b>2.1.2.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../GLSL/uvxy.html">
+            
+                <a href="../GLSL/uvxy.html">
+            
+                    
+                        <b>2.1.2.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../GLSL/LinkParameters.html">
+            
+                <a href="../GLSL/LinkParameters.html">
+            
+                    
+                        <b>2.1.3.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../GLSL/debug.html">
+            
+                <a href="../GLSL/debug.html">
+            
+                    
+                        <b>2.1.4.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../GLSL/Advanced_settings.html">
+            
+                <a href="../GLSL/Advanced_settings.html">
+            
+                    
+                        <b>2.1.5.</b>
+                    
+                    高级设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../GLSL/shadertoy.html">
+            
+                <a href="../GLSL/shadertoy.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    shadertoy.com 代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="LuaCode.html">
+            
+                <a href="LuaCode.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    如何使用Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="RunLua.html">
+            
+                <a href="RunLua.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    运行Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    在Lua中运行GLSL 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="cpin2out.html">
+            
+                <a href="cpin2out.html">
+            
+                    
+                        <b>2.3.3.</b>
+                    
+                    输入层像素复制到输出层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="pwModule.html">
+            
+                <a href="pwModule.html">
+            
+                    
+                        <b>2.3.4.</b>
+                    
+                    pw 模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.4.1" data-path="report.html">
+            
+                <a href="report.html">
+            
+                    
+                        <b>2.3.4.1.</b>
+                    
+                    pw.report()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.2" data-path="getColor.html">
+            
+                <a href="getColor.html">
+            
+                    
+                        <b>2.3.4.2.</b>
+                    
+                    pw.getColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.3" data-path="setColor.html">
+            
+                <a href="setColor.html">
+            
+                    
+                        <b>2.3.4.3.</b>
+                    
+                    pw.setColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.4" data-path="ch.html">
+            
+                <a href="ch.html">
+            
+                    
+                        <b>2.3.4.4.</b>
+                    
+                    pw.ch()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.5" data-path="in2out.html">
+            
+                <a href="in2out.html">
+            
+                    
+                        <b>2.3.4.5.</b>
+                    
+                    pw.in2out()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.6" data-path="glsl.html">
+            
+                <a href="glsl.html">
+            
+                    
+                        <b>2.3.4.6.</b>
+                    
+                    pw.glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.7" data-path="full_glsl.html">
+            
+                <a href="full_glsl.html">
+            
+                    
+                        <b>2.3.4.7.</b>
+                    
+                    pw.full_glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.8" data-path="js.html">
+            
+                <a href="js.html">
+            
+                    
+                        <b>2.3.4.8.</b>
+                    
+                    pw.js()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.9" data-path="cmd2.html">
+            
+                <a href="cmd2.html">
+            
+                    
+                        <b>2.3.4.9.</b>
+                    
+                    pw.cmd()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.10" data-path="lua2.html">
+            
+                <a href="lua2.html">
+            
+                    
+                        <b>2.3.4.10.</b>
+                    
+                    pw.lua()
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>2.3.5.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="debug.html">
+            
+                <a href="debug.html">
+            
+                    
+                        <b>2.3.6.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.3.6.1" data-path="debug_add.html">
+            
+                <a href="debug_add.html">
+            
+                    
+                        <b>2.3.6.1.</b>
+                    
+                    pw.debug.add
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.2" data-path="debug_sub.html">
+            
+                <a href="debug_sub.html">
+            
+                    
+                        <b>2.3.6.2.</b>
+                    
+                    pw.debug.sub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.3" data-path="debug_remain.html">
+            
+                <a href="debug_remain.html">
+            
+                    
+                        <b>2.3.6.3.</b>
+                    
+                    pw.debug.remain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.4" data-path="debug_clear.html">
+            
+                <a href="debug_clear.html">
+            
+                    
+                        <b>2.3.6.4.</b>
+                    
+                    pw.debug.clear
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="JavaScript.html">
+            
+                <a href="JavaScript.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    如何使用JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="CMDCode.html">
+            
+                <a href="CMDCode.html">
+            
+                    
+                        <b>2.5.</b>
+                    
+                    如何使用CMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >pw.debug.add</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="pwdebugaddmessage">pw.debug.add(message)</h1>
+<hr>
+<p><strong>&#x8BF4;&#x660E;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5728;&#x8C03;&#x8BD5;&#x7A97;&#x53E3;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;&#x3002;<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A; &#x4E0E;<a href="report.html"><code>pw.report()</code></a>&#x76F8;&#x540C;</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>&#x53C2;&#x6570;&#xFF1A;</strong></p>
+<ul>
+<li>pw.debug.add()</li>
+<li>pw.debug.add(message)</li>
+<li>message&#xFF1A;&#x5B57;&#x7B26;&#x4E32;</li>
+</ul>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A; <code>pw.debug.add()</code> &#x5728;&#x8C03;&#x8BD5;&#x7A97;&#x53E3;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x800C; <code>pw.debug.add(&quot;&quot;)</code> &#x5219;&#x4F1A;&#x6DFB;&#x52A0;&#x6362;&#x884C;&#x7B26; (&quot;\n&quot;). </p>
+</blockquote>
+<p><strong>&#x8FD4;&#x56DE;</strong></p>
+<ul>
+<li>&#x65E0;&#x3002;</li>
+</ul>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<div><p class="code-filename">pw_debug_add.lua</p></div>
+<pre class="language-"><code class="lang-lua">pw<span class="token punctuation">.</span>debug<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Message from time &quot;</span><span class="token operator">..</span>time<span class="token operator">..</span><span class="token string">&quot;\nHello PixelsWorld!\n&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"pw.debug.add","level":"2.3.6.1","depth":3,"next":{"title":"pw.debug.sub","level":"2.3.6.2","depth":3,"path":"contents/Lua/debug_sub.md","ref":"contents/Lua/debug_sub.md","articles":[]},"previous":{"title":"调试","level":"2.3.6","depth":2,"path":"contents/Lua/debug.md","ref":"contents/Lua/debug.md","articles":[{"title":"pw.debug.add","level":"2.3.6.1","depth":3,"path":"contents/Lua/debug_add.md","ref":"contents/Lua/debug_add.md","articles":[]},{"title":"pw.debug.sub","level":"2.3.6.2","depth":3,"path":"contents/Lua/debug_sub.md","ref":"contents/Lua/debug_sub.md","articles":[]},{"title":"pw.debug.remain","level":"2.3.6.3","depth":3,"path":"contents/Lua/debug_remain.md","ref":"contents/Lua/debug_remain.md","articles":[]},{"title":"pw.debug.clear","level":"2.3.6.4","depth":3,"path":"contents/Lua/debug_clear.md","ref":"contents/Lua/debug_clear.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter","copy-code-button"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/debug_add.md","mtime":"2019-11-03T16:04:49.220Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-04T03:59:56.827Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
