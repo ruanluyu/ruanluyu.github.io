@@ -24,7 +24,7 @@ pw.glsl(
             outColor = vec4(uv,0,1);
         }
     ]==]
-)
+);
 
 pw.glsl(
     [==[
@@ -33,7 +33,7 @@ pw.glsl(
             outColor = vec4(vec3(1)-outlayerColor,1);
         }
     ]==],true
-)
+);
 ```
 
 ```lua:useBuffer_off.lua
@@ -43,7 +43,7 @@ pw.glsl(
             outColor = vec4(uv,0,1);
         }
     ]==]
-)
+);
 
 pw.glsl(
     [==[
@@ -52,7 +52,7 @@ pw.glsl(
             outColor = vec4(vec3(1)-outlayerColor,1);
         }
     ]==],false
-)
+);
 ```
 
 ![useBuffer](useBuffer.gif)

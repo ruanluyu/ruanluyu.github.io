@@ -23,7 +23,9 @@
 **示例：**
 
 ```lua:glsl.lua
-pw.glsl("void main(){\
-outColor = vec4(uv,mod(time,1),1);\
-}")
+pw.glsl([==[
+    void main(){
+        outColor = vec4(uv,mod(time,1),1);
+    }
+]==])
 ```
