@@ -4,8 +4,7 @@ var indexSectionsWithContent =
   1: "w",
   2: "aw",
   3: "cios",
-  4: "ail",
-  5: "aw"
+  4: "ail"
 };
 
 var indexSectionNames =
@@ -14,8 +13,7 @@ var indexSectionNames =
   1: "namespaces",
   2: "files",
   3: "functions",
-  4: "defines",
-  5: "groups"
+  4: "defines"
 };
 
 var indexSectionLabels =
@@ -24,7 +22,6 @@ var indexSectionLabels =
   1: "Namespaces",
   2: "Files",
   3: "Functions",
-  4: "Macros",
-  5: "Modules"
+  4: "Macros"
 };
 
