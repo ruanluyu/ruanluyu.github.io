@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open_6',['open',['../d7/dd4/a00013.html#a9cbe49f8ac9f3a74da4b7815756a9a9c',1,'waveio']]]
+  ['loc_6',['LOC',['../d4/dee/a00008.html#a0fee446a4a4ef6536664bc1ff47ff694',1,'apiTools.h']]]
 ];
