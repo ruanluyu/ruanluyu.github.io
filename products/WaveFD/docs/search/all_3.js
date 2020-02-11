@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loc_5',['LOC',['../d4/dee/a00008.html#a0fee446a4a4ef6536664bc1ff47ff694',1,'apiTools.h']]]
+  ['ebo_13',['EBO',['../d9/d61/a00840.html#adf5140fe7fe8a49147cf4a72722d9c35',1,'wavefd::WaveFDData']]],
+  ['errors_14',['errors',['../dc/de2/a00024.html#a48eb8be96d66db99b2ee254ad86856a5',1,'wavefd']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['wavefd_9',['WaveFD',['../index.html',1,'']]],
-  ['wavefd_10',['wavefd',['../dd/d1b/a00015.html',1,'']]],
-  ['wavefdcore_2eh_11',['waveFDCore.h',['../da/d45/a00011.html',1,'']]]
+  ['loc_20',['LOC',['../d4/dee/a00008.html#a0fee446a4a4ef6536664bc1ff47ff694',1,'apiTools.h']]]
 ];
