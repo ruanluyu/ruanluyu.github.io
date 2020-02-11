@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<meta name="generator" content="Doxygen 1.8.17"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>WaveFD: src/waveFDCore.h File Reference</title>
+		<title>WaveFD: src/waveio/waveio.h File Reference</title>
 		<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="../../jquery.js"></script>
 		<script type="text/javascript" src="../../dynsections.js"></script>
@@ -64,51 +64,42 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_ec1cc437c4122acca248e89de9f949cd.html">waveio</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">waveFDCore.h File Reference</div>  </div>
+<div class="title">waveio.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><br  />
- This file provides the API functions/global variables' definition for call/use.  
+<p>Save wave file to local disc.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/dee/a00008_source.html">apiTools.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/de7/a00014_source.html">waveio/waveio.h</a>&quot;</code><br />
-</div>
+
 <p><a href="../../da/d45/a00011_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d1/d2b/a00018"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/a00018.html">wavefd</a></td></tr>
+<tr class="memitem:d7/d7a/a00016"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html">waveio</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8696c69af329d56daa0d3d01251f9962"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/a00018.html#a8696c69af329d56daa0d3d01251f9962">wavefd::init</a> (const unsigned int &amp;width, const unsigned int &amp;height)</td></tr>
-<tr class="memdesc:a8696c69af329d56daa0d3d01251f9962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and start the WaveFD program.  <a href="../../d1/d2b/a00018.html#a8696c69af329d56daa0d3d01251f9962">More...</a><br /></td></tr>
-<tr class="separator:a8696c69af329d56daa0d3d01251f9962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a701516f47a694cd35f78fcf92950ac23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/a00018.html#a701516f47a694cd35f78fcf92950ac23">wavefd::shut</a> ()</td></tr>
-<tr class="memdesc:a701516f47a694cd35f78fcf92950ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shut down the WaveFD program.  <a href="../../d1/d2b/a00018.html#a701516f47a694cd35f78fcf92950ac23">More...</a><br /></td></tr>
-<tr class="separator:a701516f47a694cd35f78fcf92950ac23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a48eb8be96d66db99b2ee254ad86856a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/a00018.html#a48eb8be96d66db99b2ee254ad86856a5">wavefd::errors</a></td></tr>
-<tr class="memdesc:a48eb8be96d66db99b2ee254ad86856a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global error message container of WaveFD.  <a href="../../d1/d2b/a00018.html#a48eb8be96d66db99b2ee254ad86856a5">More...</a><br /></td></tr>
-<tr class="separator:a48eb8be96d66db99b2ee254ad86856a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbe49f8ac9f3a74da4b7815756a9a9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a9cbe49f8ac9f3a74da4b7815756a9a9c">waveio::open</a> (const char *name, const int &amp;samples_per_second, const int &amp;bytes_per_sample, const int &amp;channels_num)</td></tr>
+<tr class="memdesc:a9cbe49f8ac9f3a74da4b7815756a9a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new wave file.  <a href="../../d7/d7a/a00016.html#a9cbe49f8ac9f3a74da4b7815756a9a9c">More...</a><br /></td></tr>
+<tr class="separator:a9cbe49f8ac9f3a74da4b7815756a9a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a109f392b23003770d03a2a1876e012b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a109f392b23003770d03a2a1876e012b2">waveio::send</a> (double signal_channel_0, double signal_channel_1=.0)</td></tr>
+<tr class="memdesc:a109f392b23003770d03a2a1876e012b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">send one signal to waveio  <a href="../../d7/d7a/a00016.html#a109f392b23003770d03a2a1876e012b2">More...</a><br /></td></tr>
+<tr class="separator:a109f392b23003770d03a2a1876e012b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f629763ac104f311fb48a25d857bf91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a1f629763ac104f311fb48a25d857bf91">waveio::close</a> ()</td></tr>
+<tr class="memdesc:a1f629763ac104f311fb48a25d857bf91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the file to local disc.  <a href="../../d7/d7a/a00016.html#a1f629763ac104f311fb48a25d857bf91">More...</a><br /></td></tr>
+<tr class="separator:a1f629763ac104f311fb48a25d857bf91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- This file provides the API functions/global variables' definition for call/use. </p>
+<div class="textblock"><p>Save wave file to local disc. </p>
 <dl class="section author"><dt>Author</dt><dd>zzstarsound </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Feb. 11 (2020) </dd></dl>
 </div></div><!-- contents -->
