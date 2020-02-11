@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['close_2',['close',['../d7/d7a/a00016.html#a1f629763ac104f311fb48a25d857bf91',1,'waveio']]]
+  ['errors_2',['errors',['../df/d86/a00012.html#a48eb8be96d66db99b2ee254ad86856a5',1,'wavefd']]]
 ];

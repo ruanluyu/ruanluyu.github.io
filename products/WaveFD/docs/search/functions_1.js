@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_23',['init',['../dd/d1b/a00015.html#a8696c69af329d56daa0d3d01251f9962',1,'wavefd']]]
+  ['shut_16',['shut',['../df/d86/a00012.html#a701516f47a694cd35f78fcf92950ac23',1,'wavefd']]]
 ];
