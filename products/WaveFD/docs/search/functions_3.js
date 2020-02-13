@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['resetwavefddata_58',['resetWaveFDData',['../dc/de2/a00024.html#a18cb61b779682271d00c757c53c39c0b',1,'wavefd']]]
+  ['init_79',['init',['../dc/d3c/a00028.html#a7f627a759fd8cad461196635b7be3865',1,'wavefd']]],
+  ['is_5foff_80',['is_off',['../d0/d33/a00027.html#a329d883ec7d4325b62eb194c5ebb27e7',1,'flagtools']]],
+  ['is_5fon_81',['is_on',['../d0/d33/a00027.html#abc2529606ad902d4a593021d15e020ef',1,'flagtools']]]
 ];

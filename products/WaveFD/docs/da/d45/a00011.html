@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<meta name="generator" content="Doxygen 1.8.17"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>WaveFD: src/shaderCode.h File Reference</title>
+		<title>WaveFD: src/flagTools.h File Reference</title>
 		<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="../../jquery.js"></script>
 		<script type="text/javascript" src="../../dynsections.js"></script>
@@ -70,38 +70,39 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">shaderCode.h File Reference</div>  </div>
+<div class="title">flagTools.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This file provides the default vertex and fragment shader.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d4/dee/a00008_source.html">apiTools.h</a>&quot;</code><br />
 </div>
 <p><a href="../../da/d45/a00011_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/de2/a00024"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html">wavefd</a></td></tr>
+<tr class="memitem:d0/d33/a00027"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html">flagtools</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a9b63b76e163d70a703304a58b6777062"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a9b63b76e163d70a703304a58b6777062">wavefd::vertexShaderSource</a></td></tr>
-<tr class="memdesc:a9b63b76e163d70a703304a58b6777062"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default vertex shader source code.  <a href="../../dc/de2/a00024.html#a9b63b76e163d70a703304a58b6777062">More...</a><br /></td></tr>
-<tr class="separator:a9b63b76e163d70a703304a58b6777062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6d76918543813095c415579df5c006"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a4d6d76918543813095c415579df5c006">wavefd::fragmentShaderSource</a></td></tr>
-<tr class="memdesc:a4d6d76918543813095c415579df5c006"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default fragment shader source code.  <a href="../../dc/de2/a00024.html#a4d6d76918543813095c415579df5c006">More...</a><br /></td></tr>
-<tr class="separator:a4d6d76918543813095c415579df5c006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:abc2529606ad902d4a593021d15e020ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#abc2529606ad902d4a593021d15e020ef">flagtools::is_on</a> (const unsigned int &amp;flags, const unsigned int &amp;target)</td></tr>
+<tr class="memdesc:abc2529606ad902d4a593021d15e020ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if specified bit is on.  <a href="../../d0/d33/a00027.html#abc2529606ad902d4a593021d15e020ef">More...</a><br /></td></tr>
+<tr class="separator:abc2529606ad902d4a593021d15e020ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a329d883ec7d4325b62eb194c5ebb27e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a329d883ec7d4325b62eb194c5ebb27e7">flagtools::is_off</a> (const unsigned int &amp;flags, const unsigned int &amp;target)</td></tr>
+<tr class="memdesc:a329d883ec7d4325b62eb194c5ebb27e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if specified bit is off.  <a href="../../d0/d33/a00027.html#a329d883ec7d4325b62eb194c5ebb27e7">More...</a><br /></td></tr>
+<tr class="separator:a329d883ec7d4325b62eb194c5ebb27e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da0b8a373172a6aa6c0f9686ada87bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a4da0b8a373172a6aa6c0f9686ada87bf">flagtools::set_on</a> (unsigned int &amp;flags, const unsigned int &amp;target)</td></tr>
+<tr class="memdesc:a4da0b8a373172a6aa6c0f9686ada87bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flags on specified bit to on.  <a href="../../d0/d33/a00027.html#a4da0b8a373172a6aa6c0f9686ada87bf">More...</a><br /></td></tr>
+<tr class="separator:a4da0b8a373172a6aa6c0f9686ada87bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbed6d64b4970f4b7d771cbae5883709"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#afbed6d64b4970f4b7d771cbae5883709">flagtools::set_off</a> (unsigned int &amp;flags, const unsigned int &amp;target)</td></tr>
+<tr class="memdesc:afbed6d64b4970f4b7d771cbae5883709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flags on specified bit to off.  <a href="../../d0/d33/a00027.html#afbed6d64b4970f4b7d771cbae5883709">More...</a><br /></td></tr>
+<tr class="separator:afbed6d64b4970f4b7d771cbae5883709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad78583486cb12cba0573a2f9bc145459"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ad78583486cb12cba0573a2f9bc145459">flagtools::reverse</a> (unsigned int &amp;flags, const unsigned int &amp;target)</td></tr>
+<tr class="memdesc:ad78583486cb12cba0573a2f9bc145459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse the specified bit.  <a href="../../d0/d33/a00027.html#ad78583486cb12cba0573a2f9bc145459">More...</a><br /></td></tr>
+<tr class="separator:ad78583486cb12cba0573a2f9bc145459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file provides the default vertex and fragment shader. </p>
-<dl class="section author"><dt>Author</dt><dd>ZzStarSound </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>2014-2020 MiLai visual performance group </dd></dl>
-<dl class="section since"><dt>Since</dt><dd>Feb. 12 (2020) </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 		<script src="../../custom.js"></script>
 	</body>

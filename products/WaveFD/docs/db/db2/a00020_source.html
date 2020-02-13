@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<meta name="generator" content="Doxygen 1.8.17"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>WaveFD: src/waveFDData.h Source File</title>
+		<title>WaveFD: src/waveFDCore.h Source File</title>
 		<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="../../jquery.js"></script>
 		<script type="text/javascript" src="../../dynsections.js"></script>
@@ -69,90 +69,61 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">waveFDData.h</div>  </div>
+<div class="title">waveFDCore.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/db2/a00020.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef WAVEFDDATA_H</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define WAVEFDDATA_H </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef WAVEFDCORE_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define WAVEFDCORE_H </span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/dee/a00008.html">apiTools.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/de2/a00024.html">wavefd</a>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/dee/a00008.html">apiTools.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html">   43</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#aea38c34c19cccfecd4439853f77ab0e6">   53</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#aea38c34c19cccfecd4439853f77ab0e6">width</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a927a20a039d9ba7627cb5235d8fcd602">   64</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a927a20a039d9ba7627cb5235d8fcd602">height</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a6ff45313af0b3032ef48ced1d327c38f">   75</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a6ff45313af0b3032ef48ced1d327c38f">depth</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d52/a00023.html">waveFDData.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d51/a00017.html">waveFDConsts.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/d3c/a00028.html">wavefd</a>{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a48eb8be96d66db99b2ee254ad86856a5">   30</a></span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> std::vector&lt;std::string&gt; <a class="code" href="../../dc/d3c/a00028.html#a48eb8be96d66db99b2ee254ad86856a5">errors</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a7f627a759fd8cad461196635b7be3865">init</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#aeb1fdb3bcdbab9df19ab7df770a5a20b">create</a>(<a class="code" href="../../d3/d69/a00844.html">WaveFDData</a>&amp; wavefd_data);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a5e28507b6b9097b1ca1e33c498da0beb">simulate</a>(<a class="code" href="../../d3/d69/a00844.html">WaveFDData</a>&amp; wavefd_data);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a569608c005f3ac08e0686d1d94cc9fbe">force_visualize</a>(<a class="code" href="../../d3/d69/a00844.html">WaveFDData</a>&amp; wavefd_data);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a4841aa83930c2fdd41bf2307249e972a">   88</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../d9/d61/a00840.html#a4841aa83930c2fdd41bf2307249e972a">pixels_per_meter</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a276e42d6feb46aed23c1218ed5073275">  108</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../d9/d61/a00840.html#a276e42d6feb46aed23c1218ed5073275">sample_position_x</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#ac04c334c3d6d2af9e6d01c04182d6b62">  117</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../d9/d61/a00840.html#ac04c334c3d6d2af9e6d01c04182d6b62">sample_position_y</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a7fdb8dbb0a3b2cd452eacda809afcaf0">  126</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../d9/d61/a00840.html#a7fdb8dbb0a3b2cd452eacda809afcaf0">sample_position_z</a>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a142b622f7e85a4b96a41ae0e72e798ae">  135</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../d9/d61/a00840.html#a142b622f7e85a4b96a41ae0e72e798ae">sample_result</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#aa9548e8744715a8847a75e2dfd6eb879">  141</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#aa9548e8744715a8847a75e2dfd6eb879">dimension</a>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a12e355064c1e70b75523b4d2d2628c47">  144</a></span>&#160;    <span class="keywordtype">void</span> * <a class="code" href="../../d9/d61/a00840.html#a12e355064c1e70b75523b4d2d2628c47">window</a>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a6f93a07373d39ab21ba8a5ad4c95716b">  156</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a6f93a07373d39ab21ba8a5ad4c95716b">VBO</a>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a67755ac9cd89b350677769e2f994ac8d">  168</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a67755ac9cd89b350677769e2f994ac8d">VAO</a>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#adf5140fe7fe8a49147cf4a72722d9c35">  180</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#adf5140fe7fe8a49147cf4a72722d9c35">EBO</a>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a6c45bab7c8e19abe1f8be3f5de08c860">  192</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a6c45bab7c8e19abe1f8be3f5de08c860">shader_program</a>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#aea453937628243f2f77703fe8fd6f68f">  204</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> framebuffer[3];</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#af84bc0dc4f4e02b590bdff045967eaba">  216</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#af84bc0dc4f4e02b590bdff045967eaba">current_framebuffer_id</a>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a6a4e7cdf85e618f28b47929c46d79f82">  232</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a6a4e7cdf85e618f28b47929c46d79f82">sample_rate</a>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="../../d9/d61/a00840.html#a641b0582a434f35e6b0044a60e651fe3">  245</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/d61/a00840.html#a641b0582a434f35e6b0044a60e651fe3">current_sample_id</a>;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;} <a class="code" href="../../d9/d61/a00840.html">WaveFDData</a>;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#a18cb61b779682271d00c757c53c39c0b">resetWaveFDData</a>(<a class="code" href="../../d9/d61/a00840.html">WaveFDData</a> &amp;wavefd_data);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a73e4bc98d0bf417a47a81ac29b1cc266">sample</a>(<a class="code" href="../../d3/d69/a00844.html">WaveFDData</a>&amp; wavefd_data);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a241aa07b4eb4db91de9d1239ae1fb8c5">dispose</a>(<a class="code" href="../../d3/d69/a00844.html">WaveFDData</a>&amp; wavefd_data);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> <span class="keywordtype">int</span> <a class="code" href="../../dc/d3c/a00028.html#a701516f47a694cd35f78fcf92950ac23">shut</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aa00840_html_a276e42d6feb46aed23c1218ed5073275"><div class="ttname"><a href="../../d9/d61/a00840.html#a276e42d6feb46aed23c1218ed5073275">wavefd::WaveFDData::sample_position_x</a></div><div class="ttdeci">double sample_position_x</div><div class="ttdoc">The pointer of OpenGL window.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:108</div></div>
-<div class="ttc" id="aa00840_html_a7fdb8dbb0a3b2cd452eacda809afcaf0"><div class="ttname"><a href="../../d9/d61/a00840.html#a7fdb8dbb0a3b2cd452eacda809afcaf0">wavefd::WaveFDData::sample_position_z</a></div><div class="ttdeci">double sample_position_z</div><div class="ttdoc">The z position of the microphone.(Useless currently)</div><div class="ttdef"><b>Definition:</b> waveFDData.h:126</div></div>
-<div class="ttc" id="aa00840_html_a6c45bab7c8e19abe1f8be3f5de08c860"><div class="ttname"><a href="../../d9/d61/a00840.html#a6c45bab7c8e19abe1f8be3f5de08c860">wavefd::WaveFDData::shader_program</a></div><div class="ttdeci">unsigned int shader_program</div><div class="ttdoc">OpenGL shader program.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:192</div></div>
+<div class="ttc" id="aa00844_html"><div class="ttname"><a href="../../d3/d69/a00844.html">wavefd::WaveFDData</a></div><div class="ttdef"><b>Definition:</b> waveFDData.h:44</div></div>
 <div class="ttc" id="aa00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">apiTools.h</a></div><div class="ttdoc">This file provides some API Tools.</div></div>
-<div class="ttc" id="aa00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">wavefd</a></div><div class="ttdef"><b>Definition:</b> shaderCode.h:16</div></div>
-<div class="ttc" id="aa00840_html_a6ff45313af0b3032ef48ced1d327c38f"><div class="ttname"><a href="../../d9/d61/a00840.html#a6ff45313af0b3032ef48ced1d327c38f">wavefd::WaveFDData::depth</a></div><div class="ttdeci">unsigned int depth</div><div class="ttdoc">The depth of the field. (Useless now, our project is currently 2D-only)</div><div class="ttdef"><b>Definition:</b> waveFDData.h:75</div></div>
-<div class="ttc" id="aa00840_html_a6a4e7cdf85e618f28b47929c46d79f82"><div class="ttname"><a href="../../d9/d61/a00840.html#a6a4e7cdf85e618f28b47929c46d79f82">wavefd::WaveFDData::sample_rate</a></div><div class="ttdeci">unsigned int sample_rate</div><div class="ttdoc">This will be calculated by WaveFD, and it is based on the width and height you have sent to wavefd::c...</div><div class="ttdef"><b>Definition:</b> waveFDData.h:232</div></div>
-<div class="ttc" id="aa00840_html_aea38c34c19cccfecd4439853f77ab0e6"><div class="ttname"><a href="../../d9/d61/a00840.html#aea38c34c19cccfecd4439853f77ab0e6">wavefd::WaveFDData::width</a></div><div class="ttdeci">unsigned int width</div><div class="ttdoc">The width of the fluid field.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:53</div></div>
-<div class="ttc" id="aa00840_html_a641b0582a434f35e6b0044a60e651fe3"><div class="ttname"><a href="../../d9/d61/a00840.html#a641b0582a434f35e6b0044a60e651fe3">wavefd::WaveFDData::current_sample_id</a></div><div class="ttdeci">unsigned int current_sample_id</div><div class="ttdoc">current_sample_id means the current sample id since the simulation started.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:245</div></div>
-<div class="ttc" id="aa00840_html_a6f93a07373d39ab21ba8a5ad4c95716b"><div class="ttname"><a href="../../d9/d61/a00840.html#a6f93a07373d39ab21ba8a5ad4c95716b">wavefd::WaveFDData::VBO</a></div><div class="ttdeci">unsigned int VBO</div><div class="ttdoc">OpenGL object(Vertex buffer object) to draw screen.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:156</div></div>
-<div class="ttc" id="aa00840_html_a67755ac9cd89b350677769e2f994ac8d"><div class="ttname"><a href="../../d9/d61/a00840.html#a67755ac9cd89b350677769e2f994ac8d">wavefd::WaveFDData::VAO</a></div><div class="ttdeci">unsigned int VAO</div><div class="ttdoc">OpenGL object(Vertex array object) to draw screen.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:168</div></div>
-<div class="ttc" id="aa00840_html_a927a20a039d9ba7627cb5235d8fcd602"><div class="ttname"><a href="../../d9/d61/a00840.html#a927a20a039d9ba7627cb5235d8fcd602">wavefd::WaveFDData::height</a></div><div class="ttdeci">unsigned int height</div><div class="ttdoc">The height of the fluid field.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:64</div></div>
-<div class="ttc" id="aa00024_html_a18cb61b779682271d00c757c53c39c0b"><div class="ttname"><a href="../../dc/de2/a00024.html#a18cb61b779682271d00c757c53c39c0b">wavefd::resetWaveFDData</a></div><div class="ttdeci">API void resetWaveFDData(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Reset the memory of WaveFDData to 0.</div></div>
-<div class="ttc" id="aa00840_html_a4841aa83930c2fdd41bf2307249e972a"><div class="ttname"><a href="../../d9/d61/a00840.html#a4841aa83930c2fdd41bf2307249e972a">wavefd::WaveFDData::pixels_per_meter</a></div><div class="ttdeci">double pixels_per_meter</div><div class="ttdoc">How manny pixels are there in an 1 meter 1D fluid field.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:88</div></div>
-<div class="ttc" id="aa00840_html_a142b622f7e85a4b96a41ae0e72e798ae"><div class="ttname"><a href="../../d9/d61/a00840.html#a142b622f7e85a4b96a41ae0e72e798ae">wavefd::WaveFDData::sample_result</a></div><div class="ttdeci">double sample_result</div><div class="ttdoc">The result of wavefd::sample in range -1~1.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:135</div></div>
+<div class="ttc" id="aa00028_html_a7f627a759fd8cad461196635b7be3865"><div class="ttname"><a href="../../dc/d3c/a00028.html#a7f627a759fd8cad461196635b7be3865">wavefd::init</a></div><div class="ttdeci">API int init()</div><div class="ttdoc">Initializes and start the WaveFD program.</div></div>
+<div class="ttc" id="aa00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">waveFDConsts.h</a></div><div class="ttdoc">List out the constances used in WaveFD.</div></div>
+<div class="ttc" id="aa00028_html_a701516f47a694cd35f78fcf92950ac23"><div class="ttname"><a href="../../dc/d3c/a00028.html#a701516f47a694cd35f78fcf92950ac23">wavefd::shut</a></div><div class="ttdeci">API int shut()</div><div class="ttdoc">Shut down the WaveFD program.</div></div>
+<div class="ttc" id="aa00028_html_a48eb8be96d66db99b2ee254ad86856a5"><div class="ttname"><a href="../../dc/d3c/a00028.html#a48eb8be96d66db99b2ee254ad86856a5">wavefd::errors</a></div><div class="ttdeci">API std::vector&lt; std::string &gt; errors</div><div class="ttdoc">The global error message container of WaveFD. All error message will be saved here.</div><div class="ttdef"><b>Definition:</b> waveFDCore.h:30</div></div>
 <div class="ttc" id="aa00008_html_ad8ce4efaa307683d3d763b37b4711c53"><div class="ttname"><a href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a></div><div class="ttdeci">#define API</div><div class="ttdef"><b>Definition:</b> apiTools.h:24</div></div>
-<div class="ttc" id="aa00840_html"><div class="ttname"><a href="../../d9/d61/a00840.html">wavefd::WaveFDData</a></div><div class="ttdef"><b>Definition:</b> waveFDData.h:43</div></div>
-<div class="ttc" id="aa00840_html_a12e355064c1e70b75523b4d2d2628c47"><div class="ttname"><a href="../../d9/d61/a00840.html#a12e355064c1e70b75523b4d2d2628c47">wavefd::WaveFDData::window</a></div><div class="ttdeci">void * window</div><div class="ttdef"><b>Definition:</b> waveFDData.h:144</div></div>
-<div class="ttc" id="aa00840_html_af84bc0dc4f4e02b590bdff045967eaba"><div class="ttname"><a href="../../d9/d61/a00840.html#af84bc0dc4f4e02b590bdff045967eaba">wavefd::WaveFDData::current_framebuffer_id</a></div><div class="ttdeci">unsigned int current_framebuffer_id</div><div class="ttdoc">Current frame buffer id.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:216</div></div>
-<div class="ttc" id="aa00840_html_adf5140fe7fe8a49147cf4a72722d9c35"><div class="ttname"><a href="../../d9/d61/a00840.html#adf5140fe7fe8a49147cf4a72722d9c35">wavefd::WaveFDData::EBO</a></div><div class="ttdeci">unsigned int EBO</div><div class="ttdoc">OpenGL object(Element array buffer object) to draw screen.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:180</div></div>
-<div class="ttc" id="aa00840_html_ac04c334c3d6d2af9e6d01c04182d6b62"><div class="ttname"><a href="../../d9/d61/a00840.html#ac04c334c3d6d2af9e6d01c04182d6b62">wavefd::WaveFDData::sample_position_y</a></div><div class="ttdeci">double sample_position_y</div><div class="ttdoc">The y position of the microphone.</div><div class="ttdef"><b>Definition:</b> waveFDData.h:117</div></div>
-<div class="ttc" id="aa00840_html_aa9548e8744715a8847a75e2dfd6eb879"><div class="ttname"><a href="../../d9/d61/a00840.html#aa9548e8744715a8847a75e2dfd6eb879">wavefd::WaveFDData::dimension</a></div><div class="ttdeci">unsigned int dimension</div><div class="ttdoc">the dimension (2 or 3) of the fluid field. (Currently only 2 is supported)</div><div class="ttdef"><b>Definition:</b> waveFDData.h:141</div></div>
+<div class="ttc" id="aa00028_html_a241aa07b4eb4db91de9d1239ae1fb8c5"><div class="ttname"><a href="../../dc/d3c/a00028.html#a241aa07b4eb4db91de9d1239ae1fb8c5">wavefd::dispose</a></div><div class="ttdeci">API int dispose(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Dispose the GLData created by wavefd::create.</div></div>
+<div class="ttc" id="aa00028_html_a569608c005f3ac08e0686d1d94cc9fbe"><div class="ttname"><a href="../../dc/d3c/a00028.html#a569608c005f3ac08e0686d1d94cc9fbe">wavefd::force_visualize</a></div><div class="ttdeci">API int force_visualize(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Visualize sound field one frame forcibly.</div></div>
+<div class="ttc" id="aa00028_html_aeb1fdb3bcdbab9df19ab7df770a5a20b"><div class="ttname"><a href="../../dc/d3c/a00028.html#aeb1fdb3bcdbab9df19ab7df770a5a20b">wavefd::create</a></div><div class="ttdeci">API int create(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Create WaveFD scene with WaveFD Data.</div></div>
+<div class="ttc" id="aa00028_html_a5e28507b6b9097b1ca1e33c498da0beb"><div class="ttname"><a href="../../dc/d3c/a00028.html#a5e28507b6b9097b1ca1e33c498da0beb">wavefd::simulate</a></div><div class="ttdeci">API int simulate(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Simulate the sound field.</div></div>
+<div class="ttc" id="aa00028_html_a73e4bc98d0bf417a47a81ac29b1cc266"><div class="ttname"><a href="../../dc/d3c/a00028.html#a73e4bc98d0bf417a47a81ac29b1cc266">wavefd::sample</a></div><div class="ttdeci">API int sample(WaveFDData &amp;wavefd_data)</div><div class="ttdoc">Sample the sample at specific position.</div></div>
+<div class="ttc" id="aa00023_html"><div class="ttname"><a href="../../d3/d52/a00023.html">waveFDData.h</a></div><div class="ttdoc">The definitions of WaveFD data.</div></div>
+<div class="ttc" id="aa00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">wavefd</a></div><div class="ttdef"><b>Definition:</b> shaderCode.h:16</div></div>
 <!-- start footer part -->
 		<script src="../../custom.js"></script>
 	</body>

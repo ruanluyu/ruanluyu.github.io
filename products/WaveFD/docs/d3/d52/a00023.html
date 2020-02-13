@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">waveFDData.h File Reference</div>  </div>
@@ -80,23 +81,38 @@ $(function() {
 <p>The definitions of WaveFD data.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d4/dee/a00008_source.html">apiTools.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d45/a00011_source.html">flagTools.h</a>&quot;</code><br />
 </div>
 <p><a href="../../d3/d52/a00023_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d22/a00843.html">wavefd::WaveFDData</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d69/a00844.html">wavefd::WaveFDData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/d33/a00027"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html">wavefd</a></td></tr>
+<tr class="memitem:dc/d3c/a00028"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html">wavefd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:abd4d1c26e6036a0c5630be69da4f75ee"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75ee">wavefd::VisualizationFlagEnum</a> { <br />
+&#160;&#160;<a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75eea7c9fa89c7b0af43eb3e38901a4f1dafc">wavefd::VISUALIZATION_ON</a> = 1 &lt;&lt; 0, 
+<a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75eeab19e1c8a061dc323b37d0dafbd780137">wavefd::VISUALIZATION_SHOW_BARRIERS</a> = 1 &lt;&lt; 1, 
+<a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75eea0e4b69e2ccc60b86a5aafa951161a2a2">wavefd::VISUALIZATION_SHOW_SOUND_WAVES</a> = 1 &lt;&lt; 2, 
+<a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75eea782789ec46d3588a471c276925c9823f">wavefd::VISUALIZATION_SHOW_EXCITATION</a> = 1 &lt;&lt; 3, 
+<br />
+&#160;&#160;<a class="el" href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75eea6eb6326f9674d20287d3253c880133fe">wavefd::VISUALIZATION_FULL</a> = 1 &lt;&lt; 4
+<br />
+ }</td></tr>
+<tr class="memdesc:abd4d1c26e6036a0c5630be69da4f75ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to set WaveFDData::visualization_flag.  <a href="../../dc/d3c/a00028.html#abd4d1c26e6036a0c5630be69da4f75ee">More...</a><br /></td></tr>
+<tr class="separator:abd4d1c26e6036a0c5630be69da4f75ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a18cb61b779682271d00c757c53c39c0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a18cb61b779682271d00c757c53c39c0b">wavefd::resetWaveFDData</a> (WaveFDData &amp;wavefd_data)</td></tr>
-<tr class="memdesc:a18cb61b779682271d00c757c53c39c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the memory of <a class="el" href="../../dc/d22/a00843.html">WaveFDData</a> to 0.  <a href="../../d0/d33/a00027.html#a18cb61b779682271d00c757c53c39c0b">More...</a><br /></td></tr>
+<tr class="memitem:a18cb61b779682271d00c757c53c39c0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html#ad8ce4efaa307683d3d763b37b4711c53">API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a18cb61b779682271d00c757c53c39c0b">wavefd::resetWaveFDData</a> (WaveFDData &amp;wavefd_data)</td></tr>
+<tr class="memdesc:a18cb61b779682271d00c757c53c39c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the memory of <a class="el" href="../../d3/d69/a00844.html">WaveFDData</a> to 0.  <a href="../../dc/d3c/a00028.html#a18cb61b779682271d00c757c53c39c0b">More...</a><br /></td></tr>
 <tr class="separator:a18cb61b779682271d00c757c53c39c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

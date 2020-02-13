@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['density_8',['density',['../dc/de2/a00024.html#a9ffea186cb238614a369497fe1b05480',1,'wavefd']]],
-  ['depth_9',['depth',['../d9/d61/a00840.html#a6ff45313af0b3032ef48ced1d327c38f',1,'wavefd::WaveFDData']]],
-  ['dimension_10',['dimension',['../d9/d61/a00840.html#aa9548e8744715a8847a75e2dfd6eb879',1,'wavefd::WaveFDData']]],
-  ['dispose_11',['dispose',['../dc/de2/a00024.html#a241aa07b4eb4db91de9d1239ae1fb8c5',1,'wavefd']]],
-  ['dynamic_5fviscosity_12',['dynamic_viscosity',['../dc/de2/a00024.html#a7332aa44cfe928b9d24c90c447133388',1,'wavefd']]]
+  ['cfl_5f2d_5fcoefficient_4',['CFL_2D_coefficient',['../dc/d3c/a00028.html#abc6dde0f4e22b5cb44c932128d32ff32',1,'wavefd']]],
+  ['cfl_5f3d_5fcoefficient_5',['CFL_3D_coefficient',['../dc/d3c/a00028.html#a77b1552bd6a798c7ab3a2e6e1cda958c',1,'wavefd']]],
+  ['create_6',['create',['../dc/d3c/a00028.html#aeb1fdb3bcdbab9df19ab7df770a5a20b',1,'wavefd']]],
+  ['current_5fsample_5fid_7',['current_sample_id',['../d3/d69/a00844.html#a641b0582a434f35e6b0044a60e651fe3',1,'wavefd::WaveFDData']]]
 ];

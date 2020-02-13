@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sample_59',['sample',['../dc/de2/a00024.html#a73e4bc98d0bf417a47a81ac29b1cc266',1,'wavefd']]],
-  ['shut_60',['shut',['../dc/de2/a00024.html#a701516f47a694cd35f78fcf92950ac23',1,'wavefd']]]
+  ['resetwavefddata_82',['resetWaveFDData',['../dc/d3c/a00028.html#a18cb61b779682271d00c757c53c39c0b',1,'wavefd']]],
+  ['reverse_83',['reverse',['../d0/d33/a00027.html#ad78583486cb12cba0573a2f9bc145459',1,'flagtools']]]
 ];
