@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PixelsWorld</title>
     <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="pocket_js/dist/pocket.gl.min.js"></script>
 </head>
 
 <body>
+
     <div class="container">
         <div class="page-title">PixelsWorld</div>
         <br>
@@ -26,10 +28,15 @@
         </a></p>
         <p><a href="docs_CN/" target="_blank">像素世界帮助文档 中文版
          <br><br>
-        <img src="PixelsWorld_LOGO.png" alt="PixelsWorld_LOGO" width="30%" height="30%">
+
+        <img src="PixelsWorld_LOGO.png" alt="PixelsWorld_LOGO" width="15%" height="15%">
         </a></p>
-
-
+        <div id="milai_shader_container" style="position: relative; width:640px;" align="center"></div>
+        <script>
+            new PocketGL("milai_shader_container", "pocket_js/params.js");
+        </script>
+        
+        
     </div>
 </body>
 
