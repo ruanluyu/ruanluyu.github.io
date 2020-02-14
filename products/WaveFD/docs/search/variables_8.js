@@ -1,13 +1,5 @@
 var searchData=
 [
-  ['sample_5fposition_5fx_104',['sample_position_x',['../d3/d69/a00844.html#a276e42d6feb46aed23c1218ed5073275',1,'wavefd::WaveFDData']]],
-  ['sample_5fposition_5fy_105',['sample_position_y',['../d3/d69/a00844.html#ac04c334c3d6d2af9e6d01c04182d6b62',1,'wavefd::WaveFDData']]],
-  ['sample_5fposition_5fz_106',['sample_position_z',['../d3/d69/a00844.html#a7fdb8dbb0a3b2cd452eacda809afcaf0',1,'wavefd::WaveFDData']]],
-  ['sample_5frate_107',['sample_rate',['../d3/d69/a00844.html#a6a4e7cdf85e618f28b47929c46d79f82',1,'wavefd::WaveFDData']]],
-  ['sample_5fresult_108',['sample_result',['../d3/d69/a00844.html#a142b622f7e85a4b96a41ae0e72e798ae',1,'wavefd::WaveFDData']]],
-  ['sound_5ffield_5fbuffers_109',['sound_field_buffers',['../d3/d69/a00844.html#af58d8d0d38c77653725e8fb21a5941f5',1,'wavefd::WaveFDData']]],
-  ['sound_5ffield_5fshader_5fprogram_110',['sound_field_shader_program',['../d3/d69/a00844.html#aeea5454641a93d93e9f539a640bc65c4',1,'wavefd::WaveFDData']]],
-  ['sound_5ffragment_5fshader_111',['sound_fragment_shader',['../dc/d3c/a00028.html#ad90ff27fea1e38ec8e44cfe4395fdead',1,'wavefd']]],
-  ['speed_5fof_5fsound_112',['speed_of_sound',['../dc/d3c/a00028.html#a2bd83cdede4363b1a6174e507cd75860',1,'wavefd']]],
-  ['square_5fvertex_5fshader_113',['square_vertex_shader',['../dc/d3c/a00028.html#a985ee745811e4856a41c6ce4bc732bc1',1,'wavefd']]]
+  ['pixels_5fper_5fmeter_104',['pixels_per_meter',['../d3/d69/a00844.html#a4841aa83930c2fdd41bf2307249e972a',1,'wavefd::WaveFDData']]],
+  ['prandtl_5fnumber_105',['Prandtl_number',['../dc/d3c/a00028.html#a059fc140d1b1cc87615028f3788afc14',1,'wavefd']]]
 ];
