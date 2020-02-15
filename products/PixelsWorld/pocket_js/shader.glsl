@@ -84,7 +84,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     col *= 0.70 + 0.65 * sqrt(70.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y));
     
     // Output to screen
-    float dist_t = cos(.1*time) + cos(.2*time)*.3+sin(.4*time)*.1;
+    float dist_t = sin(.1*time) + cos(.2*time)*.3+sin(.4*time)*.1;
     vec4 mc = texture2D(milai,col.rg*0.1*dist_t+uv);
     float ra = rand(vec2(floor(time/0.2)*0.2));
 
