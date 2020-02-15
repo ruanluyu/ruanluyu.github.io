@@ -8,6 +8,11 @@
 			url: "MiLai.png", 
 			wrap: "repeat", // repeat (default), clamp
 			name: "milai",
+		},
+		{
+			url: "noise.jpg", 
+			wrap: "repeat", // repeat (default), clamp
+			name: "noise_texture",
 		}
 	],
 

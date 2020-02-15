@@ -3,6 +3,7 @@ uniform vec4 mouse;
 uniform float time;
 
 uniform sampler2D milai;
+uniform sampler2D noise_texture;
 
 vec2 hash2( float n )
 {
@@ -10,7 +11,7 @@ vec2 hash2( float n )
 }
 
 float rand(vec2 co){
-    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+    return texture2D(noise_texture,co).r*1.2;
 }
 
 
@@ -19,10 +20,10 @@ float noise( in vec2 x )
     vec2 p = floor(x);
     vec2 f = fract(x);
     f = f*f*(3.0-2.0*f);
-    float a = rand(p+vec2(0.5,0.5));
-    float b = rand(p+vec2(1.5,0.5));
-    float c = rand(p+vec2(0.5,1.5));
-    float d = rand(p+vec2(1.5,1.5));
+    float a = rand((p+vec2(0.5,0.5))/500.);
+    float b = rand((p+vec2(1.5,0.5))/500.);
+    float c = rand((p+vec2(0.5,1.5))/500.);
+    float d = rand((p+vec2(1.5,1.5))/500.);
     return mix(mix( a, b,f.x), mix( c, d,f.x),f.y);
 }
 
@@ -83,13 +84,14 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     col *= 0.70 + 0.65 * sqrt(70.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y));
     
     // Output to screen
-    vec4 mc = texture2D(milai,col.rg*0.1+uv);
+    float dist_t = cos(.1*time) + cos(.2*time)*.3+sin(.4*time)*.1;
+    vec4 mc = texture2D(milai,col.rg*0.1*dist_t+uv);
     float ra = rand(vec2(floor(time/0.2)*0.2));
 
     fragColor.a =1.0;
     vec3 c1 = col.rgb;
     vec3 c2 = (col.rrr+col.ggg+col.bbb)/3.0;
-    float st = pow(sin(time),0.7)*sign(sin(time))*cos(time/3.0);
+    float st = sin(time);
     fragColor.rgb = st*c1+(1.0-st)*c2;
 
     if(mc.a>.0){
