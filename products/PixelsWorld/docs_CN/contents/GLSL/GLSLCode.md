@@ -8,9 +8,9 @@
 
 > 关于GLSL语法的更多信息 ,  建议您访问 [shadertoy.com](https://www.shadertoy.com/).  找到一些有趣且简单的效果，来探索它是如何生效的。 
 
-##给老手的提示 : 
+##细节 : 
 
-> **PixelsWorld V1.0** 使用的是 **#version 330 core**. 
+> **PixelsWorld V2.0** 使用的是 **#version 330 core**. 
 
 - 只需在PixelsWorld书写您需要的  **Fragment shader** 代码即可 。
 - 同时，PixelsWorld 会在您的代码运行之前，合并一些额外的代码，为了使其与After Effects平台兼容，我们列出了部分代码供您参考。 
@@ -39,6 +39,7 @@ uniform vec2 layerResolution[10];
 uniform sampler2D inLayer;
 uniform sampler2D outLayer;
 uniform float time;
+uniform vec4 date;
 uniform float fps;
 uniform float width;
 uniform float height;
@@ -48,15 +49,15 @@ uniform vec2 resolution;
 
 vec4 getColor(int layerId,vec2 coord)
 {
-	if(layerId==INPUT_LAYER_INDEX) return texture2D(inLayer,coord);
-	if(layerId==OUTPUT_LAYER_INDEX) return texture2D(outLayer,coord);
-	else if(layerId>=0 && layerId<=9) return texture2D(layer[layerId],coord);
+	if(layerId==INPUT_LAYER_INDEX) return texture(inLayer,coord);
+	if(layerId==OUTPUT_LAYER_INDEX) return texture(outLayer,coord);
+	else if(layerId>=0 && layerId<=9) return texture(layer[layerId],coord);
 	return vec4(0.0);
 }
 
 vec4 getColor(vec2 coord)
 {
-	return texture2D(inLayer,coord);
+	return texture(inLayer,coord);
 }
 
 vec2 uv2xy(vec2 myuv){
@@ -67,6 +68,5 @@ vec2 xy2uv(vec2 myxy){
 	return myxy/resolution;
 }
 
-// Your glsl code will show up here. 
 ```
 

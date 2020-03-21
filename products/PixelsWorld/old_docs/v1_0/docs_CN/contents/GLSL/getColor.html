@@ -1,0 +1,824 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>getColor · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="uvxy.html" />
+    
+    
+    <link rel="prev" href="Functions.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. 介绍</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    PixelsWorld是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    如何获得与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. Render mode</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="GLSLCode.html">
+            
+                <a href="GLSLCode.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    如何使用GLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    运行GLSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="Functions.html">
+            
+                <a href="Functions.html">
+            
+                    
+                        <b>2.1.2.</b>
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1.2.1" data-path="getColor.html">
+            
+                <a href="getColor.html">
+            
+                    
+                        <b>2.1.2.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="uvxy.html">
+            
+                <a href="uvxy.html">
+            
+                    
+                        <b>2.1.2.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>2.1.3.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="debug.html">
+            
+                <a href="debug.html">
+            
+                    
+                        <b>2.1.4.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="Advanced_settings.html">
+            
+                <a href="Advanced_settings.html">
+            
+                    
+                        <b>2.1.5.</b>
+                    
+                    高级设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="shadertoy.html">
+            
+                <a href="shadertoy.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    shadertoy.com 代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../Lua/LuaCode.html">
+            
+                <a href="../Lua/LuaCode.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    如何使用Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../Lua/RunLua.html">
+            
+                <a href="../Lua/RunLua.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    运行Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../Lua/RunGLSL.html">
+            
+                <a href="../Lua/RunGLSL.html">
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    在Lua中运行GLSL 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../Lua/cpin2out.html">
+            
+                <a href="../Lua/cpin2out.html">
+            
+                    
+                        <b>2.3.3.</b>
+                    
+                    输入层像素复制到输出层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../Lua/pwModule.html">
+            
+                <a href="../Lua/pwModule.html">
+            
+                    
+                        <b>2.3.4.</b>
+                    
+                    pw 模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.4.1" data-path="../Lua/report.html">
+            
+                <a href="../Lua/report.html">
+            
+                    
+                        <b>2.3.4.1.</b>
+                    
+                    pw.report()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.2" data-path="../Lua/getColor.html">
+            
+                <a href="../Lua/getColor.html">
+            
+                    
+                        <b>2.3.4.2.</b>
+                    
+                    pw.getColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.3" data-path="../Lua/setColor.html">
+            
+                <a href="../Lua/setColor.html">
+            
+                    
+                        <b>2.3.4.3.</b>
+                    
+                    pw.setColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.4" data-path="../Lua/ch.html">
+            
+                <a href="../Lua/ch.html">
+            
+                    
+                        <b>2.3.4.4.</b>
+                    
+                    pw.ch()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.5" data-path="../Lua/in2out.html">
+            
+                <a href="../Lua/in2out.html">
+            
+                    
+                        <b>2.3.4.5.</b>
+                    
+                    pw.in2out()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.6" data-path="../Lua/glsl.html">
+            
+                <a href="../Lua/glsl.html">
+            
+                    
+                        <b>2.3.4.6.</b>
+                    
+                    pw.glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.7" data-path="../Lua/full_glsl.html">
+            
+                <a href="../Lua/full_glsl.html">
+            
+                    
+                        <b>2.3.4.7.</b>
+                    
+                    pw.full_glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.8" data-path="../Lua/js.html">
+            
+                <a href="../Lua/js.html">
+            
+                    
+                        <b>2.3.4.8.</b>
+                    
+                    pw.js()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.9" data-path="../Lua/cmd2.html">
+            
+                <a href="../Lua/cmd2.html">
+            
+                    
+                        <b>2.3.4.9.</b>
+                    
+                    pw.cmd()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.10" data-path="../Lua/lua2.html">
+            
+                <a href="../Lua/lua2.html">
+            
+                    
+                        <b>2.3.4.10.</b>
+                    
+                    pw.lua()
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../Lua/LinkParameters.html">
+            
+                <a href="../Lua/LinkParameters.html">
+            
+                    
+                        <b>2.3.5.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../Lua/debug.html">
+            
+                <a href="../Lua/debug.html">
+            
+                    
+                        <b>2.3.6.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.6.1" data-path="../Lua/debug_add.html">
+            
+                <a href="../Lua/debug_add.html">
+            
+                    
+                        <b>2.3.6.1.</b>
+                    
+                    pw.debug.add
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.2" data-path="../Lua/debug_sub.html">
+            
+                <a href="../Lua/debug_sub.html">
+            
+                    
+                        <b>2.3.6.2.</b>
+                    
+                    pw.debug.sub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.3" data-path="../Lua/debug_remain.html">
+            
+                <a href="../Lua/debug_remain.html">
+            
+                    
+                        <b>2.3.6.3.</b>
+                    
+                    pw.debug.remain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6.4" data-path="../Lua/debug_clear.html">
+            
+                <a href="../Lua/debug_clear.html">
+            
+                    
+                        <b>2.3.6.4.</b>
+                    
+                    pw.debug.clear
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../Lua/JavaScript.html">
+            
+                <a href="../Lua/JavaScript.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    如何使用JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../Lua/CMDCode.html">
+            
+                <a href="../Lua/CMDCode.html">
+            
+                    
+                        <b>2.5.</b>
+                    
+                    如何使用CMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >getColor</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="getcolor">getColor</h1>
+<hr>
+<p>&#x6B64;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x79CD;&#x7248;&#x672C;&#x3002; <strong>getColor(vec2)</strong> &#x4E0E; <strong>getColor(int ,vec2)</strong></p>
+<h2 id="getcolorvec2">getColor(vec2)</h2>
+<p><strong>&#x8BF4;&#x660E; : </strong></p>
+<ul>
+<li>&#x5728;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x83B7;&#x53D6; <strong>&#x8F93;&#x5165;&#x5C42;</strong>&#x7684;&#x989C;&#x8272;&#x3002;</li>
+</ul>
+<p><strong>&#x53C2;&#x6570;</strong>:</p>
+<ul>
+<li>vec2&#xFF1A;uv&#x4F4D;&#x7F6E;&#xFF08;&#x5404;&#x7EF4;&#x5EA6;0~1&#xFF09;</li>
+</ul>
+<p><strong>&#x8FD4;&#x56DE; : </strong></p>
+<ul>
+<li>vec4 :  RGBA&#x989C;&#x8272;&#xFF08;&#x5404;&#x7EF4;&#x5EA6;0~1&#xFF09;</li>
+</ul>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F; : </strong>
+&#x6211;&#x4EEC;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>getColor(uv);</code> &#x6765;&#x83B7;&#x53D6;&#x50CF;&#x7D20;&#xFF0C;&#x82E5;&#x4F7F;&#x7528; <code>texture2d</code> &#x4E0D;&#x80FD;&#x786E;&#x4FDD;&#x8FD4;&#x56DE;&#x6B63;&#x786E;&#x7684;&#x50CF;&#x7D20;&#x503C;</p>
+</blockquote>
+<h2 id="getcolorintvec2">getColor(int,vec2)</h2>
+<p><strong>&#x8BF4;&#x660E; : </strong></p>
+<ul>
+<li>&#x83B7;&#x53D6;<strong>&#x7279;&#x5B9A;&#x8F93;&#x5165;&#x5C42;</strong> &#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x50CF;&#x7D20; </li>
+</ul>
+<p><strong>&#x53C2;&#x6570; : </strong></p>
+<ul>
+<li>int : &#x56FE;&#x5C42;&#x7D22;&#x5F15;, -1 (&#x6216;&#x8005; INPUT_LAYER_INDEX) &#x4E5F;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x5C42;&#xFF0C;&#x6570;&#x5B57;0-9&#x4EE3;&#x8868;&#x7740;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x5BF9;&#x5E94;&#x7684;&#x56FE;&#x5C42;&#x53C2;&#x6570;0-9(OUTPUT_LAYER_INDEX (&#x56FE;&#x5C42;&#x7D22;&#x5F15;-2)  Lua&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x4E0B;&#x4F7F;&#x7528;)</li>
+<li>vec2 : uv &#x5750;&#x6807;</li>
+</ul>
+<p><strong>&#x8FD4;&#x56DE; : </strong></p>
+<ul>
+<li>vec4 : RGBA&#x989C;&#x8272;</li>
+</ul>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F; : </strong></p>
+<ul>
+<li>&#x603B;&#x4E4B;, <code>getColor(-1,uv);</code> &#x4E0E;<code>getColor(uv)</code>&#x6548;&#x679C;&#x4E00;&#x81F4;;</li>
+<li><code>getColor(n,uv);</code> &#x80FD;&#x8FD4;&#x56DE; layer[n]&#x7684;&#x50CF;&#x7D20;&#x4FE1;&#x606F;</li>
+</ul>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"getColor","level":"2.1.2.1","depth":3,"next":{"title":"uv2xy,xy2uv","level":"2.1.2.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]},"previous":{"title":"函数","level":"2.1.2","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"2.1.2.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"2.1.2.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter","copy-code-button"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/getColor.md","mtime":"2019-11-03T11:19:02.355Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-03T04:36:53.949Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
