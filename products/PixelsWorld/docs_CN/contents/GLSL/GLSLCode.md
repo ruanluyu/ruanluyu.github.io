@@ -1,6 +1,6 @@
-#在PixelsWorld运行GLSL 
+#在像素世界里运行GLSL 
 ---
-本节中, 我们将快速了解如何在PixelsWorld运行GLSL 
+本节中, 我们将快速了解如何在像素世界里运行GLSL 
 
 ##GLSL是什么?
  GLSL是OpenGL Shader Language的缩写，它是由OpenGL支持的基于GPU的渲染语言。

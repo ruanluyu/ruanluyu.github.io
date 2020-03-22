@@ -1,4 +1,4 @@
-#Run GLSL Code
+#运行GLSL代码
 ---
 - GLSL代码请在**GLSL(GPU)** 模式下运行; 
 <br>

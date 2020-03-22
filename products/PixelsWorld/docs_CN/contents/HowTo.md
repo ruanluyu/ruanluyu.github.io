@@ -1,4 +1,4 @@
-#How to get/use it? 
+#获得/使用
 ---
 ##下载
 
@@ -7,11 +7,11 @@
 > ###请注意：
 > 部分测试预设在非商业许可证下，使用前请留意源码中的许可证书。
 
-- 把”MiLai”文件夹放在 :
->AE安装目录/Support Files/Plug-ins/
+- 把“MiLai”文件夹放在 :
+> `AE安装目录/Support Files/Plug-ins/`
 
 - 插件位于 :
-> AE安装目录/Support Files/Plug-ins/MiLai/PixelsWorld.aex
+> `AE安装目录/Support Files/Plug-ins/MiLai/PixelsWorld.aex`
 
 ##如何使用
 
