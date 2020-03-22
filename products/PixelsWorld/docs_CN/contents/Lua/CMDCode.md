@@ -1,6 +1,6 @@
 #CMD代码
 ---
-CMD命令可以通过 ```pw.cmd("你的CMD命令")``` 在 **Lua (CPU & GPU)** 模式下执行。
+在 **Lua (CPU & GPU)** 模式下，像素世界可以通过 ```pw.cmd``` 执行CMD命令。
 
 
 

@@ -1,7 +1,6 @@
 #JavaScript代码
 ---
-Javascript 可通过```pw.js("Your code")``` 在 **Lua (CPU & GPU)** 模式下执行。 
-
+在 **Lua (CPU & GPU)** 模式下，像素世界可以通过 ```pw.js``` 执行JavaScript代码。
 
 
 ![LuaMode](LuaMode.png)

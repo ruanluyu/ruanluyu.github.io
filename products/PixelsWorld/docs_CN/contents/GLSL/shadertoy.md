@@ -1,4 +1,4 @@
-#shadertoy.com Code
+# 模板圣域shadertoy
 ---
 ##用法
 在此模式下，你可以直接使用来自 [shadertoy.com](https://shadertoy.com)的代码。
