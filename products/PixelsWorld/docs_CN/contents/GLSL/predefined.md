@@ -7,7 +7,7 @@ shader代码在运行前，前后会被接上我们预先设定的环境代码�
 
 ## GLSL模式
 
-前值代码：
+### 前置代码：
 
 ```glsl:pre_frag_shader_glsl.frag
 #define gl_Position uv2xy(uv)
