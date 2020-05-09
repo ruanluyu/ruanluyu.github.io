@@ -1,0 +1,1017 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>显卡狂战士GLSL · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="RunGLSL.html" />
+    
+    
+    <link rel="prev" href="../Editor/SavePresets.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. 你好，像素世界！</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    成为创世神
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    获得与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../gotoForum.html">
+            
+                <a href="../gotoForum.html">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    前往论坛
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. 面板说明</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../Editor/ScriptWindow.html">
+            
+                <a href="../Editor/ScriptWindow.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    世界法则编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../Editor/ParameterWindow.html">
+            
+                <a href="../Editor/ParameterWindow.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    参数编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../Editor/SavePresets.html">
+            
+                <a href="../Editor/SavePresets.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    预设管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3. 代码说明</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="GLSLCode.html">
+            
+                <a href="GLSLCode.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    显卡狂战士GLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>3.1.1.</b>
+                    
+                    运行GLSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="Functions.html">
+            
+                <a href="Functions.html">
+            
+                    
+                        <b>3.1.2.</b>
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="getColor.html">
+            
+                <a href="getColor.html">
+            
+                    
+                        <b>3.1.2.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="uvxy.html">
+            
+                <a href="uvxy.html">
+            
+                    
+                        <b>3.1.2.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>3.1.3.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="debug.html">
+            
+                <a href="debug.html">
+            
+                    
+                        <b>3.1.4.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Advanced_settings.html">
+            
+                <a href="Advanced_settings.html">
+            
+                    
+                        <b>3.1.5.</b>
+                    
+                    高级设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="shadertoy.html">
+            
+                <a href="shadertoy.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    模板圣域shadertoy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../Lua/LuaCode.html">
+            
+                <a href="../Lua/LuaCode.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    世界的中心Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../Lua/RunLua.html">
+            
+                <a href="../Lua/RunLua.html">
+            
+                    
+                        <b>3.3.1.</b>
+                    
+                    运行Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../Lua/RunGLSL.html">
+            
+                <a href="../Lua/RunGLSL.html">
+            
+                    
+                        <b>3.3.2.</b>
+                    
+                    在Lua中运行GLSL 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../Lua/cpin2out.html">
+            
+                <a href="../Lua/cpin2out.html">
+            
+                    
+                        <b>3.3.3.</b>
+                    
+                    输入层像素复制到输出层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../Lua/pwModule.html">
+            
+                <a href="../Lua/pwModule.html">
+            
+                    
+                        <b>3.3.4.</b>
+                    
+                    pw 模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.4.1" data-path="../Lua/report.html">
+            
+                <a href="../Lua/report.html">
+            
+                    
+                        <b>3.3.4.1.</b>
+                    
+                    pw.report()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.2" data-path="../Lua/getColor.html">
+            
+                <a href="../Lua/getColor.html">
+            
+                    
+                        <b>3.3.4.2.</b>
+                    
+                    pw.getColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.3" data-path="../Lua/setColor.html">
+            
+                <a href="../Lua/setColor.html">
+            
+                    
+                        <b>3.3.4.3.</b>
+                    
+                    pw.setColor()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.4" data-path="../Lua/ch.html">
+            
+                <a href="../Lua/ch.html">
+            
+                    
+                        <b>3.3.4.4.</b>
+                    
+                    pw.ch()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.5" data-path="../Lua/in2out.html">
+            
+                <a href="../Lua/in2out.html">
+            
+                    
+                        <b>3.3.4.5.</b>
+                    
+                    pw.in2out()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.6" data-path="../Lua/glsl.html">
+            
+                <a href="../Lua/glsl.html">
+            
+                    
+                        <b>3.3.4.6.</b>
+                    
+                    pw.glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.7" data-path="../Lua/full_glsl.html">
+            
+                <a href="../Lua/full_glsl.html">
+            
+                    
+                        <b>3.3.4.7.</b>
+                    
+                    pw.full_glsl()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.8" data-path="../Lua/luaShadertoyFunc.html">
+            
+                <a href="../Lua/luaShadertoyFunc.html">
+            
+                    
+                        <b>3.3.4.8.</b>
+                    
+                    pw.shadertoy()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.9" data-path="../Lua/js.html">
+            
+                <a href="../Lua/js.html">
+            
+                    
+                        <b>3.3.4.9.</b>
+                    
+                    pw.js()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.10" data-path="../Lua/cmd2.html">
+            
+                <a href="../Lua/cmd2.html">
+            
+                    
+                        <b>3.3.4.10.</b>
+                    
+                    pw.cmd()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.11" data-path="../Lua/lua2.html">
+            
+                <a href="../Lua/lua2.html">
+            
+                    
+                        <b>3.3.4.11.</b>
+                    
+                    pw.lua()
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../Lua/LinkParameters.html">
+            
+                <a href="../Lua/LinkParameters.html">
+            
+                    
+                        <b>3.3.5.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../Lua/debug.html">
+            
+                <a href="../Lua/debug.html">
+            
+                    
+                        <b>3.3.6.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.6.1" data-path="../Lua/debug_add.html">
+            
+                <a href="../Lua/debug_add.html">
+            
+                    
+                        <b>3.3.6.1.</b>
+                    
+                    pw.debug.add
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6.2" data-path="../Lua/debug_sub.html">
+            
+                <a href="../Lua/debug_sub.html">
+            
+                    
+                        <b>3.3.6.2.</b>
+                    
+                    pw.debug.sub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6.3" data-path="../Lua/debug_remain.html">
+            
+                <a href="../Lua/debug_remain.html">
+            
+                    
+                        <b>3.3.6.3.</b>
+                    
+                    pw.debug.remain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6.4" data-path="../Lua/debug_clear.html">
+            
+                <a href="../Lua/debug_clear.html">
+            
+                    
+                        <b>3.3.6.4.</b>
+                    
+                    pw.debug.clear
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../Lua/JavaScript.html">
+            
+                <a href="../Lua/JavaScript.html">
+            
+                    
+                        <b>3.4.</b>
+                    
+                    世界的郊区JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../Lua/CMDCode.html">
+            
+                <a href="../Lua/CMDCode.html">
+            
+                    
+                        <b>3.5.</b>
+                    
+                    世界的基盘CMD指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4. 序列号注意事项</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../Serial/SerialAttention.html">
+            
+                <a href="../Serial/SerialAttention.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    序列号使用约定
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >显卡狂战士GLSL</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x663E;&#x5361;&#x72C2;&#x6218;&#x58EB;glsl">&#x663E;&#x5361;&#x72C2;&#x6218;&#x58EB;GLSL</h1>
+<hr>
+<p>&#x672C;&#x8282;&#x4E2D;, &#x6211;&#x4EEC;&#x5C06;&#x5FEB;&#x901F;&#x4E86;&#x89E3;&#x5982;&#x4F55;&#x5728;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#x91CC;&#x8FD0;&#x884C;GLSL </p>
+<h2 id="glsl&#x662F;&#x4EC0;&#x4E48;">GLSL&#x662F;&#x4EC0;&#x4E48;?</h2>
+<blockquote>
+<p>GLSL&#x662F;OpenGL Shader Language&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x5B83;&#x662F;OpenGL&#x652F;&#x6301;&#x7684;&#x57FA;&#x4E8E;GPU&#x7684;&#x6E32;&#x67D3;&#x8BED;&#x8A00;&#x3002;
+&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x50CF;&#x7D20;&#x6E32;&#x67D3;&#x89C4;&#x5219;&#xFF0C;&#x4F7F;&#x7528;GPU&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;</p>
+</blockquote>
+<h3 id="&#x7B80;&#x800C;&#x8A00;&#x4E4B;">&#x7B80;&#x800C;&#x8A00;&#x4E4B;</h3>
+<p>GLSL&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5728;<a href="../../">&#x7B2C;&#x4E00;&#x8282;</a>&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x80FD;&#x8FD0;&#x884C;&#x5728;&#x663E;&#x5361;&#x4E0A;&#x3002;</p>
+<h3 id="&#x663E;&#x5361;&#x8BED;&#x8A00;&#x7684;&#x4F18;&#x52BF;">&#x663E;&#x5361;&#x8BED;&#x8A00;&#x7684;&#x4F18;&#x52BF;</h3>
+<p>&#x5982;&#x679C;&#x628A;&#x4E3B;&#x677F;&#x4E0A;&#x7684;<em>&#x4E2D;&#x592E;&#x5904;&#x7406;&#x5668;(CPU)</em>&#x548C;&#x663E;&#x5361;&#x4E0A;&#x7684;<em>&#x56FE;&#x5F62;&#x5904;&#x7406;&#x5668;(GPU)</em>&#x505A;&#x6BD4;&#x8F83;&#x7684;&#x8BDD;&#xFF0C;CPU&#x50CF;&#x662F;&#x4E00;&#x8F86;&#x8D85;&#x7EA7;&#x8DD1;&#x8F66;&#xFF0C;GPU&#x5219;&#x50CF;&#x662F;&#x4E00;&#x8F86;&#x5927;&#x578B;&#x5BA2;&#x8F66;&#x3002;</p>
+<p><img src="bus_vs_car.png" alt="&#x6BD4;&#x55BB;"></p>
+<p>&#x5728;&#x4E00;&#x6BB5;&#x8DEF;&#x7A0B;&#x95F4;&#x8FD0;&#x8F93;&#x5C11;&#x91CF;&#x4EBA;&#x5458;&#x7684;&#x8BDD;&#xFF0C;&#x7528;&#x4E00;&#x8F86;&#x8D85;&#x7EA7;&#x8DD1;&#x8F66;&#x8868;&#x73B0;&#x4F1A;&#x975E;&#x5E38;&#x4F18;&#x79C0;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x60F3;&#x8981;&#x505A;&#x91CD;&#x590D;&#x6027;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x5DE5;&#x4F5C;&#x2014;&#x2014;&#x6BD4;&#x5982;&#x8BA1;&#x7B97;&#x4E00;&#x5F20;&#x56FE;&#x50CF;&#x2014;&#x2014;&#x8FD9;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x6BD4;&#x55BB;&#x4F5C;&#x6709;&#x6210;&#x767E;&#x4E0A;&#x5343;&#x7684;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x79FB;&#x52A8;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x65F6;&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x8F86;&#x5927;&#x578B;&#x5BA2;&#x8F66;&#x663E;&#x7136;&#x624D;&#x662F;&#x660E;&#x667A;&#x4E4B;&#x4E3E;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x5B66;&#x4E60;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;&#x8BF8;&#x5982;C/C++&#x3001;Java&#x3001;Python&#xFF0C;&#x5927;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x5728;CPU&#x4E0A;&#x7684;&#x3002;</p>
+<p>&#x800C;GLSL&#x8FD9;&#x6837;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x8FD0;&#x884C;&#x5728;GPU&#x4E0A;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x8BED;&#x8A00;&#x3002;</p>
+<p>&#x5728;&#x5904;&#x7406;&#x4E00;&#x5F20;&#x56FE;&#x50CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;GPU&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x6D3E;&#x51FA;&#x975E;&#x5E38;&#x591A;&#x7684;<em>&#x201C;&#x5DE5;&#x4EBA;&#x201D;</em>&#x53BB;&#x505A;&#x91CD;&#x590D;&#x6027;&#x9AD8;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x800C;&#x5177;&#x4F53;&#x7684;&#x5DE5;&#x4F5C;&#x5185;&#x5BB9;&#x5C31;&#x7531;GLSL&#x6765;&#x6307;&#x5B9A;&#x3002;</p>
+<blockquote>
+<p>&#x5173;&#x4E8E;GLSL&#x8BED;&#x6CD5;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F; ,  &#x5EFA;&#x8BAE;&#x60A8;&#x8BBF;&#x95EE; <a href="https://www.shadertoy.com/" target="_blank">shadertoy.com</a>.  &#x627E;&#x5230;&#x4E00;&#x4E9B;&#x6709;&#x8DA3;&#x4E14;&#x7B80;&#x5355;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x6765;&#x63A2;&#x7D22;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x751F;&#x6548;&#x7684;&#x3002; </p>
+</blockquote>
+<h2 id="&#x7EC6;&#x8282;-">&#x7EC6;&#x8282; :</h2>
+<p>&#x5728;&#x8FD0;&#x884C;GLSL&#x524D;&#x6211;&#x4EEC;&#x4F1A;&#x9884;&#x5B9A;&#x4E49;&#x975E;&#x5E38;&#x591A;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x662F;&#x521D;&#x5B66;&#x8005;&#xFF0C;&#x53EF;&#x4EE5;&#x6682;&#x65F6;&#x5FFD;&#x7565;&#x8FD9;&#x91CC;&#x3002;</p>
+<ul>
+<li><strong>PixelsWorld V2.0</strong> &#x4F7F;&#x7528;&#x7684;&#x662F; <strong>#version 330 core</strong>. </li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x662F;&#x989D;&#x5916;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x4EE3;&#x7801;</p>
+<h3 id="glsl&#x6A21;&#x5F0F;&#x9884;&#x5B9A;&#x4E49;">GLSL&#x6A21;&#x5F0F;&#x9884;&#x5B9A;&#x4E49;</h3>
+<div><p class="code-filename">extra.shader</p></div>
+<pre class="language-"><code class="lang-glsl"><span class="token preprocessor builtin">#version</span> <span class="token number">330</span> core
+<span class="token preprocessor builtin">#define</span> platform <span class="token number">0</span> <span class="token comment">// If you are on windows platform</span>
+<span class="token preprocessor builtin">#define</span> platform <span class="token number">1</span> <span class="token comment">// If you are on mac platform</span>
+<span class="token preprocessor builtin">#define</span> platform <span class="token operator">-</span><span class="token number">1</span> <span class="token comment">// If you are on unknown platform</span>
+<span class="token preprocessor builtin">#define</span> host <span class="token number">0</span> <span class="token comment">// If you are on Ae host </span>
+<span class="token preprocessor builtin">#define</span> gl_Position <span class="token function">uv2xy</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragCoord <span class="token function">uv2xy</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragColor outColor
+<span class="token preprocessor builtin">#define</span> INPUT_LAYER_INDEX <span class="token operator">-</span><span class="token number">1</span>
+<span class="token preprocessor builtin">#define</span> OUTPUT_LAYER_INDEX <span class="token operator">-</span><span class="token number">2</span>
+<span class="token keyword">out</span> <span class="token keyword">vec4</span> outColor<span class="token punctuation">;</span>
+<span class="token keyword">in</span> <span class="token keyword">vec2</span> uv<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> slider<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> angle<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">bool</span> checkbox<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> point<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> point3d<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> color<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> layer<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> layerResolution<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayer<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> outLayer<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> time<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> date<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> fps<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> width<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> height<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> origin<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> resolution<span class="token punctuation">;</span>
+
+
+<span class="token keyword">vec4</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token keyword">int</span> layerId<span class="token punctuation">,</span><span class="token keyword">vec2</span> coord<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>layerId<span class="token operator">==</span>INPUT_LAYER_INDEX<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayer<span class="token punctuation">,</span>coord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>layerId<span class="token operator">==</span>OUTPUT_LAYER_INDEX<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">texture</span><span class="token punctuation">(</span>outLayer<span class="token punctuation">,</span>coord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>layerId<span class="token operator">&gt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> layerId<span class="token operator">&lt;=</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">texture</span><span class="token punctuation">(</span>layer<span class="token punctuation">[</span>layerId<span class="token punctuation">]</span><span class="token punctuation">,</span>coord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">vec4</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> coord<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayer<span class="token punctuation">,</span>coord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">vec2</span> <span class="token function">uv2xy</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> myuv<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> myuv<span class="token operator">*</span>resolution<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">vec2</span> <span class="token function">xy2uv</span><span class="token punctuation">(</span><span class="token keyword">vec2</span> myxy<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> myxy<span class="token operator">/</span>resolution<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="shadertoy&#x6A21;&#x5F0F;&#x9884;&#x5B9A;&#x4E49;">shadertoy&#x6A21;&#x5F0F;&#x9884;&#x5B9A;&#x4E49;</h3>
+<div><p class="code-filename">extra_shadertoy_front.shader</p></div>
+<pre class="language-"><code class="lang-glsl">
+<span class="token preprocessor builtin">#define</span> gl_Position <span class="token punctuation">(</span>_PixelsWorld_uv <span class="token operator">*</span> iResolution<span class="token punctuation">.</span>xy<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragCoord <span class="token punctuation">(</span>_PixelsWorld_uv <span class="token operator">*</span> iResolution<span class="token punctuation">.</span>xy<span class="token punctuation">)</span>
+<span class="token preprocessor builtin">#define</span> gl_FragColor _PixelsWorld_outColor
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> iResolution<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> iTime<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> iTimeDelta<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">int</span> iFrame<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> iMouse<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> iDate<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> iChannel0<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> iChannel1<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> iChannel2<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> iChannel3<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> iChannelResolution<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token preprocessor builtin">#define</span> INPUT_LAYER_INDEX <span class="token operator">-</span><span class="token number">1</span>
+<span class="token preprocessor builtin">#define</span> OUTPUT_LAYER_INDEX <span class="token operator">-</span><span class="token number">2</span>
+
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_slider<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_angle<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">bool</span> _PixelsWorld_checkbox<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> _PixelsWorld_point<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec3</span> _PixelsWorld_point3d<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> _PixelsWorld_color<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> _PixelsWorld_layer<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> _PixelsWorld_layerResolution<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> _PixelsWorld_inLayer<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> _PixelsWorld_outLayer<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_time<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec4</span> _PixelsWorld_date<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_fps<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_width<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">float</span> _PixelsWorld_height<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> _PixelsWorld_origin<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">vec2</span> _PixelsWorld_resolution<span class="token punctuation">;</span>
+
+<span class="token keyword">in</span> <span class="token keyword">vec2</span> _PixelsWorld_uv<span class="token punctuation">;</span>
+<span class="token keyword">out</span> <span class="token keyword">vec4</span> _PixelsWorld_outColor<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="shadertoy&#x6A21;&#x5F0F;&#x540E;&#x7F6E;&#x5B9A;&#x4E49;">shadertoy&#x6A21;&#x5F0F;&#x540E;&#x7F6E;&#x5B9A;&#x4E49;</h3>
+<div><p class="code-filename">extra_shadertoy_back.shader</p></div>
+<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">mainImage</span><span class="token punctuation">(</span>_PixelsWorld_outColor<span class="token punctuation">,</span> _PixelsWorld_uv <span class="token operator">*</span> iResolution<span class="token punctuation">.</span>xy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><br><br><br><br><br><br><br></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"显卡狂战士GLSL","level":"3.1","depth":1,"next":{"title":"运行GLSL","level":"3.1.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"previous":{"title":"预设管理","level":"2.3","depth":1,"path":"contents/Editor/SavePresets.md","ref":"contents/Editor/SavePresets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","theme-api","codeblock-filename","prism","-highlight","expand-active-chapter","copy-code-button"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"expand-active-chapter":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":true,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/GLSL/GLSLCode.md","mtime":"2020-03-22T16:26:33.751Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-15T16:06:31.906Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expand-active-chapter/expand-active-chapter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
