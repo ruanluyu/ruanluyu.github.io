@@ -1,22 +1,25 @@
-#How to get/use it? 
+# Get/Try/Purchase
 ---
-##Download and install
-- You can purchase and download the PixelsWorld [here](https://milai.tech/products/PixelsWorld).
+## Download
 
-- Drag the "MiLai" folder to : 
->**(Your Ae root path)/Support Files/Plug-ins/**
+- Purchase/Download [PixelsWorld](https://milai.tech/products/PixelsWorld/)
 
-- Make sure the plugin could be found in : 
-> (Your Ae root path)/Support Files/Plug-ins/**MiLai/PixelsWorld.aex**
+> ### Note: 
+> Some preset are under non-commercial license. 
 
-##Try it
-- Open your **Adobe After Effects**. 
-- Press **"Ctrl + N"**(or **"Command + N"**) to add a scene. 
-- Add a solid layer to your scene. 
-- Select the layer you inserted. 
-- **Right button** => **Effect** => **MiLai** => **PixelsWrold**
-- Press **"Edit"** to change the **"World rule"**.
-- Open the **popup menu** right side.
-- Select **"GLSL - Advanced"**
-- Select an interesting effect.
-- Press **"Ok"**.
+- Put the "MiLai" folder into 
+> `(Your AE root folder)/Support Files/Plug-ins/`
+
+
+## How to apply it
+
+- Open **Adobe After Effects**. 
+-  **"Ctrl + N"**(or **"Command + N"**) to create a comp. 
+- Create a solid layer. 
+- Select the solid you created. 
+- **Right click it** => **Effects** => **MiLai** => **PixelsWrold**. 
+- Click **"Edit"** to change **"World formula"**.
+- There will be a **World formula editor showed up** .
+- Find **"Preset list"** and select **"shadertoy"**
+- Choose an effect that are interesting to you. 
+- Click **"Ok"**.

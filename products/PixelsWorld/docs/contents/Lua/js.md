@@ -5,6 +5,8 @@
 
 - Run JavaScript code. 
 
+> Note: Since 2015, the render thread has been seperated by Ae, you cannot obtain any Object of Ae, but you can use this to create your own windows. 
+
 **Parameters :**
 
 - pw.js(jsCode). 
