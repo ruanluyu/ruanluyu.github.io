@@ -104,8 +104,8 @@ pw.full_glsl(full_glsl代码)
 pw.endShaders()
 ```
 
-> 注意，所有在`beginShaders`和`endShaders`之间的渲染函数都强制支持上一渲染器的输出结果（并且完全不耗费时间成本）。
+> 注意，所有在`beginShaders`和`endShaders`之间的渲染函数都强制支持上一渲染器的输出结果（并且完全不耗费时间成本）。使用`getColor(-2,uv)` 或 `getColor(OUTPUT_LAYER_INDEX,uv)` 或 `texture(outLayer,uv)`或 (在shadertoy模式下) `texture(_PixelsWorld_outLayer,_PixelsWorld_uv)`来读取上一层结果。
 
-图示：
+### 流程图
 
 ![流程图](https://world.milai.tech/images/PixelsWorld/Lua/beginshader_workflow.svg)
