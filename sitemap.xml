@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://milai.tech/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://milai.tech/videos/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://milai.tech/donate/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/WaveFD/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/WaveFD/docs/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/HowTo.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Editor/ScriptWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Editor/ParameterWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Editor/SavePresets.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/GLSLCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/Functions.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/uvxy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/Advanced_settings.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/predefined.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/GLSL/shadertoy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/LuaCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/RunLua.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/cpin2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/globals.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/print.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/println.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/alert.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/setColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/ch.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/in2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/full_glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/luaShadertoyFunc.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/beginShaders.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/endShaders.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/js.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/cmd2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/lua2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/getAudio.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/JavaScript.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Lua/CMDCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/contents/Serial/SerialAttention.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs/.</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/index.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/HowTo.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/gotoForum.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Editor/ScriptWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Editor/ParameterWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Editor/SavePresets.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/GLSLCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/Functions.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/uvxy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/Advanced_settings.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/predefined.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/GLSL/shadertoy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/LuaCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/RunLua.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/cpin2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/globals.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/print.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/println.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/alert.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/setColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/ch.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/in2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/full_glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/luaShadertoyFunc.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/beginShaders.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/endShaders.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/js.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/cmd2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/lua2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/getAudio.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/JavaScript.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Lua/CMDCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/contents/Serial/SerialAttention.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/docs_CN/.</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/index.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/index.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/HowTo.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/GLSLCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/Functions.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/uvxy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/Advanced_settings.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/GLSL/shadertoy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/LuaCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/RunLua.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/cpin2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/pwModule.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/report.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/setColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/ch.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/in2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/full_glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/js.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/cmd2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/lua2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/debug_add.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/debug_sub.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/debug_remain.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/debug_clear.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/JavaScript.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/contents/Lua/CMDCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs/.</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/HowTo.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/gotoForum.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Editor/ScriptWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Editor/ParameterWindow.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Editor/SavePresets.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/GLSLCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/Functions.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/uvxy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/Advanced_settings.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/GLSL/shadertoy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/LuaCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/RunLua.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/cpin2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/pwModule.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/report.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/setColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/ch.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/in2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/full_glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/luaShadertoyFunc.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/js.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/cmd2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/lua2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/debug_add.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/debug_sub.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/debug_remain.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/debug_clear.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/JavaScript.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Lua/CMDCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/contents/Serial/SerialAttention.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v2_0/docs_CN/.</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/HowTo.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/GLSLCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/Functions.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/uvxy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/Advanced_settings.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/GLSL/shadertoy.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/LuaCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/RunLua.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/RunGLSL.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/cpin2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/pwModule.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/report.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/getColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/setColor.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/ch.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/in2out.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/full_glsl.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/js.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/cmd2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/lua2.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/LinkParameters.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/debug.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/debug_add.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/debug_sub.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/debug_remain.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/debug_clear.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/JavaScript.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/contents/Lua/CMDCode.html</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://milai.tech/products/PixelsWorld/old_docs/v1_0/docs_CN/.</loc>
+  <lastmod>2020-05-13T15:17:53+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+
+
+</urlset>
