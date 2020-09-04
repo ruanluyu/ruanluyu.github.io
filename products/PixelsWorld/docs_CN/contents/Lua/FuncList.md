@@ -47,6 +47,7 @@
 [rect](#rect),
 [circle](#circle),
 [ellipse](#ellipse),
+[par](#par),
 [line](#line)
 
 [cube](#cube),
@@ -56,8 +57,6 @@
 [tube](#tube)
 
 [image](#image),
-[line](#line),
-[par](#par),
 [coord](#coord),
 [grid](#grid)
 
@@ -310,12 +309,13 @@ rect(50) -- Draw on (200,200,0)
 ## tri
 1. `tri(radius)`以半径为`radius`的圆做一个内接正三角形，并指向画笔坐标y轴正方向。
 1. `tri()`等价于`tri(100)`
-1. `tri(w,h)`以底边为`w`高为`h`做一个等边三角形。
+1. `tri(w,h)`以底边为`w`高为`h`做一个等腰三角形。
 1. `tri(p1x,p1y,p2x,p2y,p3x,p3y)`以`p1,p2,p3`2个二维点为顶点做三角形
 1. `tri(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z)`以`p1,p2,p3`3个三维点为顶点做三角形
 
 > - 如果想要观察三维三角形，请在`version3()`函数后加入`dim3()`，并在Ae图层中建立摄像机观测。
 > - 前3种方式构造的三角形的法线默认为画笔坐标z轴负方向，后2种方式构造的三角形则以`cross(p1-p2,p3-p2)`定几何法线。
+> - 函数名为`triangle`的缩写
 
 ```lua:tri1.lua
 version3()
@@ -343,6 +343,7 @@ tri(0,0,100,50,0,0,0,50,0)
 3. `rect(width,height)`绘制长`width`高`height`的长方形
 
 > - 长方形将以画笔坐标中心为对角线交点生成。
+> - 函数名为`rectangle`的缩写
 
 ## circle
 
@@ -360,7 +361,104 @@ tri(0,0,100,50,0,0,0,50,0)
 > 默认分段为128
 
 ## line
+
 1. `line(p1x,p1y,p2x,p2y)`绘制一条线段
 1. `line(p1x,p1y,p1z,p2x,p2y,p2z)`绘制一条三维线段
 1. `line()`等价于`line(0,0,0,100,100,100)`
+
+> - 线的颜色是由`stroke(r,g,b)`控制的。
+> - 线的粗细是由`strokeWidth(width)`控制的
+> - 线默认是被渲染出来的，屏蔽线渲染请使用`noStroke()`，开启线渲染则用`stroke()`
+
+## par
+
+1. `par(x)` 绘制一个半径为位置为`(x,0,0)`的点
+1. `par(x,y)` 绘制一个半径为位置为`(x,y,0)`的点
+1. `par(x,y,z)` 绘制一个半径为位置为`(x,y,z)`的点
+1. `par()`等价于`par(0,0,0)`
+
+> - 点渲染默认是关闭的，请使用`dot()`打开。并且您随时可以调用`noDot()`关闭它
+> - 点的半径由`dotRadius(radius)`控制
+> - 点的颜色由`dot(r,g,b)`控制
+> - 如果您不想让点被变换压扁或者缩小，使用`dotGlobal()`。默认情况下点是在`dotLocal()`模式下渲染的。
+
+## cube
+
+1. `cube(size)`绘制一个边长为size的正方体
+1. `cube(sizex,sizey,sizez)`绘制一个长宽高`sizex,sizey,sizez`的长方体
+1. `cube()`等价于`cube(100)`
+1. `cube()`
+
+> 长方体的法线默认是朝外的，如果输入负数长度、或者使用了带负号的`scale()`函数会导致法线向内
+
+## tet 
+
+1. `tet(radius)`以`radius`为球面半径绘制一个内接正四面体
+1. `tet()`等价于`tet(50)`
+1. `tet(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z)`以`p1,p2,p3,p4`为顶点绘制一个四面体
+
+> - 第三项绘制的四面体的法线根据绘制顺序而定，具体为：`p1,p2,p3;p2,p1,p4;p3,p2,p4;p1,p3,p4.`的顺序依次绘制四个三角面。关于三角面的法线方向请参考[`tri`](#tri)
+> - 函数名为`tetrahedron`的缩写
+
+## cone
+
+1. `cone(size)`以2*size为高，size为底边半径绘制一个圆锥
+1. `cone()`等价于`cone(50)`
+1. `cone(radius,height)`以radius为半径，height为高绘制一个圆锥
+1. `cone(radius,height,div)`以radius为半径，height为高绘制一个分段为div的圆锥
+
+> - 圆锥默认分段为64
+> - 当分段大于16时会隐藏锥面描边和底边顶点
+> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+
+## ball
+
+1. `ball(radius)`以半径radius绘制一个三维球体
+1. `ball()`等价于`ball(50)`
+1. `ball(radius,level)`以半径radiu和level细分等级绘制一个球体
+
+> - 默认level为4
+> - level必须大于等于0
+> - level等于0时为正八面体
+> - level大于2时将隐藏描边和顶点
+> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+
+## tube
+
+1. `tube(size)`绘制一个底面半径size、高2*size的圆柱体
+1. `tube()`等价于tube(50)
+1. `tube(radius1,radius2,height)`绘制一个靠近绘笔坐标原点底面半径为radius1、远离一侧底面半径为radius2、高为height的圆柱体
+1. `tube(radius1,radius2,height,div)`在第3个函数基础上多了分段的控制。
+1. `tube(radius1,radius2,height,div,needMesh)`在第4个函数基础上多了“是否要渲染两个圆面”的boolean
+1. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第4个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
+
+> - `div`默认值为64
+> - `needMesh`默认值为`true`
+> - 当分段大于16时会隐藏柱面描边和两底边顶点
+> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+
+## image
+
+1. `image(id,width,height)`以长度为width,高为height绘制一张图片到场景上
+
+> - id是材质编号，`PARAM0`~`PARAM9`是您插件面板上的图层控件获得的材质，`INPUT`是输入插件的输入图像，`OUTPUT`是输出图像。
+> - 当您指定id为`OUTPUT`时，因为`OUTPUT`是您当前正绘制的充当绘板的材质，所以会发生一次绘板的截屏行为。因此会比其它参数稍慢一些。
+> - 这个函数与`in2out(id)`的区别是，`image(id,width,height)`会根据绘笔坐标生成一个与场景深度信息互动的图片。这意味着：图片默认绘制出来是上下颠倒的，因为Ae默认的坐标系y轴向下，您需要在前面加入一行`rotateX(PI)`来转正（我们不推荐使用`scale(1,-1)`,这将会导致其它后续绘制图形出现法线错误）；而`in2out(id)`则是忽略深度信息，直接把像素写到当前绘板中（并且没有上下颠倒问题）。
+
+下面这个例子将演示一个与输入图片穿插交互的立方体
+
+```lua:render_image.lua
+version3()
+dim3()
+move(width/2,height/2)
+beginGroup()
+rotateX(PI)
+image(INPUT,width,height)
+endGroup()
+rotateX(QPI * time)
+rotateY(QPI * time)
+cube()
+```
+
+
 
