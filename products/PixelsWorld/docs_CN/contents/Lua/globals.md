@@ -45,7 +45,10 @@ time -- 当前时间(s)
 duration -- 所在图层持续时间(s)
 inpoint -- 所在图层入点时间(s)
 compTime -- 合成时间
-pluginFolder -- 插件所在目录
+pluginFolder -- 插件所在目录(utf8)
+projectName -- 工程名(utf8)
+projectPath -- 工程路径(utf8)
+projectFolder -- 工程所在文件夹的路径(utf8)
 ds_width -- 降采样后合成宽度
 ds_height -- 降采样后合成高度
 ```
