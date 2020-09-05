@@ -13,9 +13,6 @@
 
 - vec4 :  RGBA颜色（各维度0~1）
 
->**注意 : **
-> 我们强烈建议使用 ```getColor(uv);``` 来获取像素，若使用 ```texture2d``` 不能确保返回正确的像素值
-
 ##getColor(int,vec2)
 **说明 : **
 
@@ -23,7 +20,7 @@
 
 **参数 : **
 
-- int : 图层索引, -1 (或者 INPUT_LAYER_INDEX) 也就是输入层，数字0-9代表着插件面板对应的图层参数0-9(OUTPUT_LAYER_INDEX (图层索引-2)  Lua渲染模式下使用)
+- int : 图层索引, -1 (或者 AE_INPUT_LAYER) 也就是输入层，数字0-9代表着插件面板对应的图层参数0-9(PW_TEMP_LAYER (图层索引-2)  Lua渲染模式下使用)
 - vec2 : uv 坐标
 
 **返回 : **
@@ -32,5 +29,5 @@
 
 >**注意 : **
 >
->- 总之, ```getColor(-1,uv);``` 与```getColor(uv)```效果一致;
->- ```getColor(n,uv);``` 能返回 layer[n]的像素信息
+>- 总之, ```getColor(AE_INPUT_LAYER,uv);``` 与```getColor(uv)```效果一致;
+>- ```getColor(n,uv);``` 能返回`layer[n]`的像素信息

@@ -3,7 +3,7 @@
 
 >** Lua是一种轻量级，高级，多范式编程语言，主要用于嵌入式应用程序中.* [——Wiki](https://en.wikipedia.org/wiki/Lua_(programming_language))
 
-**版本 : [Lua5.3](https://www.lua.org/manual/5.3/)**
+**版本 : [Lua5.3（点击查看中文完全技术文档）](https://cloudwu.github.io/lua53doc/contents.html)**
 
 Lua是一种十份类似表达式和Ae脚本的语言，是像素世界的中心，连接了所有模块。基本上你只要记住几个操作的英文单词，就可以让像素世界按部就班的为您绘制图形。
 
