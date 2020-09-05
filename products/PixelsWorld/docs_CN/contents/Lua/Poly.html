@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>链接参数 · GitBook</title>
+        <title>Poly函数 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="globals.html" />
+    <link rel="next" href="RunGLSL.html" />
     
     
-    <link rel="prev" href="importantFuncs.html" />
+    <link rel="prev" href="FuncList.html" />
     
 
     </head>
@@ -257,7 +257,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.3" data-path="LinkParameters.html">
+        <li class="chapter " data-level="3.1.3" data-path="LinkParameters.html">
             
                 <a href="LinkParameters.html">
             
@@ -302,7 +302,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.6" data-path="Poly.html">
+        <li class="chapter active" data-level="3.1.6" data-path="Poly.html">
             
                 <a href="Poly.html">
             
@@ -596,7 +596,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >链接参数</a>
+        <a href="../.." >Poly函数</a>
     </h1>
 </div>
 
@@ -611,26 +611,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x94FE;&#x63A5;&#x53C2;&#x6570;">&#x94FE;&#x63A5;&#x53C2;&#x6570;</h1>
-<hr>
-<p>&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x4E0A;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
-<div><p class="code-filename">parameters.lua</p></div>
-<pre class="language-"><code class="lang-lua"><span class="token function">slider</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>  <span class="token comment">-- &#x8FD4;&#x56DE;1&#x4E2A;double</span>
-<span class="token function">angle</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>  <span class="token comment">-- &#x8FD4;&#x56DE;1&#x4E2A;double</span>
-<span class="token function">point</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>  <span class="token comment">-- &#x8FD4;&#x56DE;2&#x4E2A;double</span>
-<span class="token function">point3d</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token comment">-- &#x8FD4;&#x56DE;3&#x4E2A;double</span>
-<span class="token function">checkbox</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token comment">-- &#x8FD4;&#x56DE;1&#x4E2A;boolean</span>
-<span class="token function">color</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token comment">-- &#x8FD4;&#x56DE;3&#x4E2A;double</span>
-<span class="token function">layer</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token comment">-- &#x8FD4;&#x56DE;4&#x4E2A;double</span>
-</code></pre>
-<p>&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x58F0;&#x660E;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x6765;&#x63A5;&#x4F4F;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4F8B;&#x5982;<code>point()</code>&#x51FD;&#x6570;</p>
-<div><p class="code-filename">point.lua</p></div>
+                                <h1 id="&#x521B;&#x4E16;&#x795E;&#x542F;&#x793A;&#x5F55;&#x2014;&#x2014;poly&#x51FD;&#x6570;">&#x521B;&#x4E16;&#x795E;&#x542F;&#x793A;&#x5F55;&#x2014;&#x2014;Poly&#x51FD;&#x6570;</h1>
+<p><code>poly(obj)</code>&#x51FD;&#x6570;&#x5C06;&#x89E3;&#x6790;obj&#x5E76;&#x7ED8;&#x5236;&#x7269;&#x4F53;&#x3002;</p>
+<h2 id="obj&#x7684;&#x6784;&#x9020;">obj&#x7684;&#x6784;&#x9020;</h2>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60A8;&#x7528;&#x8FC7;Houdini&#xFF0C;<code>obj</code>&#x7684;&#x6784;&#x9020;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#x4E8E;&#x586B;&#x4E00;&#x5F20;Houdini&#x4E2D;&#x7684;SpreadSheet</p>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x662F;&#x7ED8;&#x5236;&#x4E00;&#x4E2A;&#x5947;&#x7279;&#x4E09;&#x89D2;&#x5F62;&#x7684;obj</p>
+<div><p class="code-filename">PolyTest1.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-x<span class="token punctuation">,</span>y <span class="token operator">=</span> <span class="token function">point</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&apos;x is &apos;</span> <span class="token operator">..</span> x<span class="token punctuation">)</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&apos;y is &apos;</span> <span class="token operator">..</span> y<span class="token punctuation">)</span>
+<span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+obj<span class="token operator">=</span><span class="token punctuation">{</span>
+    point<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;line&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;point&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<p><img src="linkPoint.png" alt="&#x8FD0;&#x884C;&#x7ED3;&#x679C;"></p>
+<p><img src="poly_test1.png" alt="&#x7ED3;&#x679C;"></p>
+<p>&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x987A;&#x5E8F;&#x5B9A;&#x4E49;obj&#x7684;&#x7EC6;&#x8282;&#x3002;</p>
+<ul>
+<li><code>obj</code>&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x3002;</li>
+<li><code>obj</code>&#x53EF;&#x542B;&#x6709;&#x56DB;&#x4E2A;&#x952E;&#xFF1A;<code>point</code>,<code>vertex</code>,<code>prim</code>,<code>detail</code>&#x3002;</li>
+<li><code>obj</code>&#x7684;&#x56DB;&#x4E2A;&#x952E;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x5206;&#x522B;&#x4E3A;&#x56DB;&#x5F20;&#x8868;&#xFF0C;&#x6682;&#x65F6;&#x79F0;&#x4F5C;&#x3002;<code>pointArray</code>,<code>vertexArray</code>,<code>primArray</code>,<code>detailList</code>&#x3002;</li>
+<li><code>pointArray</code>&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;</li>
+<li><code>vertexArray</code>&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;</li>
+<li><code>primArray</code>&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;</li>
+<li><code>detailList</code>&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;</li>
+<li>&#x4E0A;&#x8FF0;&#x5E26;<code>Array</code>&#x540E;&#x7F00;&#x7684;&#x8868;&#x53EF;&#x4EE5;&#x88C5;&#x6709;N&#x4E2A;&#x5B50;&#x8868;&#xFF0C;N&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x5B9A;&#x4E49;&#x5927;&#x5C0F;&#x3002;</li>
+<li><code>pointArray</code>&#x7684;&#x7B2C;k&#x4E2A;&#x5B50;&#x8868;&#x6682;&#x65F6;&#x53EB;&#x505A;<code>point[k]</code>&#x6216;&#x201C;&#x7B2C;k&#x4E2A;&#x70B9;&#x201D;&#x3002;</li>
+<li><code>vertexArray</code>&#x7684;&#x7B2C;k&#x4E2A;&#x5B50;&#x8868;&#x6682;&#x65F6;&#x53EB;&#x505A;<code>vertex[k]</code>&#x6216;&#x201C;&#x7B2C;k&#x4E2A;&#x5B50;&#x70B9;&#x201D;&#x3002;</li>
+<li><code>primArray</code>&#x7684;&#x7B2C;k&#x4E2A;&#x5B50;&#x8868;&#x6682;&#x65F6;&#x53EB;&#x505A;<code>prim[k]</code>&#x6216;&#x201C;&#x7B2C;k&#x4E2A;&#x56FE;&#x5143;&#x201D;&#x3002;</li>
+<li><code>detailList</code>&#x548C;&#x4E0A;&#x8FF0;&#x4E09;&#x79CD;&#x5B50;&#x8868;&#xFF0C;&#x91CC;&#x9762;&#x88C5;&#x7740;&#x82E5;&#x5E72;&#x4E0D;&#x53EF;&#x518D;&#x7EC6;&#x5206;&#x7684;&#x5355;&#x4F4D;&#xFF1A;&#x952E;&#x503C;&#x5BF9;&#x3002;&#x8FD9;&#x4E9B;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x952E;&#x6682;&#x65F6;&#x79F0;&#x4E3A;<code>K</code>,&#x503C;&#x6682;&#x65F6;&#x79F0;&#x4E3A;<code>V</code>&#x3002;</li>
+<li><code>K</code>&#x63A8;&#x8350;&#x53EA;&#x542B;&#x6709;&#x82F1;&#x6587;&#x6570;&#x5B57;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x4E14;&#x4E0D;&#x662F;&#x7EAF;&#x6570;&#x5B57;&#x3002;</li>
+<li><code>V</code>&#x6709;&#x4E00;&#x7EF4;&#x3001;&#x4E8C;&#x7EF4;&#x3001;&#x4E09;&#x7EF4;&#x3001;&#x56DB;&#x7EF4;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6750;&#x8D28;&#x7F16;&#x53F7;&#x548C;&#x7D22;&#x5F15;&#x7EC4;&#x5171;7&#x79CD;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x6D6E;&#x70B9;&#x6570;<code>x,y,z,w</code></li>
+<li><code>x</code>&#x6216;<code>{x}</code>&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x7EF4;<code>V</code>&#x3002;</li>
+<li><code>{x,y}</code>&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;<code>V</code>&#x3002;</li>
+<li><code>{x,y,z}</code>&#x662F;&#x4E00;&#x4E2A;&#x4E09;&#x7EF4;<code>V</code>&#x3002;</li>
+<li><code>{x,y,z,w}</code>&#x662F;&#x4E00;&#x4E2A;&#x56DB;&#x7EF4;<code>V</code>&#x3002;</li>
+<li><code>&quot;Hello! PixelsWorld!&quot;</code>&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;<code>V</code>&#x3002;</li>
+<li>&#x5F53;<code>K</code>&#x7684;&#x672B;&#x5C3E;&#x56DB;&#x4E2A;&#x5B57;&#x7B26;<code>&quot;_tex&quot;</code>&#x6216;<code>K</code>&#x7B49;&#x4E8E;<code>&quot;texture&quot;</code>&#x65F6;&#xFF0C;&#x4E14;&#x5F53;<code>V</code>&#x662F;&#x6574;&#x6570;&#x4E14;&#x5BF9;&#x5E94;&#x6750;&#x8D28;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;<code>V</code>&#x662F;&#x4E00;&#x4E2A;&#x6750;&#x8D28;&#x7F16;&#x53F7;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6574;&#x6570;&#x6570;&#x5217;<code>a1,...,an</code>,<code>{a1,a2,a3,...,an}</code>&#x662F;&#x7D22;&#x5F15;&#x7EC4;<code>V</code>&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x70B9;<code>point[k]</code>&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x540D;&#x79F0;&#x4E3A;<code>&quot;p&quot;</code>&#x7684;<code>K</code>&#x6765;&#x8868;&#x793A;&#x70B9;&#x4F4D;&#x7F6E;&#x3002;&#x5426;&#x5219;&#x4E3A;&#x65E0;&#x6548;&#x70B9;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x5B50;&#x70B9;<code>vertex[k]</code>&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x540D;&#x79F0;&#x4E3A;<code>&quot;pref&quot;</code>&#x7684;<code>K</code>&#x548C;&#x4E00;&#x7EF4;<code>V</code>&#x8868;&#x793A;&#x53C2;&#x7167;&#x70B9;id&#x3002;&#x5426;&#x5219;&#x4E3A;&#x65E0;&#x6548;&#x5B50;&#x70B9;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x56FE;&#x5143;<code>prim[k]</code>&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;<code>&quot;type&quot;</code>&#x7684;<code>K</code>&#x548C;&#x5B57;&#x7B26;&#x4E32;<code>V</code>&#x6765;&#x8868;&#x793A;&#x56FE;&#x5143;&#x7C7B;&#x578B;&#x3001;&#x5FC5;&#x987B;&#x5B58;&#x5728;<code>&quot;vref&quot;</code>&#x6216;<code>&quot;pref&quot;</code>&#x7684;<code>K</code>&#x548C;&#x7D22;&#x5F15;&#x7EC4;<code>V</code>&#x6765;&#x8868;&#x793A;&#x56FE;&#x5143;&#x3002;</li>
+</ul>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -665,7 +702,7 @@ x<span class="token punctuation">,</span>y <span class="token operator">=</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"链接参数","level":"3.1.3","depth":2,"next":{"title":"全局参数","level":"3.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"previous":{"title":"最重要的函数","level":"3.1.2","depth":2,"path":"contents/Lua/importantFuncs.md","ref":"contents/Lua/importantFuncs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/LinkParameters.md","mtime":"2020-09-03T07:40:40.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-05T18:33:11.583Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Poly函数","level":"3.1.6","depth":2,"next":{"title":"在Lua中运行GLSL ","level":"3.1.7","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"函数列表","level":"3.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2020-09-05T18:33:06.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-05T18:33:11.583Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

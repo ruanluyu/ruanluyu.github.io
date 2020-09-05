@@ -60,7 +60,7 @@
 [coord](#coord),
 [grid](#grid)
 
-[poly](#poly),
+[poly](#Poly.md),
 [setPoly](#setpoly)
 
 [background](#background),
@@ -469,6 +469,11 @@ cube()
 
 `grid()`将把当前绘笔坐标所在的xy平面以100x100网眼大小的的网格可视化出来。
 
+## setPoly
+
+`setPoly(obj)`可以提前解析要绘制的物体信息，您在设置后可以调用`poly()`来快速绘制刚刚设置的物体。
+
+> 关于obj的构造请前往[Poly](Poly.md)章节
 
 ## background
 
