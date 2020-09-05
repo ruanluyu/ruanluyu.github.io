@@ -60,7 +60,7 @@
 [coord](#coord),
 [grid](#grid)
 
-[poly](#Poly.md),
+[poly](Poly.md),
 [setPoly](#setpoly)
 
 [background](#background),
