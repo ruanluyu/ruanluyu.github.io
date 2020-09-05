@@ -740,7 +740,7 @@
 <pre class="language-"><code class="lang-lua">pw3<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="print">print</h2>
-<p><code>print(str)</code>,<code>print(str,r,g,b,a)</code>&#x662F;&#x5728;&#x5C4F;&#x5E55;&#x5DE6;&#x4E0A;&#x89D2;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p><code>print(str)</code>,<code>print(str,brightness)</code>,<code>print(str,r,g,b)</code>,<code>print(str,r,g,b,a)</code>&#x662F;&#x5728;&#x5C4F;&#x5E55;&#x5DE6;&#x4E0A;&#x89D2;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 <div><p class="code-filename">print.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
@@ -752,7 +752,7 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <span class="token keyword">end</span>
 </code></pre>
 <h2 id="println">println</h2>
-<p><code>println(str)</code>,<code>println(str,r,g,b,a)</code>&#x662F;&#x5728;&#x5C4F;&#x5E55;&#x5DE6;&#x4E0A;&#x89D2;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5E76;&#x5728;&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x540E;&#x6362;&#x884C;&#x3002;</p>
+<p><code>println(str)</code>,<code>println(str,brightness)</code>,<code>println(str,r,g,b)</code>,<code>println(str,r,g,b,a)</code>&#x662F;&#x5728;&#x5C4F;&#x5E55;&#x5DE6;&#x4E0A;&#x89D2;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5E76;&#x5728;&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x540E;&#x6362;&#x884C;&#x3002;</p>
 <div><p class="code-filename">println.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
@@ -1039,6 +1039,402 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <span class="token function">rotateY</span><span class="token punctuation">(</span>QPI <span class="token operator">*</span> time<span class="token punctuation">)</span>
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="coord">coord</h2>
+<p><code>coord()</code>&#x5C06;&#x628A;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x53EF;&#x89C6;&#x5316;&#x51FA;&#x6765;&#x3002;</p>
+<h2 id="grid">grid</h2>
+<p><code>grid()</code>&#x5C06;&#x628A;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x6240;&#x5728;&#x7684;xy&#x5E73;&#x9762;&#x4EE5;100x100&#x7F51;&#x773C;&#x5927;&#x5C0F;&#x7684;&#x7684;&#x7F51;&#x683C;&#x53EF;&#x89C6;&#x5316;&#x51FA;&#x6765;&#x3002;</p>
+<h2 id="background">background</h2>
+<p><code>background(brightness)</code>,<code>background(r,g,b)</code>,<code>background(r,g,b,a)</code>&#x5C06;&#x5F53;&#x524D;&#x7ED8;&#x677F;&#x6D82;&#x6210;&#x5BF9;&#x5E94;&#x989C;&#x8272;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x60A8;&#x4E4B;&#x524D;&#x7ED8;&#x5236;&#x8FC7;&#x5F62;&#x72B6;&#xFF0C;&#x8FD9;&#x4E9B;&#x5F62;&#x72B6;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="in2out">in2out</h2>
+<ol>
+<li><code>in2out(id)</code>&#x4F1A;&#x628A;&#x7B2C;id&#x4E2A;&#x5C42;&#x53C2;&#x6570;&#x8BBE;&#x4E3A;&#x80CC;&#x666F;&#x3002;</li>
+<li><code>in2out()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>in2out(INPUT)</code>&#xFF0C;&#x5B83;&#x8D1F;&#x8D23;&#x628A;&#x8F93;&#x5165;&#x5C42;&#x5F53;&#x505A;&#x80CC;&#x666F;&#x3002;</li>
+</ol>
+<h2 id="dim2">dim2</h2>
+<p><code>dim2()</code>&#x5C06;&#x4F7F;&#x7528;2D&#x6A21;&#x5F0F;&#x7ED8;&#x56FE;&#xFF0C;&#x8FD9;&#x4E00;&#x9879;&#x9ED8;&#x8BA4;&#x662F;&#x5F00;&#x542F;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x60A8;&#x65E0;&#x9700;&#x8C03;&#x7528;&#x3002;</p>
+<blockquote>
+<p>&#x672C;&#x8D28;PixelsWorld&#x4E2D;&#x7684;2D&#x6A21;&#x5F0F;&#x662F;&#x6CA1;&#x6709;&#x6DF1;&#x5EA6;&#x4FE1;&#x606F;&#x7684;&#x6B63;&#x4EA4;3D&#x6A21;&#x5F0F;&#x3002;</p>
+</blockquote>
+<h2 id="dim3">dim3</h2>
+<p><code>dim3()</code>&#x5C06;&#x4F7F;&#x7528;3D&#x6A21;&#x5F0F;&#x7ED8;&#x56FE;&#x3002;&#x6211;&#x4EEC;&#x63A8;&#x8350;&#x58F0;&#x660E;&#x5728;&#x7D27;&#x968F;<code>version3()</code>&#x4E4B;&#x540E;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<h2 id="perspective">perspective</h2>
+<p><code>perspective()</code>&#x5C06;&#x4F7F;&#x7528;&#x900F;&#x89C6;&#x89C6;&#x56FE;&#x6E32;&#x67D3;&#xFF0C;&#x7269;&#x4F53;&#x5C06;&#x7B26;&#x5408;&#x8FD1;&#x5927;&#x8FDC;&#x5C0F;&#x89C4;&#x5219;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="#viewspace">viewSpace</a>&#x6765;&#x8C03;&#x6574;&#x6444;&#x50CF;&#x673A;&#x4FE1;&#x606F;&#x3001;&#x4F7F;&#x7528;<a href="#lookat">lookAt</a>&#x6765;&#x8C03;&#x6574;&#x6444;&#x50CF;&#x673A;&#x4F4D;&#x7F6E;&#x3002;</p>
+<blockquote>
+<p>&#x8FD9;&#x4E00;&#x9879;&#x9ED8;&#x8BA4;&#x662F;&#x5F00;&#x542F;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x60A8;&#x65E0;&#x9700;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+<h2 id="noperspective">noPerspective</h2>
+<p><code>noPerspective()</code>&#x5C06;&#x4F7F;&#x7528;&#x6B63;&#x4EA4;&#x89C6;&#x56FE;&#x6E32;&#x67D3;&#xFF0C;&#x7269;&#x4F53;&#x4E92;&#x76F8;&#x5E73;&#x884C;&#x7684;&#x8FB9;&#x7F18;&#x5728;&#x6E32;&#x67D3;&#x89C6;&#x56FE;&#x4E2D;&#x4E5F;&#x5C06;&#x5E73;&#x884C;&#x3002;</p>
+<h2 id="fill">fill</h2>
+<ol>
+<li><code>fill()</code>&#x5C06;&#x5F00;&#x542F;&#x586B;&#x5145;&#x3002;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x3002;</li>
+<li><code>fill(brightness)</code>,<code>fill(r,g,b)</code>,<code>fill(r,g,b,a)</code>&#x5C06;&#x5F00;&#x542F;&#x586B;&#x5145;&#x5E76;&#x8BBE;&#x7F6E;&#x586B;&#x5145;&#x8272;&#x3002;</li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x5728;3D&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x5C06;&#x586B;&#x5145;&#x7684;&#x900F;&#x660E;&#x503C;&#x8BBE;&#x4E3A;&#x5C0F;&#x4E8E;1&#x7684;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x7531;&#x8FDC;&#x5230;&#x8FD1;&#x7684;&#x987A;&#x5E8F;&#x6E32;&#x67D3;&#x7269;&#x4F53;&#xFF0C;&#x5426;&#x5219;&#x524D;&#x9762;&#x7684;&#x900F;&#x660E;&#x7269;&#x4F53;&#x4F1A;&#x5B8C;&#x5168;&#x906E;&#x6321;&#x4F4F;&#x540E;&#x9762;&#x7684;&#x7269;&#x4F53;&#x3002;&#xFF08;&#x8FD9;&#x662F;OpenGL&#x7ED8;&#x56FE;&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x6027;&#xFF09;</li>
+</ul>
+</blockquote>
+<h2 id="nofill">noFill</h2>
+<p><code>noFill()</code>&#x5C06;&#x5173;&#x95ED;&#x586B;&#x5145;&#x3002;</p>
+<h2 id="stroke">stroke</h2>
+<ol>
+<li><code>stroke()</code>&#x5C06;&#x5F00;&#x542F;&#x63CF;&#x8FB9;&#x3002;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x3002;</li>
+<li><code>stroke(brightness)</code>,<code>stroke(r,g,b)</code>,<code>stroke(r,g,b,a)</code>&#x5C06;&#x5F00;&#x542F;&#x63CF;&#x8FB9;&#x5E76;&#x8BBE;&#x7F6E;&#x63CF;&#x8FB9;&#x8272;&#x3002;</li>
+</ol>
+<h2 id="nostroke">noStroke</h2>
+<p><code>noStroke()</code>&#x5C06;&#x5173;&#x95ED;&#x63CF;&#x8FB9;&#x3002;</p>
+<h2 id="dot">dot</h2>
+<ol>
+<li><code>dot()</code>&#x5F00;&#x542F;&#x9876;&#x70B9;&#x6E32;&#x67D3;&#x3002;&#x9ED8;&#x8BA4;&#x5173;&#x95ED;&#x3002;</li>
+<li><code>dot(brightness)</code>,<code>dot(r,g,b)</code>,<code>dot(r,g,b,a)</code>&#x5C06;&#x5F00;&#x542F;&#x9876;&#x70B9;&#x6E32;&#x67D3;&#x5E76;&#x8BBE;&#x7F6E;&#x9876;&#x70B9;&#x6E32;&#x67D3;&#x989C;&#x8272;&#x3002;</li>
+</ol>
+<h2 id="nodot">noDot</h2>
+<p><code>noDot()</code>&#x5C06;&#x5173;&#x95ED;&#x9876;&#x70B9;&#x6E32;&#x67D3;&#x3002;</p>
+<h2 id="wireframe">wireframe</h2>
+<p><code>wireframe()</code>&#x5C06;&#x5F00;&#x542F;&#x7EBF;&#x6846;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="nowireframe">noWireframe</h2>
+<p><code>noWireframe()</code>&#x5C06;&#x5173;&#x95ED;&#x7EBF;&#x6846;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="blendalpha">blendAlpha</h2>
+<p><code>blendAlpha()</code>&#x5C06;&#x5F00;&#x542F;&#x6DF7;&#x8272;&#x3002;</p>
+<h2 id="noblendalpha">noBlendAlpha</h2>
+<p><code>noBlendAlpha</code>&#x5C06;&#x5173;&#x95ED;&#x6DF7;&#x8272;&#x3002;</p>
+<h2 id="back">back</h2>
+<p><code>back()</code>&#x586B;&#x5145;&#x542B;&#x900F;&#x660E;&#x8272;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x663E;&#x793A;&#x7269;&#x4F53;&#x80CC;&#x9762;&#x3002;&#x9ED8;&#x8BA4;&#x5173;&#x95ED;&#x3002;</p>
+<h2 id="noback">noBack</h2>
+<p><code>noBack()</code>&#x5173;&#x95ED;&#x80CC;&#x9762;&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="pure">pure</h2>
+<p><code>pure()</code>&#x5C06;&#x4F7F;&#x7528;&#x7EAF;&#x8272;&#x6A21;&#x5F0F;&#x6E32;&#x67D3;&#x573A;&#x666F;&#x3002;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x3002;</p>
+<blockquote>
+<p>anime,phong,pure&#x662F;&#x4E09;&#x79CD;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x5E94;&#x7528;&#x7684;&#x6750;&#x8D28;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x79CD;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</p>
+</blockquote>
+<h2 id="phong">phong</h2>
+<ol>
+<li><code>phong(ambient,diffuse,specular,specularPower)</code>&#x5C06;&#x5207;&#x6362;&#x5230;phong&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x628A;&#x73AF;&#x5883;&#x5149;&#x53CD;&#x5C04;&#x5F3A;&#x5EA6;&#x8BBE;&#x4E3A;ambient&#x3001;&#x4EAE;&#x9762;&#x6F2B;&#x53CD;&#x5C04;&#x5F3A;&#x5EA6;&#x8BBE;&#x4E3A;diffuse&#x3001;&#x9AD8;&#x5149;&#x5F3A;&#x5EA6;&#x8BBE;&#x4E3A;specular&#x3002;specularPower&#x8D1F;&#x8D23;&#x8BBE;&#x7F6E;&#x9AD8;&#x5149;&#x8870;&#x51CF;&#x91CF;&#x7EA7;&#xFF0C;&#x8BE5;&#x9879;&#x8D8A;&#x5927;&#xFF0C;&#x9AD8;&#x5149;&#x8870;&#x51CF;&#x8D8A;&#x5FEB;&#x3002;</li>
+<li><code>phong()</code>&#x5C06;&#x5207;&#x6362;&#x5230;phong&#x6750;&#x8D28;&#x6A21;&#x5F0F;&#x3002;&#x4E0D;&#x6539;&#x52A8;&#x8BBE;&#x7F6E;&#x3002;</li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x573A;&#x666F;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5149;&#x6E90;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x60A8;&#x9700;&#x8981;&#x4F7F;&#x7528;<a href="#getlight">getLight()</a>&#xFF0C;&#x6216;<a href="#ambientlight">ambientLight()</a>&#x3001;<a href="#parallellight">parallelLight()</a>&#x3001;<a href="#pointlight">pointLight</a>&#x6765;&#x83B7;&#x53D6;&#x5149;&#x6E90;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5728;&#x6709;&#x5149;&#x6E90;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#x7684;&#x7269;&#x4F53;&#x4ECD;&#x7136;&#x662F;&#x7EAF;&#x9ED1;&#x8272;&#xFF0C;&#x8C03;&#x7528;<a href="#normal">normal</a>&#x8BF7;&#x68C0;&#x67E5;&#x6CD5;&#x7EBF;&#x662F;&#x5426;&#x6B63;&#x786E;&#x3002;</li>
+<li>&#x6BCF;&#x4E00;&#x9879;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x503C;&#x4E3A;&#xFF1A;ambient:1,diffuse:1,specular:1,specularPower:1</li>
+<li>anime,phong,pure&#x662F;&#x4E09;&#x79CD;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x5E94;&#x7528;&#x7684;&#x6750;&#x8D28;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x79CD;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</li>
+<li>&#x8BF7;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x6267;&#x884C;<a href="#dim3">dim3()</a></li>
+</ul>
+</blockquote>
+<h2 id="anime">anime</h2>
+<ol>
+<li><code>anime(ambient,diffuse,specular,specularPower,diffuseThreshold,specularThreshold)</code></li>
+<li><code>anime()</code>&#x5C06;&#x5207;&#x6362;&#x5230;&#x52A8;&#x6F2B;&#x6750;&#x8D28;&#x6A21;&#x5F0F;&#x3002;&#x4E0D;&#x6539;&#x52A8;&#x8BBE;&#x7F6E;&#x3002;</li>
+</ol>
+<blockquote>
+<ul>
+<li>anime&#x6750;&#x8D28;&#x662F;&#x5728;<a href="#phong">phong</a>&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x524D;&#x56DB;&#x9879;&#x53C2;&#x6570;&#xFF1A;ambient,diffuse,specular,specularPower&#x4E0E;phong&#x76F8;&#x540C;&#xFF0C;&#x5269;&#x4F59;&#x4E24;&#x9879;diffuseThreshold&#x8D1F;&#x8D23;&#x8BBE;&#x7F6E;&#x6F2B;&#x53CD;&#x5C04;&#x7684;&#x9608;&#x503C;&#xFF0C;&#x5F53;&#x6F2B;&#x53CD;&#x5C04;&#x4EAE;&#x5EA6;&#x8D85;&#x8FC7;&#x9608;&#x503C;&#x65F6;&#x5219;&#x8BBE;&#x4E3A;&#x4EAE;&#x9762;&#xFF0C;&#x4F4E;&#x4E8E;&#x9608;&#x503C;&#x65F6;&#x5219;&#x8BBE;&#x7F6E;&#x4E3A;&#x6697;&#x9762;&#x3002;&#x540C;&#x7406;&#xFF0C;specularThreshold&#x8D1F;&#x8D23;&#x9AD8;&#x5149;&#x7684;&#x9608;&#x503C;&#x3002;</li>
+<li>anime&#x6750;&#x8D28;&#x5BF9;&#x6297;&#x952F;&#x9F7F;&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x5F00;&#x542F;&#x4E86;&#x6297;&#x952F;&#x9F7F;&#xFF08;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5149;&#x5F71;&#x8FC7;&#x6E21;&#x8FB9;&#x7F18;&#x4F1A;&#x88AB;&#x6297;&#x952F;&#x9F7F;&#x5904;&#x7406;&#x3002;&#x5173;&#x95ED;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x7684;&#x6297;&#x952F;&#x9F7F;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x5173;&#x95ED;&#x5149;&#x5F71;&#x8FB9;&#x7F18;&#x7684;&#x6297;&#x952F;&#x9F7F;&#x5904;&#x7406;&#x3002;</li>
+<li>&#x6BCF;&#x4E00;&#x9879;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x503C;&#x4E3A;&#xFF1A;ambient:1,diffuse:1,specular:1,specularPower:1,diffuseThreshold:0.5,specularThreshold:0.8</li>
+<li>anime,phong,pure&#x662F;&#x4E09;&#x79CD;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x5E94;&#x7528;&#x7684;&#x6750;&#x8D28;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x79CD;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</li>
+<li>&#x8BF7;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x6267;&#x884C;<a href="#dim3">dim3()</a></li>
+</ul>
+</blockquote>
+<h2 id="color">color</h2>
+<p><code>color()</code>RGBA&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x6A21;&#x5F0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x3002;</p>
+<blockquote>
+<ul>
+<li>color,depth,normal&#x662F;&#x4E09;&#x4E2A;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x6210;&#x7ACB;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x9879;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x9879;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6750;&#x8D28;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="depth">depth</h2>
+<p><code>depth(blackDistance, whiteDistance)</code>&#x662F;&#x628A;&#x6DF1;&#x5EA6;&#x5F53;&#x505A;&#x4EAE;&#x5EA6;&#x4FE1;&#x606F;&#x8F93;&#x51FA;&#x7684;&#x6A21;&#x5F0F;&#x3002;&#x4F8B;&#x5982;&#x60A8;&#x60F3;&#x8F93;&#x51FA;&#x4E00;&#x5F20;&#x6DF1;&#x5EA6;&#x56FE;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;blackDistance&#x548C;whiteDistance&#x6765;&#x8BBE;&#x7F6E;&#x8DDD;&#x79BB;&#x6444;&#x50CF;&#x673A;&#x591A;&#x8FDC;&#x7684;&#x65F6;&#x5019;&#x8F93;&#x51FA;&#x9ED1;&#x8272;&#x6216;&#x767D;&#x8272;&#x3002;&#x5BF9;&#x4E8E;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#x4F1A;&#x505A;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x6210;&#x7070;&#x8272;&#x3002;&#x5F53;&#x60A8;&#x628A;blackDistance&#x548C;whiteDistance&#x8BBE;&#x4E3A;&#x540C;&#x4E00;&#x6570;&#x503C;&#x65F6;&#xFF0C;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#x4F1A;&#x628A;&#x60A8;&#x8BBE;&#x7F6E;&#x7684;&#x6570;&#x503C;&#x5F53;&#x505A;&#x9608;&#x503C;&#x6765;&#x8F93;&#x51FA;&#x7EAF;&#x9ED1;&#x8272;&#x6216;&#x7EAF;&#x767D;&#x8272;&#x3002;</p>
+<blockquote>
+<ul>
+<li>color,depth,normal&#x662F;&#x4E09;&#x4E2A;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x6210;&#x7ACB;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x9879;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x9879;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x4F1A;&#x65E0;&#x89C6;&#x6750;&#x8D28;&#x3002;</li>
+<li>&#x8BF7;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x6267;&#x884C;<a href="#dim3">dim3()</a></li>
+</ul>
+</blockquote>
+<h2 id="normal">normal</h2>
+<ol>
+<li><code>normal(faceToCamera, normalize)</code>&#x5207;&#x6362;&#x5230;normal&#x6A21;&#x5F0F;&#xFF0C;&#x4FEE;&#x6539;faceToCamera&#x548C;normalize&#x53D8;&#x91CF;</li>
+<li><code>normal(faceToCamera)</code>&#x5207;&#x6362;&#x5230;normal&#x6A21;&#x5F0F;&#xFF0C;&#x53EA;&#x4FEE;&#x6539;faceToCamera&#x53D8;&#x91CF;</li>
+<li><code>normal()</code>&#x53EA;&#x8D1F;&#x8D23;&#x5207;&#x6362;&#x5230;normal&#x6A21;&#x5F0F;</li>
+</ol>
+<blockquote>
+<ul>
+<li>faceToCamera&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x7528;&#x6765;&#x63A7;&#x5236;normal&#x662F;&#x5426;&#x4EE5;&#x6444;&#x50CF;&#x673A;&#x89C6;&#x89D2;&#x4E3A;&#x57FA;&#x51C6;&#x751F;&#x6210;&#x3002;</li>
+<li>normalize&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x8F93;&#x51FA;&#x6807;&#x51C6;&#x5316;(&#x957F;&#x5EA6;&#x505A;&#x6210;1)&#x540E;&#x7684;normal</li>
+<li>&#x521D;&#x59CB;&#x503C;&#xFF1A;faceToCamera:true, normalize:true&#x3002;</li>
+<li>color,depth,normal&#x662F;&#x4E09;&#x4E2A;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x6210;&#x7ACB;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x60A8;&#x5728;&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x9879;&#x7684;&#x65F6;&#x5019;&#x53E6;&#x5916;&#x4E24;&#x9879;&#x4F1A;&#x88AB;&#x5173;&#x6389;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x4F1A;&#x65E0;&#x89C6;&#x6750;&#x8D28;&#x3002;</li>
+<li>&#x8BF7;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x6267;&#x884C;<a href="#dim3">dim3()</a></li>
+</ul>
+</blockquote>
+<h2 id="setdepth">setDepth</h2>
+<p><code>setDepth(id,blackDistance,whiteDistance)</code>&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;id&#x4E0A;&#x7684;&#x6750;&#x8D28;&#x7684;&#x7EA2;&#x8272;&#x901A;&#x9053;&#xFF0C;&#x5E76;&#x628A;&#x901A;&#x9053;&#x503C;&#x4E3A;0&#x7684;&#x5730;&#x65B9;&#x8BBE;&#x4E3A;<code>blackDistance</code>&#xFF0C;&#x901A;&#x9053;&#x503C;&#x4E3A;1&#x7684;&#x5730;&#x65B9;&#x8BBE;&#x4E3A;<code>whiteDistance</code>&#xFF0C;&#x518D;&#x628A;&#x6750;&#x8D28;&#x5E94;&#x7528;&#x5230;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x6750;&#x8D28;&#x4E0A;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x60A8;&#x53EF;&#x4EE5;&#x628A;&#x4ECE;3D&#x8F6F;&#x4EF6;&#x4E2D;&#x6E32;&#x67D3;&#x7684;&#x6DF1;&#x5EA6;&#x5E8F;&#x5217;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5BFC;&#x5165;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#xFF0C;&#x8FD9;&#x6837;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#x80FD;&#x548C;</li>
+<li>&#x8BF7;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x6267;&#x884C;<a href="#dim3">dim3()</a></li>
+<li>&#x6709;&#x6548;&#x7684;id: <code>INPUT</code>,<code>PARAM0</code>~<code>PARAM9</code></li>
+</ul>
+</blockquote>
+<h2 id="ambientlight">ambientLight</h2>
+<ol>
+<li><code>ambientLight(r,b,g,intensity)</code></li>
+<li><code>ambientLight()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>ambientLight(1,1,1,1)</code></li>
+<li><code>ambientLight(brightness)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>ambientLight(brightness,brightness,brightness,1)</code></li>
+<li><code>ambientLight(brightness,intensity)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>ambientLight(brightness,brightness,brightness,intensity)</code></li>
+<li><code>ambientLight(r,g,b)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>ambientLight(r,b,g,1)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x5149;&#xFF0C;&#x5BF9;&#x573A;&#x666F;&#x5185;&#x6240;&#x6709;&#x7269;&#x4F53;&#x6709;&#x6548;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x5149;&#x53EF;&#x4EE5;&#x65E0;&#x89C6;&#x7269;&#x4F53;&#x6CD5;&#x7EBF;&#x65B9;&#x5411;&#xFF0C;&#x5373;&#x4F7F;&#x6CD5;&#x7EBF;&#x65B9;&#x5411;&#x53CD;&#x5411;&#x4ECD;&#x80FD;&#x7167;&#x4EAE;&#x7269;&#x4F53;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="pointlight">pointLight</h2>
+<ol>
+<li><code>pointLight(r,g,b,intensity,radius,smoothWidth)</code></li>
+<li><code>pointLight()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>pointLight(1,1,1,1,1000,1000)</code></li>
+<li><code>pointLight(brightness,intensity)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>pointLight(brightness,brightness,brightness,intensity,1000,1000)</code></li>
+<li><code>pointLight(r,g,b)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>pointLight(r,g,b,1,1000,1000)</code></li>
+<li><code>pointLight(r,g,b,intensity)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>pointLight(r,g,b,intensity,1000,1000)</code></li>
+<li><code>pointLight(r,g,b,intensity,radiusAndSmoothWidth)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>pointLight(r,g,b,intensity,radiusAndSmoothWidth,radiusAndSmoothWidth)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x5728;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x539F;&#x70B9;&#x5904;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x70B9;&#x5149;&#x6E90;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x5149;&#x53D7;&#x7269;&#x4F53;&#x6CD5;&#x7EBF;&#x65B9;&#x5411;&#x5F71;&#x54CD;&#xFF0C;&#x6CD5;&#x7EBF;&#x65B9;&#x5411;&#x7684;&#x7269;&#x4F53;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x6F2B;&#x53CD;&#x5C04;&#x548C;&#x9AD8;&#x5149;&#xFF0C;&#x4F46;&#x4ECD;&#x80FD;&#x63A5;&#x53D7;&#x70B9;&#x5149;&#x6E90;&#x4EA7;&#x751F;&#x7684;&#x73AF;&#x5883;&#x5149;&#x3002;</li>
+<li>radius&#x4E3A;&#x70B9;&#x5149;&#x6E90;&#x7684;&#x5149;&#x7167;&#x534A;&#x5F84;&#xFF0C;radius&#x5230;radius+smoothWidth&#x4E4B;&#x95F4;&#x5149;&#x7167;&#x5F3A;&#x5EA6;&#x4F1A;&#x8870;&#x51CF;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="parallellight">parallelLight</h2>
+<ol>
+<li><code>parallelLight(r,g,b,intensity,tx,ty,tz)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x5728;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x4E3A;<code>(tx,ty,tz)</code>&#x7684;&#x5E73;&#x884C;&#x5149;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="clearlight">clearLight</h2>
+<p><code>clearLight()</code>&#x6E05;&#x9664;&#x573A;&#x666F;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x706F;&#x5149;&#x3002;</p>
+<h2 id="getlight">getLight</h2>
+<ol>
+<li><code>getLight(matchName)</code></li>
+<li><code>getLight()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getLight(&quot;*&quot;)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5408;&#x6210;&#x7B26;&#x5408;matchName&#x540D;&#x5B57;&#x7684;&#x706F;&#x5149;&#x3002;</li>
+<li>matchName&#x89C4;&#x5219;&#xFF1A;&#x5F53;&#x5B57;&#x7B26;&#x4E32;&#x672B;&#x5C3E;&#x4E0D;&#x542B;<code>*</code>&#x65F6;&#xFF0C;&#x4F1A;&#x5728;Ae&#x5F53;&#x524D;&#x5408;&#x6210;&#x7684;&#x56FE;&#x5C42;&#x4E2D;&#x641C;&#x5BFB;&#x540D;&#x5B57;&#x4E3A;matchName&#x7684;&#x706F;&#x5149;&#x5E76;&#x52A0;&#x5165;&#x573A;&#x666F;&#x4E2D;&#xFF1B;&#x5F53;&#x672B;&#x5C3E;&#x542B;&#x6709;<code>*</code>&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x5F00;&#x5934;&#x4E3A;matchName&#x7684;&#x706F;&#x5149;&#x5168;&#x90E8;&#x52A0;&#x5165;&#x573A;&#x666F;&#x4E2D;&#x3002;</li>
+<li>&#x76EE;&#x524D;&#x652F;&#x6301;&#x7684;Ae&#x706F;&#x5149;&#x7C7B;&#x578B;&#xFF1A;ambient,point,parallel</li>
+</ul>
+</blockquote>
+<h2 id="aecamera">aeCamera</h2>
+<p><code>aeCamera()</code>&#x628A;Ae&#x5F53;&#x524D;&#x573A;&#x666F;&#x6444;&#x50CF;&#x673A;&#x5F53;&#x505A;&#x50CF;&#x7D20;&#x4E16;&#x754C;&#x7684;&#x573A;&#x666F;&#x6444;&#x50CF;&#x673A;&#x3002;</p>
+<h2 id="lookat">lookAt</h2>
+<ol>
+<li><code>lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6444;&#x50CF;&#x673A;&#x4F4D;&#x7F6E;&#x548C;&#x671D;&#x5411;</li>
+<li><code>lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>eyePos&#x662F;&#x60A8;&#x773C;&#x775B;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;objPos&#x662F;&#x60A8;&#x60F3;&#x770B;&#x7684;&#x76EE;&#x6807;&#x7269;&#x4F53;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;upVec&#x662F;&#x60A8;&#x5934;&#x9876;&#x7684;&#x6307;&#x5411;&#x3002;</li>
+<li>&#x6CE8;&#x610F;Ae&#x7684;Y&#x8F74;&#x9ED8;&#x8BA4;&#x662F;&#x671D;&#x4E0B;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x60A8;&#x9700;&#x8981;&#x8BA9;upVec&#x4E3A;(0,-1,0)&#x3002;</li>
+<li>eyePos&#x548C;objPos&#x4E0D;&#x80FD;&#x592A;&#x8FD1;&#xFF08;&#x63A8;&#x8350;&#x4E24;&#x8005;&#x8DDD;&#x79BB;&#x4E0D;&#x4F4E;&#x4E8E;<code>1e-7</code>&#xFF09;&#x3002;</li>
+<li>upVec&#x4E0D;&#x80FD;&#x548C;&#x60A8;&#x7684;&#x89C6;&#x7EBF;&#x5E73;&#x884C;&#x3002;</li>
+<li>upVec&#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x592A;&#x5C0F;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="viewspace">viewSpace</h2>
+<ol>
+<li><code>viewSpace(width,height,distanceToPlane,farLevel)</code></li>
+<li><code>viewSpace(width,height,distanceToPlane)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>viewSpace(width,height,distanceToPlane,4)</code></li>
+</ol>
+<blockquote>
+<ul>
+<li>width&#x548C;height&#x4E3A;&#x6444;&#x50CF;&#x673A;&#x8FDC;&#x5E73;&#x9762;&#x7684;&#x5C3A;&#x5BF8;</li>
+<li>&#x6444;&#x50CF;&#x673A;&#x5230;&#x6444;&#x50CF;&#x673A;&#x8FDC;&#x5E73;&#x9762;&#x7684;&#x5782;&#x76F4;&#x8DDD;&#x79BB;&#x4E3A;distanceToPlane</li>
+<li>farLevel * distanceToPlane&#x4E3A;&#x6700;&#x8FDC;&#x5E73;&#x9762;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x8DDD;&#x79BB;&#x7684;&#x7269;&#x4F53;&#x5C06;&#x4E0D;&#x88AB;&#x6E32;&#x67D3;&#x3002;&#x901A;&#x5E38;&#x8BBE;&#x4E3A;4&#x8DB3;&#x591F;&#xFF0C;&#x82E5;&#x60A8;&#x7684;&#x573A;&#x666F;&#x5341;&#x5206;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x8BBE;&#x9AD8;&#x4E00;&#x4E9B;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x53EA;&#x4F1A;&#x5F71;&#x54CD;&#x8FDC;&#x5904;&#x7684;&#x7269;&#x4F53;&#x662F;&#x5426;&#x88AB;&#x6E32;&#x67D3;&#x3002;&#x82E5;&#x60A8;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x8BBE;&#x5B9A;&#x7684;&#x8FC7;&#x9AD8;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x8FD1;&#x5904;&#x7269;&#x4F53;&#x7684;&#x6DF1;&#x5EA6;&#x6D4B;&#x8BD5;&#x7CBE;&#x5EA6;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="strokewidth">strokeWidth</h2>
+<p><code>strokeWidth(width)</code>&#x6765;&#x8BBE;&#x7F6E;&#x63CF;&#x8FB9;&#x7C97;&#x7EC6;</p>
+<blockquote>
+<p>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;2</p>
+</blockquote>
+<h2 id="strokedivision">strokeDivision</h2>
+<p><code>strokeDivision(level)</code>&#x6765;&#x8BBE;&#x7F6E;&#x63CF;&#x8FB9;&#x7EC6;&#x5206;&#x7B49;&#x7EA7;</p>
+<blockquote>
+<p>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;3</p>
+</blockquote>
+<h2 id="strokeglobal">strokeGlobal</h2>
+<p><code>strokeGlobal()</code>&#x4EE5;&#x5168;&#x5C40;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x7EBF;&#xFF0C;&#x7EBF;&#x7684;&#x7C97;&#x7EC6;&#x4E0D;&#x53D7;scale&#x5F71;&#x54CD;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;</li>
+</ul>
+</blockquote>
+<h2 id="strokelocal">strokeLocal</h2>
+<p><code>strokeLocal()</code>&#x4EE5;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x7EBF;&#xFF0C;&#x7EBF;&#x7684;&#x7C97;&#x7EC6;&#x5C06;&#x53D7;scale&#x5F71;&#x54CD;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;</li>
+</ul>
+</blockquote>
+<h2 id="dotradius">dotRadius</h2>
+<p><code>dotRadius(radius)</code>&#x6765;&#x8BBE;&#x7F6E;&#x70B9;&#x7C97;&#x7EC6;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;2</li>
+</ul>
+</blockquote>
+<h2 id="dotdivision">dotDivision</h2>
+<p><code>dotDivision(level)</code>&#x6765;&#x8BBE;&#x7F6E;&#x70B9;&#x7684;&#x7EC6;&#x5206;&#x7B49;&#x7EA7;&#x3002;&#xFF08;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF0C;&#x6700;&#x5927;&#x4E3A;7&#xFF09;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;3</li>
+</ul>
+</blockquote>
+<h2 id="strokeglobal">strokeGlobal</h2>
+<p><code>strokeGlobal()</code>&#x4EE5;&#x5168;&#x5C40;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x70B9;&#xFF0C;&#x70B9;&#x7684;&#x534A;&#x5F84;&#x4E0D;&#x53D7;scale&#x5F71;&#x54CD;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;</li>
+</ul>
+</blockquote>
+<h2 id="strokelocal">strokeLocal</h2>
+<p><code>strokeLocal()</code>&#x4EE5;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x70B9;&#xFF0C;&#x70B9;&#x7684;&#x534A;&#x5F84;&#x5C06;&#x53D7;scale&#x5F71;&#x54CD;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;</li>
+</ul>
+</blockquote>
+<h2 id="smooth">smooth</h2>
+<p><code>smooth()</code>&#x4EE5;&#x6297;&#x952F;&#x9F7F;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x3002;</p>
+<blockquote>
+<p>&#x9ED8;&#x8BA4;&#x5F00;&#x542F;
+&#x5728;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x4E0A;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x6297;&#x952F;&#x9F7F;&#x5F3A;&#x5EA6;</p>
+</blockquote>
+<h2 id="nosmooth">noSmooth</h2>
+<p><code>noSmooth()</code>&#x4EE5;&#x975E;&#x6297;&#x952F;&#x9F7F;&#x6A21;&#x5F0F;&#x7ED8;&#x5236;&#x3002;</p>
+<blockquote>
+<p>&#x4E0D;&#x63A8;&#x8350;&#x548C;smooth&#x6DF7;&#x7528;&#x3002;
+&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x5927;&#x4E8E;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x4E0A;&#x7684;&#x6297;&#x952F;&#x9F7F;&#x8BBE;&#x5B9A;&#x3002;</p>
+</blockquote>
+<h2 id="r2d">r2d</h2>
+<p><code>r2d(degrees)</code>&#x89D2;&#x5EA6;&#x8F6C;&#x5F27;&#x5EA6;&#xFF0C;&#x8FD4;&#x56DE;&#x5F27;&#x5EA6;</p>
+<h2 id="d2r">d2r</h2>
+<p><code>d2r(radians)</code>&#x5F27;&#x5EA6;&#x8F6C;&#x89D2;&#x5EA6;&#xFF0C;&#x8FD4;&#x56DE;&#x89D2;&#x5EA6;</p>
+<h2 id="utf8tolocal">utf8ToLocal</h2>
+<p><code>utf8ToLocal(str)</code>&#x628A;unicode&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x4E3A;&#x672C;&#x5730;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD4;&#x56DE;&#x672C;&#x5730;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60A8;&#x5728;&#x4F7F;&#x7528;Lua&#x7684;io&#x6A21;&#x5757;&#xFF0C;&#x53D1;&#x73B0;&#x67D0;&#x4E2A;&#x8DEF;&#x5F84;&#x542B;&#x6709;utf8&#x5B57;&#x7B26;&#x7684;&#x6587;&#x4EF6;&#x8BFB;&#x4E0D;&#x4E86;&#x7684;&#x8BDD;&#xFF0C;&#x8BF7;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8F6C;&#x6362;&#x8DEF;&#x5F84;&#x7F16;&#x7801;&#x3002;</p>
+</blockquote>
+<h2 id="localtoutf8">localToUtf8</h2>
+<p><code>localToUtf8(str)</code>&#x628A;&#x672C;&#x5730;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x4E3A;unicode&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD4;&#x56DE;unicode&#x7F16;&#x7801;&#x5B57;&#x7B26;&#x4E32;</p>
+<h2 id="getglinfo">getGLInfo</h2>
+<p><code>getGLInfo()</code>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x663E;&#x5361;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<h2 id="getdrawrecord">getDrawRecord</h2>
+<ol>
+<li><code>getDrawRecord(needStringFormat)</code>&#x5C06;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x573A;&#x666F;&#x7684;&#x7ED8;&#x5236;&#x8BB0;&#x5F55;&#x4FE1;&#x606F;&#x3002;<code>needStringFormat</code>&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;true&#x65F6;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;false&#x8F93;&#x51FA;&#x4E00;&#x4E2A;Lua&#x8868;&#x3002;</li>
+<li><code>getDrawRecord()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getDrawRecord(true)</code></li>
+</ol>
+<div><p class="code-filename">printDrawRecord.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getDrawRecord</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="getstatus">getStatus</h2>
+<ol>
+<li><code>getStatus(needStringFormat)</code>&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x4FE1;&#x606F;&#xFF0C;<code>needStringFormat</code>&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;true&#x65F6;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;false&#x8F93;&#x51FA;&#x4E00;&#x4E2A;Lua&#x8868;&#x3002;</li>
+<li><code>getStatus()</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getStatus(true)</code></li>
+</ol>
+<div><p class="code-filename">printDrawRecord.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="getaudio">getAudio</h2>
+<ol>
+<li><code>getAudio(startTime,duration,id,sampleRate)</code>&#x5C06;&#x7D22;&#x53D6;&#x97F3;&#x9891;&#x4FE1;&#x606F;&#xFF0C;&#x8FD4;&#x56DE;&#x56DB;&#x4E2A;&#x8868;&#xFF0C;&#x4E24;&#x4E2A;&#x6CE2;&#x5F62;&#x91C7;&#x6837;&#x8868;&#xFF08;&#x5DE6;&#x53F3;&#x58F0;&#x9053;&#xFF09;&#x548C;&#x4E24;&#x4E2A;&#x7531;&#x6CE2;&#x5F62;&#x8BA1;&#x7B97;&#x7684;&#x9891;&#x8C31;&#x8868;&#xFF08;&#x5DE6;&#x53F3;&#x58F0;&#x9053;&#xFF09;&#x3002;</li>
+<li><code>getAudio(startTime,duration)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getAudio(startTime,duration,INPUT,44100)</code></li>
+<li><code>getAudio(startTime,duration,id)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getAudio(startTime,duration,id,44100)</code></li>
+</ol>
+<div><p class="code-filename">waveInfo.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> wl<span class="token punctuation">,</span>wr<span class="token punctuation">,</span>fl<span class="token punctuation">,</span>fr <span class="token operator">=</span> <span class="token function">getAudio</span><span class="token punctuation">(</span>time<span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+
+<span class="token keyword">local</span> nm <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>height<span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>nm <span class="token keyword">do</span>
+    <span class="token keyword">local</span> wid <span class="token operator">=</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>i<span class="token operator">/</span>nm<span class="token operator">*</span><span class="token operator">#</span>wl<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">local</span> fid <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>i<span class="token operator">/</span>nm<span class="token operator">*</span><span class="token operator">#</span>fl<span class="token operator">/</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;%8.5f&quot;</span><span class="token punctuation">,</span>wl<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>wl<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span>wl<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;  &lt; L  R &gt;  &quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;%8.5f&quot;</span><span class="token punctuation">,</span>wr<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>wr<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span>wr<span class="token punctuation">[</span>wid<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;      &lt;   Wave  FFT   &gt;      &quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;%8.5f&quot;</span><span class="token punctuation">,</span>fl<span class="token punctuation">[</span>fid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>fl<span class="token punctuation">[</span>fid<span class="token punctuation">]</span><span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token operator">#</span>fl<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;  &lt; L  R &gt;  &quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&quot;%8.5f&quot;</span><span class="token punctuation">,</span>fr<span class="token punctuation">[</span>fid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>fr<span class="token punctuation">[</span>fid<span class="token punctuation">]</span><span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token operator">#</span>fr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+</code></pre>
+<h2 id="getcolor">getColor</h2>
+<p><code>getColor(id,x,y)</code>&#x8FD4;&#x56DE;<code>id</code>&#x6750;&#x8D28;&#x5904;&#x7684;(x,y)&#x5750;&#x6807;&#x5904;&#x7684;&#x50CF;&#x7D20;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;r,g,b,a&#x56DB;&#x4E2A;&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x6570;&#x3002;
+<code>getColor(x,y)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>getColor(INPUT,x,y)</code></p>
+<blockquote>
+<ul>
+<li>&#x5728;&#x7ED8;&#x5236;&#x4E00;&#x5207;&#x573A;&#x666F;&#x524D;&#x4F7F;&#x7528;<code>getColor</code>&#x65F6;(&#x5373;&#x5728;<code>version3()</code>&#x7D27;&#x63A5;&#x7740;&#x7684;&#x540E;&#x9762;)&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6548;&#x7387;&#x662F;&#x6700;&#x9AD8;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x5728;&#x7ED8;&#x5236;&#x573A;&#x666F;&#x65F6;&#x4F7F;&#x7528;<code>getColor</code>&#x65F6;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6548;&#x7387;&#x5341;&#x5206;&#x4F4E;&#x4E0B;&#xFF0C;&#x56E0;&#x4E3A;Lua&#x662F;&#x5DE5;&#x4F5C;&#x5728;CPU&#x4E0A;&#x7684;&#xFF0C;&#x7ED8;&#x5236;&#x573A;&#x666F;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6750;&#x8D28;&#x90FD;&#x4F1A;&#x9001;&#x5165;&#x60A8;&#x7684;&#x663E;&#x5361;&#xFF0C;&#x5728;&#x663E;&#x5361;&#x548C;CPU&#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#x7684;&#x65F6;&#x95F4;&#x6210;&#x672C;&#x4F1A;&#x5F88;&#x9AD8;&#x3002;</li>
+<li>&#x6709;&#x6548;id&#x4E3A;<code>INPUT</code>,<code>OUTPUT</code>,<code>PARAM0</code>~<code>PARAM9</code></li>
+</ul>
+</blockquote>
+<h2 id="setcolor">setColor</h2>
+<p><code>setColor(x,y,r,g,b)</code>,<code>setColor(x,y,r,g,b,a)</code>&#x4F1A;&#x8BBE;&#x7F6E;<code>id</code>&#x6750;&#x8D28;&#x5904;&#x7684;(x,y)&#x5750;&#x6807;&#x5904;&#x7684;&#x50CF;&#x7D20;&#x503C;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x5728;&#x7ED8;&#x5236;&#x4E00;&#x5207;&#x573A;&#x666F;&#x524D;&#x4F7F;&#x7528;<code>setColor</code>&#x65F6;(&#x5373;&#x5728;<code>version3()</code>&#x7D27;&#x63A5;&#x7740;&#x7684;&#x540E;&#x9762;)&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6548;&#x7387;&#x662F;&#x6700;&#x9AD8;&#x7684;</li>
+</ul>
+</blockquote>
+<h2 id="getsize">getSize</h2>
+<p><code>getSize(id)</code>&#x8FD4;&#x56DE;id&#x6750;&#x8D28;&#x7684;&#x5C3A;&#x5BF8;</p>
+<blockquote>
+<p>&#x5F53;&#x60A8;&#x6539;&#x53D8;&#x573A;&#x666F;&#x964D;&#x91C7;&#x6837;&#xFF08;&#x4F8B;&#x5982;&#x4E8C;&#x5206;&#x4E4B;&#x4E00;&#xFF0C;&#x56DB;&#x5206;&#x4E4B;&#x4E00;&#xFF09;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5C3A;&#x5BF8;&#x4F1A;&#x6709;0~4&#x50CF;&#x7D20;&#x7684;&#x6296;&#x52A8;&#xFF0C;&#x8FD9;&#x662F;&#x7531;Ae&#x7684;&#x964D;&#x91C7;&#x6837;&#x673A;&#x5236;&#x4EA7;&#x751F;&#x7684;&#x7279;&#x6027;&#x3002;&#x4F46;&#x8FD9;&#x4E2A;&#x6296;&#x52A8;&#x4E0D;&#x4F1A;&#x968F;&#x65F6;&#x95F4;&#x53D8;&#x5316;&#x3002;&#x5728;&#x964D;&#x91C7;&#x6837;&#x5173;&#x95ED;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4FDD;&#x8BC1;&#x8FD4;&#x56DE;&#x6B63;&#x786E;&#x7684;&#x56FE;&#x5C42;&#x5C3A;&#x5BF8;&#x3002;</p>
+</blockquote>
+<h2 id="shadertoy">shadertoy</h2>
+<p><code>shadertoy(code)</code>&#x6267;&#x884C;&#x6765;&#x81EA;shadertoy&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;shadertoy&#x4EE3;&#x7801;&#x90FD;&#x88AB;&#x652F;&#x6301;</li>
+</ul>
+</blockquote>
+<h2 id="glsl">glsl</h2>
+<p><code>glsl(code)</code>&#x6267;&#x884C;Fragment&#x9636;&#x6BB5;&#x4EE3;&#x7801;</p>
+<h2 id="cmd">cmd</h2>
+<p><code>cmd(code)</code>&#x6267;&#x884C;cmd&#x6307;&#x4EE4;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x547D;&#x4EE4;&#x6210;&#x529F;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F; true&#xFF0C;&#x5426;&#x5219;&#x662F; nil&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x4E4B;&#x540E;&#xFF0C;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x52A0;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&quot;exit&quot;: &#x547D;&#x4EE4;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#xFF1B; &#x63A5;&#x4E0B;&#x6765;&#x7684;&#x6570;&#x5B57;&#x662F;&#x547D;&#x4EE4;&#x7684;&#x9000;&#x51FA;&#x72B6;&#x6001;&#x7801;&#x3002;</li>
+<li>&quot;signal&quot;: &#x547D;&#x4EE4;&#x88AB;&#x4FE1;&#x53F7;&#x6253;&#x65AD;&#xFF1B; &#x63A5;&#x4E0B;&#x6765;&#x7684;&#x6570;&#x5B57;&#x662F;&#x6253;&#x65AD;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x4FE1;&#x53F7;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="lua">lua</h2>
+<p><code>lua(code)</code>&#x6267;&#x884C;Lua&#x4EE3;&#x7801;</p>
+<h2 id="runfile">runFile</h2>
+<p><code>runFile(utf8_path)</code>&#x628A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5F53;&#x505A;txt&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#xFF0C;&#x5E76;&#x5F53;&#x505A;Lua&#x4EE3;&#x7801;&#x6267;&#x884C;&#x3002;</p>
+<h2 id="txt">txt</h2>
+<p><code>txt(utf8_path)</code>&#x628A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5F53;&#x505A;txt&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1073,7 +1469,7 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"3.1.5","depth":2,"next":{"title":"在Lua中运行GLSL ","level":"3.1.6","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"全局参数","level":"3.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-04T07:24:10.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-04T12:16:53.070Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"3.1.5","depth":2,"next":{"title":"在Lua中运行GLSL ","level":"3.1.6","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"全局参数","level":"3.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-05T16:14:22.114Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-05T16:14:26.323Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
