@@ -33,7 +33,7 @@ GLSL就是我们在[第一节](../../README.md)中使用的语言，它能运行
 
 在运行GLSL前我们会预定义非常多的变量和函数，如果您是初学者，可以暂时忽略这里。
 
-- **PixelsWorld V2.0** 使用的是 **#version 330 core**. 
+- **PixelsWorld V3.0.0** 使用的是 **#version 330 core**. 
 
 [点击这里](predefined.md)查看额外的预定义代码
 

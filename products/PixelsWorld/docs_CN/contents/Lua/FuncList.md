@@ -797,6 +797,11 @@ println(getStatus());
 1. `getAudio(startTime,duration)`等价于`getAudio(startTime,duration,INPUT,44100)`
 1. `getAudio(startTime,duration,id)`等价于`getAudio(startTime,duration,id,44100)`
 
+> - 左声道波形 (-1~1)
+> - 右声道波形 (-1~1)
+> - 左声道频谱 (0~正无穷)
+> - 右声道频谱 (0~正无穷)
+
 ```lua:waveInfo.lua
 version3()
 background(0.2)

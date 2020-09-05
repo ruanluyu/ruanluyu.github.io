@@ -15,6 +15,8 @@ shader代码在运行前，前后会被接上我们预先设定的环境代码�
 #define gl_FragColor outColor
 #define INPUT_LAYER_INDEX -1
 #define OUTPUT_LAYER_INDEX -2
+#define AE_INPUT_LAYER -1
+#define PW_TEMP_LAYER -2
 out vec4 outColor;
 in vec2 uv;
 uniform float slider[10];
@@ -53,8 +55,8 @@ uniform float inSpecN;
 
 vec4 getColor(int layerId,vec2 coord)
 {
-if(layerId==INPUT_LAYER_INDEX) return texture(inLayer,coord);
-if(layerId==OUTPUT_LAYER_INDEX) return texture(outLayer,coord);
+if(layerId==AE_INPUT_LAYER) return texture(inLayer,coord);
+if(layerId==PW_TEMP_LAYER) return texture(outLayer,coord);
 else if(layerId>=0 && layerId<=9) return texture(layer[layerId],coord);
 return vec4(0.0);
 }
@@ -72,37 +74,6 @@ vec2 xy2uv(vec2 myxy){
 return myxy/resolution.xy;
 }
 
-vec3 lookat(vec3 globalxyz){
-return transpose(mat3(camera_matrix)) * (globalxyz - camera_matrix[3].xyz);
-}
-
-vec3 xyz2uvw(vec3 globalxyz){
-vec3 eyepos = lookat(globalxyz);
-vec3 myuvw;
-if(camera_perspective)
-{
-myuvw.x = eyepos.x * camera_info.w / (camera_info.x * eyepos.z) + .5;
-myuvw.y = -eyepos.y * camera_info.w / (camera_info.y * eyepos.z) + .5;
-myuvw.z = eyepos.z / camera_info.w; 
-}
-else
-{
-myuvw.x = eyepos.x / (camera_info.x * 2.) + .5;
-myuvw.y = -eyepos.y / (camera_info.y * 2.) + .5;
-myuvw.z = eyepos.z / camera_info.w; 
-}
-return myuvw;
-}
-
-vec2 rawpoint(int id)
-{
-return (point[id] - vec2(0,1)) * vec2(1,-1) * resolution.xy;
-}
-
-vec3 rawpoint3d(int id)
-{
-return (point3d[id] - vec3(0,1,0)) * vec3(1,-1,1) * vec3(resolution.xy,1);
-}
 
 ```
 
