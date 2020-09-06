@@ -8,7 +8,9 @@
 
 > 如果您用过Houdini，`obj`的构造过程类似于填一张Houdini中的SpreadSheet
 
-下面这个构造是绘制一个奇特三角形的obj
+下面这个例子是构造一个奇特三角形的`obj`
+
+![结果](poly_test1.png)
 
 ```lua:PolyTest1.lua
 version3()
@@ -31,7 +33,7 @@ obj={
 }
 poly(obj)
 ```
-![结果](poly_test1.png)
+
 
 
 我们这里按照下面的顺序定义obj的细节。
