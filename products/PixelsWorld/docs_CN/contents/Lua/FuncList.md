@@ -427,10 +427,11 @@ tri(0,0,100,50,0,0,0,50,0)
 
 1. `tube(size)`绘制一个底面半径size、高2*size的圆柱体
 1. `tube()`等价于tube(50)
-1. `tube(radius1,radius2,height)`绘制一个靠近绘笔坐标原点底面半径为radius1、远离一侧底面半径为radius2、高为height的圆柱体
-1. `tube(radius1,radius2,height,div)`在第3个函数基础上多了分段的控制。
-1. `tube(radius1,radius2,height,div,needMesh)`在第4个函数基础上多了“是否要渲染两个圆面”的boolean
-1. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第4个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
+2. `tube(radius,height)`绘制一个半径为radius、高为height的圆柱体
+3. `tube(radius1,radius2,height)`绘制一个靠近绘笔坐标原点底面半径为radius1、远离一侧底面半径为radius2、高为height的圆柱体
+4. `tube(radius1,radius2,height,div)`在第3个函数基础上多了分段的控制。
+5. `tube(radius1,radius2,height,div,needMesh)`在第4个函数基础上多了“是否要渲染两个圆面”的boolean
+6. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第4个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
 
 > - `div`默认值为64
 > - `needMesh`默认值为`true`
