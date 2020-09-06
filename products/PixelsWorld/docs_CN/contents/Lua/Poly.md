@@ -4,7 +4,7 @@
 
 
 
-## obj的构造
+## 使用例
 
 > 如果您用过Houdini，`obj`的构造过程类似于填一张Houdini中的SpreadSheet
 
@@ -34,7 +34,7 @@ obj={
 poly(obj)
 ```
 
-
+## obj的构造
 
 我们这里按照下面的顺序定义obj的细节。
 
@@ -63,4 +63,156 @@ poly(obj)
 - 对于每个点`point[k]`，都必须存在名称为`"p"`的`K`来表示点位置。否则为无效点。
 - 对于每个子点`vertex[k]`，都必须存在名称为`"pref"`的`K`和一维`V`表示参照点id。否则为无效子点。
 - 对于每个图元`prim[k]`，都必须存在`"type"`的`K`和字符串`V`来表示图元类型，同时必须存在`"vref"`或`"pref"`的`K`和索引组`V`来表示图元的绘制点顺序。
+
+## 覆盖优先级
+
+对于一个同名的`K`，我们定义如下的覆盖优先级：
+
+1. vertex
+2. point
+3. prim
+4. detail
+
+使用例：
+
+下面这个`obj`的`prim`含有颜色信息（红色），所以最终会出来一个纯红色的三角形。
+
+![PrimColor](polyPrimColor.png)
+```lua:PrimColor.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0}},
+        {p={100,0,0}},
+        {p={0,100,0}},
+    },
+    prim={
+        {type="triangle",pref={1,2,3},color={1,0,0}},
+    },
+}
+poly(obj)
+```
+
+---
+
+而下面这个`obj`的`prim`和`point`都具有`color`，因为`point`的优先级比较高，所以三角形采用了`point`提供的数据，最终出现一个彩色的三角形。
+
+![PointColor](polyPointColor.png)
+```lua:PointColor.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0},color={0,1,1}},
+        {p={100,0,0},color={1,1,0}},
+        {p={0,100,0},color={1,0,1}},
+    },
+    prim={
+        {type="triangle",pref={1,2,3},color={1,0,0}},
+    },
+}
+poly(obj)
+```
+
+## Vertex的用法
+
+Vertex（子点）可以继承Point（点）的信息。
+
+![Vertex](polyVertexTest.png)
+
+```lua:VertexColor.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0}},
+        {p={100,0,0}},
+        {p={0,100,0}},
+        {p={100,100,0}},
+    },
+    vertex={
+        {pref=1,color={1,0,0}},
+        {pref=2,color={1,0,0}},
+        {pref=3,color={1,0,0}},
+        {pref=2,color={0,1,0}},
+        {pref=3,color={0,1,0}},
+        {pref=4,color={0,1,0}},
+    },
+    prim={
+        {type="triangle",vref={1,2,3,4,5,6}},
+    },
+}
+poly(obj)
+```
+
+> - `pref`用来指明当前vertex参考的是哪个point，`pref`全称为`Point reference`。
+> - `prim`中的`vref`是`Vertex reference`的全称。
+
+---
+
+如果不用Vertex，情况就会变成下面这样：
+
+![NoVertexRes](polyNoVertexTest.png)
+
+```lua:NoVertex.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0},color={1,0,0}},
+        {p={100,0,0},color={1,0,0}},
+        {p={0,100,0},color={1,0,0}},
+        {p={100,100,0},color={0,1,0}},
+    },
+    prim={
+        {type="triangle",pref={1,2,3,2,3,4}},
+    },
+}
+poly(obj)
+```
+
+
+## 附带shader
+
+您甚至可以在Poly里面使用shader语言。
+
+![FragColorRes](polyVertexFragTest.png)
+
+```lua:FragColor.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0},myattribute={1,0}},
+        {p={100,0,0},myattribute={0,1}},
+        {p={0,100,0},myattribute={0,0}},
+        {p={100,100,0},myattribute={1,1}},
+    },
+    prim={
+        {
+            type="triangle",
+            pref={1,2,3,2,3,4},
+            frag=[==[
+                #define t ]==] .. tostring(time) .. [==[
+
+                void main(){
+                    outColor = vec4(mod(myattribute*10+vec2(t),1),0,1);
+                }
+            ]==],
+        },
+    },
+}
+poly(obj)
+```
 
