@@ -1,6 +1,8 @@
 # 世界的中心Lua
 ---
 
+在第一章中给大家介绍的语言叫做**Lua**
+
 >** Lua是一种轻量级，高级，多范式编程语言，主要用于嵌入式应用程序中.* [——Wiki](https://en.wikipedia.org/wiki/Lua_(programming_language))
 
 **版本 : [Lua5.3（点击查看中文完全技术文档）](https://cloudwu.github.io/lua53doc/contents.html)**

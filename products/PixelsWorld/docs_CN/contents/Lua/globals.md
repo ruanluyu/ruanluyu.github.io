@@ -37,14 +37,14 @@ host -- 宿主程序：Ae 0，目前不支持其它宿主
 
 PixelsWorld提供以下几个Ae中获取的变量供用户使用：
 
-```lua:globals.lua
+```lua:globalvars.lua
 depth -- 颜色深度，8，16，32
-width -- 合成宽度
-height -- 合成高度
+width -- 输入层宽度
+height -- 输入层高度
 time -- 当前时间(s)
 duration -- 所在图层持续时间(s)
 inpoint -- 所在图层入点时间(s)
-compTime -- 合成时间
+compTime -- 合成时间(s)
 pluginFolder -- 插件所在目录(utf8)
 projectName -- 工程名(utf8)
 projectPath -- 工程路径(utf8)
@@ -58,7 +58,7 @@ ds_height -- 降采样后合成高度
 在Lua模式运行下面的代码来打印全局变量（包括全局函数）
 
 
-```lua:globals.lua
+```lua:printGlobals.lua
 version3()
 in2out()
 for k, v in pairs(_G) do

@@ -27,7 +27,7 @@ Each of them have 10 controler for using.
  
 
 
-##Details
+## Details
 The  parameters decleared in PixelsWorld are as below : 
 ```glsl:parameters.shader
 uniform float slider[10];
@@ -42,4 +42,4 @@ uniform sampler2D inLayer;
 > **NOTE : **
 > - The **"inLayer"** means Input layer. 
 > - The **sampler2D** is a value type provided by GLSL, you don't need to understand this value type. If you want to use the layer parameter. Please see the ["getColor"](getColor.md) section
-> - **"uniform"** means global value. This is to tell the GPU that "You don't need to malloc memory and initialize them for each *'GPU worker'*, just do these when the *"GPU Boss of works"* start working. " So on the other hand, **"uniform"** declearation almost shows up outside your function. 
+> - **"uniform"** means global value. 

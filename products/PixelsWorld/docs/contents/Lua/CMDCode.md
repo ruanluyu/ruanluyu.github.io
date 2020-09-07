@@ -1,6 +1,6 @@
 #CMD Code
 ---
-CMD commands can be executed by function ```pw.cmd("Your cmd commands")``` on **Lua (CPU & GPU)** language mode. 
+CMD commands can be executed by function ```cmd("Your cmd commands")``` on **Lua (CPU & GPU)** language mode. 
 
 
 
@@ -8,7 +8,6 @@ CMD commands can be executed by function ```pw.cmd("Your cmd commands")``` on **
 
 
 ```lua:executeCMD.lua
---Works on Windows platform
-pw.cmd("echo Hello PixelsWorld! & pause");
+version3()
+cmd("echo Hello PixelsWorld! & pause");
 ```
- 

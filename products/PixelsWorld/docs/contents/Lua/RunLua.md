@@ -9,16 +9,21 @@ Switch your luange to **Lua ( CPU & GPU )**
 
 And input the code below : 
 ```lua:hello.lua
+version3()
 a = 5+6
 b = "PixelsWorld"
 c = "is cool!"
 d = time
-e = pw.ch("slider",0)
+e = slider(0)
 f = "5 + 6 = " .. a .. "\nMessage : " .. b .. " " .. c .. "\nCurrent time is : " .. d .. " (s)\nValue of slider0 is : " .. e
-pw.print(f)
+print(f)
 ```
 
-> - ``` a..b ``` means combine variable a and b as string.
-> - [```pw.print()```](report.md) reports message to debug window. 
-> - [```pw.ch()```](ch.md) fetches the value of a specified parameters.
-> - You are allowed to add ```;``` in the end of each line, but it is not indispensable. Lua regards the ```\n```(line break) as the end mark of one section of code. 
+> - ` a..b ` means combine variable a and b as string.
+> - [`print()`](FuncList.md#print) reports message to debug window. 
+> - [`slider()`](LinkParameters.md) fetches the value of a specified parameters.
+> - You are allowed to add `;` in the end of each line, but it is not indispensable. Lua regards the `\n`(line break) as the end mark of one section of code. 
+
+A message will show up in the left top corner of your screen. 
+
+<br><br><br><br><br><br><br><br><br><br>

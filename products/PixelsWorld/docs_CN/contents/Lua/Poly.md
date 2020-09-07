@@ -40,16 +40,16 @@ poly(obj)
 
 - `obj`是一个表。
 - `obj`可含有四个键：`point`,`vertex`,`prim`,`detail`。
-- `obj`的四个键对应的值分别为四张表，暂时称作`pointArray`,`vertexArray`,`primArray`,`detailList`。
+- `obj`的四个键对应的值分别为四张表，称作`pointArray`,`vertexArray`,`primArray`,`detailList`。
 - `pointArray`必须存在。
 - `vertexArray`是可选的。
 - `primArray`必须存在。
 - `detailList`是可选的。
 - 上述带`Array`后缀的表可以装有N个子表，N可以自由定义大小。
-- `pointArray`的第k个子表暂时叫做`point[k]`或“第k个点”。
-- `vertexArray`的第k个子表暂时叫做`vertex[k]`或“第k个子点”。
-- `primArray`的第k个子表暂时叫做`prim[k]`或“第k个图元”。
-- `detailList`及上述的点、子点和图元，装着若干不可再细分的单位：键值对。这些键值对的键暂时称为`K`,值暂时称为`V`。
+- `pointArray`的第k个子表叫做`point[k]`或“第k个点”。
+- `vertexArray`的第k个子表叫做`vertex[k]`或“第k个子点”。
+- `primArray`的第k个子表叫做`prim[k]`或“第k个图元”。
+- `detailList`及上述的点、子点和图元，装着若干不可再细分的单位：键值对。这些键值对的键暂时称为`K`,值称为`V`。
 - `K`推荐只含有英文数字和下划线，且不是纯数字。
 - `V`有一维、二维、三维、四维、字符串、材质编号和索引组共7种。
 - 对于任意浮点数`x,y,z,w`
@@ -68,6 +68,8 @@ poly(obj)
 
 对于一个同名的`K`，我们定义如下的覆盖优先级：
 
+> 和`Houdini`相同
+
 1. vertex
 2. point
 3. prim
@@ -78,6 +80,7 @@ poly(obj)
 下面这个`obj`的`prim`含有颜色信息（红色），所以最终会出来一个纯红色的三角形。
 
 ![PrimColor](polyPrimColor.png)
+
 ```lua:PrimColor.lua
 version3()
 background(0.95)
@@ -154,6 +157,7 @@ poly(obj)
 
 > - `pref`用来指明当前vertex参考的是哪个point，`pref`全称为`Point reference`。
 > - `prim`中的`vref`是`Vertex reference`的全称。
+> - 注意：Lua中的表，第一个元素的序号为1不是0。
 
 ---
 

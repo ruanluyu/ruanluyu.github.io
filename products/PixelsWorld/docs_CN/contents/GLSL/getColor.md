@@ -1,7 +1,7 @@
-#getColor
+# getColor
 ---
 此函数有两种版本。 **getColor(vec2)** 与 **getColor(int ,vec2)**
-##getColor(vec2)
+## getColor(vec2)
 **说明 : **
 
  - 在指定位置获取 **输入层**的颜色。
@@ -13,7 +13,7 @@
 
 - vec4 :  RGBA颜色（各维度0~1）
 
-##getColor(int,vec2)
+## getColor(int,vec2)
 **说明 : **
 
  - 获取**特定输入层** 指定位置的像素 

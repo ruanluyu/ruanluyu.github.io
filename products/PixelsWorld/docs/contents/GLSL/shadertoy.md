@@ -9,10 +9,10 @@ On shadertoy mode, you can run codes from [shadertoy.com](https://shadertoy.com)
 
 ##Details
 
-Beginning v2.0.0, we use a new algorithm to support code from shadertoy, if you want to use variable that exists in GLSL mode, you need to add the **`_PixelsWorld_`** prefix. 
+Add **`_PixelsWorld_`** prefix to use variables that exist in GLSL mode. 
 
 
 > E.g. `slider[0]` on GLSL mode =  `_PixelsWorld_slider[0]` on shadertoy mode. 
 
 
-And we don't recommand define your own **`_PixelsWorld_`** prefixed variables. 
+It is not recommended to define your own **`_PixelsWorld_`** prefixed variables. 
