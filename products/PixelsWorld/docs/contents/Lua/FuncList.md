@@ -1,13 +1,13 @@
-# 函数列表
+# Function List
 --- 
 
-以下是定义在PixelsWorld中Lua模式的所有函数。
+This page covers all functions provided in Lua render mode. 
 
-**必须声明函数**
+**Required functions**
 
 [version3](#version3)
 
-**获取参数函数**
+**Parameter link functions**
 
 [slider](LinkParameters.md),
 [angle](LinkParameters.md),
@@ -17,13 +17,13 @@
 [color](LinkParameters.md),
 [layer](LinkParameters.md)
 
-**输出信息函数**
+**Print message functions**
 
 [print](#print),
 [println](#println),
 [alert](#alert),
 
-**变换函数**
+**Transform functions**
 
 [move](#move),
 [scale](#scale),
@@ -38,9 +38,9 @@
 [beginGlobal](#beginglobal),
 [endGlobal](#endglobal)  
 
-**绘制函数**
+**Draw functions**
 
-> 图元
+> Primitives
 
 [tri](#tri),
 [quad](#quad),
@@ -66,7 +66,7 @@
 [background](#background),
 [in2out](#in2out) 
 
-> 绘制属性控制
+> Attribute controls
 
 [dim2](#dim2),
 [dim3](#dim3)
@@ -100,7 +100,7 @@
 
 [setDepth](#setdepth)
 
-> 灯光
+> Lights
 
 [ambientLight](#ambientlight),
 [pointLight](#pointlight),
@@ -109,32 +109,32 @@
 [clearLight](#clearlight),
 [getLight](#getlight)  
 
-> 摄像机
+> Camera function
 
 [aeCamera](#aecamera),
 [lookAt](#lookat),
 [viewSpace](#viewspace)  
 
-> 描边细节
+> Stroke details
 
 [strokeWidth](#strokewidth),
 [strokeDivision](#strokedivision),
 [strokeGlobal](#strokeglobal),
 [strokeLocal](#strokelocal)  
 
-> 点渲染细节
+> Dot details
 
 [dotRadius](#dotradius),
 [dotDivision](#dotdivision),
 [dotGlobal](#dotglobal),
 [dotLocal](#dotlocal) 
 
-> 输出细节
+> Output details
 
 [smooth](#smooth),
 [noSmooth](#nosmooth) 
 
-**工具**
+**Utility tools**
 
 [r2d](#r2d),
 [d2r](#d2r)
@@ -148,14 +148,14 @@
 
 [getAudio](#getaudio)  
 
-**读写像素函数**
+**Read/Write pixels functions**
 
 [getColor](#getcolor),
 [setColor](#setcolor),
 [getSize](#getsize),
 
 
-**执行代码函数**
+**Run code functions**
 
 [shadertoy](#shadertoy),
 [glsl](#glsl),
@@ -166,11 +166,11 @@
 
 ---
 <br><br><br><br><br>
-# 详细介绍
+# Detailed descriptions
 
 ## version3
 
-`version3()` 函数是Lua模式必须在第一行声明的函数。它的作用是把`pw3`这个表下的所有函数放到全局域中，如果没有这一行，您需要把所有PixelsWorld提供的函数前面加入`pw3.`前缀，比如之后会介绍的`println()`函数则需要写成`pw3.println()`。相反，如果您在第一行调用了`version3()`函数，则不需要写`pw3.`前缀。这是为了让您的代码能向后兼容而设计的函数。我们推荐（Lua渲染模式下的）任何情况下都在第一行加入`version3()`的调用。
+`version3()` function must be called in the first line. It put all functions that in the table `pw3` to the global field. If you don't call it, you need to add a `pw3.` prefix to all the function provided by PixelsWorld. For instance, the following demonstrated function `print()` should be `pw3.print()`. On the contrary, If you call the function `version3()` in the first line, the `pw3.` prefix could be omitted. This function is designed for backward compatibility. We recommend calling `version3()` in the first line any time you use Lua render mode. 
 
 ```lua:version3.lua
 version3()
@@ -183,7 +183,7 @@ pw3.println("Hello PixelsWorld! ")
 
 ## print
 
-`print(str)`,`print(str,brightness)`,`print(str,r,g,b)`,`print(str,r,g,b,a)`是在屏幕左上角输出信息的函数。
+`print(str)`,`print(str,brightness)`,`print(str,r,g,b)`,`print(str,r,g,b,a)` prints message to the left top corner of your scene. 
 
 ```lua:print.lua
 version3()
@@ -198,7 +198,7 @@ end
 
 ## println
 
-`println(str)`,`println(str,brightness)`,`println(str,r,g,b)`,`println(str,r,g,b,a)`是在屏幕左上角输出信息的函数。并在每次输出信息后换行。
+`println(str)`,`println(str,brightness)`,`println(str,r,g,b)`,`println(str,r,g,b,a)` prints message to the left top corner of your scene, this function adds `\n` in the end of input string. 
 
 ```lua:println.lua
 version3()
@@ -214,7 +214,7 @@ end
 
 ## alert
 
-`alert(str)`是在屏幕左上角输出**警示信息**的函数。它目前等价于`println(str,1,1,0,1)`
+`alert(str)` prints **caution** message, equals to `println(str,1,1,0,1)`
 
 ```lua:alert.lua
 version3()
@@ -223,25 +223,27 @@ alert("Warning: Write your message here! ")
 
 ## move
 
-`move(x,y)`,`move(x,y,z)`是平移画笔坐标的函数。
+`move(x,y)`,`move(x,y,z)`moves Paintbrush. 
 
-> 所有变换都是以当前画笔坐标为基准进行的。
+> All transforms are done basing on the Paintbrush coordinate. 
 
-例如下面这个例子：
+Example: 
+
 ```lua:move.md
 version3()
-coord() -- 显示变换前的画笔位置
+coord() -- show Paintbrush coordinate
 move(100,0)
-coord() -- 显示第1次变换后的画笔位置
+coord() -- show Paintbrush coordinate
 move(0,100)
-coord() -- 显示第2次变换后的画笔位置
+coord() -- show Paintbrush coordinate
 ```
-最终画笔会在`(100,100,0)`位置处。
+Finally, the Paintbrush is located at `(100,100,0)`. 
 
 ## scale
 
-`scale(ratio)`,`scale(x,y)`,`scale(x,y,z)`是缩放画笔坐标的函数。
-> 所有变换都是以当前画笔坐标为基准进行的。
+`scale(ratio)`,`scale(x,y)`,`scale(x,y,z)`scales the Paintbrush coordinate. 
+
+> All transforms are done basing on the Paintbrush coordinate. 
 
 
 ## rotate
@@ -249,22 +251,22 @@ coord() -- 显示第2次变换后的画笔位置
 ## rotateY
 ## rotateZ
 
-`rotate(theta)`是把画笔坐标旋转`theta`弧度的函数，`rotateX(theta)`则是把画笔坐标沿着其X轴旋转的函数，`rotate(theta)`本质等价于`rotateZ(theta)`。
-> - 所有变换都是以当前画笔坐标为基准进行的。
-> - 如果您不熟悉弧度，可以用函数`d2r(degree)`来把角度转成弧度。例如：`rotate(d2r(90))`则是旋转九十度。
+`rotate(theta)`rotates Paintbrush with `theta` radians. `rotateX(theta)` rotates Paintbrush along X axis. `rotate(theta)` equals to `rotateZ(theta)`. 
+> All transforms are done basing on the Paintbrush coordinate. 
+> - If you are not familiar with radians, use `d2r(degree)` to convert a degree to a radian. For example：`rotate(d2r(90))` means rotate 90 degrees. 
 
 ## twirl
-`twirl(x,y,z,theta)`是沿着`(x,y,z)`轴旋转`theta`弧度画笔的函数。比如，上面的`rotateX(theta)`则等价于这里的`twirl(1,0,0,theta)`。
-> - 所有变换都是以当前画笔坐标为基准进行的。
-> - `twirl`是对四元数旋转的一种矩阵实现。
+`twirl(x,y,z,theta)` rotates Paintbrush along `(x,y,z)` axis with `theta` radians. For example, above-mentioned `rotateX(theta)` equals to `twirl(1,0,0,theta)`.
+> All transforms are done basing on the Paintbrush coordinate. 
+> - `twirl` is an matrix implementation of quaternion rotation. 
 
 
 ## beginGroup
 ## endGroup
-`beginGroup()`,`endGroup()`是创建父子级关系的函数。`beginGroup()`到`endGroup()`之间的变换(`move,scale,rotate,twirl`)在`endGroup()`之后会被撤销掉。
-> 它等价于Processing中的`pushMatrix()`和`popMatrix()`
+`beginGroup()`,`endGroup()` creates a children transformation group. Transformations(`move,scale,rotate,twirl`) between `beginGroup()` and `endGroup()` will be canceled after calling `endGroup()`.
+> It equals to `pushMatrix()` and `popMatrix()` in Processing. 
 
-例如：下面两块代码是等价的
+Example: The following two code are equivalent. 
 ```lua:group.lua
 version3()
 for i = 1,10 do
@@ -289,8 +291,7 @@ end
 
 ## beginGlobal
 ## endGlobal
-夹在`beginGlobal`,`endGlobal`之间的绘图函数
-将暂时以全局坐标系绘制
+Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global coordinates. 
 
 ```lua:beginGlobal.lua
 version3()
@@ -307,15 +308,15 @@ rect(50) -- Draw on (200,200,0)
 ```
 
 ## tri
-1. `tri(radius)`以半径为`radius`的圆做一个内接正三角形，并指向画笔坐标y轴正方向。
-1. `tri()`等价于`tri(100)`
-1. `tri(w,h)`以底边为`w`高为`h`做一个等腰三角形。
-1. `tri(p1x,p1y,p2x,p2y,p3x,p3y)`以`p1,p2,p3`2个二维点为顶点做三角形
-1. `tri(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z)`以`p1,p2,p3`3个三维点为顶点做三角形
+1. `tri(radius)` draws a regular triangle with radius `radius`, and the triangle will point to the positive direction of Y axis.
+2. `tri()` equals to `tri(100)`
+3. `tri(w,h)`draws a triangle with base length `w` and height `h`. 
+4. `tri(p1x,p1y,p2x,p2y,p3x,p3y)` draws a triangle basing on 3 points `p1,p2,p3`.
+5. `tri(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z)` draws a triangle basing on 3 points `p1,p2,p3`. 
 
-> - 如果想要观察三维三角形，请在`version3()`函数后加入`dim3()`，并在Ae图层中建立摄像机观测。
-> - 前3种方式构造的三角形的法线默认为画笔坐标z轴负方向，后2种方式构造的三角形则以`cross(p1-p2,p3-p2)`定几何法线。
-> - 函数名为`triangle`的缩写
+> - Add `dim3()` after `version3()`, and add a camera layer to your Ae comp to view the 3D triangle. 
+> - The first 3 functions set normals to (0,0,-1) basing on the current Paintbrush coordinate. The last 2 functions calculate normals with formula: `cross(p1-p2,p3-p2)`.
+> - `tri` is an abbreviation of `triangle`
 
 ```lua:tri1.lua
 version3()
@@ -333,120 +334,122 @@ tri(0,0,100,50,0,0,0,50,0)
 1. `quad(p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y)`
 1. `quad(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z)`
 
-> - 以`p1,p2,p3`的顺序绘制第一个三角形，以`p1,p3,p4`的顺序绘制第二个三角形。
+> - Draws 2 triangles with order: `p1,p2,p3`,then `p1,p3,p4`.
 
 
 ## rect
 
-1. `rect(size)`绘制size尺寸的正方形
-2. `rect()`等价于`rect(100)`
-3. `rect(width,height)`绘制长`width`高`height`的长方形
+1. `rect(size)` draws a square with `size`. 
+2. `rect()` equals to `rect(100)`
+3. `rect(width,height)` draws a rectangle with width `width` and height `height`. 
 
-> - 长方形将以画笔坐标中心为对角线交点生成。
-> - 函数名为`rectangle`的缩写
+> - The intersection point of rectangle is at the origin of Paintbrush coordinate.  
+> - `rect` is an abbreviation of `rectangle`. 
 
 ## circle
 
-1. `circle(size)`绘制一个半径为`size`的圆
-2. `circle()`等价于`circle(100)`
-3. `circle(size, div)`绘制一个半径为`size`，分段数为`div`的圆。
+1. `circle(radius)` draws a circle with radius `radius`. 
+2. `circle()` equals to `circle(100)`
+3. `circle(radius, div)` draws a circle with radius `radius`, and subdivision `div`. 
 
-> 默认分段为128
+> Default subdivision: 128
 
 ## ellipse
-1. `ellipse(width,height)`绘制一个长`width`宽`height`的椭圆
-2. `ellipse()`等价于`ellipse(100,100)`
-3. `ellipse(width,height,div)`绘制一个长`width`宽`height`分段`div`的椭圆
+1. `ellipse(radiusx,radiusy)`draws an ellipse with x radius`radiusx`, y radius `radiusy`. 
+2. `ellipse()` equals to `ellipse(100,100)`
+3. `ellipse(radiusx,radiusy,div)` draws an ellipse with x radius`radiusx`, y radius `radiusy` and subdivision `div`.
 
-> 默认分段为128
+> Default subdivision: 128
 
 ## line
 
-1. `line(p1x,p1y,p2x,p2y)`绘制一条线段
-1. `line(p1x,p1y,p1z,p2x,p2y,p2z)`绘制一条三维线段
-1. `line()`等价于`line(0,0,0,100,100,100)`
+1. `line(p1x,p1y,p2x,p2y)` draws a line. 
+1. `line(p1x,p1y,p1z,p2x,p2y,p2z)` draws a 3d line. 
+1. `line()` equals to `line(0,0,0,100,100,100)`
 
-> - 线的颜色是由`stroke(r,g,b)`控制的。
-> - 线的粗细是由`strokeWidth(width)`控制的
-> - 线默认是被渲染出来的，屏蔽线渲染请使用`noStroke()`，开启线渲染则用`stroke()`
+> - Use `stroke(r,g,b)` to change the color. 
+> - Use`strokeWidth(width)` to change the width. 
+> - Use `noStroke()` to turn off line render, `stroke()` to turn on line render. 
 
 ## par
 
-1. `par(x)` 绘制一个半径为位置为`(x,0,0)`的点
-1. `par(x,y)` 绘制一个半径为位置为`(x,y,0)`的点
-1. `par(x,y,z)` 绘制一个半径为位置为`(x,y,z)`的点
-1. `par()`等价于`par(0,0,0)`
+1. `par(x)` draws a point at`(x,0,0)`.
+2. `par(x,y)` draws a point at`(x,y,0)`.
+3. `par(x,y,z)` draws a point at`(x,y,z)`.
+4. `par()` equals to `par(0,0,0)`
 
-> - 点渲染默认是关闭的，请使用`dot()`打开。并且您随时可以调用`noDot()`关闭它
-> - 点的半径由`dotRadius(radius)`控制
-> - 点的颜色由`dot(r,g,b)`控制
-> - 如果您不想让点被变换压扁或者缩小，使用`dotGlobal()`。默认情况下点是在`dotLocal()`模式下渲染的。
+> - By default, the point render is turned off, use `dot()` to turn it on. You can call `noDot()` to turn it off again. 
+> - `dotRadius(radius)` controls point radius. 
+> - `dot(r,g,b)` controls point color. 
+> - `dotGlobal()` makes point be avoid to be squeezed by `scale`. By default, points are rendered with `dotLocal()`.
 
 ## cube
 
-1. `cube(size)`绘制一个边长为size的正方体
-1. `cube(sizex,sizey,sizez)`绘制一个长宽高`sizex,sizey,sizez`的长方体
-1. `cube()`等价于`cube(100)`
+1. `cube(size)` draws a cube with size `size`
+1. `cube(sizex,sizey,sizez)` draws a cuboid with dimension `sizex,sizey,sizez`.
+1. `cube()` equals to `cube(100)`
 1. `cube()`
 
-> 长方体的法线默认是朝外的，如果输入负数长度、或者使用了带负号的`scale()`函数会导致法线向内
+> Negative inputs or negative `scale()` would cause wrong normals. 
 
 ## tet 
 
-1. `tet(radius)`以`radius`为球面半径绘制一个内接正四面体
-1. `tet()`等价于`tet(50)`
-1. `tet(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z)`以`p1,p2,p3,p4`为顶点绘制一个四面体
+1. `tet(radius)` draws a regular tetrahedron with radius `radius`. 
+1. `tet()` equals to `tet(50)`
+1. `tet(p1x,p1y,p1z,p2x,p2y,p2z,p3x,p3y,p3z,p4x,p4y,p4z)` draws tetrahedron basing on 4 points `p1,p2,p3,p4`.
 
-> - 第三项绘制的四面体的法线根据绘制顺序而定，具体为：`p1,p2,p3;p2,p1,p4;p3,p2,p4;p1,p3,p4.`的顺序依次绘制四个三角面。关于三角面的法线方向请参考[`tri`](#tri)
-> - 函数名为`tetrahedron`的缩写
+> - The 3rd function generates normals basing on `tri` function and calls it with the following points order: `p1,p2,p3; p2,p1,p4; p3,p2,p4; p1,p3,p4.`. See also: [`tri`](#tri). 
+> - `tet` is an abbreviation of `tetrahedron`. 
 
 ## cone
 
-1. `cone(size)`以2*size为高，size为底边半径绘制一个圆锥
-1. `cone()`等价于`cone(50)`
-1. `cone(radius,height)`以radius为半径，height为高绘制一个圆锥
-1. `cone(radius,height,div)`以radius为半径，height为高绘制一个分段为div的圆锥
+1. `cone(size)` draws a cone with base circle radius `size` and height `2*size`.  
+2. `cone()` equals to `cone(50)`. 
+3. `cone(radius,height)` draws a cone with base circle radius `radius` and height `height`.
+4. `cone(radius,height,div)` draws a cone with base circle radius `radius`, height `height` and subdivision `div`. 
 
-> - 圆锥默认分段为64
-> - 当分段大于16时会隐藏锥面描边和底边顶点
-> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+> - Default subdivision: 64
+> - If `sub` is greater than 16, the side stroke and base point will be hidden. 
+> Negative inputs or negative `scale()` would cause wrong normals. 
 
 ## ball
 
-1. `ball(radius)`以半径radius绘制一个三维球体
-1. `ball()`等价于`ball(50)`
-1. `ball(radius,level)`以半径radiu和level细分等级绘制一个球体
+1. `ball(radius)` draws a sphere with radius `radius`.
+1. `ball()` equals to `ball(50)`. 
+2. `ball(radius,level)` draw a ball with radius `radius` and subdivision level `level`. 
 
-> - 默认level为4
-> - level必须大于等于0
-> - level等于0时为正八面体
-> - level大于2时将隐藏描边和顶点
-> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+> - Default subdivision level 4. 
+> - `level` must be non-negative. 
+> - `level` 0 generates a regular octahedron. 
+> - If `level` is greater than 2, the strokes and points will be hidden. 
+> Negative inputs or negative `scale()` would cause wrong normals. 
+
 
 ## tube
 
-1. `tube(size)`绘制一个底面半径size、高2*size的圆柱体
-1. `tube()`等价于tube(50)
-2. `tube(radius,height)`绘制一个半径为radius、高为height的圆柱体
-3. `tube(radius1,radius2,height)`绘制一个靠近绘笔坐标原点底面半径为radius1、远离一侧底面半径为radius2、高为height的圆柱体
-4. `tube(radius1,radius2,height,div)`在第3个函数基础上多了分段的控制。
-5. `tube(radius1,radius2,height,div,needMesh)`在第4个函数基础上多了“是否要渲染两个圆面”的boolean
-6. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第4个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
+1. `tube(size)` draws a tube with base circle radius `size` and height `2*size`.
+2. `tube()` equals to `tube(50)`
+3. `tube(radius,height)`draws a tube with base circle radius `radius` and height `height`.
+4. `tube(radius1,radius2,height)` draws a tube with close base circle radius `radius1`, far base circle radius `radius2` and height `height`.
+5. `tube(radius1,radius2,height,div)` can change the subdivision. 
+6. `tube(radius1,radius2,height,div,needMesh)` can change render 2 base circles or not. 
+7. `tube(radius1,radius2,height,div,needMesh1,needMesh2)` can change render 2 base circles or not separately. 
 
-> - `div`默认值为64
-> - `needMesh`默认值为`true`
-> - 当分段大于16时会隐藏柱面描边和两底边顶点
-> - 负数的输入值或带负号的`scale()`有可能导致法线向内
+> - Default `div`: 64. 
+> - `needMesh` is `true` by default. 
+> - If `div` is greater than 16, the side strokes and the base points will be hidden. 
+> Negative inputs or negative `scale()` would cause wrong normals. 
+
 
 ## image
 
-1. `image(id,width,height)`以长度为width,高为height绘制一张图片到场景上
+1. `image(id,width,height)` draws an image with width `width` and height `height`. 
 
-> - id是材质编号，`PARAM0`~`PARAM9`是您插件面板上的图层控件获得的材质，`INPUT`是输入插件的输入图像，`OUTPUT`是输出图像。
-> - 当您指定id为`OUTPUT`时，因为`OUTPUT`是您当前正绘制的充当绘板的材质，所以会发生一次绘板的截屏行为。因此会比其它参数稍慢一些。
-> - 这个函数与`in2out(id)`的区别是，`image(id,width,height)`会根据绘笔坐标生成一个与场景深度信息互动的图片。这意味着：图片默认绘制出来是上下颠倒的，因为Ae默认的坐标系y轴向下，您需要在前面加入一行`rotateX(PI)`来转正（我们不推荐使用`scale(1,-1)`,这将会导致其它后续绘制图形出现法线错误）；而`in2out(id)`则是忽略深度信息，直接把像素写到当前绘板中（并且没有上下颠倒问题）。
+> - `id` is texture id,`PARAM0`~`PARAM9`means texture load from the layer parameters, `INPUT` means input image, `OUTPUT` means output image. 
+> - If `id` is `OUTPUT`, it will be slow because we need to take a screenshot of your scene. 
+> - The difference with `in2out(id)` is, `image(id,width,height)` draws a rectangle with a texture, which could interact with the depth buffers, where `in2out(id)` just copy pixels from one texture to another. This is also means the image that is drawn to the screen is inversed by default (The default coordinate system of Ae is Y axis downward), so you may need `rotateX(PI)` to fix it. (And we don't recommend calling `scale(1,-1)`, which may cause wrong normals problem. 
 
-下面这个例子将演示一个与输入图片穿插交互的立方体
+Example: 
 
 ```lua:render_image.lua
 version3()
@@ -463,318 +466,321 @@ cube()
 
 ## coord
 
-`coord()`将把当前绘笔坐标可视化出来。
+`coord()` draws the current Paintbrush coordinate. 
 
 
 ## grid 
 
-`grid()`将把当前绘笔坐标所在的xy平面以100x100网眼大小的的网格可视化出来。
+`grid()` draws a grid with many 100x100px squares. 
 
 ## setPoly
 
-`setPoly(obj)`可以提前解析要绘制的物体信息，您在设置后可以调用`poly()`来快速绘制刚刚设置的物体。
+`setPoly(obj)` analyzes obj only, use `poly()` to draw the previous set obj to scene. 
 
-> 关于obj的构造请前往[Poly](Poly.md)章节
+> - It will be efficient in the case you draw a same obj for many times. 
+> - See also [Poly](Poly.md)
 
 ## background
 
-`background(brightness)`,`background(r,g,b)`,`background(r,g,b,a)`将当前绘板涂成对应颜色。
+`background(brightness)`,`background(r,g,b)`,`background(r,g,b,a)` draws a pure color rectangle to scene.
 
-> - 注意：如果您之前绘制过形状，这些形状会被覆盖。
+> - Notes: This function overrides all shapes you drew before. 
 
 
 ## in2out
 
-1. `in2out(id)`会把第id个层参数设为背景。
-1. `in2out()`等价于`in2out(INPUT)`，它负责把输入层当做背景。
+1. `in2out(id)` set the `id` texture to the scene. 
+2. `in2out()` equals to `in2out(INPUT)`
+
+> `id` range: `PARAM0`~`PARAM9` or `INPUT`. 
 
 
 ## dim2
 
-`dim2()`将使用2D模式绘图，这一项默认是开启的，一般您无需调用。
+`dim2()` set the scene to 2D mode. 2D mode is on by default, you usually no need to call it. 
 
-> 本质PixelsWorld中的2D模式是没有深度信息的正交3D模式。
+> In PixelsWorld, 2D scene means a 3D scene without depth test and perspective. 
 
 ## dim3
 
-`dim3()`将使用3D模式绘图。我们推荐声明在紧随`version3()`之后的地方。
+`dim3()` set the scene to 3D mode. Call it immediately after `version3()`. 
 
 ## perspective
 
-`perspective()`将使用透视视图渲染，物体将符合近大远小规则，您可以使用[viewSpace](#viewspace)来调整摄像机信息、使用[lookAt](#lookat)来调整摄像机位置。
-> 这一项默认是开启的，一般您无需调用。
+`perspective()` set the scene to perspective mode, everything looks small in the distance and big on the contrary. Use [viewSpace](#viewspace) to change the camera information. Use [lookAt](#lookat) to set the location of the camera. 
+
+> Perspective mode is on by default after calling `dim3()`. 
 
 ## noPerspective
 
-`noPerspective()`将使用正交视图渲染，物体互相平行的边缘在渲染视图中也将平行。
+`noPerspective()` set the scene to orthogonal mode. 
 
 ## fill
 
-1. `fill()`将开启填充。默认开启。
-1. `fill(brightness)`,`fill(r,g,b)`,`fill(r,g,b,a)`将开启填充并设置填充色。
+1. `fill()` turns on fill mode. 
+1. `fill(brightness)`,`fill(r,g,b)`,`fill(r,g,b,a)` turns on fill mode and set fill color.
 
-> - 注意：在3D模式中，如果您将填充的透明值设为小于1的数的时候，请使用由远到近的顺序渲染物体，否则前面的透明物体会完全遮挡住后面的物体。（这是OpenGL绘图的一个特性）
+> - Note: If you set `Alpha` smaller than 1, render far object first, or you will get wrong render results due to the depth test. (This is a feature of OpenGL render)
 
 ## noFill
 
-`noFill()`将关闭填充。
+`noFill()` turns off the fill mode.
 
 ## stroke
 
-1. `stroke()`将开启描边。默认开启。
-1. `stroke(brightness)`,`stroke(r,g,b)`,`stroke(r,g,b,a)`将开启描边并设置描边色。
+1. `stroke()` turns on the stroke mode. 
+1. `stroke(brightness)`,`stroke(r,g,b)`,`stroke(r,g,b,a)` turns on stroke mode and set the stroke color. 
 
 ## noStroke
 
-`noStroke()`将关闭描边。
+`noStroke()` turns off stroke mode. 
 
 ## dot
 
-1. `dot()`开启顶点渲染。默认关闭。
-1. `dot(brightness)`,`dot(r,g,b)`,`dot(r,g,b,a)`将开启顶点渲染并设置顶点渲染颜色。
+1. `dot()` turns on the dot mode. 
+2. `dot(brightness)`,`dot(r,g,b)`,`dot(r,g,b,a)` turns on the dot mode and set the dot color. 
 
 ## noDot
 
-`noDot()`将关闭顶点渲染。
+`noDot()` turns off the dot mode. 
 
 ## wireframe
 
-`wireframe()`将开启线框模式。
+`wireframe()` turns on the wireframe mode.
 
 ## noWireframe
 
-`noWireframe()`将关闭线框模式。
+`noWireframe()` turns off the wireframe mode.
 
 ## blendAlpha
 
-`blendAlpha()`将开启混色。
+`blendAlpha()` turns on the alpha blending. 
 
 ## noBlendAlpha
 
-`noBlendAlpha`将关闭混色。
+`noBlendAlpha` turns off the alpha blending. 
 
 ## back
 
-`back()`填充含透明色的时候，将显示物体背面。默认关闭。
+`back()` If the fill alpha is smaller than 1, back mode shows the back side of an obj. Off by default. 
 
 ## noBack
 
-`noBack()`关闭背面渲染模式。
+`noBack()` turn off back mode. 
 
 
 ## pure
 
-`pure()`将使用纯色模式渲染场景。默认开启。
+`pure()` use pure color to render. On by default. 
 
-> anime,phong,pure是三种不能同时应用的材质，您在打开其中一个的时候另外两种会被关掉。
+> anime, phong, pure are 3 dependent mode, turn on one may turn off the other two. 
 
 ## phong
 
-1. `phong(ambient,diffuse,specular,specularPower)`将切换到phong模式，并把环境光反射强度设为ambient、亮面漫反射强度设为diffuse、高光强度设为specular。specularPower负责设置高光衰减量级，该项越大，高光衰减越快。
-1. `phong()`将切换到phong材质模式。不改动设置。
+1. `phong(ambient,diffuse,specular,specularPower)` turns on the phong render mode, and set the ambient strength to `ambient`, diffuse strength to `diffuse`, specular strength to `specular`, specular damping power to `specularPower`. 
+2. `phong()` only turn on the phong render mode, it doesn't change the configs. 
 
-> - 默认场景是没有任何光源的，所以您需要使用[getLight()](#getlight)，或[ambientLight()](#ambientlight)、[parallelLight()](#parallellight)、[pointLight](#pointlight)来获取光源。
-> - 如果在有光源的前提下渲染出来的物体仍然是纯黑色，调用[normal](#normal)请检查法线是否正确。
-> - 每一项参数初始值为：ambient:1,diffuse:1,specular:1,specularPower:1
-> - anime,phong,pure是三种不能同时应用的材质，您在打开其中一个的时候另外两种会被关掉。
-> - 请在使用前执行[dim3()](#dim3)
+> - By default, there is no light in the scene, call [getLight()](#getlight), [ambientLight()](#ambientlight), [parallelLight()](#parallellight), [pointLight](#pointlight) to add lights. 
+> - If you are sure there are lights in your scene but the obj is black, call [normal](#normal) to check if the normal is right. 
+> - Default settings: ambient:1,diffuse:1,specular:1,specularPower:1. 
+> - anime, phong, pure are 3 dependent mode, turn on one may turn off the other two. 
+> - Call [dim3()](#dim3) before calling this function. 
 
 ## anime
 
 1. `anime(ambient,diffuse,specular,specularPower,diffuseThreshold,specularThreshold)`
-1. `anime()`将切换到动漫材质模式。不改动设置。
+1. `anime()` turns on the anime render mode. 
 
-> - anime材质是在[phong](#phong)的基础上做的。因此前四项参数：ambient,diffuse,specular,specularPower与phong相同，剩余两项diffuseThreshold负责设置漫反射的阈值，当漫反射亮度超过阈值时则设为亮面，低于阈值时则设置为暗面。同理，specularThreshold负责高光的阈值。
-> - anime材质对抗锯齿进行了优化，如果您开启了抗锯齿（默认开启），那么光影过渡边缘会被抗锯齿处理。关闭插件面板的抗锯齿设置可以关闭光影边缘的抗锯齿处理。
-> - 每一项参数初始值为：ambient:1,diffuse:1,specular:1,specularPower:1,diffuseThreshold:0.5,specularThreshold:0.8
-> - anime,phong,pure是三种不能同时应用的材质，您在打开其中一个的时候另外两种会被关掉。
-> - 请在使用前执行[dim3()](#dim3)
+> - anime render mode is based on [phong](#phong), hence the first 4 arguments `ambient,diffuse,specular,specularPower` are same with phong render mode. `diffuseThreshold` configs the diffusion threshold, if diffuse lightnees in a pixel is bigger than threshold, it will be white. Otherwise it will be dark. `specularThreshold` is threshold of specular. 
+> - The anime render mode smooth the light-dark border when you turn on the smooth settings in plugin panel. 
+> - Default settings: ambient:1,diffuse:1,specular:1,specularPower:1,diffuseThreshold:0.5,specularThreshold:0.8
+> anime, phong, pure are 3 dependent mode, turn on one may turn off the other two. 
+> - Call [dim3()](#dim3) before calling this function. 
 
 
 ## color
 
-`color()`RGBA直接输出模式，默认开启。
+`color()`RGBA output mode, on by default.
 
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
-> - 这个模式可以使用材质。
+> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - You can use `phong(),anime()` in this output mode. 
 
 ## depth
 
-`depth(blackDistance, whiteDistance)`是把深度当做亮度信息输出的模式。例如您想输出一张深度图，可以指定blackDistance和whiteDistance来设置距离摄像机多远的时候输出黑色或白色。对于之间的距离，像素世界会做线性插值成灰色。当您把blackDistance和whiteDistance设为同一数值时，像素世界会把您设置的数值当做阈值来输出纯黑色或纯白色。
+`depth(blackDistance, whiteDistance)` depth output mode. Set pixels at distance `blackDistance` to black, pixels at distance `whiteDistance` to white. If they are same, PixelsWorld set the pixels that nearer than the value you set to black, otherwise white.  
 
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
-> - 这个模式会无视材质。
-> - 请在使用前执行[dim3()](#dim3)
+> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - `phong(),anime()` will be ignored in this output mode. 
+> - Call [dim3()](#dim3) before calling this function. 
 
 ## normal
 
-1. `normal(faceToCamera, normalize)`切换到normal模式，修改faceToCamera和normalize变量
-1. `normal(faceToCamera)`切换到normal模式，只修改faceToCamera变量
-1. `normal()`只负责切换到normal模式
+1. `normal(faceToCamera, normalize)` turns the normal output mode on, and configs faceToCamera and normalize. 
+2. `normal(faceToCamera)` turns the normal output mode on, and configs faceToCamera. 
+3. `normal()` only turns the normal output mode on. 
 
-> - faceToCamera是一个布尔值，用来控制normal是否以摄像机视角为基准生成。
-> - normalize是一个布尔值，用来指定是否输出标准化(长度做成1)后的normal
-> - 初始值：faceToCamera:true, normalize:true。
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
-> - 这个模式会无视材质。
-> - 请在使用前执行[dim3()](#dim3)
+> - `faceToCamera` is a boolean, `true` means the normals are calculated basing on camera location. `false` means the normals are calculated basing on the global coordinate. 
+> - `normalize` is a boolean. 
+> - Default settings: faceToCamera:true, normalize:true.
+> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - `phong(),anime()` will be ignored in this output mode. 
+> - Call [dim3()](#dim3) before calling this function. 
 
 
 ## setDepth
 
-`setDepth(id,blackDistance,whiteDistance)`可以读取id上的材质的红色通道，并把通道值为0的地方设为`blackDistance`，通道值为1的地方设为`whiteDistance`，再把材质应用到深度测试材质上。
+`setDepth(id,blackDistance,whiteDistance)` reads the **red channel** of texture `id`, maps color basing on `blackDistance,whiteDistance` to the depth test buffer in the scene.
 
-> - 您可以把从3D软件中渲染的深度序列通过这个函数导入像素世界，这样像素世界能和
-> - 请在使用前执行[dim3()](#dim3)
-> - 有效的id: `INPUT`,`PARAM0`~`PARAM9`
+> - The depth sequence from other 3DCG softwares can be loaded into PixelsWorld through this function. Namely the shapes can interact with the color sequence rendered from other 3DCG softwares. 
+> - Call [dim3()](#dim3) before calling this function. 
+> - Valid texture id: `INPUT`,`PARAM0`~`PARAM9`
 
 
 ## ambientLight
 
 1. `ambientLight(r,b,g,intensity)`
-1. `ambientLight()`等价于`ambientLight(1,1,1,1)`
-1. `ambientLight(brightness)`等价于`ambientLight(brightness,brightness,brightness,1)`
-1. `ambientLight(brightness,intensity)`等价于`ambientLight(brightness,brightness,brightness,intensity)`
-1. `ambientLight(r,g,b)`等价于`ambientLight(r,b,g,1)`
+1. `ambientLight()` equals to `ambientLight(1,1,1,1)`
+1. `ambientLight(brightness)` equals to `ambientLight(brightness,brightness,brightness,1)`
+1. `ambientLight(brightness,intensity)` equals to `ambientLight(brightness,brightness,brightness,intensity)`
+1. `ambientLight(r,g,b)` equals to `ambientLight(r,b,g,1)`
 
-> - 生成一个环境光，对场景内所有物体有效。
-> - 这个光可以无视物体法线方向，即使法线方向反向仍能照亮物体。
+> - Adds a ambient light to the scene. Valid to all objs. 
+> - Objs are lit up by this kind of lights even if they has wrong normals. 
 
 ## pointLight
 
 1. `pointLight(r,g,b,intensity,radius,smoothWidth)`
-1. `pointLight()`等价于`pointLight(1,1,1,1,1000,1000)`
-1. `pointLight(brightness,intensity)`等价于`pointLight(brightness,brightness,brightness,intensity,1000,1000)`
-1. `pointLight(r,g,b)`等价于`pointLight(r,g,b,1,1000,1000)`
-1. `pointLight(r,g,b,intensity)`等价于`pointLight(r,g,b,intensity,1000,1000)`
-1. `pointLight(r,g,b,intensity,radiusAndSmoothWidth)`等价于`pointLight(r,g,b,intensity,radiusAndSmoothWidth,radiusAndSmoothWidth)`
+1. `pointLight()` equals to `pointLight(1,1,1,1,1000,1000)`
+1. `pointLight(brightness,intensity)` equals to `pointLight(brightness,brightness,brightness,intensity,1000,1000)`
+1. `pointLight(r,g,b)` equals to `pointLight(r,g,b,1,1000,1000)`
+1. `pointLight(r,g,b,intensity)` equals to `pointLight(r,g,b,intensity,1000,1000)`
+1. `pointLight(r,g,b,intensity,radiusAndSmoothWidth)` equals to `pointLight(r,g,b,intensity,radiusAndSmoothWidth,radiusAndSmoothWidth)`
 
-> - 在当前绘笔坐标原点处生成一个点光源。
-> - 这个光受物体法线方向影响，法线方向的物体不会产生漫反射和高光，但仍能接受点光源产生的环境光。
-> - radius为点光源的光照半径，radius到radius+smoothWidth之间光照强度会衰减。
+> - Adds a point light in the current Paintbrush coordinate. 
+> - This light is affected by objs' normals. The specular and diffuse will be failed if the normals are inward, but the ambient brightness of point light still lights up the objs. 
+> - `radius` is range radius of point light. Range from `radius` to `radius+smoothWidth`, the brightness damps.
 
 ## parallelLight
 
 1. `parallelLight(r,g,b,intensity,tx,ty,tz)`
 
-> - 在全局范围内生成一个方向为`(tx,ty,tz)`的平行光。
+> - Adds a parallel light with direction vector `(tx,ty,tz)`.
 
 ## clearLight
 
-`clearLight()`清除场景中的所有灯光。
+`clearLight()` removes all lights in the scene. 
 
 ## getLight
 
 1. `getLight(matchName)`
-1. `getLight()`等价于`getLight("*")`
+1. `getLight()` equals to `getLight("*")`
 
-> - 获取当前合成符合matchName名字的灯光。
-> - matchName规则：当字符串末尾不含`*`时，会在Ae当前合成的图层中搜寻名字为matchName的灯光并加入场景中；当末尾含有`*`时，则会把所有开头为matchName的灯光全部加入场景中。
-> - 目前支持的Ae灯光类型：ambient,point,parallel
+> - Gets lights that match the name `matchName`.
+> - `matchName` rules：If `matchName` doesn't end up with character `"*"`, it searches one Ae lights that its name is `matchName`, otherwise, it includes all Ae lights that begin with `matchName`. 
+> - Supported Ae lights: ambient,point,parallel
 
 ## aeCamera
 
-`aeCamera()`把Ae当前场景摄像机当做像素世界的场景摄像机。
+`aeCamera()` sets the Ae activated camera to the scene camera of PixelsWorld. 
 
 ## lookAt
 
-1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)`用来设置摄像机位置和朝向
-1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)`等价于`lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)`
+1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)` sets the location and orientation of the current scene camera. 
+1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)` equals to `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)`
 
-> - eyePos是您眼睛的位置，objPos是您想看的目标物体的位置，upVec是您头顶的指向。
-> - 注意Ae的Y轴默认是朝下的，一般您需要让upVec为(0,-1,0)。
-> - eyePos和objPos不能太近（推荐两者距离不低于`1e-7`）。
-> - upVec不能和您的视线平行。
-> - upVec长度不能太小。
+> - `eyePos` is the location of your eyes, `objPos` is the location of the object you are looking at,`upVec` the direction your top of head pointing to. 
+> - Note: Y axis in Ae is downward by default, usually set the `upVec` to (0,-1,0) is enough.
+> - `eyePos` and `objPos` cannot be too close. (should be bigger than `1e-7`).
+> - `upVec` cannot be parallel to your sight.
+> - The length of `upVec` cannot be too small.
 
 ## viewSpace
 
 1. `viewSpace(width,height,distanceToPlane,farLevel)`
-1. `viewSpace(width,height,distanceToPlane)`等价于`viewSpace(width,height,distanceToPlane,4)`
+1. `viewSpace(width,height,distanceToPlane)` equals to `viewSpace(width,height,distanceToPlane,4)`
 
-> - width和height为摄像机远平面的尺寸
-> - 摄像机到摄像机远平面的垂直距离为distanceToPlane
-> - farLevel * distanceToPlane为最远平面的距离，超过这个距离的物体将不被渲染。通常设为4足够，若您的场景十分大，可以把这个数值设高一些，这个数值只会影响远处的物体是否被渲染。若您把这个数值设定的过高可能会影响近处物体的深度测试精度。
-
+> - `width` and `height` is the dimension of the far plane. 
+> - The perpendicular distance from camera to camera far plane is `distanceToPlane`
+> - `farLevel * distanceToPlane` is the clip plane distance. Objs that farther than this distance will be clipped out. Normally it is enough to left the `farLevel` 4, set it to higher number if your scene is pretty vast. Note that if the `farLevel` is too high, the depth test precision of near objs may decline. 
 
 ## strokeWidth
 
-`strokeWidth(width)`来设置描边粗细
-> 默认值：2
+`strokeWidth(width)`
+> Default: 2
 
 ## strokeDivision
 
-`strokeDivision(level)`来设置描边细分等级
-> 默认值：3
+`strokeDivision(level)`
+> Default: 3
 
 ## strokeGlobal
 
-`strokeGlobal()`以全局模式绘制线，线的粗细不受scale影响。
-> - 默认值是局部模式
+`strokeGlobal()` draw lines globally. Lines will no longer be squeezed by `scale` function. 
+> - Default: local
 
 ## strokeLocal
 
-`strokeLocal()`以局部模式绘制线，线的粗细将受scale影响。
-> - 默认值是局部模式
+`strokeLocal()` draw lines locally. Lines will be squeezed by `scale` function.
+> - Default: local
 
 ## dotRadius
 
-`dotRadius(radius)`来设置点粗细
-> - 默认值：2
+`dotRadius(radius)`
+> - Default: 2
 
 ## dotDivision
 
-`dotDivision(level)`来设置点的细分等级。（非负整数，最大为7）
-> - 默认值：3
+`dotDivision(level)`
+> - Default: 3
+> - Maximum: 7
 
-## strokeGlobal
+## dotGlobal
 
-`strokeGlobal()`以全局模式绘制点，点的半径不受scale影响。
-> - 默认值是局部模式
+`dotGlobal()` Draw points globally. Points will no longer be squeezed by `scale` function. 
+> - Default: local
 
-## strokeLocal
+## dotLocal
 
-`strokeLocal()`以局部模式绘制点，点的半径将受scale影响。
-> - 默认值是局部模式
+`dotLocal()` Draw points locally. Points will be squeezed by `scale` function. 
+> - Default: local
 
 ## smooth
 
-`smooth()`以抗锯齿模式绘制。
-> 默认开启
-> 在插件面板上可以修改抗锯齿强度
+`smooth()` Smooth render mode. 
+> Default: on
+> The smooth strength can be changed in plugin panel. 
 
 ## noSmooth
 
-`noSmooth()`以非抗锯齿模式绘制。
-> 不推荐和smooth混用。
-> 这个函数的优先级大于插件面板上的抗锯齿设定。
+`noSmooth()` Pixel art render mode. 
+> The priority of this function is higher than settings in plugin panel.
 
 ## r2d
 
-`r2d(degrees)`角度转弧度，返回弧度
+`r2d(degrees)` radians to degrees, return degrees. 
 
 ## d2r
 
-`d2r(radians)`弧度转角度，返回角度
+`d2r(radians)` degrees to radians, return radians
 
 ## utf8ToLocal
 
-`utf8ToLocal(str)`把unicode字符串转为本地字符串，返回本地编码的字符串
+`utf8ToLocal(str)` unicode string to local string. 
 
-> 如果您在使用Lua的io模块，发现某个路径含有utf8字符的文件读不了的话，请用这个函数转换路径编码。
+> Call this function to translate paths while you are handling Lua's `io` module. 
 
 ## localToUtf8
 
-`localToUtf8(str)`把本地字符串转为unicode字符串，返回unicode编码字符串
+`localToUtf8(str)`local string to unicode string
 
 ## getGLInfo
 
-`getGLInfo()`获取当前显卡的信息。
+`getGLInfo()` gets the information of the current graphic card. 
 
 ## getDrawRecord
 
-1. `getDrawRecord(needStringFormat)`将输出当前场景的绘制记录信息。`needStringFormat`是一个布尔值，true时输出字符串，false输出一个Lua表。
-1. `getDrawRecord()`等价于`getDrawRecord(true)`
+1. `getDrawRecord(needStringFormat)` gets current draw records. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
+1. `getDrawRecord()` equals to `getDrawRecord(true)`
 
 ```lua:printDrawRecord.lua
 version3()
@@ -786,8 +792,8 @@ println(getDrawRecord());
 
 ## getStatus
 
-1. `getStatus(needStringFormat)`可以输出当前绘笔信息，`needStringFormat`是一个布尔值，true时输出字符串，false输出一个Lua表。
-1. `getStatus()`等价于`getStatus(true)`
+1. `getStatus(needStringFormat)`gets the current Paintbrush status. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
+1. `getStatus()` equals to `getStatus(true)`
 
 ```lua:printDrawRecord.lua
 version3()
@@ -799,14 +805,14 @@ println(getStatus());
 
 ## getAudio
 
-1. `getAudio(startTime,duration,id,sampleRate)`将索取音频信息，返回四个表，两个波形采样表（左右声道）和两个由波形计算的频谱表（左右声道）。
-1. `getAudio(startTime,duration)`等价于`getAudio(startTime,duration,INPUT,44100)`
-1. `getAudio(startTime,duration,id)`等价于`getAudio(startTime,duration,id,44100)`
+1. `getAudio(startTime,duration,id,sampleRate)` gets the audio samples. Returns 4 tables. The first 2 are wave sample tables(Left and Right), the last 2 are spectrum sample tables(Left and Right).  
+1. `getAudio(startTime,duration)` equals to `getAudio(startTime,duration,INPUT,44100)`
+1. `getAudio(startTime,duration,id)` equals to `getAudio(startTime,duration,id,44100)`
 
-> - 左声道波形 (-1~1)
-> - 右声道波形 (-1~1)
-> - 左声道频谱 (0~正无穷)
-> - 右声道频谱 (0~正无穷)
+> - Left wave sample range: (-1~1)
+> - Right wave sample range: (-1~1)
+> - Left spectrum sample range: (0~infinity)
+> - Right spectrum sample range: (0~infinity)
 
 ```lua:waveInfo.lua
 version3()
@@ -831,54 +837,56 @@ end
 
 ## getColor
 
-`getColor(id,x,y)`返回`id`材质处的(x,y)坐标处的像素值，返回r,g,b,a四个双精度浮点数。
-`getColor(x,y)`等价于`getColor(INPUT,x,y)`
+`getColor(id,x,y)` get pixel color at location (x,y) of texture `id`. Returns `r,g,b,a` 4 doubles.
+`getColor(x,y)` equals to `getColor(INPUT,x,y)`
 
-> - 在绘制一切场景前使用`getColor`时(即在`version3()`紧接着的后面)，这个函数的效率是最高的，如果您在绘制场景时使用`getColor`时这个函数效率十分低下，因为Lua是工作在CPU上的，绘制场景时，所有的材质都会送入您的显卡，在显卡和CPU之间通信的时间成本会很高。
-> - 有效id为`INPUT`,`OUTPUT`,`PARAM0`~`PARAM9`
+> - It is high efficient to call `getColor` before any draw function(Such as immediately after `version3()`). Otherwise, it is very low efficient since it queries pixels from the graphic card. 
+> - Valid `id`: `INPUT`,`OUTPUT`,`PARAM0`~`PARAM9`
 
 ## setColor
 
-`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)`会设置`id`材质处的(x,y)坐标处的像素值。
-> - 在绘制一切场景前使用`setColor`时(即在`version3()`紧接着的后面)，这个函数的效率是最高的
+`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)` set the pixel at location (x,y) of texture `OUTPUT`. 
+> - It is high efficient to call `setColor` before any draw function
 
 ## getSize
 
-`getSize(id)`返回id材质的尺寸
+`getSize(id)` returns the size of texture `id`. (Two doubles, width and height)
 
-> 当您改变场景降采样（例如二分之一，四分之一）后，返回的尺寸会有0~4像素的抖动，这是由Ae的降采样机制产生的特性。但这个抖动不会随时间变化。在降采样关闭时，这个函数保证返回正确的图层尺寸。
+> Due to the Ae's downsample (1/2,1/4) mechanism, the size you get would variating 0~4px. But this kind of variating doesn't change with time. The size is promised to be accurate in full resolution(without downsample). 
 
 ## shadertoy
 
-`shadertoy(code)`执行来自shadertoy的代码。
+`shadertoy(code)` runs code from shadertoy.com. 
 
-> - 不是所有的shadertoy代码都被支持
+> - Not all code on shadertoy.com is supported. 
 
 ## glsl
 
-`glsl(code)`执行Fragment阶段代码
+`glsl(code)` runs fragment stage shader code. 
 
 ## cmd
 
-`cmd(code)`执行cmd指令
+`cmd(code)` runs cmd code. 
 
-> 如果命令成功运行完毕，第一个返回值就是 true，否则是 nil。在第一个返回值之后，函数返回一个字符串加一个数字。如下：
-> - "exit": 命令正常结束； 接下来的数字是命令的退出状态码。
-> - "signal": 命令被信号打断； 接下来的数字是打断该命令的信号。
+> This function is equivalent to the ISO C function system. It passes command to be executed by an operating system shell. Its first result is true if the command terminated successfully, or nil otherwise. After this first result the function returns a string plus a number, as follows:
 
+> - "exit": the command terminated normally; the following number is the exit status of the command.
+> - "signal": the command was terminated by a signal; the following number is the signal that terminated the command.
 ## lua
 
-`lua(code)`执行Lua代码
+`lua(code)` runs lua code. 
 
 ## runFile
 
-`runFile(utf8_path)`把本地文件当做txt文件读取，并当做Lua代码执行。
+`runFile(utf8_path)` loads local lua code and run. 
+
+> No need to call `utf8ToLocal` since it supports utf8. 
 
 
 ## txt
 
-`txt(utf8_path)`把本地文件当做txt文件读取，并返回字符串。
+`txt(utf8_path)` loads local text file. Returns string. 
 
-
+> No need to call `utf8ToLocal` since it supports utf8. 
 
 

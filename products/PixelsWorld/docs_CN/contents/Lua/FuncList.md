@@ -347,16 +347,16 @@ tri(0,0,100,50,0,0,0,50,0)
 
 ## circle
 
-1. `circle(size)`绘制一个半径为`size`的圆
+1. `circle(radius)`绘制一个半径为`radius`的圆
 2. `circle()`等价于`circle(100)`
-3. `circle(size, div)`绘制一个半径为`size`，分段数为`div`的圆。
+3. `circle(radius, div)`绘制一个半径为`radius`，分段数为`div`的圆。
 
 > 默认分段为128
 
 ## ellipse
-1. `ellipse(width,height)`绘制一个长`width`宽`height`的椭圆
+1. `ellipse(radiusx,radiusy)`绘制一个x半径为`radiusx`，y半径为`radiusy`的椭圆
 2. `ellipse()`等价于`ellipse(100,100)`
-3. `ellipse(width,height,div)`绘制一个长`width`宽`height`分段`div`的椭圆
+3. `ellipse(radiusx,radiusy,div)`绘制一个x半径为`radiusx`，y半径为`radiusy`分段`div`的椭圆
 
 > 默认分段为128
 
@@ -372,10 +372,10 @@ tri(0,0,100,50,0,0,0,50,0)
 
 ## par
 
-1. `par(x)` 绘制一个半径为位置为`(x,0,0)`的点
-1. `par(x,y)` 绘制一个半径为位置为`(x,y,0)`的点
-1. `par(x,y,z)` 绘制一个半径为位置为`(x,y,z)`的点
-1. `par()`等价于`par(0,0,0)`
+1. `par(x)` 绘制一个位置为`(x,0,0)`的点
+2. `par(x,y)` 绘制一个位置为`(x,y,0)`的点
+3. `par(x,y,z)` 绘制一个位置为`(x,y,z)`的点
+4. `par()`等价于`par(0,0,0)`
 
 > - 点渲染默认是关闭的，请使用`dot()`打开。并且您随时可以调用`noDot()`关闭它
 > - 点的半径由`dotRadius(radius)`控制
@@ -402,7 +402,7 @@ tri(0,0,100,50,0,0,0,50,0)
 
 ## cone
 
-1. `cone(size)`以2*size为高，size为底边半径绘制一个圆锥
+1. `cone(size)`以size为底边半径，2*size为高，绘制一个圆锥
 1. `cone()`等价于`cone(50)`
 1. `cone(radius,height)`以radius为半径，height为高绘制一个圆锥
 1. `cone(radius,height,div)`以radius为半径，height为高绘制一个分段为div的圆锥
@@ -425,13 +425,13 @@ tri(0,0,100,50,0,0,0,50,0)
 
 ## tube
 
-1. `tube(size)`绘制一个底面半径size、高2*size的圆柱体
-1. `tube()`等价于tube(50)
+1. `tube(size)`绘制一个底面半径`size`、高`2*size`的圆柱体
+1. `tube()`等价于`tube(50)`
 2. `tube(radius,height)`绘制一个半径为radius、高为height的圆柱体
 3. `tube(radius1,radius2,height)`绘制一个靠近绘笔坐标原点底面半径为radius1、远离一侧底面半径为radius2、高为height的圆柱体
-4. `tube(radius1,radius2,height,div)`在第3个函数基础上多了分段的控制。
-5. `tube(radius1,radius2,height,div,needMesh)`在第4个函数基础上多了“是否要渲染两个圆面”的boolean
-6. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第4个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
+4. `tube(radius1,radius2,height,div)`在第4个函数基础上多了分段的控制。
+5. `tube(radius1,radius2,height,div,needMesh)`在第5个函数基础上多了“是否要渲染两个圆面”的boolean
+6. `tube(radius1,radius2,height,div,needMesh1,needMesh2)`在第5个函数基础上，多了“是否要渲染近侧底面”的needMesh1和“是否要渲染远侧底面”的needMesh2，两者皆为boolean。
 
 > - `div`默认值为64
 > - `needMesh`默认值为`true`
@@ -474,7 +474,8 @@ cube()
 
 `setPoly(obj)`可以提前解析要绘制的物体信息，您在设置后可以调用`poly()`来快速绘制刚刚设置的物体。
 
-> 关于obj的构造请前往[Poly](Poly.md)章节
+> - 当您在场景中绘制多次同一个obj时，使用这个函数提前设置obj会很有效。
+> - 关于obj的构造请前往[Poly](Poly.md)章节
 
 ## background
 
@@ -488,6 +489,7 @@ cube()
 1. `in2out(id)`会把第id个层参数设为背景。
 1. `in2out()`等价于`in2out(INPUT)`，它负责把输入层当做背景。
 
+> `id` 范围：  `PARAM0`~`PARAM9` 或者 `INPUT`。
 
 ## dim2
 
@@ -502,7 +504,7 @@ cube()
 ## perspective
 
 `perspective()`将使用透视视图渲染，物体将符合近大远小规则，您可以使用[viewSpace](#viewspace)来调整摄像机信息、使用[lookAt](#lookat)来调整摄像机位置。
-> 这一项默认是开启的，一般您无需调用。
+> 若您调用过`dim3()`，透视模式默认开启。
 
 ## noPerspective
 
@@ -612,8 +614,8 @@ cube()
 1. `normal(faceToCamera)`切换到normal模式，只修改faceToCamera变量
 1. `normal()`只负责切换到normal模式
 
-> - faceToCamera是一个布尔值，用来控制normal是否以摄像机视角为基准生成。
-> - normalize是一个布尔值，用来指定是否输出标准化(长度做成1)后的normal
+> - `faceToCamera`是一个布尔值，用来控制normal是否以摄像机视角为基准生成。
+> - `normalize`是一个布尔值，用来指定是否输出标准化(长度做成1)后的normal
 > - 初始值：faceToCamera:true, normalize:true。
 > - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式会无视材质。
@@ -622,9 +624,9 @@ cube()
 
 ## setDepth
 
-`setDepth(id,blackDistance,whiteDistance)`可以读取id上的材质的红色通道，并把通道值为0的地方设为`blackDistance`，通道值为1的地方设为`whiteDistance`，再把材质应用到深度测试材质上。
+`setDepth(id,blackDistance,whiteDistance)`可以读取id上的材质的**红色通道**，并把通道值为0的地方设为`blackDistance`，通道值为1的地方设为`whiteDistance`，再把材质应用到深度测试材质上。
 
-> - 您可以把从3D软件中渲染的深度序列通过这个函数导入像素世界，这样像素世界能和
+> - 您可以把从3D软件中渲染的深度序列通过这个函数导入像素世界，这样像素世界能和其它图层做深度交互。
 > - 请在使用前执行[dim3()](#dim3)
 > - 有效的id: `INPUT`,`PARAM0`~`PARAM9`
 
@@ -651,7 +653,7 @@ cube()
 
 > - 在当前绘笔坐标原点处生成一个点光源。
 > - 这个光受物体法线方向影响，法线方向的物体不会产生漫反射和高光，但仍能接受点光源产生的环境光。
-> - radius为点光源的光照半径，radius到radius+smoothWidth之间光照强度会衰减。
+> - `radius`为点光源的光照半径，`radius`到`radius+smoothWidth`之间光照强度会衰减。
 
 ## parallelLight
 
@@ -669,7 +671,7 @@ cube()
 1. `getLight()`等价于`getLight("*")`
 
 > - 获取当前合成符合matchName名字的灯光。
-> - matchName规则：当字符串末尾不含`*`时，会在Ae当前合成的图层中搜寻名字为matchName的灯光并加入场景中；当末尾含有`*`时，则会把所有开头为matchName的灯光全部加入场景中。
+> - matchName规则：当字符串末尾不含`"*"`时，会在Ae当前合成的图层中搜寻名字为matchName的灯光并加入场景中；当末尾含有`"*"`时，则会把所有开头为matchName的灯光全部加入场景中。
 > - 目前支持的Ae灯光类型：ambient,point,parallel
 
 ## aeCamera
@@ -681,20 +683,20 @@ cube()
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)`用来设置摄像机位置和朝向
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)`等价于`lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)`
 
-> - eyePos是您眼睛的位置，objPos是您想看的目标物体的位置，upVec是您头顶的指向。
-> - 注意Ae的Y轴默认是朝下的，一般您需要让upVec为(0,-1,0)。
-> - eyePos和objPos不能太近（推荐两者距离不低于`1e-7`）。
-> - upVec不能和您的视线平行。
-> - upVec长度不能太小。
+> - `eyePos`是您眼睛的位置，`objPos`是您想看的目标物体的位置，upVec是您头顶的指向。
+> - 注意Ae的Y轴默认是朝下的，一般您需要让`upVec`为(0,-1,0)。
+> - `eyePos`和`objPos`不能太近（推荐两者距离不低于`1e-7`）。
+> - `upVec`不能和您的视线平行。
+> - `upVec`长度不能太小。
 
 ## viewSpace
 
 1. `viewSpace(width,height,distanceToPlane,farLevel)`
 1. `viewSpace(width,height,distanceToPlane)`等价于`viewSpace(width,height,distanceToPlane,4)`
 
-> - width和height为摄像机远平面的尺寸
-> - 摄像机到摄像机远平面的垂直距离为distanceToPlane
-> - farLevel * distanceToPlane为最远平面的距离，超过这个距离的物体将不被渲染。通常设为4足够，若您的场景十分大，可以把这个数值设高一些，这个数值只会影响远处的物体是否被渲染。若您把这个数值设定的过高可能会影响近处物体的深度测试精度。
+> - `width`和`height`为摄像机远平面的尺寸
+> - 摄像机到摄像机远平面的垂直距离为`distanceToPlane`
+> - `farLevel * distanceToPlane`为最远平面的距离，超过这个距离的物体将不被渲染。通常`farLevel`设为4足够，若您的场景十分大，可以把这个数值设高一些，这个数值只会影响远处的物体是否被渲染。若您把这个数值设定的过高可能会影响近处物体的深度测试精度。
 
 
 ## strokeWidth
@@ -727,14 +729,14 @@ cube()
 `dotDivision(level)`来设置点的细分等级。（非负整数，最大为7）
 > - 默认值：3
 
-## strokeGlobal
+## dotGlobal
 
-`strokeGlobal()`以全局模式绘制点，点的半径不受scale影响。
+`dotGlobal()`以全局模式绘制点，点的半径不受scale影响。
 > - 默认值是局部模式
 
-## strokeLocal
+## dotLocal
 
-`strokeLocal()`以局部模式绘制点，点的半径将受scale影响。
+`dotLocal()`以局部模式绘制点，点的半径将受scale影响。
 > - 默认值是局部模式
 
 ## smooth
@@ -746,16 +748,15 @@ cube()
 ## noSmooth
 
 `noSmooth()`以非抗锯齿模式绘制。
-> 不推荐和smooth混用。
 > 这个函数的优先级大于插件面板上的抗锯齿设定。
 
 ## r2d
 
-`r2d(degrees)`角度转弧度，返回弧度
+`r2d(radians)`弧度转角度，返回角度
 
 ## d2r
 
-`d2r(radians)`弧度转角度，返回角度
+`d2r(degrees)`角度转弧度，返回弧度
 
 ## utf8ToLocal
 
@@ -769,7 +770,7 @@ cube()
 
 ## getGLInfo
 
-`getGLInfo()`获取当前显卡的信息。
+`getGLInfo()`获取当前显卡的信息。返回string
 
 ## getDrawRecord
 
@@ -839,12 +840,12 @@ end
 
 ## setColor
 
-`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)`会设置`id`材质处的(x,y)坐标处的像素值。
+`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)`会设置`OUTPUT`材质的(x,y)坐标处的像素值。
 > - 在绘制一切场景前使用`setColor`时(即在`version3()`紧接着的后面)，这个函数的效率是最高的
 
 ## getSize
 
-`getSize(id)`返回id材质的尺寸
+`getSize(id)`返回id材质的尺寸（两个double，宽度和高度）
 
 > 当您改变场景降采样（例如二分之一，四分之一）后，返回的尺寸会有0~4像素的抖动，这是由Ae的降采样机制产生的特性。但这个抖动不会随时间变化。在降采样关闭时，这个函数保证返回正确的图层尺寸。
 
@@ -874,11 +875,14 @@ end
 
 `runFile(utf8_path)`把本地文件当做txt文件读取，并当做Lua代码执行。
 
+> 默认支持utf8字符，您无需调用`utf8ToLocal`来转换。
+
 
 ## txt
 
 `txt(utf8_path)`把本地文件当做txt文件读取，并返回字符串。
 
+> 默认支持utf8字符，您无需调用`utf8ToLocal`来转换。
 
 
 
