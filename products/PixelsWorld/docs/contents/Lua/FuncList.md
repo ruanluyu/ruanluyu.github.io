@@ -99,7 +99,7 @@ This page covers all functions provided in Lua render mode.
 [phong](#phong),
 [anime](#anime)
 
-[color](#color),
+[rgba](#rgba),
 [depth](#depth),
 [normal](#normal)
 
@@ -623,18 +623,18 @@ cube()
 > - Call [dim3()](#dim3) before calling this function. 
 
 
-## color
+## rgba
 
-`color()`RGBA output mode, on by default.
+`rgba()`RGBA output mode, on by default.
 
-> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
 > - You can use `phong(),anime()` in this output mode. 
 
 ## depth
 
 `depth(blackDistance, whiteDistance)` depth output mode. Set pixels at distance `blackDistance` to black, pixels at distance `whiteDistance` to white. If they are same, PixelsWorld set the pixels that nearer than the value you set to black, otherwise white.  
 
-> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
 
@@ -647,7 +647,7 @@ cube()
 > - `faceToCamera` is a boolean, `true` means the normals are calculated basing on camera location. `false` means the normals are calculated basing on the global coordinate. 
 > - `normalize` is a boolean. 
 > - Default settings: faceToCamera:true, normalize:true.
-> - color, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
 

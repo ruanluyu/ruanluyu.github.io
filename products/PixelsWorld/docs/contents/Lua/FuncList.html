@@ -689,7 +689,7 @@
 <p><a href="#pure">pure</a>,
 <a href="#phong">phong</a>,
 <a href="#anime">anime</a></p>
-<p><a href="#color">color</a>,
+<p><a href="#rgba">rgba</a>,
 <a href="#depth">depth</a>,
 <a href="#normal">normal</a></p>
 <p><a href="#setdepth">setDepth</a></p>
@@ -1184,11 +1184,11 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 </ul>
 </blockquote>
-<h2 id="color">color</h2>
-<p><code>color()</code>RGBA output mode, on by default.</p>
+<h2 id="rgba">rgba</h2>
+<p><code>rgba()</code>RGBA output mode, on by default.</p>
 <blockquote>
 <ul>
-<li>color, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
+<li>rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
 <li>You can use <code>phong(),anime()</code> in this output mode. </li>
 </ul>
 </blockquote>
@@ -1196,7 +1196,7 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <p><code>depth(blackDistance, whiteDistance)</code> depth output mode. Set pixels at distance <code>blackDistance</code> to black, pixels at distance <code>whiteDistance</code> to white. If they are same, PixelsWorld set the pixels that nearer than the value you set to black, otherwise white.  </p>
 <blockquote>
 <ul>
-<li>color, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
+<li>rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
 <li><code>phong(),anime()</code> will be ignored in this output mode. </li>
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 </ul>
@@ -1212,7 +1212,7 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <li><code>faceToCamera</code> is a boolean, <code>true</code> means the normals are calculated basing on camera location. <code>false</code> means the normals are calculated basing on the global coordinate. </li>
 <li><code>normalize</code> is a boolean. </li>
 <li>Default settings: faceToCamera:true, normalize:true.</li>
-<li>color, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
+<li>rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
 <li><code>phong(),anime()</code> will be ignored in this output mode. </li>
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 </ul>
@@ -1527,7 +1527,7 @@ The smooth strength can be changed in plugin panel. </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"3.1.6","depth":2,"next":{"title":"Poly function","level":"3.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Globals","level":"3.1.5","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-08T08:00:25.995Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T08:39:13.591Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"3.1.6","depth":2,"next":{"title":"Poly function","level":"3.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Globals","level":"3.1.5","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-08T15:31:40.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T15:31:47.076Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

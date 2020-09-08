@@ -99,7 +99,7 @@
 [phong](#phong),
 [anime](#anime)
 
-[color](#color),
+[rgba](#rgba),
 [depth](#depth),
 [normal](#normal)
 
@@ -618,18 +618,18 @@ cube()
 > - 请在使用前执行[dim3()](#dim3)
 
 
-## color
+## rgba
 
-`color()`RGBA直接输出模式，默认开启。
+`rgba()`RGBA直接输出模式，默认开启。
 
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
+> - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式可以使用材质。
 
 ## depth
 
 `depth(blackDistance, whiteDistance)`是把深度当做亮度信息输出的模式。例如您想输出一张深度图，可以指定blackDistance和whiteDistance来设置距离摄像机多远的时候输出黑色或白色。对于之间的距离，像素世界会做线性插值成灰色。当您把blackDistance和whiteDistance设为同一数值时，像素世界会把您设置的数值当做阈值来输出纯黑色或纯白色。
 
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
+> - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式会无视材质。
 > - 请在使用前执行[dim3()](#dim3)
 
@@ -642,7 +642,7 @@ cube()
 > - `faceToCamera`是一个布尔值，用来控制normal是否以摄像机视角为基准生成。
 > - `normalize`是一个布尔值，用来指定是否输出标准化(长度做成1)后的normal
 > - 初始值：faceToCamera:true, normalize:true。
-> - color,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
+> - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式会无视材质。
 > - 请在使用前执行[dim3()](#dim3)
 
