@@ -655,6 +655,116 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
+<h2 id="&#x652F;&#x6301;&#x7684;&#x56FE;&#x5143;&#x5373;&#x540D;&#x79F0;">&#x652F;&#x6301;&#x7684;&#x56FE;&#x5143;&#x5373;&#x540D;&#x79F0;</h2>
+<p>&#x4EE5;&#x4E0B;&#x4EE5;<code>pref={1,2,3,4,5,6}</code>&#x4E3A;&#x4F8B;&#x5B50;&#x505A;&#x8BF4;&#x660E;&#x3002;</p>
+<blockquote>
+<ul>
+<li><code>pref</code>&#x610F;&#x601D;&#x662F;<code>point reference</code>&#xFF0C;&#x5373;&#x53C2;&#x8003;&#x70B9;&#x7684;&#x5E8F;&#x53F7;&#xFF0C;&#x56FE;&#x5143;&#x4F1A;&#x6309;&#x7167;&#x9001;&#x5165;&#x5E8F;&#x53F7;&#x7684;&#x987A;&#x5E8F;&#x7ED8;&#x5236;&#x3002;</li>
+<li>&#x5206;&#x53F7;&#xFF08;<code>;</code>&#xFF09;&#x4E3A;&#x7ED3;&#x675F;&#x4E00;&#x6B21;&#x56FE;&#x5143;&#x7684;&#x7ED8;&#x5236;&#x3002;</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x6807;&#x51C6;&#x540D;&#x79F0;(type name)</th>
+<th>&#x5BF9;&#x5E94;&#x56FE;&#x5143;</th>
+<th>&#x7ED8;&#x5236;&#x987A;&#x5E8F;</th>
+<th>&#x5168;&#x79F0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>points</td>
+<td>&#x70B9;</td>
+<td><code>1;2;3;4;5;6;</code></td>
+<td>points</td>
+</tr>
+<tr>
+<td>pointd</td>
+<td>&#x5E73;&#x9762;&#x70B9;</td>
+<td><code>1;2;3;4;5;6;</code></td>
+<td>point disc</td>
+</tr>
+<tr>
+<td>pointb</td>
+<td>&#x7403;&#x70B9;</td>
+<td><code>1;2;3;4;5;6;</code></td>
+<td>point ball</td>
+</tr>
+<tr>
+<td>line</td>
+<td>&#x4E00;&#x6839;&#x7EBF;</td>
+<td><code>123456;</code></td>
+<td>single line</td>
+</tr>
+<tr>
+<td>linef</td>
+<td>&#x4E00;&#x6839;&#x5E73;&#x9762;&#x7EBF;</td>
+<td><code>123456;</code></td>
+<td>line flat</td>
+</tr>
+<tr>
+<td>linec</td>
+<td>&#x4E00;&#x6839;&#x7ACB;&#x4F53;&#x7EBF;</td>
+<td><code>123456;</code></td>
+<td>line capsule</td>
+</tr>
+<tr>
+<td>linel</td>
+<td>&#x5FAA;&#x73AF;&#x7EBF;</td>
+<td><code>1234561;</code></td>
+<td>line loop</td>
+</tr>
+<tr>
+<td>linelf</td>
+<td>&#x5FAA;&#x73AF;&#x5E73;&#x9762;&#x7EBF;</td>
+<td><code>1234561;</code></td>
+<td>line loop flat</td>
+</tr>
+<tr>
+<td>linelc</td>
+<td>&#x5FAA;&#x73AF;&#x7ACB;&#x4F53;&#x7EBF;</td>
+<td><code>1234561;</code></td>
+<td>line loop capsule</td>
+</tr>
+<tr>
+<td>lines</td>
+<td>&#x591A;&#x6839;&#x7EBF;</td>
+<td><code>12;34;56;</code></td>
+<td>lines</td>
+</tr>
+<tr>
+<td>linesf</td>
+<td>&#x591A;&#x6839;&#x5E73;&#x9762;&#x7EBF;</td>
+<td><code>12;34;56;</code></td>
+<td>lines flat</td>
+</tr>
+<tr>
+<td>linesc</td>
+<td>&#x591A;&#x6839;&#x7ACB;&#x4F53;&#x7EBF;</td>
+<td><code>12;34;56;</code></td>
+<td>lines capsule</td>
+</tr>
+<tr>
+<td>triangles</td>
+<td>&#x4E09;&#x89D2;&#x9762;</td>
+<td><code>123;456;</code></td>
+<td>triangles</td>
+</tr>
+<tr>
+<td>triangleb</td>
+<td>&#x6865;&#x6784;&#x9020;&#x4E09;&#x89D2;&#x9762;</td>
+<td><code>123;324;345;546;</code></td>
+<td>triangle bridge</td>
+</tr>
+<tr>
+<td>triangler</td>
+<td>&#x653E;&#x5C04;&#x6784;&#x9020;&#x4E09;&#x89D2;&#x9762;</td>
+<td><code>123;134;145;156;</code></td>
+<td>triangle radial</td>
+</tr>
+</tbody>
+</table>
 <h2 id="obj&#x7684;&#x6784;&#x9020;">obj&#x7684;&#x6784;&#x9020;</h2>
 <p>&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x987A;&#x5E8F;&#x5B9A;&#x4E49;obj&#x7684;&#x7EC6;&#x8282;&#x3002;</p>
 <ul>
@@ -857,7 +967,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Poly函数","level":"3.1.7","depth":2,"next":{"title":"在Lua中运行GLSL ","level":"3.1.8","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"函数列表","level":"3.1.6","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2020-09-07T07:41:33.898Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T07:58:52.374Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Poly函数","level":"3.1.7","depth":2,"next":{"title":"在Lua中运行GLSL ","level":"3.1.8","depth":2,"path":"contents/Lua/RunGLSL.md","ref":"contents/Lua/RunGLSL.md","articles":[]},"previous":{"title":"函数列表","level":"3.1.6","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":true,"weibo":true,"twitter":true,"pocket":false,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2020-09-08T08:36:53.335Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-08T08:39:13.642Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

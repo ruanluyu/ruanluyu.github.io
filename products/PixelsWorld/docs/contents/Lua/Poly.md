@@ -34,6 +34,33 @@ obj={
 poly(obj)
 ```
 
+## Supporting primitives
+
+Assume`pref={1,2,3,4,5,6}`. 
+
+> - `pref` means `point reference`. 
+> - The semicolon (`;`) is the end mark of one primitive drawing. 
+
+| type name | Corresponding primitive | Drawing order | full type name |
+|---|---|---|---|
+|points|Points|`1;2;3;4;5;6;`|points|
+|pointd|2d point|`1;2;3;4;5;6;`|point disc|
+|pointb|3d point|`1;2;3;4;5;6;`|point ball|
+|line|Single line|`123456;`|single line|
+|linef|Single 2d line|`123456;`|line flat|
+|linec|Single 3d line|`123456;`|line capsule|
+|linel|Loop line|`1234561;`|line loop|
+|linelf|Loop 2d line|`1234561;`|line loop flat|
+|linelc|Loop 3d line|`1234561;`|line loop capsule|
+|lines|Lines|`12;34;56;`|lines|
+|linesf|2d lines|`12;34;56;`|lines flat|
+|linesc|3d lines|`12;34;56;`|lines capsule|
+|triangles|Triangle meshes|`123;456;`|triangles|
+|triangleb|Bridge structure triangle meshes|`123;324;345;546;`|triangle bridge|
+|triangler|Radial structure triangle meshes|`123;134;145;156;`|triangle radial|
+
+
+
 ## The structure of obj
 
 The obj struction is defined by following steps: 

@@ -34,6 +34,35 @@ obj={
 poly(obj)
 ```
 
+
+## 支持的图元即名称
+
+以下以`pref={1,2,3,4,5,6}`为例子做说明。
+
+> - `pref`意思是`point reference`，即参考点的序号，图元会按照送入序号的顺序绘制。
+> - 分号（`;`）为结束一次图元的绘制。
+
+| 标准名称(type name) | 对应图元 |绘制顺序 | 全称 |
+|---|---|---|---|
+|points|点|`1;2;3;4;5;6;`|points|
+|pointd|平面点|`1;2;3;4;5;6;`|point disc|
+|pointb|球点|`1;2;3;4;5;6;`|point ball|
+|line|一根线|`123456;`|single line|
+|linef|一根平面线|`123456;`|line flat|
+|linec|一根立体线|`123456;`|line capsule|
+|linel|循环线|`1234561;`|line loop|
+|linelf|循环平面线|`1234561;`|line loop flat|
+|linelc|循环立体线|`1234561;`|line loop capsule|
+|lines|多根线|`12;34;56;`|lines|
+|linesf|多根平面线|`12;34;56;`|lines flat|
+|linesc|多根立体线|`12;34;56;`|lines capsule|
+|triangles|三角面|`123;456;`|triangles|
+|triangleb|桥构造三角面|`123;324;345;546;`|triangle bridge|
+|triangler|放射构造三角面|`123;134;145;156;`|triangle radial|
+
+
+
+
 ## obj的构造
 
 我们这里按照下面的顺序定义obj的细节。

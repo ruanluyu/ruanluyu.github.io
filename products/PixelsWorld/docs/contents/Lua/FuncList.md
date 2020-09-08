@@ -300,21 +300,21 @@ Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global 
 
 ## global2local
 
-`global2local(x,y,z)` converts a global point to a local point. 
+`global2local(x,y,z)` converts a global point to a local point. Returns 3 doubles. 
 
 ## local2global
 
-`local2global(x,y,z)` converts a local point to a global point. 
+`local2global(x,y,z)` converts a local point to a global point. Returns 3 doubles. 
 
 ## global2screen
 
-`global2screen(x,y,z)` converts a global point to a screen point. 
+`global2screen(x,y,z)` converts a global point to a screen point. Returns 3 doubles. 
 
 > The result is affected by perspective mode. 
 
 ## screen2global
 
-`screen2global(x,y,z)` converts a screen point to a global point. 
+`screen2global(x,y,z)` converts a screen point to a global point. Returns 3 doubles. 
 
 > The result is affected by perspective mode. 
 
