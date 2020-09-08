@@ -187,7 +187,7 @@ poly(obj)
 
 ## Extra shader
 
-Yes! You even can write shader in an obj. 
+Yes! You can even write shader in an obj. 
 
 ![FragColorRes](polyVertexFragTest.png)
 

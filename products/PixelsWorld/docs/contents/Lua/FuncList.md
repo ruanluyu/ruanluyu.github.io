@@ -21,7 +21,7 @@ This page covers all functions provided in Lua render mode.
 
 [print](#print),
 [println](#println),
-[alert](#alert),
+[alert](#alert)
 
 **Transform functions**
 
@@ -36,7 +36,12 @@ This page covers all functions provided in Lua render mode.
 [beginGroup](#begingroup),
 [endGroup](#endgroup),
 [beginGlobal](#beginglobal),
-[endGlobal](#endglobal)  
+[endGlobal](#endglobal)
+
+[global2local](#global2local),
+[local2global](#local2global),
+[global2screen](#global2screen),
+[screen2global](#screen2global)
 
 **Draw functions**
 
@@ -292,6 +297,26 @@ end
 ## beginGlobal
 ## endGlobal
 Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global coordinates. 
+
+## global2local
+
+`global2local(x,y,z)` converts a global point to a local point. 
+
+## local2global
+
+`local2global(x,y,z)` converts a local point to a global point. 
+
+## global2screen
+
+`global2screen(x,y,z)` converts a global point to a screen point. 
+
+> The result is affected by perspective mode. 
+
+## screen2global
+
+`screen2global(x,y,z)` converts a screen point to a global point. 
+
+> The result is affected by perspective mode. 
 
 ```lua:beginGlobal.lua
 version3()

@@ -21,7 +21,7 @@
 
 [print](#print),
 [println](#println),
-[alert](#alert),
+[alert](#alert)
 
 **变换函数**
 
@@ -37,6 +37,11 @@
 [endGroup](#endgroup),
 [beginGlobal](#beginglobal),
 [endGlobal](#endglobal)  
+
+[global2local](#global2local),
+[local2global](#local2global),
+[global2screen](#global2screen),
+[screen2global](#screen2global)
 
 **绘制函数**
 
@@ -305,6 +310,26 @@ move(100,100)
 fill(0,0,1) -- blue
 rect(50) -- Draw on (200,200,0)
 ```
+
+## global2local
+
+`global2local(x,y,z)`将全局坐标转为局部坐标。返回三个double。
+
+## local2global
+
+`local2global(x,y,z)`将局部坐标转为全局坐标。返回三个double。
+
+## global2screen
+
+`global2screen(x,y,z)`将全局坐标转为屏幕坐标。返回三个double。
+
+> 此转换受透视与否影响
+
+## screen2global
+
+`screen2global(x,y,z)`将屏幕坐标转为全局坐标。返回三个double。
+
+> 此转换受透视与否影响
 
 ## tri
 1. `tri(radius)`以半径为`radius`的圆做一个内接正三角形，并指向画笔坐标y轴正方向。
