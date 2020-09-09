@@ -85,7 +85,7 @@ The obj struction is defined by following steps:
 - `{x,y,z}` is `3D V`.
 - `{x,y,z,w}` is `4D V`.
 - `"Hello! PixelsWorld!"` is `string V`.
-- When (`K` ends up with `"_tex"` or `K` equals to `"texture"`) and (`V` is integer and the corresponding texture exists), it is `texture id V`.
+- When (`K` ends up with `"_tex"`) and (`V` is integer and the corresponding texture exists), it is `texture id V`.
 - For integer serial `a1,...,an`,`{a1,a2,a3,...,an}` is `index serial V`.
 - For all `point[k]`, there must be a `K` named `"p"` to represents the location, or it is a invalid point.
 - For all `vertex[k]`, there must be a `K` named `"pref"` and its `V` is integer to represent the reference point id, or it is an invalid child-point.
@@ -247,3 +247,32 @@ obj={
 poly(obj)
 ```
 
+## Use UV texture
+
+> - Here is an example of how to use uv texture. 
+> - The integer that its key name ends up with `_tex` is treated as a texture id. 
+> - Using an extra shader in a prim can handle more than one textures. 
+
+
+```lua:UVTex.lua
+version3()
+background(0.95)
+move(width/2,height/2)
+dim3()
+obj={
+    point={
+        {p={0,0,0},uv={0,0}},
+        {p={100,0,0},uv={1,0}},
+        {p={0,100,0},uv={0,1}},
+        {p={100,100,0},uv={1,1}},
+    },
+    prim={
+        {
+            type="triangler",
+            pref={1,2,4,3},
+            my_tex=INPUT,
+        },
+    },
+}
+poly(obj)
+```

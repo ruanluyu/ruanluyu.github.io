@@ -526,6 +526,8 @@ cube()
 
 `dim3()`将使用3D模式绘图。我们推荐声明在紧随`version3()`之后的地方。
 
+> 注意：如果在跟合成尺寸不同的图层上渲染3D形状时请使用[`viewSpace`](#verspace)更改摄像机的远平面尺寸，否则会得到意外的位置结果。
+
 ## perspective
 
 `perspective()`将使用透视视图渲染，物体将符合近大远小规则，您可以使用[viewSpace](#viewspace)来调整摄像机信息、使用[lookAt](#lookat)来调整摄像机位置。

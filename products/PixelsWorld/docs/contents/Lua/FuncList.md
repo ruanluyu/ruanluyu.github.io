@@ -530,6 +530,8 @@ cube()
 
 `dim3()` set the scene to 3D mode. Call it immediately after `version3()`. 
 
+> Note: Use [`viewSpace`](#verspace) to change the far plane dimension if your layer size is not equal to the comp size. Otherwise, the shapes in 3D mode will be rendered to an unexprected position. 
+
 ## perspective
 
 `perspective()` set the scene to perspective mode, everything looks small in the distance and big on the contrary. Use [viewSpace](#viewspace) to change the camera information. Use [lookAt](#lookat) to set the location of the camera. 
