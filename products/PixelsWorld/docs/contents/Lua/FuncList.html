@@ -644,6 +644,7 @@
 <a href="#local2global">local2global</a>,
 <a href="#global2screen">global2screen</a>,
 <a href="#screen2global">screen2global</a></p>
+<p><a href="#gettransformmatrix">getTransformMatrix</a></p>
 <p><strong>Draw functions</strong></p>
 <blockquote>
 <p>Primitives</p>
@@ -821,7 +822,7 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 </ul>
 </blockquote>
 <h2 id="twirl">twirl</h2>
-<p><code>twirl(x,y,z,theta)</code> rotates Paintbrush along <code>(x,y,z)</code> axis with <code>theta</code> radians. For example, above-mentioned <code>rotateX(theta)</code> equals to <code>twirl(1,0,0,theta)</code>.</p>
+<p><code>twirl(theta,x,y,z)</code> rotates Paintbrush along <code>(x,y,z)</code> axis with <code>theta</code> radians. For example, above-mentioned <code>rotateX(theta)</code> equals to <code>twirl(theta,1,0,0)</code>.</p>
 <blockquote>
 <p>All transforms are done basing on the Paintbrush coordinate. </p>
 <ul>
@@ -830,7 +831,10 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 </blockquote>
 <h2 id="begingroup">beginGroup</h2>
 <h2 id="endgroup">endGroup</h2>
-<p><code>beginGroup()</code>,<code>endGroup()</code> creates a children transformation group. Transformations(<code>move,scale,rotate,twirl</code>) between <code>beginGroup()</code> and <code>endGroup()</code> will be canceled after calling <code>endGroup()</code>.</p>
+<ol>
+<li><code>beginGroup()</code>,<code>endGroup()</code> creates a children transformation group. Transformations(<code>move,scale,rotate,twirl</code>) between <code>beginGroup()</code> and <code>endGroup()</code> will be canceled after calling <code>endGroup()</code>.</li>
+<li><code>beginGroup(mat)</code> pushes mat as a children transformation group (Use <a href="#gettransformmatrix">getTransformMatrix</a> to get the transform matrix). </li>
+</ol>
 <blockquote>
 <p>It equals to <code>pushMatrix()</code> and <code>popMatrix()</code> in Processing. </p>
 </blockquote>
@@ -858,6 +862,19 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <h2 id="beginglobal">beginGlobal</h2>
 <h2 id="endglobal">endGlobal</h2>
 <p>Draw functions between <code>beginGlobal</code> and <code>endGlobal</code> will draw shapes in global coordinates. </p>
+<div><p class="code-filename">beginGlobal.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- green</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Dran on (100,100,0)</span>
+<span class="token function">beginGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- red</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Draw on (0,0,0)</span>
+<span class="token function">endGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">-- blue</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Draw on (200,200,0)</span>
+</code></pre>
 <h2 id="global2local">global2local</h2>
 <p><code>global2local(x,y,z)</code> converts a global point to a local point. Returns 3 doubles. </p>
 <h2 id="local2global">local2global</h2>
@@ -872,18 +889,23 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <blockquote>
 <p>The result is affected by perspective mode. </p>
 </blockquote>
-<div><p class="code-filename">beginGlobal.lua</p></div>
+<h2 id="gettransformmatrix">getTransformMatrix</h2>
+<p><code>getTransformMatrix()</code> returns a column major 4x4 transform matrix. </p>
+<blockquote>
+<p><code>mat[i][j]</code> returns the entry in <code>i</code>th column <code>j</code>th row. (<code>i</code>,<code>j</code>range: 1~4)</p>
+</blockquote>
+<div><p class="code-filename">matrix.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- green</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Dran on (100,100,0)</span>
-<span class="token function">beginGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- red</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Draw on (0,0,0)</span>
-<span class="token function">endGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">-- blue</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Draw on (200,200,0)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">twirl</span><span class="token punctuation">(</span>QPI<span class="token operator">*</span>time<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+cubetransform <span class="token operator">=</span> <span class="token function">getTransformMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span>cubetransform<span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="tri">tri</h2>
 <ol>
@@ -1530,7 +1552,7 @@ The smooth strength can be changed in plugin panel. </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"3.1.6","depth":2,"next":{"title":"Poly function","level":"3.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Globals","level":"3.1.5","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-09T06:25:36.900Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-09T06:27:44.998Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"3.1.6","depth":2,"next":{"title":"Poly function","level":"3.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Globals","level":"3.1.5","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","adsense"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":true,"facebook":true,"weibo":true,"twitter":true,"pocket":true,"google":true,"qzone":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-09-09T09:37:17.433Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-09T09:37:28.813Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

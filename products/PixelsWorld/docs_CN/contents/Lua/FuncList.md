@@ -43,6 +43,8 @@
 [global2screen](#global2screen),
 [screen2global](#screen2global)
 
+[getTransformMatrix](#gettransformmatrix)
+
 **绘制函数**
 
 > 图元
@@ -259,14 +261,15 @@ coord() -- 显示第2次变换后的画笔位置
 > - 如果您不熟悉弧度，可以用函数`d2r(degree)`来把角度转成弧度。例如：`rotate(d2r(90))`则是旋转九十度。
 
 ## twirl
-`twirl(x,y,z,theta)`是沿着`(x,y,z)`轴旋转`theta`弧度画笔的函数。比如，上面的`rotateX(theta)`则等价于这里的`twirl(1,0,0,theta)`。
+`twirl(theta,x,y,z)`是沿着`(x,y,z)`轴旋转`theta`弧度画笔的函数。比如，上面的`rotateX(theta)`则等价于这里的`twirl(theta,1,0,0)`。
 > - 所有变换都是以当前画笔坐标为基准进行的。
 > - `twirl`是对四元数旋转的一种矩阵实现。
 
 
 ## beginGroup
 ## endGroup
-`beginGroup()`,`endGroup()`是创建父子级关系的函数。`beginGroup()`到`endGroup()`之间的变换(`move,scale,rotate,twirl`)在`endGroup()`之后会被撤销掉。
+1. `beginGroup()`,`endGroup()`是创建父子级关系的函数。`beginGroup()`到`endGroup()`之间的变换(`move,scale,rotate,twirl`)在`endGroup()`之后会被撤销掉。
+1. `beginGroup(mat)`创建父子级关系并把4x4矩阵mat推入场景。（可以用[getTransformMatrix](#gettransformmatrix)来获得变换矩阵。）
 > 它等价于Processing中的`pushMatrix()`和`popMatrix()`
 
 例如：下面两块代码是等价的
@@ -330,6 +333,29 @@ rect(50) -- Draw on (200,200,0)
 `screen2global(x,y,z)`将屏幕坐标转为全局坐标。返回三个double。
 
 > 此转换受透视与否影响
+
+
+## getTransformMatrix
+
+`getTransformMatrix()`将返回一个列主体的4x4变换矩阵。这个变换矩阵可以应用在`beginGroup(mat)`里。
+
+> `mat[i][j]`可以访问第`i`列第`j`行元素。(`i`,`j`范围1~4)
+
+例子：
+
+```lua:matrix.lua
+version3()
+dim3()
+beginGroup()
+move(width/3,height/3)
+twirl(QPI*time,1,1,1)
+cubetransform = getTransformMatrix()
+endGroup()
+
+beginGroup(cubetransform)
+cube()
+endGroup()
+```
 
 ## tri
 1. `tri(radius)`以半径为`radius`的圆做一个内接正三角形，并指向画笔坐标y轴正方向。

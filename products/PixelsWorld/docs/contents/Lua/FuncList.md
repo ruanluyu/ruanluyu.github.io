@@ -43,6 +43,8 @@ This page covers all functions provided in Lua render mode.
 [global2screen](#global2screen),
 [screen2global](#screen2global)
 
+[getTransformMatrix](#gettransformmatrix)
+
 **Draw functions**
 
 > Primitives
@@ -261,14 +263,16 @@ Finally, the Paintbrush is located at `(100,100,0)`.
 > - If you are not familiar with radians, use `d2r(degree)` to convert a degree to a radian. For example：`rotate(d2r(90))` means rotate 90 degrees. 
 
 ## twirl
-`twirl(x,y,z,theta)` rotates Paintbrush along `(x,y,z)` axis with `theta` radians. For example, above-mentioned `rotateX(theta)` equals to `twirl(1,0,0,theta)`.
+`twirl(theta,x,y,z)` rotates Paintbrush along `(x,y,z)` axis with `theta` radians. For example, above-mentioned `rotateX(theta)` equals to `twirl(theta,1,0,0)`.
 > All transforms are done basing on the Paintbrush coordinate. 
 > - `twirl` is an matrix implementation of quaternion rotation. 
 
 
 ## beginGroup
 ## endGroup
-`beginGroup()`,`endGroup()` creates a children transformation group. Transformations(`move,scale,rotate,twirl`) between `beginGroup()` and `endGroup()` will be canceled after calling `endGroup()`.
+1. `beginGroup()`,`endGroup()` creates a children transformation group. Transformations(`move,scale,rotate,twirl`) between `beginGroup()` and `endGroup()` will be canceled after calling `endGroup()`.
+2. `beginGroup(mat)` pushes mat as a children transformation group (Use [getTransformMatrix](#gettransformmatrix) to get the transform matrix). 
+
 > It equals to `pushMatrix()` and `popMatrix()` in Processing. 
 
 Example: The following two code are equivalent. 
@@ -298,6 +302,20 @@ end
 ## endGlobal
 Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global coordinates. 
 
+```lua:beginGlobal.lua
+version3()
+move(100,100)
+fill(0,1,0) -- green
+rect(50) -- Dran on (100,100,0)
+beginGlobal()
+fill(1,0,0) -- red
+rect(50) -- Draw on (0,0,0)
+endGlobal()
+move(100,100)
+fill(0,0,1) -- blue
+rect(50) -- Draw on (200,200,0)
+```
+
 ## global2local
 
 `global2local(x,y,z)` converts a global point to a local point. Returns 3 doubles. 
@@ -318,19 +336,28 @@ Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global 
 
 > The result is affected by perspective mode. 
 
-```lua:beginGlobal.lua
+
+## getTransformMatrix
+
+`getTransformMatrix()` returns a column major 4x4 transform matrix. 
+
+> `mat[i][j]` returns the entry in `i`th column `j`th row. (`i`,`j`range: 1~4)
+
+```lua:matrix.lua
 version3()
-move(100,100)
-fill(0,1,0) -- green
-rect(50) -- Dran on (100,100,0)
-beginGlobal()
-fill(1,0,0) -- red
-rect(50) -- Draw on (0,0,0)
-endGlobal()
-move(100,100)
-fill(0,0,1) -- blue
-rect(50) -- Draw on (200,200,0)
+dim3()
+beginGroup()
+move(width/3,height/3)
+twirl(QPI*time,1,1,1)
+cubetransform = getTransformMatrix()
+endGroup()
+
+beginGroup(cubetransform)
+cube()
+endGroup()
 ```
+
+
 
 ## tri
 1. `tri(radius)` draws a regular triangle with radius `radius`, and the triangle will point to the positive direction of Y axis.
