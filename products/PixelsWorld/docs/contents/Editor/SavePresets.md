@@ -1,19 +1,19 @@
 # Preset management
 -------
 ## Save preset
-In [World formula editor](ScriptWindow.md),you can click `Save as preset` button to save your code as preset. 
-> Note: Override will happen if you use the name that already exists.
+In [World formula editor](ScriptWindow.md),you can click the `Save as preset` button to save your code as a preset. 
+> Note: Same name brings overriding. 
 
 ## Override save
 
-In [World formula editor](ScriptWindow.md),you can click `Save as preset` button, and type the existing name to override the previous preset. 
+In [World formula editor](ScriptWindow.md),click the `Save as preset` button, and type the existing name to override the previous preset. 
 
 > Note
-> - This is not undoable. 
+> - All operation in the editor is not undoable. 
 
 ## Rename presets
 
-Double click the preset to rename. Use name **EXCEPT**`REMOVE` and `SORT`.
+Double click the preset to rename a preset. Use name **EXCEPT**`REMOVE` and `SORT`.
 
 ## Sort presets
 
@@ -26,21 +26,21 @@ Double click the preset you want to remove and type in `REMOVE`.
 
 ## Add preset column
 
-Click `Add` button in `Preset list`
+Click `Add` button in the `Preset list`
 
 > Note: 
 > - Name must be unique. 
-> - If failed, you might need to re-open Ae with administrator mode. 
+> - **If failed, you might need to re-open Ae with administrator mode.**
 
 
 ## Format
 
-- Format: utf-8,JSON
+- Format: utf-8, JSON
 - Not encrypted. 
 
 ## Contribute presets
 
-Send your preset to `rly_pxx_123@sina.com` with your name. 
+Send your preset to `ZzStarSound@gmail.com` with your name and detailed description. 
 
 <br>
 <br>

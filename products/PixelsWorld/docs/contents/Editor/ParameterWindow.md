@@ -1,28 +1,28 @@
 # Parameter manager
 -------
-Click `Parameter manager` button on [World rule editor](ScriptWindow.md) to start Parameter manager. This window will show up: 
+Click the `Parameter manager` button on the [World rule editor](ScriptWindow.md) to start Parameter manager. This is the Parameter manager window: 
 ![Parameter manager](PM_Review.png)
 
 
 ## Rule
 
-Type in lables in the first input area, default values in the following input area. (Decimal number)
+Type the lables into the first input area, the default values into the following input area. (Decimal number 0~1)
 
 
-`Clear names` button will clear names in input area of label.
-`Clear all names` button will clear all names in input area of label. 
+`Clear names` button clears label names.
+`Clear all names` button clears all label names. 
 
-`Reset names` button will reset names in input area of label.
-`Reset all names` button will reset all names in input area of label. 
+`Reset names` button resets label names to default.
+`Reset all names` button resets all label names to default.
 
-`Reset values` button will reset values in input area of default value.
-`Reset all value` button will reset all values in input area of default value. 
+`Reset values` button resets values.
+`Reset all value` button resets all values. 
 
 ## Encoding
 
-PixelsWorld supports utf-8. Some not supported character will be converted to `?`
+PixelsWorld supports utf-8. Some not supported characters are converted to `?` in plugin panel. 
 
-> - If you work with international authors. We recommand using <span style="color:rgb(255,0,0)">[ASCII](https://zh.wikipedia.org/wiki/ASCII)</span> characters as the label. 
+> - If you work with international authors. We recommand using <span style="color:rgb(255,0,0)">[ASCII](https://zh.wikipedia.org/wiki/ASCII)</span> characters for all labels. 
 
 
 <br>

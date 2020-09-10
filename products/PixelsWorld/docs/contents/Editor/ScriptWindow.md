@@ -1,12 +1,12 @@
 # World formula editor
 -------
 
-## How to open
-Click "Edit" button in plugin panel. 
+## Open the formula editor
+Click the "Edit" button in the plugin panel. 
 
 ![World formula editor](formulaEditor.png)
 
-To make it simple to describe, we assigned defferent area with color. 
+For demonstrating purpose, we highlight different area with colored rectangle. 
 
 ![World formula editor(colored)](FE_AreaInfo.png)
 
@@ -14,12 +14,12 @@ To make it simple to describe, we assigned defferent area with color.
 
 Input your creative code here. 
 
-> `Language` can override the settings in your plugin panel. `(default)` selection means don't override. 
+> `Language` in this panel overrides the Language setting in your plugin panel. `(default)` selection means current language. 
 
 
 ## <span style="color:rgb(56,148,228)">◆</span>Reference list
 
-You can copy reference code here, this is read-only currently.
+Reference code that would help you to remind some frequently-used functions are listed here, this list is read-only currently.
 
 
 ## <span style="color:rgb(243,27,243)">◆</span>Parameter settings
@@ -27,30 +27,30 @@ You can copy reference code here, this is read-only currently.
 Here you can see the labels, the default value of parameters and the language settings. Click `Parameter manager` button to manage them. See also [Parameter manager](ParameterWindow.md)
 
 
-> Parameter settings will be saved with code into preset. 
+> Parameter settings are saved with code into preset. 
 
 ## <span style="color:rgb(153,204,0)">◆</span>Preset list
 
-The pop-up menu will show you all the preset files in your local disc. 
+The pop-up menu contains all preset files in your local disc. 
 
-Here we have same definition:
+Here are same definition:
 
-- A file with `.pwp` post fix, has **JSON** format and put beside plugin will be treat as one **Preset column**. The name of Preset column is the name of that file. 
-- One **Preset column** containing several **Presets**
-- All **Presets** will be list on the bottom of the pop-up menu. 
+- A file with `.pwp` post fix, **JSON** format and located beside plugin is a **Preset column**. The name of the Preset column is the file name. 
+- One **Preset column** contains several **Presets**
+- All **Presets** are listed below the pop-up menu. 
 
 ## <span style="color:rgb(128,0,0)">◆</span>Formula preview
 
-The selected **Preset**'s code will be shown here. If you want it to go to your code area, click `Replace` button to override code in the code area. 
+The selected **Preset**'s code can be previewed here. Click the `Replace` button to send preset code to the left code area (This will override the previouse code). 
 
-> If you only want to replace the text and don't want the parameter settings changed. Uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
+> If you only want to replace the text and don't want the parameter settings change. Uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
 
-If you want to add the preset code before your code, click `<<Top` button; If you want it behind your code, click `Bottom>>` button. 
+If you want the preset code to be combined in the front of your code, click `<<Top` button; `Bottom>>` means to combine preset code behind your current code.  
 
 ## <span style="color:rgb(247,136,58)">◆</span>Parameter settings preview
 
-The selected **Preset**'s parameter settings will be shown here. If you want it to go to your code area, click `Replace` button to override code in the code area. 
-> `Apply when replace` means if auto apply parameter settings when you clicked `Replace` button in Formula preview area. 
+The selected **Preset**'s parameter settings can be previewed here. If you want to apply it, click `Replace` button to override the current settings. 
+> `Apply when replace` means if auto apply parameter settings when you click the `Replace` button in the Formula preview area. 
 
 
 <br>
