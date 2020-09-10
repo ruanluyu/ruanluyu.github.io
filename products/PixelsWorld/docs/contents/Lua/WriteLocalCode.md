@@ -1,4 +1,4 @@
-# 在本地写代码
+# Load local Lua code
 
 If you don't prefer to use PixelsWorld's editor, PixelsWorld can read `txt` file from local disc. So you can write the file with the IDE you like. 
 
