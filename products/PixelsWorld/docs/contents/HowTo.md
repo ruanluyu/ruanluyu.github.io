@@ -20,6 +20,6 @@
 - **Right click it** => **Effects** => **MiLai** => **PixelsWrold**. 
 - Click **"Edit"** to change **"World formula"**.
 - There will be a **World formula editor** showed up.
-- Find **"Preset list"** and select **"shadertoy"**
-- Choose an effect that are interesting to you. 
+- Find **"Preset list"** and select a column that is interesting to you, select a preset in that column
+- Click the **"Replace"** button. 
 - Click the **"Ok"** button.

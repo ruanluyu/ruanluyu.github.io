@@ -1,0 +1,1 @@
+gitbook build docs_work_area_JP docs_JP
