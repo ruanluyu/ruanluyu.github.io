@@ -26,9 +26,12 @@ span.token.comment {
 }
 
 section.markdown-section,
-div.book-summary,
 div.book-header {
     background-color: rgb(30, 30, 30);
+}
+
+div.book-summary {
+    background-color: rgb(34, 34, 34);
 }
 
 section.markdown-section ul {
@@ -39,8 +42,10 @@ section.markdown-section hr {
     background-color: rgb(50, 50, 50);
 }
 
-section.markdown-section blockquote {
+section.markdown-section blockquote,
+.book-summary ul.summary li.active>a {
     border-left: 4px solid rgb(19, 80, 121);
+    color: rgb(96, 163, 221)
 }
 
 h1,
@@ -55,8 +60,7 @@ li {
 }
 
 .markdown-section code {
-    background-color: rgb(50, 50, 50);
-    border-radius: 3px;
+    background-color: rgb(40, 40, 40);
 }
 
 p.code-filename {
@@ -65,6 +69,11 @@ p.code-filename {
 }
 
 .book-summary ul.summary li a {
+    color: rgb(147, 157, 163)
+}
+
+.book-summary ul.summary li.header {
+    font-size: 110%;
     color: rgb(212, 212, 212)
 }
 
