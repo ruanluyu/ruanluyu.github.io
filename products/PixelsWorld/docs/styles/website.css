@@ -84,3 +84,12 @@ p.code-filename {
 section.markdown-section blockquote {
     background: rgb(40, 40, 40);
 }
+
+.markdown-section img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid 10px rgb(35, 35, 35);
+    border-radius: 10px;
+    max-width: 75%;
+}
