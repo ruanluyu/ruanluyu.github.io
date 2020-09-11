@@ -1,23 +1,25 @@
-# World formula editor
+# 世界ルール　エディター
 -------
 
-## Open the formula editor
-Click the "Edit" button in the plugin panel. 
+## エディター
+プラグインパネルのWorld formulaとなりのEditボタンを押すと、世界ルール　エディターが開かれます。
 
 ![World formula editor](formulaEditor.png)
 
-For demonstrating purpose, we highlight different area with colored rectangle. 
+ここで、記述便宜上、異なるエリアを次のようにハイライトしておきます。
 
 ![World formula editor(colored)](FE_AreaInfo.png)
 
-## <span style="color:rgb(255,0,0)">◆</span>Code area
+## <span style="color:rgb(255,0,0)">◆</span>コードエリア
 
-Input your creative code here. 
+コードエリアで、コード入力はできます。
 
-> `Language` in this panel overrides the Language setting in your plugin panel. `(default)` selection means current language. 
+> このエリアの`Language`設定は、プラグインパネルにある`Language`設定より優先度が高いです。`(default)`とは「パネルのほうの設定を変えずに維持する」という意味です。
 
 
-## <span style="color:rgb(56,148,228)">◆</span>Reference list
+## <span style="color:rgb(56,148,228)">◆</span>参照リスト
+
+ここで、よく使われているコードが挙げられています。
 
 Reference code that would help you to remind some frequently-used functions are listed here, this list is read-only currently.
 
