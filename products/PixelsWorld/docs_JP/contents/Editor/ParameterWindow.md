@@ -1,11 +1,14 @@
-# Parameter manager
+# パラメータ　エディター
 -------
-Click the `Parameter manager` button on the [World rule editor](ScriptWindow.md) to start Parameter manager. This is the Parameter manager window: 
+
+[世界ルール　エディター](ScriptWindow.md)の`Parameter manager`ボタンを押すと、次のパラメータ　エディターを開くことができます。
+
 ![Parameter manager](PM_Review.png)
 
 
-## Rule
+## ルール
 
+パラメーター名を左の
 Type the lables into the first input area, the default values into the following input area. (Decimal number 0~1)
 
 

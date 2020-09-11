@@ -61,6 +61,7 @@ li {
 
 .markdown-section code {
     background-color: rgb(40, 40, 40);
+    color: rgb(215, 186, 125);
 }
 
 p.code-filename {

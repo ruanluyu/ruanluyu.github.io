@@ -19,40 +19,40 @@
 
 ## <span style="color:rgb(56,148,228)">◆</span>参照リスト
 
-ここで、よく使われているコードが挙げられています。
-
-Reference code that would help you to remind some frequently-used functions are listed here, this list is read-only currently.
+ここで、よく使われているコードが挙げられています。現在、このリストは読み取り専用です。
 
 
-## <span style="color:rgb(243,27,243)">◆</span>Parameter settings
+## <span style="color:rgb(243,27,243)">◆</span>パラメーター設定
 
-Here you can see the labels, the default value of parameters and the language settings. Click `Parameter manager` button to manage them. See also [Parameter manager](ParameterWindow.md)
+ここで、パラメーター名とパラメーター初期値を一覧することができます。`Parameter manager`ボタンからパラメーター管理パネルが開けます。[Parameter manager](ParameterWindow.md)も参照してください。
 
 
-> Parameter settings are saved with code into preset. 
 
-## <span style="color:rgb(153,204,0)">◆</span>Preset list
+> パラメーター設定はコードと一緒にプリセットに保存できます。
 
-The pop-up menu contains all preset files in your local disc. 
+## <span style="color:rgb(153,204,0)">◆</span>プリセットリスト
 
-Here are same definition:
+すべてのローカルプリセットファイルはここのポップアップメニューにあります。
 
-- A file with `.pwp` post fix, **JSON** format and located beside plugin is a **Preset column**. The name of the Preset column is the file name. 
-- One **Preset column** contains several **Presets**
-- All **Presets** are listed below the pop-up menu. 
+プリセットに関するの定義をここでここで述べておきます。
 
-## <span style="color:rgb(128,0,0)">◆</span>Formula preview
+- ファイル名の拡張子が `.pwp` で、 `PixelsWorld.aex`の隣にある**JSON** 様式のファイルを「プリセットコラム」と我々は呼びます。
+- 一つのプリセットコラムの中に若干の「プリセット」が入っています。
+- 「プリセット」はポップアップメニューの下のリストに列挙されています。
 
-The selected **Preset**'s code can be previewed here. Click the `Replace` button to send preset code to the left code area (This will override the previouse code). 
+## <span style="color:rgb(128,0,0)">◆</span>コードプレビュー
 
-> If you only want to replace the text and don't want the parameter settings change. Uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
+選択されているプリセットの内容をここでチェックすることができます。`Replace`ボタンを押すと、選択されたプリセットのコードを左のコードエリアに既存のコードを置き換えられます。
 
-If you want the preset code to be combined in the front of your code, click `<<Top` button; `Bottom>>` means to combine preset code behind your current code.  
 
-## <span style="color:rgb(247,136,58)">◆</span>Parameter settings preview
+> コードのみを置換し、設定を置き換えたくない場合は、<span style="color:rgb(247,136,58)">パラメーター設定プレビュー</span>の`Apply when replace`のチェックを外してから`Replace`ボタンを押してください。 
 
-The selected **Preset**'s parameter settings can be previewed here. If you want to apply it, click `Replace` button to override the current settings. 
-> `Apply when replace` means if auto apply parameter settings when you click the `Replace` button in the Formula preview area. 
+プリセットコードを今のコードを上書きせず、先頭につなげたい場合は`<<Top`ボタンを、後ろにつなげたい場合は`Bottom>>`ボタンを押してください。
+
+## <span style="color:rgb(247,136,58)">◆</span>パラメーター設定プレビュー
+
+選択されているプリセットのパラメーター設定をここでチェックできます。プリセットの設定を適用するには`Apply`ボタンを押してください。
+> `Apply when replace`は「コードエリアの`Replace`ボタンを押すと自動的にこのエリアの`Apply`ボタンを押してくれる」という意味です。
 
 
 <br>

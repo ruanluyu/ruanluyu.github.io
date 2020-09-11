@@ -49,8 +49,8 @@ If you want the preset code to be combined in the front of your code, click `<<T
 
 ## <span style="color:rgb(247,136,58)">◆</span>Parameter settings preview
 
-The selected **Preset**'s parameter settings can be previewed here. If you want to apply it, click `Replace` button to override the current settings. 
-> `Apply when replace` means if auto apply parameter settings when you click the `Replace` button in the Formula preview area. 
+The selected **Preset**'s parameter settings can be previewed here. If you want to apply it, click `Apply` button to override the current settings. 
+> `Apply when replace` means if auto apply parameter settings when you click the `Apply` button in the Formula preview area. 
 
 
 <br>
