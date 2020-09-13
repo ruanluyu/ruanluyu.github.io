@@ -90,7 +90,11 @@ section.markdown-section blockquote {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    border: solid 10px rgb(35, 35, 35);
     border-radius: 10px;
     max-width: 75%;
+}
+
+.markdown-section .fullscreen-logo img {
+    border-radius: 10px;
+    max-width: 100%;
 }
