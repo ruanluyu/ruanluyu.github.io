@@ -50,6 +50,8 @@ projectPath -- Project path(utf8)
 projectFolder -- Project folder(utf8)
 ds_width -- Width of downsampled input image
 ds_height -- Height of downsampled input image
+origin_x -- The X coordinate of left top corner of input image in the layer coordinate. 
+origin_y -- The Y coordinate of left top corner of input image in the layer coordinate. 
 ```
 
 ## Print the globals 

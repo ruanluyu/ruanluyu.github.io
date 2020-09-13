@@ -901,7 +901,7 @@ end
 
 ## setColor
 
-`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)`会设置`OUTPUT`材质的(x,y)坐标处的像素值。
+`setColor(x,y,r,g,b,a)`会设置`OUTPUT`材质的(x,y)坐标处的像素值。
 > - 在绘制一切场景前使用`setColor`时(即在`version3()`紧接着的后面)，这个函数的效率是最高的
 
 ## getSize

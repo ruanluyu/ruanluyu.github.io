@@ -51,6 +51,8 @@ projectPath -- 工程路径(utf8)
 projectFolder -- 工程所在文件夹的路径(utf8)
 ds_width -- 降采样后合成宽度
 ds_height -- 降采样后合成高度
+origin_x -- 输入层左上角在图层坐标系的X坐标
+origin_y -- 输入层左上角在图层坐标系的Y坐标
 ```
 
 ## 打印全局变量

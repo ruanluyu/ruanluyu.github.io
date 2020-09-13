@@ -908,7 +908,7 @@ end
 
 ## setColor
 
-`setColor(x,y,r,g,b)`,`setColor(x,y,r,g,b,a)` set the pixel at location (x,y) of texture `OUTPUT`. 
+`setColor(x,y,r,g,b,a)` set the pixel at location (x,y) of texture `OUTPUT`. 
 > - It is high efficient to call `setColor` before any draw function
 
 ## getSize
