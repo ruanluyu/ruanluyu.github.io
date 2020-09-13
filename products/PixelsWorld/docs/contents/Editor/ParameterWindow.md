@@ -22,7 +22,7 @@ Type the lables into the first input area, the default values into the following
 
 PixelsWorld supports utf-8. Some not supported characters are converted to `?` in plugin panel. 
 
-> - If you work with international authors. We recommand using <span style="color:rgb(255,0,0)">[ASCII](https://zh.wikipedia.org/wiki/ASCII)</span> characters for all labels. 
+> - If you work with international authors. We recommand using <span style="color:rgb(255,0,0)">[ASCII](https://en.wikipedia.org/wiki/ASCII)</span> characters for all labels. 
 
 
 <br>

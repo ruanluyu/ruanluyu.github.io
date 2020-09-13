@@ -8,24 +8,23 @@
 
 ## ルール
 
-パラメーター名を左の
-Type the lables into the first input area, the default values into the following input area. (Decimal number 0~1)
+パラメーター名を左に、パラメーター初期値を右に入力してください。（初期値範囲：十進数 0~1、範囲越え可能）
 
+`Clear names` パラメーター名を消します。
+`Clear all names` すべてのパラメーター名を消します。
 
-`Clear names` button clears label names.
-`Clear all names` button clears all label names. 
+`Reset names` パラメーター名を初期値に戻します。
+`Reset all names` すべてのパラメーター名を初期値に戻します。
 
-`Reset names` button resets label names to default.
-`Reset all names` button resets all label names to default.
+`Reset values` パラメーター初期値を初期値を戻します。
+`Reset all value` すべてのパラメーター初期値を初期値を戻します。
 
-`Reset values` button resets values.
-`Reset all value` button resets all values. 
+## 文字コード
 
-## Encoding
+PixelsWorldはutf-8のパラメーター名をサポートしています。
+識別されない文字コードは`?`マークになります。
 
-PixelsWorld supports utf-8. Some not supported characters are converted to `?` in plugin panel. 
-
-> - If you work with international authors. We recommand using <span style="color:rgb(255,0,0)">[ASCII](https://zh.wikipedia.org/wiki/ASCII)</span> characters for all labels. 
+> 異国環境や合同作業の場合、<span style="color:rgb(255,0,0)">[ASCII](https://ja.wikipedia.org/wiki/ASCII)</span>文字コードのパラメーター名の使用を推奨します。
 
 
 <br>
