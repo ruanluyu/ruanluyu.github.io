@@ -146,6 +146,8 @@
 [r2d](#r2d),
 [d2r](#d2r)
 
+[map](#map)
+
 [utf8ToLocal](#utf8tolocal),
 [localToUtf8](#localtoutf8)
 
@@ -810,6 +812,12 @@ cube()
 ## d2r
 
 `d2r(degrees)`角度转弧度，返回弧度
+
+## map
+
+`map(value,in1,in2,out1,out2)`将数值`value`从范围`in1~in2`映射至`out1~out2`。
+
+> 当`in1`等于`in2`时，在`value<in1`时该项返回`out1`，否则返回`out2`。
 
 ## utf8ToLocal
 

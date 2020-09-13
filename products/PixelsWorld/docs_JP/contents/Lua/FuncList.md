@@ -146,6 +146,8 @@ This page covers all functions provided in Lua render mode.
 [r2d](#r2d),
 [d2r](#d2r)
 
+[map](#map)
+
 [utf8ToLocal](#utf8tolocal),
 [localToUtf8](#localtoutf8)
 
@@ -816,6 +818,13 @@ cube()
 ## d2r
 
 `d2r(radians)` degrees to radians, return radians
+
+## map
+
+`map(value,in1,in2,out1,out2)` maps value `value` from range `in1~in2` to range `out1~out2`. 
+
+> If `in1` equals to `in2`, if `value<in1` this function returns `out1`, otherwise `out2`. 
+
 
 ## utf8ToLocal
 
