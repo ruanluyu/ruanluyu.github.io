@@ -886,13 +886,13 @@ local nm = math.floor(height/8);
 for i=1,nm do
     local wid =math.max(math.floor(i/nm*#wl),1)
     local fid = math.max(math.floor(i/nm*#fl/16),1)
-    print(string.format("%8.5f",wl[wid]),1,wl[wid]*4,0,-wl[wid]*4)
-    print("  < L  R >  ",1,0,0,0)
-    print(string.format("%8.5f",wr[wid]),1,wr[wid]*4,0,-wr[wid]*4)
-    print("      <   Wave  FFT   >      ",1,0.5,0.5,0.5)
-    print(string.format("%8.5f",fl[fid]),1,fl[fid]/math.sqrt(#fl),0,0)
-    print("  < L  R >  ",1,0,0,0)
-    print(string.format("%8.5f",fr[fid]),1,0,0,fr[fid]/math.sqrt(#fr))
+    print(string.format("%8.5f",wl[wid]),wl[wid]*4,0,-wl[wid]*4)
+    print("  < L  R >  ",0,0,0)
+    print(string.format("%8.5f",wr[wid]),wr[wid]*4,0,-wr[wid]*4)
+    print("      <   Wave  FFT   >      ",0.5,0.5,0.5)
+    print(string.format("%8.5f",fl[fid]),fl[fid]/math.sqrt(#fl),0,0)
+    print("  < L  R >  ",0,0,0)
+    print(string.format("%8.5f",fr[fid]),0,0,fr[fid]/math.sqrt(#fr))
     println("");
 end
 ```
