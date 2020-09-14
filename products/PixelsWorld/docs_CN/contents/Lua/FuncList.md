@@ -851,7 +851,7 @@ println(getDrawRecord());
 1. `getStatus(needStringFormat)`可以输出当前绘笔信息，`needStringFormat`是一个布尔值，true时输出字符串，false输出一个Lua表。
 1. `getStatus()`等价于`getStatus(true)`
 
-```lua:printDrawRecord.lua
+```lua:getStatus.lua
 version3()
 move(width/2,height/2)
 dim3()

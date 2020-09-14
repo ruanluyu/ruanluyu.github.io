@@ -858,7 +858,7 @@ println(getDrawRecord());
 1. `getStatus(needStringFormat)`gets the current Paintbrush status. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
 1. `getStatus()` equals to `getStatus(true)`
 
-```lua:printDrawRecord.lua
+```lua:getStatus.lua
 version3()
 move(width/2,height/2)
 dim3()
