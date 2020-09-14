@@ -98,3 +98,18 @@ section.markdown-section blockquote {
     border-radius: 10px;
     max-width: 100%;
 }
+
+.markdown-section table {
+    color: rgb(212, 212, 212);
+    border: 1px solid rgb(117, 117, 117);
+}
+
+.markdown-section table tr {
+    background-color: rgb(40, 40, 40);
+    border: 1px solid rgb(117, 117, 117);
+}
+
+.markdown-section table td {
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(117, 117, 117);
+}
