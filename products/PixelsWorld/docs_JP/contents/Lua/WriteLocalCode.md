@@ -1,32 +1,31 @@
-# Load local Lua code
+# ローカルコードの読み取り
 
-If you don't prefer to use PixelsWorld's editor, PixelsWorld can read `txt` file from local disc. So you can write the file with the IDE you like. 
+PixelsWorldは、`txt`形式のファイルを読み取れる為、ローカルでユーザーが好きなエディターでコードを書くことが可能です。
 
-> Don't put the file to system disc(`C:\` disc). 
-
-
+> システムディスク（通常`C:\`）でないほかのディスクで`txt`ファイルを作成してください。
 
 ```lua:loadTxt.lua
 version3()
 runFile([[d:\mycode.txt]]) -- Replace to your path
 ```
 
-> - The reason we use `[[d:\mycode.txt]]` but not `"d:\mycode.txt"` is that the latter's `\` will cause escape problem. 
-> - You can use any postfix you want(`*.lua, *.code, *.magic`) as long as its contents are texts. 
+> - ここで、`"d:\mycode.txt"`ではなく、`[[d:\mycode.txt]]`を使う理由は`\`が制御文字として扱われることを避けるからです。
+> - 実際、仕様がテキストファイルでさえあれば、拡張子は任意です(`*.lua, *.code, *.magic`)。
 
-Use following code to read the code file beside your Ae project file. 
+次のコードを使ってAeプロジェクトファイル周辺に置かれているコードファイルを読み取れます。
 
 ```lua:loadTxt.lua
 version3()
 runFile( projectFolder .. [[mycode.txt]]) -- Replace to your file name
 ```
 
-> Note: You should save your Ae project to local disc or the `projectFolder` is just an empty string. 
+> 注意：`projectFolder`を使うには、Aeプロジェクトの保存が必須です。さもなければ、`projectFolder`は空文字列になってしまいます。
 
-## It is not over! Don't forget to refresh PixelsWorld
+## まだおわってない！
 
 ![RerenderClick](RerenderLOGO.png)
 
-If you saved your code file, PixelsWorld cannot read it immediatly. You should then hold **Ctrl + Alt**, click the logo image, this will trigger the rerender of PixelsWorld, then your new code will be read by PixelsWorld. 
+ローカルでファイルの書き込みが終わって保存しても、PixelsWorldは直ぐにコードをシーンに反映できません。PixelsWorldにコードをロードさせるために、**Ctrl + Alt**を押しながら、プラグインパネルにあるロゴ画像をクリックしてください。これでPixelsWorldはローカルファイルを読み取ってくれます。
 
-> The logo image here is appearing basing on a constant probability distribution. For artists who are crazy about collecting things, we have designed lots of beautiful logo image here. 
+
+> コレクション好きなお客様のために、高確率でよく出てくるロゴ画像もありながら、ウルトラ激レアの画像も用意してあります。

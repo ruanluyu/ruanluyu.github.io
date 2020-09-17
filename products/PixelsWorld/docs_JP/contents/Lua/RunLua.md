@@ -1,13 +1,13 @@
-#Run Lua code
+# Luaの実装
 ---
 
-Switch your luange to **Lua ( CPU & GPU )**
+まず、**Lua ( CPU & GPU )**　モードに切り替えてください。
 
 
 ![LuaMode](LuaMode.png)
 
+次のコードをエディターに入力してください。
 
-And input the code below : 
 ```lua:hello.lua
 version3()
 a = 5+6
@@ -19,11 +19,9 @@ f = "5 + 6 = " .. a .. "\nMessage : " .. b .. " " .. c .. "\nCurrent time is : "
 print(f)
 ```
 
-> - ` a..b ` means combine variable a and b as string.
-> - [`print()`](FuncList.md#print) reports message to debug window. 
-> - [`slider()`](LinkParameters.md) fetches the value of a specified parameters.
-> - You are allowed to add `;` in the end of each line, but it is not indispensable. Lua regards the `\n`(line break) as the end mark of one section of code. 
+> - ` a..b ` は文字列`a`と`b`を連結する操作。
+> - [`print()`](FuncList.md#print) 文字列を出力する関数。
+> - [`slider()`](LinkParameters.md) スライダーの値を読み取る関数。
+> - Lua言語では`;`を行の最後につけることが可能ですが、必須ではありません。
 
-A message will show up in the left top corner of your screen. 
-
-<br><br><br><br><br><br><br><br><br><br>
+結果として、画面の左上に文字が出力されます。
