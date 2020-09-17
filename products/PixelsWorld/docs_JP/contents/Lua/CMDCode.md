@@ -1,4 +1,4 @@
-#CMD Code
+# 世界の基盤CMD
 ---
 
 **Lua (CPU & GPU)**モードで```cmd("Your code")```関数を用いて、cmdコマンドを実行します。
