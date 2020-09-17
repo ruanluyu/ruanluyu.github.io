@@ -1,46 +1,47 @@
-# Preset management
+# プリセット管理
 -------
-## Save preset
-In [World formula editor](ScriptWindow.md),you can click the `Save as preset` button to save your code as a preset. 
-> Note: Same name brings overriding. 
+## プリセットの保存
 
-## Override save
+[World formula editor](ScriptWindow.md)において、`Save as preset`ボタンを押し、名前を入力するコードとパラメーター設定がプリセットとして保存されます。
 
-In [World formula editor](ScriptWindow.md),click the `Save as preset` button, and type the existing name to override the previous preset. 
+> 注意：既存の名前で保存すると上書きが発生します。
 
-> Note
-> - All operation in the editor is not undoable. 
+## プリセットの上書き保存
 
-## Rename presets
+[World formula editor](ScriptWindow.md)において、`Save as preset`ボタンを押し、既存の名前を入力するコードとパラメーター設定がプリセットとして保存されます。
 
-Double click the preset to rename a preset. Use name **EXCEPT**`REMOVE` and `SORT`.
+> 注意：World formula editorではすべての操作を取り消すことができません。
 
-## Sort presets
+## プリセットの名前変更
 
-Double click one preset and type in `SORT`. 
+変更したいプリセットをダブルクリックし、入力欄に`REMOVE`と`SORT`以外の名前を入力してください。
 
-## Remove presets
+## プリセットのアルファベット順ソート
 
-Double click the preset you want to remove and type in `REMOVE`. 
+変更したいプリセットをダブルクリックし、入力欄に大文字`SORT`を入力してください。
 
+## プリセットの削除
 
-## Add preset column
-
-Click `Add` button in the `Preset list`
-
-> Note: 
-> - Name must be unique. 
-> - **If failed, you might need to re-open Ae with administrator mode.**
+変更したいプリセットをダブルクリックし、入力欄に大文字`REMOVE`を入力してください。
 
 
-## Format
+## プリセットコラムの新規作成
 
-- Format: utf-8, JSON
-- Not encrypted. 
+`Preset list`の`Add`ボタンを押し、名前を入力すると新しいコラムが新規作成されます。
 
-## Contribute presets
+> 注意：
+> - 既存の名前は使用不可となります。
+> - **新規作成が失敗の場合、管理者権限でAeを再開してください。**
 
-Send your preset to `ZzStarSound@gmail.com` with your name and detailed description. 
+
+## プリセット仕様
+
+- フォーマット： utf-8・JSON
+- 暗号化無し
+
+## プリセットのアップロード及び公式整合リクエスト
+
+アップロードしたいプリセットを`ZzStarSound@gmail.com`宛てに作者名前と説明文付きで送ってください。
 
 <br>
 <br>

@@ -1,41 +1,35 @@
-# GPU Berserker GLSL
+# GPUバーサーカーGLSL
 ---
 
-In this section, we will have a quick look at how the GLSL works in PixelsWorld. 
+この章では、GLSLの使い方を紹介します。
 
-## What is GLSL? 
+## GLSLとは？
  
-> GLSL is an abbreviation of OpenGL Shader Language, which is supported by OpenGL, run on GPU. 
+> GLSLは「OpenGL Shader Language」の略称です。GPUで実行される言語の一種です。
 
-### In short
-GLSL is what we used in [section one](../../README.md), it can run on GPU. 
+### GPUレンダーのメリットは？
 
-### Advantage of GPU render
-
-If we treat CPU as a supercar, the GPU should be more like a bus. 
+ここで、比喩でCPUをスーパーカー、GPUをバスとしましょう。
 
 ![Metaphor](bus_vs_car.png)
 
-In the case we transport little people, like one or three, the supercar would be nice. (Handle single complicated calculation)
+もし、少人数（二人ぐらい）の人を運輸しようとすれば、スーパーカーの方は早くていいでしょう。（高速で複雑な演算をします）
 
-But when there are thousands of people need to be transported, it seems that the bus should be the right option. (Render thousands of data symultaneously)
+さて、多人数の場合はどうでしょうか。バスのほうはスピードが遅いが、一気に多数の人を運搬できるというメリットが大きくなって、このケースではバスのほうがかなり有能だと考えてもいいでしょう。（同じ演算を一斉にします）
 
-The language we are learning, like C/C++, Java, Python, almost are running on CPU.
+普通我々が耳にした多くの言語（C/C++、Java、Python）はCPUで実行されています。
+GLSLは、GPUで実行できるようにデザインされています。
 
-Languages like GLSL, is designed for GPU. 
+画像を一枚レンダーしようとするときに、GPUは大勢の「ワーカー」を雇って計算方法と入力値を与えて働かせるというイメージを持ってもいいでしょう。
 
-When we are about to render a picture. GPU can distribute one repetitive task to a number of "workers". 
+> GLSLを徹底的に勉強したい方に対して、こちらのサイト：[shadertoy.com](https://www.shadertoy.com/)をお勧めします。面白そうなコードを見つけてそれをいじることよりわりと速く上達するので、ぜひご活用ください。
 
-
-> If you want to learn more about GLSL, we recommand you to go to [shadertoy.com](https://www.shadertoy.com/), find some interesting arts and make out why this works. 
-
-## Details
-
-Before the GLSL is sent to OpenGL, PixelsWorld will combine pre-defined and post-defined codes to support features of Ae. If you are beginner, you can ignore this section for the moment. 
+## 詳細（これ以降の内容はベテラン向けです）
 
 
-- **PixelsWorld V2.0** use **#version 330 core**. 
+GLSLコードがOpenGLに発信される前に、PixelsWorldは、いくつかの前置きコードと後置きコードを連結する処理を行います。
 
-[Here](predefined.md) are pre-defined and post-defined codes. 
 
-<br><br><br><br><br><br><br>
+- **PixelsWorld V3.0.0** は **#version 330 core**　を使います。
+
+[ここで](predefined.md) 前置きコードと後置きコードが記載されています。

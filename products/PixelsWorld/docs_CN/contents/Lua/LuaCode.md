@@ -25,7 +25,10 @@ cube(300)
 ```lua:RunGlsl.lua
 version3()
 glsl([==[
-在这里输入您的代码
+void main(){
+    vec3 col = 0.5 + 0.5*cos(time+uv.xyx+vec3(0,2,4));
+    outColor = vec4(col,1.0);
+}
     ]==])
 ```
 
@@ -35,7 +38,12 @@ glsl([==[
 ```lua:RunShadertoy.lua
 version3()
 pw.shadertoy([==[
-在这里输入您的代码
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+    vec2 uv = fragCoord/iResolution.xy;
+    vec3 col = 0.5 + 0.5*cos(iTime+uv.xyx+vec3(0,2,4));
+    fragColor = vec4(col,1.0);
+}
     ]==])
 ```
 并在中间输入来自shadertoy的代码即可。

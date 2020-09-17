@@ -25,7 +25,10 @@ If you want to run GLSL code, just type:
 ```lua:RunGlsl.lua
 version3()
 glsl([==[
-Your GLSL code here
+void main(){
+    vec3 col = 0.5 + 0.5*cos(time+uv.xyx+vec3(0,2,4));
+    outColor = vec4(col,1.0);
+}
     ]==])
 ```
 
@@ -34,7 +37,12 @@ If you want to run code from [shadertoy](shadertoy.md), just type:
 ```lua:RunShadertoy.lua
 version3()
 pw.shadertoy([==[
-The shadertoy code here
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+    vec2 uv = fragCoord/iResolution.xy;
+    vec3 col = 0.5 + 0.5*cos(iTime+uv.xyx+vec3(0,2,4));
+    fragColor = vec4(col,1.0);
+}
     ]==])
 ```
 

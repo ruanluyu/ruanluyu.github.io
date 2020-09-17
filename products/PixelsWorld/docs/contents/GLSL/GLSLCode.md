@@ -7,9 +7,6 @@ In this section, we will have a quick look at how the GLSL works in PixelsWorld.
  
 > GLSL is an abbreviation of OpenGL Shader Language, which is supported by OpenGL, run on GPU. 
 
-### In short
-GLSL is what we used in [section one](../../README.md), it can run on GPU. 
-
 ### Advantage of GPU render
 
 If we treat CPU as a supercar, the GPU should be more like a bus. 
@@ -34,7 +31,7 @@ When we are about to render a picture. GPU can distribute one repetitive task to
 Before the GLSL is sent to OpenGL, PixelsWorld will combine pre-defined and post-defined codes to support features of Ae. If you are beginner, you can ignore this section for the moment. 
 
 
-- **PixelsWorld V2.0** use **#version 330 core**. 
+- **PixelsWorld V3.0.0** use **#version 330 core**. 
 
 [Here](predefined.md) are pre-defined and post-defined codes. 
 
