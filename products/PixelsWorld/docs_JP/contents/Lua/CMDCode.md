@@ -1,7 +1,7 @@
 #CMD Code
 ---
-CMD commands can be executed by function ```cmd("Your cmd commands")``` on **Lua (CPU & GPU)** language mode. 
 
+**Lua (CPU & GPU)**モードで```cmd("Your code")```関数を用いて、cmdコマンドを実行します。
 
 
 ![LuaMode](LuaMode.png)

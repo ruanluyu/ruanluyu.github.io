@@ -1,7 +1,7 @@
-#JavaScript Code
+#　世界の郊外、JavaScript
 ---
-Javascript can be executed by function ```pw.js("Your code")``` on **Lua (CPU & GPU)** language mode. 
 
+**Lua (CPU & GPU)**モードで```js("Your code")```関数を用いて、JavaScriptを実行します。
 
 
 ![LuaMode](LuaMode.png)
@@ -12,4 +12,4 @@ version3()
 js("alert('Hello PixelsWorld!')");
 ```
 
-> Note: Due to the structure of Ae, running js code inside PixelsWorld is not recommended. You are supposed to use js to do some simple calculations basing on local variables. 
+> 注意：PixelsWorldでJavaScriptの実行をAeのストラクチャよりお勧めしません。

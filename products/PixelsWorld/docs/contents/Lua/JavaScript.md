@@ -1,6 +1,6 @@
 #JavaScript Code
 ---
-Javascript can be executed by function ```pw.js("Your code")``` on **Lua (CPU & GPU)** language mode. 
+Javascript can be executed by function ```js("Your code")``` on **Lua (CPU & GPU)** language mode. 
 
 
 

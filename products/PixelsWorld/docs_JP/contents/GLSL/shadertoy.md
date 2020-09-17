@@ -1,18 +1,19 @@
-# Template Zone shadertoy
+# テンプレート聖域shadertoy
 ---
-## Usage
-On shadertoy mode, you can run codes from [shadertoy.com](https://shadertoy.com). 
+## 使い方
+
+shadertoyモードでは、[shadertoy.com](https://shadertoy.com)でのコードを直接PixelsWorldに実装することができます。
 
 ![shadertoyMode](shadertoyMode.png)
 
-> **Note** <br/> It doesn't mean all code from shadertoy can be support perfectly in PixelsWorld. Some like codes containing VR are not support. 
+> **注意：** すべてのshadertoyのコードがサポートされているというわけではないです。VRの使ったコードやBufferを使ったコードはサポートされていません。
 
-##Details
+## 詳細
 
-Add **`_PixelsWorld_`** prefix to use variables that exist in GLSL mode. 
-
-
-> E.g. `slider[0]` on GLSL mode =  `_PixelsWorld_slider[0]` on shadertoy mode. 
+PixelsWorldの変数をこのモードで使いたいならば、**`_PixelsWorld_`**を変数名の前につけてください。
 
 
-It is not recommended to define your own **`_PixelsWorld_`** prefixed variables. 
+> 例えば、GLSLモードの`slider[0]`　は　`_PixelsWorld_slider[0]`　になります。
+
+
+**`_PixelsWorld_`**の付いた変数名の宣言はお勧めしません。
