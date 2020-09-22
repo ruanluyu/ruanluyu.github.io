@@ -1,6 +1,6 @@
 # Creation origin: Poly function
 
-`poly(obj)` analyzes the input Obj, then draws it to scene. 
+`poly(obj)` analyzes the inputted `obj`, then draws it to the scene. 
 
 
 
@@ -151,7 +151,7 @@ poly(obj)
 
 ## Usage of vertex
 
-Vertex (child-point) inherits all attributes in `point`.
+Vertex (child-point) inherits all attributes from `point`.
 
 ![Vertex](polyVertexTest.png)
 
