@@ -6,7 +6,7 @@
 
 ## Usage
 
-> If you are familiar with `Houdini`, the idea of to construct an `obj` is basically to fill a SpreadSheet. 
+> If you are familiar with `Houdini`, constructing an `obj` is basically to fill a SpreadSheet. 
 
 Here is an example of constructing an `obj` of an unusual colorful triangle. 
 
