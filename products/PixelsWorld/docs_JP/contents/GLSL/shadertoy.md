@@ -6,7 +6,7 @@ shadertoyモードでは、[shadertoy.com](https://shadertoy.com)でのコード
 
 ![shadertoyMode](shadertoyMode.png)
 
-> **注意：** すべてのshadertoyのコードがサポートされているというわけではないです。VRの使ったコードやBufferを使ったコードはサポートされていません。
+> **注意：** すべてのshadertoyのコードがサポートされているというわけではないです。VRの使ったコードやループの入ったBufferを使ったコードはサポートされていません。
 
 ## 詳細
 
