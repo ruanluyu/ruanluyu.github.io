@@ -33,6 +33,6 @@ div.row {
     border: solid 2px rgb(20, 20, 20);
 }
 
-div.row a:hover {
+a:hover {
     color: rgb(183, 224, 115);
 }
