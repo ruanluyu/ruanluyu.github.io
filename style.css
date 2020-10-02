@@ -32,3 +32,7 @@ div.row {
     border-radius: 10px;
     border: solid 2px rgb(20, 20, 20);
 }
+
+div.row a:hover {
+    color: rgb(183, 224, 115);
+}
