@@ -26,11 +26,13 @@ a {
 div.row {
     display: inline-block;
     vertical-align: top;
-    margin: 0px 20px 0px 20px;
+    margin: 20px;
     padding: 40px 50px 40px 50px;
     background: rgb(30, 30, 30);
     border-radius: 10px;
     border: solid 2px rgb(20, 20, 20);
+    height: 280px;
+    width: 250px;
 }
 
 a:hover {
