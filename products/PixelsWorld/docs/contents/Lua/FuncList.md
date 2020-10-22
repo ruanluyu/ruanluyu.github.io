@@ -934,6 +934,7 @@ end
 
 > - "exit": the command terminated normally; the following number is the exit status of the command.
 > - "signal": the command was terminated by a signal; the following number is the signal that terminated the command.
+
 ## lua
 
 `lua(code)` runs lua code. 
