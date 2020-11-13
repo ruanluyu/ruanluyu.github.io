@@ -5,7 +5,9 @@ On shadertoy mode, you can run codes from [shadertoy.com](https://shadertoy.com)
 
 ![shadertoyMode](shadertoyMode.png)
 
-> **Note** <br/> It doesn't mean all code from shadertoy can be support perfectly in PixelsWorld. Some like codes containing VR are not support. 
+> **Note** <br/> It doesn't mean all code from shadertoy can be support perfectly in PixelsWorld. Some like "VR", "Loop buffer reference" are not support. 
+
+![loopRef](loopbuffer.png)
 
 ##Details
 

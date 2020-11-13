@@ -8,6 +8,8 @@ shadertoyモードでは、[shadertoy.com](https://shadertoy.com)でのコード
 
 > **注意：** すべてのshadertoyのコードがサポートされているというわけではないです。VRの使ったコードやループの入ったBufferを使ったコードはサポートされていません。
 
+![loopRef](loopbuffer.png)
+
 ## 詳細
 
 PixelsWorldの変数をこのモードで使いたいならば、**`_PixelsWorld_`**を変数名の前につけてください。
