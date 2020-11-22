@@ -1,0 +1,11 @@
+# Error: Couldn't find main entry point for PixelsWorld.aex (48::72)
+
+If the next error occurred, please check these things list below: 
+
+![Err Info](entrypointerr.png)
+
+1. Windows10 should be up-to-date(`Windows 10 20H2` or later version is recommended)
+2. Graphic card drivers should be up-to-date
+3. Graphic card should support `OpenGL 3.3` or later(You can use `OpenGL Extensions Viewer` tool to get the version info) 
+4. There should be `OpenCL.dll` in `C:\Windows\System32`
+
