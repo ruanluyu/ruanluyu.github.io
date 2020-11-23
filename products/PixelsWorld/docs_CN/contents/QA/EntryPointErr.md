@@ -4,8 +4,9 @@
 
 ![Err Info](entrypointerr.png)
 
-1. Windows10 需更新至最新版（推荐`Windows 10 20H2`及以后的版本）
-2. 您需要拥有最新的显卡驱动
-3. 您的显卡需要从硬件支持`OpenGL 3.3`及以上版本的协议（可以使用`OpenGL Extensions Viewer`工具查看）
-4. `C:\Windows\System32`目录下需存在`OpenCL.dll`
+1. 您需要通过Creative Cloud来把Ae更新至最新（对于CC2019推荐`16.1.3+`对于2020推荐`17.5.1+`）
+2. Windows10 需更新至最新版（推荐`Windows 10 20H2`及以后的版本）
+3. 您需要拥有最新的显卡驱动
+4. 您的显卡需要从硬件支持`OpenGL 3.3`及以上版本的协议（可以使用`OpenGL Extensions Viewer`工具查看）
+5. `C:\Windows\System32`目录下需存在`OpenCL.dll`
 

@@ -1,11 +1,14 @@
-# Appointments
+# シリアルナンバー規約
 ------
 
-1. One serial number contains N **Register number** (N >= 1)
-2. One **Register number** registers one PC permanently. 
-3. One **Register number** can be shared in any version of Ae in a PC. 
-4. Registering costs one **Register number**, deactivating recovers one **Register number**
-5. Only **Registering and Deactivating** need internet. You can use PixelsWorld offline after registering completed. 
-6. You don't have to deactivate before re-installing your OS, **UNLESS** you changed the hardwares like CPU or mainboard. When you finished re-installing your OS, register PixelsWorld again, this kind of registration doesn't cost the **Register number**. [Contact with us](mailto:zzstarsound@gmail.com) if you foget to deactivate your serial number and you have already changed your CPU and mainboard. 
-7. Serial number does't bind with any personal information. You can **BUT NOT RECOMMAND** sell it. MiLai visual performance group is not responsible for ANY trouble that happened in this kind of deals. 
-8. The default value of **Register numbner** is 1. If you have more than one PC and you also want to run PixelsWorld on your multiple machines at the same time. Please purchase the corresponding number of PixelsWorld, we will send you the Serial number with **Register number** specified by you. 
+> 注意：aescripts.comでご購入になったお客様に、当「シリアルナンバー規約」は適用しませんので、ご注意ください。
+
+1. シリアルナンバー一個にはN個の**認証ＰＣ数**が入っています。 (N >= 1)
+2. **認証ＰＣ数**一個で、一つのPCをアクティベート（認証）します。
+3. **認証ＰＣ数**一個は、同じPCならば、異なるバージョンのAeにシェアされます。
+4. アクティベートには一個の**認証ＰＣ数**を消耗し、反アクティベート（認証を外す）には一個の**認証ＰＣ数**を復元します。
+5. **アクティベート 及び 反アクティベート**操作のみ、インターネットが必須で、それ以外の場合、ネット環境無しでご利用できます。
+6. PCのマザーボードやCPUを変換する**前に**反アクティベートを実行し、変換完了後再びアクティベートしてください。反アクティベートを忘れ、再認証失敗の場合[メールにてお問い合わせください。](mailto:zzstarsound@gmail.com)
+7. シリアルナンバーには個人情報が入っていないので、シリアルナンバーの再販売を許容しますが、**お勧めしません。**シリアルナンバーの再販売で生じたトラブルには、未来視覚演繹グループはその責任を一切負えないのでご了承ください。
+8. **認証ＰＣ数**は特にリクエストがない場合は１で販売しています。同時にたくさんのPC
+でPixelsWorldをご利用になりたいお客様は、PC数に応じる**認証ＰＣ数**をご購入ください。[Flashback Japan](https://flashbackj.com/product/pixelsworld)においては、1~3の認証ＰＣ数の入ったシリアルナンバーを販売しています（4以上のリクエストも承ります）。たくさん購入したいお客様はこちらで購入する方がお得です。
