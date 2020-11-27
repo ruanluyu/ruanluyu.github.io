@@ -29,8 +29,8 @@ PARAM6 -- 第6号图层材质 6
 PARAM7 -- 第7号图层材质 7
 PARAM8 -- 第8号图层材质 8
 PARAM9 -- 第9号图层材质 9
-platform -- 平台：Windows 0 目前不支持其它平台
-host -- 宿主程序：Ae 0，目前不支持其它宿主
+platform -- 平台：Windows10: 0 目前不支持其它平台
+host -- 宿主程序：Ae: 0，目前不支持其它宿主
 ```
 
 ## 全局变量
