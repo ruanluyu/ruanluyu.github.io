@@ -7,6 +7,9 @@
 > GLSL是OpenGL Shader Language的缩写，它是OpenGL支持的基于GPU的渲染语言。
 > 主要通过编写像素渲染规则，使用GPU进行计算。
 
+## 如何学习?
+
+我们推荐[着色器之书](https://thebookofshaders.com/?lan=ch)，在线即可免费阅读。
 
 ### 显卡语言的优势
 

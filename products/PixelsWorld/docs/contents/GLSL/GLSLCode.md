@@ -7,6 +7,10 @@ In this section, we will have a quick look at how the GLSL works in PixelsWorld.
  
 > GLSL is an abbreviation of OpenGL Shader Language, which is supported by OpenGL, run on GPU. 
 
+## How to learn it? 
+
+We recommend [The book of shaders](https://thebookofshaders.com/)
+
 ### Advantage of GPU render
 
 If we treat CPU as a supercar, the GPU should be more like a bus. 

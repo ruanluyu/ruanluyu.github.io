@@ -7,6 +7,10 @@
  
 > GLSLは「OpenGL Shader Language」の略称です。GPUで実行される言語の一種です。
 
+## どうやって学びますか
+
+[The book of shaders](https://thebookofshaders.com/?lan=jp)（オンライン無料）の閲覧をお勧めです。
+
 ### GPUレンダーのメリットは？
 
 ここで、比喩でCPUをスーパーカー、GPUをバスとしましょう。
