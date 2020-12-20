@@ -147,6 +147,12 @@ This page covers all functions provided in Lua render mode.
 [d2r](#d2r)
 
 [map](#map)
+[clamp](#clamp)
+[step](#step)
+[smoothStep](#smoothstep)
+[bezier](#bezier)
+
+[rgb2hsl,hsl2rgb,rgb2hsv,hsv2rgb,rgb2cmy,cmy2rgb,rgb2cmyk,cmyk2rgb,cmy2cmyk,cmyk2cmy,hsl2hsv,hsv2hsl](#color-conversion)
 
 [utf8ToLocal](#utf8tolocal),
 [localToUtf8](#localtoutf8)
@@ -824,6 +830,68 @@ cube()
 `map(value,in1,in2,out1,out2)` maps value `value` from range `in1~in2` to range `out1~out2`. 
 
 > If `in1` equals to `in2`, if `value<in1` this function returns `out1`, otherwise `out2`. 
+
+
+## clamp
+
+`clamp(value,lower,upper)`clamps `value` into range `[lower,upper]`, returns clamped value. 
+
+> - New in `v3.2.0`
+> - Namely, if `value` is between `lower` and `upper`, this function returns `value`; If `value` is less than `lower`, it returns `lower`; If `value` is greater than `upper`, it returns `upper`. 
+
+## step
+
+`step(value,threshold)` returns 0 if `value<threshold`, otherwise, returns 1.
+
+> - New in `v3.2.0`
+
+## smoothStep
+
+`smoothStep(value,lower,upper)` returns 0 if `value<lower`, returns 1 if `value>higher`1, otherwise, returns the smooth interpolation between `lower` and `higher` basing on `value`. 
+
+Formula of interpolation: 
+
+$$
+t := \frac{x - lower}{upper - lower}
+$$
+
+$$
+Result:=t^2(3 - 2t)
+$$
+
+> - New in `v3.2.0`
+
+## bezier
+
+`bezier(t,p0,p1,...,pn)` returns the `n` times bezier interpolation basing on `p0,p1,...,pn`. 
+
+Formula of interpolation: 
+
+$$
+Result := \sum_{k=0}^n{C_n^k\cdot (1-t)^{n-k}\cdot t^k\cdot p_k}
+$$
+
+$$
+C_n^k:=\frac{n!}{(n-k)!k!}
+$$
+
+
+> - New in `v3.2.0`
+> - The maximum of `n` is `66`. 
+
+## Color conversion
+
+`xxx2xxx` allows the following color conversion: 
+
+![ColorConvert](colorConvert.png)
+
+For example, if you want to convert a `hsl` color to `rgb` format, then you need to call the function `hsl2rgb`, both the number of input and output parameters are 3. 
+
+All conversions are done in range `0~1`. 
+
+> - New in `v3.2.0`
+
+
 
 ## utf8ToLocal
 

@@ -113,3 +113,7 @@ section.markdown-section blockquote {
     background-color: rgb(30, 30, 30);
     border: 1px solid rgb(117, 117, 117);
 }
+
+.katex {
+    color: rgb(212, 212, 212);
+}

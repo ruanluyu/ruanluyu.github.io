@@ -147,6 +147,12 @@
 [d2r](#d2r)
 
 [map](#map)
+[clamp](#clamp)
+[step](#step)
+[smoothStep](#smoothstep)
+[bezier](#bezier)
+
+[rgb2hsl,hsl2rgb,rgb2hsv,hsv2rgb,rgb2cmy,cmy2rgb,rgb2cmyk,cmyk2rgb,cmy2cmyk,cmyk2cmy,hsl2hsv,hsv2hsl](#颜色转换)
 
 [utf8ToLocal](#utf8tolocal),
 [localToUtf8](#localtoutf8)
@@ -818,6 +824,65 @@ cube()
 `map(value,in1,in2,out1,out2)`将数值`value`从范围`in1~in2`映射至`out1~out2`。
 
 > 当`in1`等于`in2`时，在`value<in1`时该函数返回`out1`，否则返回`out2`。
+
+## clamp
+
+`clamp(value,lower,upper)`将数值`value`夹在范围`[lower,upper]`中，返回夹击后的值。
+
+> - `v3.2.0`新函数
+> - 即，当`value`在`lower`和`upper`之间，返回`value`；若`value`小于`lower`，返回`lower`；若`value`大于`upper`，返回`upper`。
+
+## step
+
+`step(value,threshold)`在当`value<threshold`时返回0，否则返回1。
+
+> - `v3.2.0`新函数
+
+## smoothStep
+
+`smoothStep(value,lower,upper)`在当`value<lower`时返回0，当`value>higher`时返回1，否则，在`lower`和`higher`之间按照`value`进行平滑插值。
+
+插值公式：
+
+$$
+t := \frac{x - lower}{upper - lower}
+$$
+
+$$
+Result:=t^2(3 - 2t)
+$$
+
+> - `v3.2.0`新函数
+
+## bezier
+
+`bezier(t,p0,p1,...,pn)`对`p0,p1,...,pn`进行`n`次贝塞尔插值，返回插值结果。
+
+插值公式：
+
+$$
+Result := \sum_{k=0}^n{C_n^k\cdot (1-t)^{n-k}\cdot t^k\cdot p_k}
+$$
+
+$$
+C_n^k:=\frac{n!}{(n-k)!k!}
+$$
+
+
+> - `v3.2.0`新函数
+> - `n`的最大值为`66`
+
+## 颜色转换
+
+`xxx2xxx`允许下图中的转换
+
+![ColorConvert](colorConvert.png)
+
+例如，如果想把`hsl`格式的颜色数据转换到`rgb`则需要使用函数：`hsl2rgb`，输入值和返回值各为3个。
+
+所有颜色数据都在`0~1`的范围进行转换。
+
+> - `v3.2.0`新函数
 
 ## utf8ToLocal
 
