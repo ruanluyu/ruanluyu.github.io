@@ -2,7 +2,7 @@
 
 `poly(obj)`函数将解析obj并绘制物体。
 
-
+> 由于本篇较晦涩难懂，我们极力推荐您在观看[官方Poly函数视频教程](https://www.bilibili.com/video/BV1vr4y1c7Hm)的同时阅读本章节内容。
 
 ## 使用例
 

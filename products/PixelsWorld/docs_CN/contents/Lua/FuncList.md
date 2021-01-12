@@ -64,6 +64,8 @@
 [tube](#tube)
 
 [image](#image),
+[imageAlign](#imagealign)
+
 [coord](#coord),
 [grid](#grid)
 
@@ -519,6 +521,19 @@ rotateX(QPI * time)
 rotateY(QPI * time)
 cube()
 ```
+
+## imageAlign
+
+`imageAlign(rule)`来更改`image`函数的图片朝向。`rule`遵循以下规则：
+- rule为4个字符
+- 第1个字符为`+`或`-`
+- 第2个字符为`x,y,z`中任意一个
+- 第3个字符为`+`或`-`
+- 第4个字符为`x,y,z`中任意一个
+
+`rule`代表图片的UV坐标（左下角为原点）与绘笔坐标的什么轴向对齐，默认`rule`为`"+x+y"`，代表u轴与正x对齐，v轴与正y对齐。
+
+> `v3.3.0`新函数
 
 ## coord
 

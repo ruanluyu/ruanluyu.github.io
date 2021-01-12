@@ -1,0 +1,1030 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>テクスチャシステム · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Poly.html" />
+    
+    
+    <link rel="prev" href="FuncList.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. ハロー、ピクセルスワールド！</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    今日、創造神になってきます！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    入手とダウンロード
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. チュートリアル</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://www.youtube.com/playlist?list=PLWk8cR3Ry_sz03uuC4dFQcSg6j0JtINZZ">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    QuickStart (英語字幕付き)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="http://milkpot.sakura.ne.jp/lua/lua53_manual_ja.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Lua 5.3マニュアル
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://thebookofshaders.com/?lan=jp">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    The book of shaders
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3. パネル説明</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../Editor/ScriptWindow.html">
+            
+                <a href="../Editor/ScriptWindow.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    世界ルール　エディター
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../Editor/ParameterWindow.html">
+            
+                <a href="../Editor/ParameterWindow.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    パラメータ　エディター
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../Editor/SavePresets.html">
+            
+                <a href="../Editor/SavePresets.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    プリセット管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4. コード説明</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="LuaCode.html">
+            
+                <a href="LuaCode.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    世界の中心Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="RunLua.html">
+            
+                <a href="RunLua.html">
+            
+                    
+                        <b>4.1.1.</b>
+                    
+                    Luaの実装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="WriteLocalCode.html">
+            
+                <a href="WriteLocalCode.html">
+            
+                    
+                        <b>4.1.2.</b>
+                    
+                    ローカルコード
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>4.1.3.</b>
+                    
+                    パラメータリンク
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="globals.html">
+            
+                <a href="globals.html">
+            
+                    
+                        <b>4.1.4.</b>
+                    
+                    グローバル変数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="FuncList.html">
+            
+                <a href="FuncList.html">
+            
+                    
+                        <b>4.1.5.</b>
+                    
+                    関数一覧表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.6" data-path="Texture.html">
+            
+                <a href="Texture.html">
+            
+                    
+                        <b>4.1.6.</b>
+                    
+                    テクスチャシステム
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="Poly.html">
+            
+                <a href="Poly.html">
+            
+                    
+                        <b>4.1.7.</b>
+                    
+                    Poly関数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="TransparencyRender.html">
+            
+                <a href="TransparencyRender.html">
+            
+                    
+                        <b>4.1.8.</b>
+                    
+                    透明オブジェレンダー法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>4.1.9.</b>
+                    
+                    LuaでGLSLを実行する
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../GLSL/GLSLCode.html">
+            
+                <a href="../GLSL/GLSLCode.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    グラフィックスバーサーカーGLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../GLSL/RunGLSL.html">
+            
+                <a href="../GLSL/RunGLSL.html">
+            
+                    
+                        <b>4.2.1.</b>
+                    
+                    GLSLの実装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../GLSL/GetStart.html">
+            
+                <a href="../GLSL/GetStart.html">
+            
+                    
+                        <b>4.2.2.</b>
+                    
+                    クイックスタート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../GLSL/Functions.html">
+            
+                <a href="../GLSL/Functions.html">
+            
+                    
+                        <b>4.2.3.</b>
+                    
+                    内装関数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.3.1" data-path="../GLSL/getColor.html">
+            
+                <a href="../GLSL/getColor.html">
+            
+                    
+                        <b>4.2.3.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3.2" data-path="../GLSL/uvxy.html">
+            
+                <a href="../GLSL/uvxy.html">
+            
+                    
+                        <b>4.2.3.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../GLSL/LinkParameters.html">
+            
+                <a href="../GLSL/LinkParameters.html">
+            
+                    
+                        <b>4.2.4.</b>
+                    
+                    パラメータリンク
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../GLSL/debug.html">
+            
+                <a href="../GLSL/debug.html">
+            
+                    
+                        <b>4.2.5.</b>
+                    
+                    デバッグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../GLSL/Advanced_settings.html">
+            
+                <a href="../GLSL/Advanced_settings.html">
+            
+                    
+                        <b>4.2.6.</b>
+                    
+                    高級設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../GLSL/predefined.html">
+            
+                <a href="../GLSL/predefined.html">
+            
+                    
+                        <b>4.2.7.</b>
+                    
+                    プリコード
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../GLSL/shadertoy.html">
+            
+                <a href="../GLSL/shadertoy.html">
+            
+                    
+                        <b>4.3.</b>
+                    
+                    テンプレート聖域shadertoy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="JavaScript.html">
+            
+                <a href="JavaScript.html">
+            
+                    
+                        <b>4.4.</b>
+                    
+                    世界の郊外JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="CMDCode.html">
+            
+                <a href="CMDCode.html">
+            
+                    
+                        <b>4.5.</b>
+                    
+                    世界の基盤CMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5. シリアルナンバーに関して</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../Serial/SerialAttention.html">
+            
+                <a href="../Serial/SerialAttention.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    規約
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6. QA</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../QA/EntryPointErr.html">
+            
+                <a href="../QA/EntryPointErr.html">
+            
+                    
+                        <b>6.1.</b>
+                    
+                    エラー： Couldn't find main entry point for PixelsWorld.aex (48::72)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >テクスチャシステム</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="texture-system">Texture system</h1>
+<hr>
+<blockquote>
+<p>Make sure your PixelsWorld version is <code>v3.3.0+</code></p>
+</blockquote>
+<p>This section gives a detailed introduction of Texture system in PixelsWorld. </p>
+ <!-- no toc -->
+<ul>
+<li><a href="#create-texture">newTex</a></li>
+<li><a href="#delete-texture">delTex</a></li>
+<li><a href="#size-of-texture">getSize</a></li>
+<li><a href="#swap-textures">swapTex</a></li>
+<li><a href="#set-drawto">drawTo</a></li>
+<li><a href="#cast-texture">castTex</a></li>
+<li><a href="#blend-textures">blendTex</a></li>
+<li><a href="#copy-texture">copyTex</a></li>
+<li><a href="#texture-io">savePNG,loadPNG,saveEXR,loadEXR</a></li>
+<li><a href="#edit-texture">rotateTex,flipTex,resizeTex,trimTex</a></li>
+</ul>
+<h2 id="texture-id">Texture id</h2>
+<p>In PixelsWorld, every texture is represented as an integer. It is called <code>texId</code>. The basic texIds provided by PixelsWorld are as followed. </p>
+<table>
+<thead>
+<tr>
+<th>texId</th>
+<th>Globals in Lua</th>
+<th>Globals in GLSL</th>
+<th>Globals Shadertoy</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-3</code></td>
+<td><code>OUTPUT</code></td>
+<td>Inaccessible</td>
+<td>Inaccessible</td>
+<td>Output texture</td>
+</tr>
+<tr>
+<td><code>-2</code></td>
+<td><code>TEMP</code></td>
+<td><code>PW_TEMP_LAYER</code></td>
+<td><code>_PixelsWorld_PW_TEMP_LAYER</code></td>
+<td>Cache texture</td>
+</tr>
+<tr>
+<td><code>-1</code></td>
+<td><code>INPUT</code></td>
+<td><code>AE_INPUT_LAYER</code></td>
+<td><code>_PixelsWorld_AE_INPUT_LAYER</code></td>
+<td>Input texture</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td><code>PARAM0</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td>Layer parameter 0 texture</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>PARAM1</code></td>
+<td><code>1</code></td>
+<td><code>1</code></td>
+<td>Layer parameter 1 texture</td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td><code>PARAM...</code></td>
+<td><code>...</code></td>
+<td><code>...</code></td>
+<td>...</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td><code>PARAM9</code></td>
+<td><code>9</code></td>
+<td><code>9</code></td>
+<td>Layer parameter 9 texture</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can also create your own texId. The method will be covered below. </p>
+</blockquote>
+<h2 id="how-they-work">How they work</h2>
+<p>Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the <code>INPUT</code> texId, writes result to <code>OUTPUT</code> texId. Finally blits all pixels to Ae. </p>
+<h2 id="what-is-temp-texid">What is TEMP texId</h2>
+<p>Because <code>OpenGL</code> doesn&apos;t support read and write to a same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only make sense in Lua mode and you called glsl function twice or more). You can use <code>getColor(PW_TEMP_LAYER,uv);</code> in glsl code to sample colors in TEMP texId. </p>
+<hr>
+<h2 id="create-texture">Create texture</h2>
+<p>Use <code>newTex(width,height)</code> to create a texture. Returns a texId. (a random integer)</p>
+<h2 id="delete-texture">Delete texture</h2>
+<p>Use <code>delTex(id)</code> to delete a texture. </p>
+<blockquote>
+<p>In most case, you don&apos;t have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. </p>
+</blockquote>
+<h2 id="size-of-texture">Size of texture</h2>
+<p>Use <code>getSize(id)</code> to get the size of a texture. </p>
+<div><p class="code-filename">getSize.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+mytex <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">)</span>
+w<span class="token punctuation">,</span>h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>mytex<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Width of mytex is: &quot;</span> <span class="token operator">..</span> w<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Height of mytex is: &quot;</span> <span class="token operator">..</span> h<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="getSizeRes.png" alt="getSizeRes"></p>
+<h2 id="swap-textures">Swap textures</h2>
+<p>Use <code>swapTex(id1,id2)</code> to swap the pixels data of <code>id1</code> and <code>id2</code>. </p>
+<div><p class="code-filename">swapTex.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tex1 <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
+tex2 <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">)</span>
+w<span class="token punctuation">,</span>h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span><span class="token operator">..</span> h<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>tex1<span class="token punctuation">,</span>tex2<span class="token punctuation">)</span>
+w<span class="token punctuation">,</span>h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size after swapped: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span><span class="token operator">..</span> h<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="swapTexRes.png" alt="swapTex"></p>
+<h2 id="set-drawto">Set drawTo</h2>
+<p>Use <code>drawTo(id)</code> to set the texture the objs would be drawn. The default drawTo texId is <code>OUTPUT</code>. Note that PixelsWorld only blits pixels in <code>OUTPUT</code> to Ae, no matter what the drawTo texId is. Here are 3 approaches you can send pixels in other texId to <code>OUTPUT</code>:  </p>
+<ol>
+<li><code>drawTo(OUTPUT)</code>+<a href="FuncList.html#image"><code>image</code></a></li>
+<li><a href="#cast-texture"><code>castTex</code></a></li>
+<li><a href="#swap-textures"><code>swapTex</code></a></li>
+</ol>
+<h2 id="cast-texture">Cast texture</h2>
+<p>Use <code>castTex(toTexId,fromTexId)</code> to cast pixels data from <code>fromTexId</code> to <code>toTexId</code>. E.g. You can cast pixels in <code>PARAM0</code> to <code>OUTPUT</code>. </p>
+<div><p class="code-filename">castTex.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>PARAM0<span class="token punctuation">)</span>
+</code></pre>
+<p>You can also specify the cast range. (The origin is left top corner)</p>
+<ul>
+<li><code>castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y)</code></li>
+<li><code>castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)</code></li>
+</ul>
+<blockquote>
+<p>Cast all pixels by default. </p>
+</blockquote>
+<p><img src="castTexCoord.png" alt="CastTexCoord"></p>
+<h2 id="blend-textures">Blend textures</h2>
+<p>Use <code>blendTex(toTexId,fromTexId,blendRule)</code> to blend <code>fromTex</code> to <code>toTex</code> by rule <code>blendRule</code></p>
+<ol>
+<li><code>blendRule</code> can be one of <code>NORMAL,ADD,SUBTRACT,MULTIPLY,DIVIDE,MAX,MIN</code>. </li>
+<li><code>blendRule</code> can be blend rule(string).<ul>
+<li><code>A</code> menas input pixels of <code>toTexId</code></li>
+<li><code>B</code> means input pixels of <code>fromTexId</code></li>
+<li><code>C</code> means output pixels of <code>toTexId</code>
+E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</code> together. </li>
+</ul>
+</li>
+</ol>
+<div><p class="code-filename">blendRule.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>INPUT<span class="token punctuation">)</span> <span class="token comment">-- Cast INPUT texture to OUTPUT firstly. </span>
+<span class="token function">blendTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>PARAM0<span class="token punctuation">,</span><span class="token string">&quot;C=A+B&quot;</span><span class="token punctuation">)</span> <span class="token comment">-- Blend PARAM0 to OUTPUT.</span>
+</code></pre>
+<p>Actually the <code>&quot;C=A+B&quot;</code> will be processed to following code inside PixelsWorld. </p>
+<div><p class="code-filename">blendRuleGLSL.frag</p></div>
+<pre class="language-"><code class="lang-glsl"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">version</span> <span class="token expression"><span class="token number">330</span> core</span></span>
+<span class="token keyword">out</span> <span class="token keyword">vec4</span> outColor<span class="token punctuation">;</span>
+<span class="token keyword">in</span> <span class="token keyword">vec2</span> uv<span class="token punctuation">;</span>
+<span class="token keyword">in</span> <span class="token keyword">vec2</span> uv2<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayerA<span class="token punctuation">;</span>
+<span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayerB<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">vec4</span> A <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerA<span class="token punctuation">,</span>uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">vec4</span> B <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerB<span class="token punctuation">,</span>uv2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">vec4</span> C <span class="token operator">=</span> A<span class="token punctuation">;</span>
+    C<span class="token operator">=</span>A<span class="token operator">+</span>B <span class="token comment">// Your blend rule is combined here. </span>
+    <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Same with <code>castTex</code>, <code>blendTex</code> also supports range specifying: </p>
+<ul>
+<li><code>blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y)</code></li>
+<li><code>blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)</code></li>
+</ul>
+<p><img src="castTexCoord.png" alt="CastTexCoord"></p>
+<h2 id="copy-texture">Copy texture</h2>
+<p>Use <code>copyTex(refTexId)</code> to copy texture. Returns new texId. </p>
+<h2 id="texture-io">Texture IO</h2>
+<p>Use <code>savePNG(utf8Path,texId)</code>,<code>loadPNG(utf8Path)</code> to save or load PNG image. </p>
+<p>Use <code>saveEXR(utf8Path,texId)</code>,<code>loadEXR(utf8Path)</code> to save or load EXR image. </p>
+<p>Supported image specifications are listed below. </p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Library</th>
+<th>Supported compression algorithms</th>
+<th>Color format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PNG</td>
+<td><a href="https://github.com/RandyGaul/cute_headers" target="_blank">cute_headers</a></td>
+<td>DEFLATE compliant decompressor zlib(RFC 1950)</td>
+<td>RGBA,clamped 8bit unsigned integer per channel.</td>
+</tr>
+<tr>
+<td>EXR</td>
+<td><a href="https://github.com/syoyo/tinyexr" target="_blank">tinyexr</a></td>
+<td>NONE,RLE,ZIP,ZIPS,PIZ,ZFP</td>
+<td>RGBA,HDR 32bit floating point per channel. (Clamped for Alpha)</td>
+</tr>
+</tbody>
+</table>
+<p>Load PNG image to scene: </p>
+<div><p class="code-filename">loadPNG.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> mypng <span class="token operator">=</span> <span class="token function">loadPNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace to your path. </span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>mypng<span class="token punctuation">)</span> <span class="token comment">-- Cast pixels from mypng to OUTPUT.</span>
+</code></pre>
+<p>Save <code>OUTPUT</code> texId to local: </p>
+<div><p class="code-filename">loadPNG.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">--Draw something to OUTPUT</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span>
+<span class="token function">triangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">--End drawing. </span>
+
+<span class="token function">savePNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span> <span class="token comment">-- Save OUTPUT as PNG to local disc. Replace to your path here.</span>
+</code></pre>
+<blockquote>
+<ul>
+<li>Change <code>PNG</code> to <code>EXR</code> to read/write EXR file. </li>
+<li>Some local path might need running Ae under the Administrator mode. </li>
+</ul>
+</blockquote>
+<h2 id="edit-texture">Edit texture</h2>
+<p>Use <code>rotateTex(texId,times)</code> to rotate texture <code>90*times</code>degrees, <code>rotateTex(texId)</code> equals to <code>rotateTex(texId,1)</code></p>
+<p>Use <code>flipTex(texId,flipV)</code> to mirror flip a image. <code>flipV</code> is a boolean. When <code>flipV</code> is <code>true</code>, flip image vertically, and horizontally otherwise. </p>
+<p>Use <code>resizeTex(texId,width,height)</code> to resize texture. </p>
+<p>Use <code>trimTex(texId,p1x,p1y,p2x,p2y)</code> to trim texture. The origin of <code>p1x,p1y,p2x,p2y</code> is left top corner. </p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"テクスチャシステム","level":"4.1.6","depth":2,"next":{"title":"Poly関数","level":"4.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"関数一覧表","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2021-01-12T12:17:12.204Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-12T12:40:14.199Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

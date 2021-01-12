@@ -69,7 +69,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Poly.html" />
+    <link rel="next" href="Texture.html" />
     
     
     <link rel="prev" href="globals.html" />
@@ -305,27 +305,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.3" data-path="importantFuncs.html">
-            
-                <a href="importantFuncs.html">
-            
-                    
-                        <b>4.1.3.</b>
-                    
-                    最重要的函数
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.4" data-path="LinkParameters.html">
+        <li class="chapter " data-level="4.1.3" data-path="LinkParameters.html">
             
                 <a href="LinkParameters.html">
             
                     
-                        <b>4.1.4.</b>
+                        <b>4.1.3.</b>
                     
                     链接参数
             
@@ -335,12 +320,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.5" data-path="globals.html">
+        <li class="chapter " data-level="4.1.4" data-path="globals.html">
             
                 <a href="globals.html">
             
                     
-                        <b>4.1.5.</b>
+                        <b>4.1.4.</b>
                     
                     全局参数
             
@@ -350,14 +335,29 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.1.6" data-path="FuncList.html">
+        <li class="chapter active" data-level="4.1.5" data-path="FuncList.html">
             
                 <a href="FuncList.html">
             
                     
-                        <b>4.1.6.</b>
+                        <b>4.1.5.</b>
                     
                     函数列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="Texture.html">
+            
+                <a href="Texture.html">
+            
+                    
+                        <b>4.1.6.</b>
+                    
+                    材质系统
             
                 </a>
             
@@ -762,7 +762,8 @@
 <a href="#ball">ball</a>,
 <a href="#tube">tube</a></p>
 <p><a href="#image">image</a>,
-<a href="#coord">coord</a>,
+<a href="#imagealign">imageAlign</a></p>
+<p><a href="#coord">coord</a>,
 <a href="#grid">grid</a></p>
 <p><a href="Poly.html">poly</a>,
 <a href="#setpoly">setPoly</a></p>
@@ -1202,6 +1203,19 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <span class="token function">rotateY</span><span class="token punctuation">(</span>QPI <span class="token operator">*</span> time<span class="token punctuation">)</span>
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="imagealign">imageAlign</h2>
+<p><code>imageAlign(rule)</code>&#x6765;&#x66F4;&#x6539;<code>image</code>&#x51FD;&#x6570;&#x7684;&#x56FE;&#x7247;&#x671D;&#x5411;&#x3002;<code>rule</code>&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x89C4;&#x5219;&#xFF1A;</p>
+<ul>
+<li>rule&#x4E3A;4&#x4E2A;&#x5B57;&#x7B26;</li>
+<li>&#x7B2C;1&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>+</code>&#x6216;<code>-</code></li>
+<li>&#x7B2C;2&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>x,y,z</code>&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;</li>
+<li>&#x7B2C;3&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>+</code>&#x6216;<code>-</code></li>
+<li>&#x7B2C;4&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>x,y,z</code>&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;</li>
+</ul>
+<p><code>rule</code>&#x4EE3;&#x8868;&#x56FE;&#x7247;&#x7684;UV&#x5750;&#x6807;&#xFF08;&#x5DE6;&#x4E0B;&#x89D2;&#x4E3A;&#x539F;&#x70B9;&#xFF09;&#x4E0E;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x7684;&#x4EC0;&#x4E48;&#x8F74;&#x5411;&#x5BF9;&#x9F50;&#xFF0C;&#x9ED8;&#x8BA4;<code>rule</code>&#x4E3A;<code>&quot;+x+y&quot;</code>&#xFF0C;&#x4EE3;&#x8868;u&#x8F74;&#x4E0E;&#x6B63;x&#x5BF9;&#x9F50;&#xFF0C;v&#x8F74;&#x4E0E;&#x6B63;y&#x5BF9;&#x9F50;&#x3002;</p>
+<blockquote>
+<p><code>v3.3.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
 <h2 id="coord">coord</h2>
 <p><code>coord()</code>&#x5C06;&#x628A;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x53EF;&#x89C6;&#x5316;&#x51FA;&#x6765;&#x3002;</p>
 <h2 id="grid">grid</h2>
@@ -1718,7 +1732,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"4.1.6","depth":2,"next":{"title":"Poly函数","level":"4.1.7","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"全局参数","level":"4.1.5","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2020-12-20T07:22:52.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-20T07:28:04.801Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"4.1.5","depth":2,"next":{"title":"材质系统","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"全局参数","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-01-12T12:37:27.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-12T12:40:14.122Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

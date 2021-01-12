@@ -64,6 +64,8 @@ This page covers all functions provided in Lua render mode.
 [tube](#tube)
 
 [image](#image),
+[imageAlign](#imagealign)
+
 [coord](#coord),
 [grid](#grid)
 
@@ -523,6 +525,19 @@ rotateX(QPI * time)
 rotateY(QPI * time)
 cube()
 ```
+
+## imageAlign
+
+`imageAlign(rule)` changes the image orientation rendered by `image` function. The rule of `rule`
+- `rule` is 4 length string. 
+- 1st char should be `+` or `-`
+- 2nd char should be one of `x,y,z`
+- 3rd char should be `+` or `-`
+- 4nd char should be one of `x,y,z`
+
+`rule` represents which painter coordinate the texture UV coordinate (the origin is left bottom corner) should align with. By default, the `rule` is `"+x+y"`, it represents u aligns with positive x, v aligns with positive y. 
+
+> New in `v3.3.0`
 
 ## coord
 
