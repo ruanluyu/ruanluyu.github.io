@@ -185,7 +185,7 @@ castTex(OUTPUT,mypng) -- Cast pixels from mypng to OUTPUT.
 ```
 
 Save `OUTPUT` texId to local: 
-```lua:loadPNG.lua
+```lua:savePNG.lua
 version3()
 
 --Draw something to OUTPUT

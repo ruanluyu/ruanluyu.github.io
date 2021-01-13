@@ -175,7 +175,7 @@ castTex(OUTPUT,mypng) -- Cast pixels from mypng to OUTPUT.
 ```
 
 保存PNG图片到本地：
-```lua:loadPNG.lua
+```lua:savePNG.lua
 version3()
 
 --Draw something to OUTPUT
