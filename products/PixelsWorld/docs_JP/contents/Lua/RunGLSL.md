@@ -1,14 +1,15 @@
-# Run GLSL in Lua
+# LuaでGLSLを実行する
 ---
 
-## Usage
+## 使用例
 
 ```lua:glsl.lua
 version3()
 glsl(Your_code_string_here)
 ```
 
-Note: We recommend using `[==[Your_code_string_here]==]` to quote your string on account of avoiding escape characters. Namely, your code should be like: 
+注意：`[==[Your_code_string_here]==]`を用いてコードを囲むことがお勧めです。なぜなら、この囲み方は`\n`のような変換を阻止できるからです。
+
 
 ```lua:glsl2.lua
 version3()
@@ -19,7 +20,7 @@ void main(){
 ]==])
 ```
 
-The following function can run the code from `shadertoy.com`. 
+`shadertoy.com`からのコードもレンダーできます。
 
 ```lua:shadertoy.lua
 version3()

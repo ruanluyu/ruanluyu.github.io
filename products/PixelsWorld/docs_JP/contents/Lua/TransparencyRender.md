@@ -1,6 +1,7 @@
-# Render transparent objects
+# 透明オブジェレンダー法
 ---
-Normally, we get the following result when we are about to render a stack of transparent cubes. 
+普通、**透明な**キューブ列をレンダーしようとしたら次の結果を得ます。
+
 
 ![TenCubes](TenCubes.png)
 
@@ -20,9 +21,9 @@ cube()
 end
 ```
 
-The result was wrong, because we cannot see the behind cubes. 
+実際この結果は正しくありません。なぜなら、透明なオブジェなのに、我々の望むようにスケスケのキューブに見えないからです。
 
-We should adjust the render order (farthest to nearest) basing on the camera distance to obtain the right blending color. 
+正しい結果を得るために、透明な物体をカメラから遠い順でレンダーしなければならない。（すべての物体が透明でない場合はこれを拘りません）。よって、レンダーする前に物体の並び替えが必要です。
 
 ![TenCubesSorted](TenCubesSorted.png)
 

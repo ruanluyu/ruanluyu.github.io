@@ -1,10 +1,13 @@
-#Link parameters
+#パラメーター　リンク
 ---
-The outside parameters are provided for you to do some animation. 
-<br>
+
+
+`Parameters`の中のパラメーターを生かしてアニメを作ることができます。
+
 ![Parameters](parameters.png)
 
-As you can see, there are 7 types of parameters are provided. 
+上の図に示すように、七種のパラメーターがあります。
+
 - Sliders
 - Angles
 - Points
@@ -13,22 +16,24 @@ As you can see, there are 7 types of parameters are provided.
 - Colors
 - Layers
 
-Each of them have 10 controler for using. 
+各種にまた10個のパラメーターが入っています。
 
-**Example :**
+**使用例 :**
+
 ```glsl:link_slider.shader
  void main(){
     outColor = vec4(uv,slider[0],1.0);
 }
 ```
- If you change the slider 0, the color in your scene would change.
-<br>
+ 
 ![uvslider](uvslider.gif)
  
 
 
-## Details
-The  parameters decleared in PixelsWorld are as below : 
+## 詳細
+
+パラメーター変数は次のように定義されています。
+
 ```glsl:parameters.shader
 uniform float slider[10];
 uniform float angle[10];
@@ -39,7 +44,7 @@ uniform vec4 color[10];
 uniform sampler2D layer[10];
 uniform sampler2D inLayer;
 ```
-> **NOTE : **
-> - The **"inLayer"** means Input layer. 
-> - The **sampler2D** is a value type provided by GLSL, you don't need to understand this value type. If you want to use the layer parameter. Please see the ["getColor"](getColor.md) section
-> - **"uniform"** means global value. 
+> **注意: **
+> - **"inLayer"** は入力テクスチャです。
+> - **sampler2D**　の使い方について、 ["getColor"](getColor.md)セクションをご覧ください。
+> - **"uniform"** はグローバル変数であることを宣言する修飾子です。

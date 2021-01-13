@@ -26,3 +26,14 @@ void main(){
 ```
 
 > 如果想构建相同的像素样式效果， 请把此选项设置为 **Nearest pixel**（最近像素）
+
+
+## Mipmap 
+
+可以指定缩小时材质的取色方法。
+
+```glsl:wrap_uv_sampler.shader
+void main(){
+	outColor = getColor(uv*10);
+}
+```

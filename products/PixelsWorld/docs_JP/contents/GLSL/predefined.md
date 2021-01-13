@@ -87,6 +87,10 @@ return myxy/resolution.xy;
 #define gl_Position (_PixelsWorld_uv * iResolution.xy)
 #define gl_FragCoord (_PixelsWorld_uv * iResolution.xy)
 #define gl_FragColor _PixelsWorld_outColor
+#define _PixelsWorld_INPUT_LAYER_INDEX -1
+#define _PixelsWorld_OUTPUT_LAYER_INDEX -2
+#define _PixelsWorld_AE_INPUT_LAYER -1
+#define _PixelsWorld_PW_TEMP_LAYER -2
 uniform vec3 iResolution;
 uniform float iTime;
 uniform float iTimeDelta;
@@ -99,9 +103,6 @@ uniform sampler2D iChannel1;
 uniform sampler2D iChannel2;
 uniform sampler2D iChannel3;
 uniform vec3 iChannelResolution[4];
-
-#define INPUT_LAYER_INDEX -1
-#define OUTPUT_LAYER_INDEX -2
 
 uniform float _PixelsWorld_slider[10];
 uniform float _PixelsWorld_angle[10];
@@ -139,6 +140,32 @@ uniform float _PixelsWorld_inSpecN;
 
 in vec2 _PixelsWorld_uv;
 out vec4 _PixelsWorld_outColor;
+
+vec4 _PixelsWorld_getColor(int layerId,vec2 coord)
+{
+if(layerId==_PixelsWorld_AE_INPUT_LAYER) return texture(_PixelsWorld_inLayer,coord);
+if(layerId==_PixelsWorld_PW_TEMP_LAYER) return texture(_PixelsWorld_outLayer,coord);
+else if(layerId>=0 && layerId<=9) return texture(_PixelsWorld_layer[layerId],coord);
+return vec4(0.0);
+}
+
+vec4 _PixelsWorld_getColor(vec2 coord)
+{
+return texture(_PixelsWorld_inLayer,coord);
+}
+
+vec2 _PixelsWorld_uv2xy(vec2 myuv){
+return myuv*_PixelsWorld_resolution.xy;
+}
+
+vec2 _PixelsWorld_xy2uv(vec2 myxy){
+return myxy/_PixelsWorld_resolution.xy;
+}
+
+
+
+
+
 ```
 
 ### Post-define code

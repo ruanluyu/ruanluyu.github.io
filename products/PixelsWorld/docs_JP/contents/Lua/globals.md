@@ -1,40 +1,40 @@
 # Globals
 
-## Global constants
+## グローバル定数
 
-Here are some global constants in PixelsWorld: 
+PixelsWorldのグローバル定数は次のように定義されています。
 
 ```lua:const.lua
-PI  -- the Circular constant pi
-TPI -- two pi
-HPI -- half pi
-QPI -- quarter pi
-E   -- the Natural number e
-PHI -- the Golden ratio phi
-R2  -- square root 2
-R3  -- square root 3
-R5  -- square root 5
-R7  -- square root 7
-INPUT -- Index of input image -1
-TEMP -- Index of temp image -2
-OUTPUT -- Index of output image -3
-PARAM0 -- Index of the #0 layer parameter 0
-PARAM1 -- Index of the #1 layer parameter 1
-PARAM2 -- Index of the #2 layer parameter 2
-PARAM3 -- Index of the #3 layer parameter 3
-PARAM4 -- Index of the #4 layer parameter 4
-PARAM5 -- Index of the #5 layer parameter 5
-PARAM6 -- Index of the #6 layer parameter 6
-PARAM7 -- Index of the #7 layer parameter 7
-PARAM8 -- Index of the #8 layer parameter 8
-PARAM9 -- Index of the #9 layer parameter 9
-platform -- Windows == 0, no other platforms. 
-host -- Ae == 0, no other hosts. 
+PI  -- 円周率
+TPI -- 円周率二倍
+HPI -- 円周率半分
+QPI -- 円周率四分の一
+E   -- 自然数
+PHI -- 黄金比
+R2  -- ルート２
+R3  -- ルート３
+R5  -- ルート５
+R7  -- ルート７
+INPUT -- インプットテクスチャID -1
+TEMP -- 一時のテクスチャID -2
+OUTPUT -- アウトプットテクスチャID -3
+PARAM0 -- レイヤパラメーターテクスチャ 0
+PARAM1 -- レイヤパラメーターテクスチャ 1
+PARAM2 -- レイヤパラメーターテクスチャ 2
+PARAM3 -- レイヤパラメーターテクスチャ 3
+PARAM4 -- レイヤパラメーターテクスチャ 4
+PARAM5 -- レイヤパラメーターテクスチャ 5
+PARAM6 -- レイヤパラメーターテクスチャ 6
+PARAM7 -- レイヤパラメーターテクスチャ 7
+PARAM8 -- レイヤパラメーターテクスチャ 8
+PARAM9 -- レイヤパラメーターテクスチャ 9
+platform -- Windows == 0, ほかのプラットホームはまだ無し 
+host -- Ae == 0, ほかのホストはまだ無し
 ```
 
-## Global variables
+## グローバル変数
 
-Here are some global variables in PixelsWorld: 
+グローバル変数は次のように定義されています。
 
 ```lua:globalvars.lua
 depth -- Dpc: 8,16,32
@@ -54,9 +54,9 @@ origin_x -- The X coordinate of left top corner of input image in the layer coor
 origin_y -- The Y coordinate of left top corner of input image in the layer coordinate. 
 ```
 
-## Print the globals 
+## グローバル変数を全部プリント
 
-Globals can be printed by using following code: 
+次のコードを用いてグローバル変数をシーンにプリントします。
 
 ```lua:printGlobals.lua
 version3()

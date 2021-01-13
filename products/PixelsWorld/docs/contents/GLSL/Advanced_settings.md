@@ -31,3 +31,14 @@ void main(){
 ```
 
 > If you want to build the same pixel style effect. Swith this option to **Nearest pixel**
+
+
+## Mipmap 
+
+Specify how the sampler sample color while texture is scaled down. 
+
+```glsl:wrap_uv_sampler.shader
+void main(){
+	outColor = getColor(uv*10);
+}
+```

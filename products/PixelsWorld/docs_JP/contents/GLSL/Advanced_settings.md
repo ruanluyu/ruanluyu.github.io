@@ -1,28 +1,24 @@
-#Advanced settings
----
-There are several advanced settings in the effect panel.
-
-##Language 
-It controls which compiler to be used. 
-
-
+#　高級設定
 ---
 
-##Wrap U/V sampler
-This will affect the result of ```getColor()``` when sampler the pixels which is outside the boundary of image.
 
-**Test code (Apply PixelsWorld to a footage.): **
+##　Wrap U/V sampler
+
+テクスチャの縁での色の取り方を指定する設定です。
+
+次のコードを実装してこの設定をいじってみてください。
+
 ```glsl:wrap_uv_sampler.shader
 void main(){
 	outColor = getColor(uv*10);
 }
 ```
----
 
-##Magnify/Minify sampler
-This will affect the behavior of ```getColor()``` when sampler want to do the interpolation of surrounding pixels.
+##　Magnify/Minify sampler
 
-**Test code (Apply PixelsWorld to a footage.): **
+テクスチャを拡大・縮小するときの色の取り方を指定する設定です。
+
+次のコードを実装してこの設定をいじってみてください。
 
 ```glsl:wrap_uv_sampler.shader
 void main(){
@@ -30,4 +26,14 @@ void main(){
 }
 ```
 
-> If you want to build the same pixel style effect. Swith this option to **Nearest pixel**
+## Mipmap 
+
+テクスチャを縮小するときの色の取り方を指定する設定です。
+
+次のコードを実装してこの設定をいじってみてください。
+
+```glsl:wrap_uv_sampler.shader
+void main(){
+	outColor = getColor(uv*10);
+}
+```
