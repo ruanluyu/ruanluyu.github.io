@@ -11,8 +11,8 @@ You will learn how to cache data to local disc in this section.
 <!-- no toc --> 
 - [Cache data](#cache-data)
 - [Cache textures](#cache-textures)
-- [Cache data example: The three body problem](#Cache-data-example:-The-three-body-problem)
-- [Cache textures example: Conway's Game of Life](#Cache-textures-example:-Conway's-Game-of-Life)
+- [Cache data example: The three body problem](#cache-data-example-the-three-body-problem)
+- [Cache textures example: Conway's Game of Life](#cache-textures-example-conways-game-of-life)
 
 
 ## Cache data
