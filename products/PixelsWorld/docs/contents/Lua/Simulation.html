@@ -1,0 +1,1128 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Physics simulation · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Poly.html" />
+    
+    
+    <link rel="prev" href="Texture.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. Hello PixelsWorld!</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Be the Creator of your World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Get/Try/Purchase
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. Tutorials</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://www.youtube.com/playlist?list=PLWk8cR3Ry_sz03uuC4dFQcSg6j0JtINZZ">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    QuickStart (English subtitles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://www.lua.org/manual/5.3/">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Lua 5.3 documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://thebookofshaders.com/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    The book of shaders
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3. Panels</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../Editor/ScriptWindow.html">
+            
+                <a href="../Editor/ScriptWindow.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    World formula editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../Editor/ParameterWindow.html">
+            
+                <a href="../Editor/ParameterWindow.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Parameter manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../Editor/SavePresets.html">
+            
+                <a href="../Editor/SavePresets.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Preset management
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4. Code language</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="LuaCode.html">
+            
+                <a href="LuaCode.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    World Center Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="RunLua.html">
+            
+                <a href="RunLua.html">
+            
+                    
+                        <b>4.1.1.</b>
+                    
+                    Run Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="WriteLocalCode.html">
+            
+                <a href="WriteLocalCode.html">
+            
+                    
+                        <b>4.1.2.</b>
+                    
+                    Load local code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>4.1.3.</b>
+                    
+                    Link parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="globals.html">
+            
+                <a href="globals.html">
+            
+                    
+                        <b>4.1.4.</b>
+                    
+                    Globals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="FuncList.html">
+            
+                <a href="FuncList.html">
+            
+                    
+                        <b>4.1.5.</b>
+                    
+                    Function list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="Texture.html">
+            
+                <a href="Texture.html">
+            
+                    
+                        <b>4.1.6.</b>
+                    
+                    Texture system
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.7" data-path="Simulation.html">
+            
+                <a href="Simulation.html">
+            
+                    
+                        <b>4.1.7.</b>
+                    
+                    Physics simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="Poly.html">
+            
+                <a href="Poly.html">
+            
+                    
+                        <b>4.1.8.</b>
+                    
+                    Poly function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="TransparencyRender.html">
+            
+                <a href="TransparencyRender.html">
+            
+                    
+                        <b>4.1.9.</b>
+                    
+                    Transparency render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>4.1.10.</b>
+                    
+                    Run GLSL in Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../GLSL/GLSLCode.html">
+            
+                <a href="../GLSL/GLSLCode.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    GPU Berserker GLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../GLSL/RunGLSL.html">
+            
+                <a href="../GLSL/RunGLSL.html">
+            
+                    
+                        <b>4.2.1.</b>
+                    
+                    Run GLSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../GLSL/GetStart.html">
+            
+                <a href="../GLSL/GetStart.html">
+            
+                    
+                        <b>4.2.2.</b>
+                    
+                    Quick start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../GLSL/Functions.html">
+            
+                <a href="../GLSL/Functions.html">
+            
+                    
+                        <b>4.2.3.</b>
+                    
+                    Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.3.1" data-path="../GLSL/getColor.html">
+            
+                <a href="../GLSL/getColor.html">
+            
+                    
+                        <b>4.2.3.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3.2" data-path="../GLSL/uvxy.html">
+            
+                <a href="../GLSL/uvxy.html">
+            
+                    
+                        <b>4.2.3.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../GLSL/LinkParameters.html">
+            
+                <a href="../GLSL/LinkParameters.html">
+            
+                    
+                        <b>4.2.4.</b>
+                    
+                    Link parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../GLSL/debug.html">
+            
+                <a href="../GLSL/debug.html">
+            
+                    
+                        <b>4.2.5.</b>
+                    
+                    Debug
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../GLSL/Advanced_settings.html">
+            
+                <a href="../GLSL/Advanced_settings.html">
+            
+                    
+                        <b>4.2.6.</b>
+                    
+                    Advanced settings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../GLSL/predefined.html">
+            
+                <a href="../GLSL/predefined.html">
+            
+                    
+                        <b>4.2.7.</b>
+                    
+                    Pre-defined code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../GLSL/shadertoy.html">
+            
+                <a href="../GLSL/shadertoy.html">
+            
+                    
+                        <b>4.3.</b>
+                    
+                    Template Zone shadertoy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="JavaScript.html">
+            
+                <a href="JavaScript.html">
+            
+                    
+                        <b>4.4.</b>
+                    
+                    World Outskirts JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="CMDCode.html">
+            
+                <a href="CMDCode.html">
+            
+                    
+                        <b>4.5.</b>
+                    
+                    World Bed Rocks CMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5. About serial number</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../Serial/SerialAttention.html">
+            
+                <a href="../Serial/SerialAttention.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    Apointments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6. QA</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../QA/EntryPointErr.html">
+            
+                <a href="../QA/EntryPointErr.html">
+            
+                    
+                        <b>6.1.</b>
+                    
+                    Error: Couldn't find main entry point for PixelsWorld.aex (48::72)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Physics simulation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="physics-simulation">Physics simulation</h1>
+<hr>
+<p>You will learn how to cache data to local disc in this section. </p>
+<p><span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span></p>
+<blockquote>
+<ul>
+<li>Make sure you have updated PixelsWorld to <code>v3.3.2+</code></li>
+<li>This section is written in a style that assumed the readers are familiar with Ae and PixelsWorld. </li>
+</ul>
+</blockquote>
+<!-- no toc --> 
+<ul>
+<li><a href="#cache-data">Cache data</a></li>
+<li><a href="#cache-textures">Cache textures</a></li>
+<li><a href="#Cache-data-example:-The-three-body-problem">Cache data example: The three body problem</a></li>
+<li><a href="#Cache-textures-example:-Conway%27s-Game-of-Life">Cache textures example: Conway&apos;s Game of Life</a></li>
+</ul>
+<h2 id="cache-data">Cache data</h2>
+<p>To cache data, the following steps should be followed: </p>
+<p>Code logic: </p>
+<ol>
+<li>Set cache path and cache name</li>
+<li>Caculate <code>frameId=time*fps</code></li>
+<li>Caculate <code>lastFrameId=frameId-1</code></li>
+<li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
+<li>Initialize data, go to 7</li>
+<li>Read data file saved by last frame, throw error if file not exists, go to 7 otherwise. </li>
+<li>Calculate data</li>
+<li>Save current data file to local. </li>
+</ol>
+<p>Operating logic: </p>
+<ol>
+<li>Put code satisfies above logic to PixelsWorld. </li>
+<li>Put the Time indicator to the first frame of current layer. </li>
+<li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot below)</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in plugin panel. (This step is optional)</li>
+<li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
+</ol>
+<blockquote>
+<p>Note: If something goes wrong (errors, flickers, etc.), redo step 2~5. </p>
+</blockquote>
+<p><img src="purge.png" alt="Purge"></p>
+<h2 id="cache-textures">Cache textures</h2>
+<p>Code logic: </p>
+<ol>
+<li>If downsampled(1/2, 1/4 render mode), throw error. </li>
+<li>Set cache path and cache name</li>
+<li>Caculate <code>frameId=time*fps</code></li>
+<li>Caculate <code>lastFrameId=frameId-1</code></li>
+<li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
+<li>Initialize texture, go to 7</li>
+<li>Read texture file saved by last frame, throw error if file not exists, go to 7 otherwise. </li>
+<li>Render texture file</li>
+<li>Save current texture file to local. </li>
+</ol>
+<p>Operating logic: </p>
+<ol>
+<li>Put code satisfies above logic to PixelsWorld. </li>
+<li>Change PixelsWorld settings <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32bit x RGBA (HDR)</code></li>
+<li>Put the Time indicator to the first frame of current layer. </li>
+<li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot below)</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in plugin panel. (This step is optional)</li>
+<li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
+</ol>
+<h2 id="cache-data-example-the-three-body-problem">Cache data example: The three-body problem</h2>
+<div><p class="code-filename">the_three_body_problem.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Include vector library</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;veclib&quot;</span><span class="token punctuation">)</span> 
+
+
+<span class="token comment">-- Set cache file name</span>
+<span class="token keyword">local</span> cacheFileName <span class="token operator">=</span> <span class="token string">&quot;A&quot;</span> 
+
+
+<span class="token comment">-- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) </span>
+<span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> f<span class="token operator">~=</span><span class="token keyword">nil</span> <span class="token keyword">then</span> io<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">true</span> <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">false</span> <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+
+<span class="token comment">-- Calculate current frame index then round it to integer. </span>
+<span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Calculate last frame index </span>
+<span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
+
+
+
+<span class="token comment">-- Frame id should not be negative. </span>
+<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- Set cache folder. (Here I used the aep project folder, don&apos;t forget to save your project before use projectFolder)</span>
+<span class="token keyword">local</span> cachePath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
+<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachePath<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- If frameId == 0 (Namely lastFrameId &lt; 0)</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+    <span class="token comment">-- Initialze the position and velocity of 3 plants</span>
+    p1 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    v1 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+    p2 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    v2 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    p3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">95</span><span class="token punctuation">)</span>
+    v3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+    <span class="token comment">-- Check if last frame data exists. </span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+        <span class="token comment">-- Read last frame data. </span>
+        <span class="token function">lua</span><span class="token punctuation">(</span><span class="token function">loadString</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> 
+        <span class="token comment">-- Throw error when not exists</span>
+        <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Please go back to frame 0 to re-cache your comp&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+<span class="token comment">-- Start calculation (simulation)</span>
+center <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+f1<span class="token punctuation">,</span>f2<span class="token punctuation">,</span>f3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> <span class="token number">15</span>
+
+m1<span class="token operator">=</span><span class="token number">8</span>
+m2<span class="token operator">=</span><span class="token number">10</span>
+m3<span class="token operator">=</span><span class="token number">5</span>
+
+dp12<span class="token punctuation">,</span>dp13<span class="token punctuation">,</span>dp23 <span class="token operator">=</span> p1<span class="token operator">-</span>p2<span class="token punctuation">,</span>p1<span class="token operator">-</span>p3<span class="token punctuation">,</span>p2<span class="token operator">-</span>p3
+
+f1 <span class="token operator">=</span> f1 <span class="token operator">+</span> m1<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp12<span class="token punctuation">,</span>dp12<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span>dp12<span class="token punctuation">)</span>
+f2 <span class="token operator">=</span> f2 <span class="token operator">+</span> m1<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp12<span class="token punctuation">,</span>dp12<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>dp12<span class="token punctuation">)</span>
+
+f1 <span class="token operator">=</span> f1 <span class="token operator">+</span> m1<span class="token operator">*</span>m3<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp13<span class="token punctuation">,</span>dp13<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span>dp13<span class="token punctuation">)</span>
+f3 <span class="token operator">=</span> f3 <span class="token operator">+</span> m1<span class="token operator">*</span>m3<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp13<span class="token punctuation">,</span>dp13<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>dp13<span class="token punctuation">)</span>
+
+f2 <span class="token operator">=</span> f2 <span class="token operator">+</span> m3<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp23<span class="token punctuation">,</span>dp23<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span>dp23<span class="token punctuation">)</span>
+f3 <span class="token operator">=</span> f3 <span class="token operator">+</span> m3<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp23<span class="token punctuation">,</span>dp23<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>dp23<span class="token punctuation">)</span>
+
+
+v1 <span class="token operator">=</span> v1 <span class="token operator">+</span> f1<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>m1<span class="token punctuation">)</span>
+p1 <span class="token operator">=</span> p1 <span class="token operator">+</span> v1
+
+v2 <span class="token operator">=</span> v2 <span class="token operator">+</span> f2<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>m2<span class="token punctuation">)</span>
+p2 <span class="token operator">=</span> p2 <span class="token operator">+</span> v2
+
+v3 <span class="token operator">=</span> v3 <span class="token operator">+</span> f3<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>m3<span class="token punctuation">)</span>
+p3 <span class="token operator">=</span> p3 <span class="token operator">+</span> v3
+
+<span class="token comment">-- End simulation</span>
+
+
+<span class="token comment">-- Save position and velocity to local</span>
+<span class="token function">saveString</span><span class="token punctuation">(</span>
+    cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">,</span>
+    string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">[==[
+        p1=vec3(%f,%f,%f);v1=vec3(%f,%f,%f);
+        p2=vec3(%f,%f,%f);v2=vec3(%f,%f,%f);
+        p3=vec3(%f,%f,%f);v3=vec3(%f,%f,%f);
+        ]==]</span><span class="token punctuation">,</span>
+        p1<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>z<span class="token punctuation">,</span>v1<span class="token punctuation">.</span>x<span class="token punctuation">,</span>v1<span class="token punctuation">.</span>y<span class="token punctuation">,</span>v1<span class="token punctuation">.</span>z<span class="token punctuation">,</span>
+        p2<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>z<span class="token punctuation">,</span>v2<span class="token punctuation">.</span>x<span class="token punctuation">,</span>v2<span class="token punctuation">.</span>y<span class="token punctuation">,</span>v2<span class="token punctuation">.</span>z<span class="token punctuation">,</span>
+        p3<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>z<span class="token punctuation">,</span>v3<span class="token punctuation">.</span>x<span class="token punctuation">,</span>v3<span class="token punctuation">.</span>y<span class="token punctuation">,</span>v3<span class="token punctuation">.</span>z
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Draw three plants with simulation data. </span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span>center<span class="token punctuation">.</span>x<span class="token punctuation">,</span>center<span class="token punctuation">.</span>y<span class="token punctuation">,</span>center<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
+
+<span class="token comment">-- Draw coordinate and grid. </span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 1st plant</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 2nd plant</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
+<span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- 3rd plant</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>p3<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
+<span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="TheThreeBody.gif" alt="TheThreeBodyProblemResult"></p>
+<h2 id="cache-textures-example-conways-game-of-life">Cache textures example: Conway&apos;s Game of Life</h2>
+<div><p class="code-filename">game_of_life.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- Check downsample settings. </span>
+<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not support&quot;</span> <span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) </span>
+<span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> f<span class="token operator">~=</span><span class="token keyword">nil</span> <span class="token keyword">then</span> io<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">true</span> <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">false</span> <span class="token keyword">end</span>
+ <span class="token keyword">end</span>
+
+
+<span class="token comment">-- Calculate current frame index then round it to integer. </span>
+<span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Calculate last frame index </span>
+<span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
+
+
+
+<span class="token comment">-- Frame id should not be negative. </span>
+<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- Set cache folder.</span>
+<span class="token keyword">local</span> cachePath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
+<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachePath<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- Check if it is frame 0</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+    <span class="token comment">-- Initialize texture</span>
+    lastTexA <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+    <span class="token comment">-- Check if last frame texture exists</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.exr&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+        <span class="token comment">-- Load last frame texture</span>
+        lastTexA <span class="token operator">=</span> <span class="token function">loadEXR</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.exr&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> 
+        <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Please go back to frame 0 to cache your comp&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+
+<span class="token comment">-- Set render code</span>
+<span class="token keyword">local</span> fragCode <span class="token operator">=</span> <span class="token string">[==[
+// Definition from: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+// MIT license (Free for study and business purpose)
+// Code by ZzStarSound
+
+const int dx[8] = int[](-1,0,1,1,1,0,-1,-1);
+const int dy[8] = int[](1,1,1,0,-1,-1,-1,0);
+
+bool fetchStatus(int ox, int oy)
+{
+    ivec2 iuv = ivec2(floor(uv*resolution.xy)) + ivec2(ox,oy);
+    ivec2 res = ivec2(floor(resolution.xy));
+    if(iuv.x &gt;= res.x || iuv.x &lt; 0 || iuv.y &gt;=res.y || iuv.y&lt;0) return false;
+    return texelFetch(layer[0],iuv,0).x&gt;.5;
+}
+
+// From https://thebookofshaders.com/10/
+float random (vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233)))* 43758.5453123);
+}
+
+void main(){
+    if(time == 0.)
+    {
+        outColor = vec4(random(uv)&gt;.5);
+    }else{
+        bool curstatus = fetchStatus(0,0);
+        int roundCount = 0;
+        for(int i = 0;i&lt;8;i++){
+            if(fetchStatus(dx[i],dy[i])) roundCount ++ ;
+        }
+        if(curstatus)
+        {
+            if(roundCount &lt; 2 || roundCount &gt; 3) outColor = vec4(0);
+            else outColor = vec4(curstatus);
+        }
+        else
+        {
+            if(roundCount == 3) outColor = vec4(1);
+            else outColor = vec4(0);
+        }
+    }
+}
+]==]</span>
+
+
+<span class="token comment">-- Put the last frame texture to PARAM0, so that you can read last frame texture via layer[0]</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexA<span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Render texture</span>
+<span class="token function">glsl</span><span class="token punctuation">(</span>fragCode<span class="token punctuation">)</span>
+
+
+<span class="token comment">-- Put the last frame texture back to its original position. </span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexA<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">-- Save texture to local</span>
+<span class="token function">saveEXR</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.exr&quot;</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="GameOfLife.gif" alt="GameOfLifeResult"></p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-01-19T10:27:36.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-19T10:27:58.558Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
