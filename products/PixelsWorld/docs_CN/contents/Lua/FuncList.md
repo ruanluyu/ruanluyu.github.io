@@ -143,6 +143,10 @@
 [smooth](#smooth),
 [noSmooth](#nosmooth) 
 
+**贴图操作**
+
+[newTex, delTex, getSize, swapTex, drawTo, castTex, blendTex, copyTex, savePNG, loadPNG, saveEXR, loadEXR, rotateTex, flipTex, resizeTex, trimTex](Texture.md)
+
 **工具**
 
 [r2d](#r2d),
@@ -164,6 +168,9 @@
 [getStatus](#getstatus)
 
 [getAudio](#getaudio)  
+
+[loadString](#loadstring)
+[saveString](#savestring)
 
 **读写像素函数**
 
@@ -970,6 +977,15 @@ for i=1,nm do
     println("");
 end
 ```
+
+## saveString
+
+`saveString(utf8_path,string)`把字符串以文本的格式存到本地。
+
+## loadString
+
+`loadString(utf8_path)`读取本地文本文件，返回字符串。
+
 
 ## getColor
 

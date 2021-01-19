@@ -40,12 +40,12 @@ beginGroup()
 move(width/2, height/2)
 for i = 1,10 do
 move(20,0,200)
-local x,y,z = global2screen(local2global(0,0,0)) -- Get camera distance
+local x,y,z = global2screen(local2global(0,0,0)) -- カメラから見る物体の位置を入手する
 sortarr[i] = {z,getTransformMatrix()} -- {distance, transform status} pairs
 end
 endGroup()
 
-table.sort(sortarr,function(a,b) -- Sort by z distance
+table.sort(sortarr,function(a,b) -- ｚの値を用いて並び替えする
 return a[1] > b[1]
 end)
 

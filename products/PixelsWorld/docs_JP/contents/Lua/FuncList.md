@@ -143,6 +143,12 @@ This page covers all functions provided in Lua render mode.
 [smooth](#smooth),
 [noSmooth](#nosmooth) 
 
+
+**Texture operations**
+
+[newTex, delTex, getSize, swapTex, drawTo, castTex, blendTex, copyTex, savePNG, loadPNG, saveEXR, loadEXR, rotateTex, flipTex, resizeTex, trimTex](Texture.md)
+
+
 **Utility tools**
 
 [r2d](#r2d),
@@ -164,6 +170,9 @@ This page covers all functions provided in Lua render mode.
 [getStatus](#getstatus)
 
 [getAudio](#getaudio)  
+
+[loadString](#loadstring)
+[saveString](#savestring)
 
 **Read/Write pixels functions**
 
@@ -979,6 +988,14 @@ for i=1,nm do
     println("");
 end
 ```
+
+## saveString
+
+`saveString(utf8_path,string)` saves string to local path. 
+
+## loadString
+
+`loadString(utf8_path)` reads local txt file then returns string. 
 
 ## getColor
 
