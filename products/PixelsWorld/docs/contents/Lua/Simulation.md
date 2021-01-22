@@ -67,6 +67,9 @@ Operating logic:
 
 ## Cache data example: The three-body problem
 
+
+![TheThreeBodyProblemResult](TheThreeBody.gif)
+
 ```lua:the_three_body_problem.lua
 version3()
 
@@ -187,21 +190,21 @@ move(center.x,center.y,center.z)
 coord()
 grid()
 
--- 1st plant
+-- 1st planet
 beginGroup()
 move(p1.x,p1.y,p1.z)
 fill(1,0,1)
 ball(r)
 endGroup()
 
--- 2nd plant
+-- 2nd planet
 beginGroup()
 fill(1,1,0)
 move(p2.x,p2.y,p2.z)
 ball(r)
 endGroup()
 
--- 3rd plant
+-- 3rd planet
 beginGroup()
 fill(0,1,1)
 move(p3.x,p3.y,p3.z)
@@ -209,9 +212,10 @@ ball(r)
 endGroup()
 ```
 
-![TheThreeBodyProblemResult](TheThreeBody.gif)
 
 ## Cache textures example: Conway's Game of Life
+
+![GameOfLifeResult](GameOfLife.gif)
 
 ```lua:game_of_life.lua
 version3()
@@ -330,5 +334,3 @@ saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
 
 
 ```
-
-![GameOfLifeResult](GameOfLife.gif)

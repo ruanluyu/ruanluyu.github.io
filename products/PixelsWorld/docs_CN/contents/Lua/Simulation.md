@@ -67,6 +67,8 @@
 
 ## 缓存数据实战——三体问题模拟
 
+![TheThreeBodyProblemResult](TheThreeBody.gif)
+
 ```lua:the_three_body_problem.lua
 version3()
 
@@ -209,9 +211,9 @@ ball(r)
 endGroup()
 ```
 
-![TheThreeBodyProblemResult](TheThreeBody.gif)
-
 ## 缓存贴图实战——康威生命游戏
+
+![GameOfLifeResult](GameOfLife.gif)
 
 ```lua:game_of_life.lua
 version3()
@@ -329,5 +331,3 @@ saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
 
 
 ```
-
-![GameOfLifeResult](GameOfLife.gif)

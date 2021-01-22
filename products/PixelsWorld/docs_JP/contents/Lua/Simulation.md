@@ -1,71 +1,73 @@
-# Physics simulation
+# 物理シミュレーション
 ---
 
-You will learn how to cache data to local disc in this section. 
+この章では、PixelsWorldを用いてキャッシュの扱い方を紹介します。
 
-<span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span>
+<span style="color:red">注意：正しいシミュレーション結果を得るために、本マニュアルにきちんと読んだ上でコードを実装してください。</span>
 
-> - Make sure you have updated PixelsWorld to `v3.3.2+`
-> - This section is written in a style that assumed the readers are familiar with Ae and PixelsWorld. 
+> - `v3.3.2+`以上のPixelsWorldが必要です。
+> - この章は、読者が既にAe及びPixelsWorldを深く理解したと仮定して書いたものです。
 
 <!-- no toc --> 
-- [Cache data](#cache-data)
-- [Cache textures](#cache-textures)
-- [Cache data example: The three body problem](#cache-data-example-the-three-body-problem)
-- [Cache textures example: Conway's Game of Life](#cache-textures-example-conways-game-of-life)
+- [キャッシュデータ](#データのキャッシュ)
+- [キャッシュテクスチャ](#テクスチャのキャッシュ)
+- [キャッシュデータ使用例：三体問題](#データのキャッシュ使用例：三体問題)
+- [キャッシュテクスチャ使用例：ライフゲーム](#テクスチャのキャッシュ使用例：ライフゲーム)
 
 
-## Cache data
+## キャッシュデータ
 
-To cache data, the following steps should be followed: 
+データをキャッシュするために、次の手順に従ってください。
 
-Code logic: 
-1. Set cache path and cache name
-2. Caculate `frameId=time*fps`
-3. Caculate `lastFrameId=frameId-1`
-4. If `lastFrameId` < 0, go to 5, otherwise, go to 6
-5. Initialize data, go to 7
-6. Read data file saved by last frame, throw error if file not exists, go to 7 otherwise. 
-7. Calculate data
-8. Save current data file to local. 
+コード：
+1. キャッシュの保存する場所とキャッシュファイルの名前を決める
+2. `frameId=time*fps`を計算する
+3. `lastFrameId=frameId-1`を計算する
+4. `lastFrameId` < 0　ならば5へ、そうでなければ、6へ。
+5. データを初期化する。7へ
+6. 前のフレームで保存したデータファイルを読み取る。ファイルがない場合エラーを出力する。他の場合、7へ
+7. 今のフレームのデータを計算する。
+8. データをローカルに保存する。
 
-Operating logic: 
-1. Put code satisfies above logic to PixelsWorld. 
-2. Put the Time indicator to the first frame of current layer. 
-3. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot below)
-4. Hold `Ctrl+Alt` and click the LOGO image in plugin panel. (This step is optional)
-5. Press Space key to render(**DON'T skip frames while rendering**)
+操作：
+1. 上の手順に満たすコードを実装する。
+2. Aeのタイムインディケーターを最初のフレームに移動させる。
+3. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 下の図に示すように)
+4.  `Ctrl+Alt`を押しながら、LOGO画像をクリックする。（このステップはオプショナル）
+5. スペースキーを押してレンダリングする。(**フレームをスキップしないこと**)
 
-> Note: If something goes wrong (errors, flickers, etc.), redo step 2~5. 
+> 注意：何か不具合があったら (エラー、画像キャッシュの不具合など)、2～5をやり直してください。
 
 ![Purge](purge.png)
 
 
 
-## Cache textures
+## キャッシュテクスチャ
 
 
-Code logic: 
-1. If downsampled(1/2, 1/4 render mode), throw error. 
-1. Set cache path and cache name
-2. Caculate `frameId=time*fps`
-3. Caculate `lastFrameId=frameId-1`
-4. If `lastFrameId` < 0, go to 5, otherwise, go to 6
-5. Initialize texture, go to 7
-6. Read texture file saved by last frame, throw error if file not exists, go to 7 otherwise. 
-7. Render texture file
-8. Save current texture file to local. 
+コード：
+1. 画像の質が下がったら(例えば：1/2, 1/4 プレビューモード), エラーを出す。
+2. `frameId=time*fps`を計算する
+3. `lastFrameId=frameId-1`を計算する
+4. `lastFrameId` < 0　ならば5へ、そうでなければ、6へ。
+5. データを初期化する。7へ
+6. 前のフレームで保存したデータファイルを読み取る。ファイルがない場合エラーを出力する。他の場合、7へ
+7. 今のフレームのデータを計算する。
+8. データをローカルに保存する。 
 
-Operating logic: 
-1. Put code satisfies above logic to PixelsWorld. 
-2. Change PixelsWorld settings `Advanced->Internal texture format` to `Floating point 32bit x RGBA (HDR)`
-3. Put the Time indicator to the first frame of current layer. 
-4. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot below)
-5. Hold `Ctrl+Alt` and click the LOGO image in plugin panel. (This step is optional)
-6. Press Space key to render(**DON'T skip frames while rendering**)
+操作：
+1. 上の手順に満たすコードを実装する。
+2. PixelsWorldパネルの設定の`Advanced->Internal texture format`を`Floating point 32bit x RGBA (HDR)`にする。
+2. Aeのタイムインディケーターを最初のフレームに移動させる。
+3. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 下の図に示すように)
+4.  `Ctrl+Alt`を押しながら、LOGO画像をクリックする。（このステップはオプショナル）
+5. スペースキーを押してレンダリングする。(**フレームをスキップしないこと**)
 
 
-## Cache data example: The three-body problem
+## キャッシュデータ使用例：三体問題
+
+
+![TheThreeBodyProblemResult](TheThreeBody.gif)
 
 ```lua:the_three_body_problem.lua
 version3()
@@ -187,21 +189,21 @@ move(center.x,center.y,center.z)
 coord()
 grid()
 
--- 1st plant
+-- 1st planet
 beginGroup()
 move(p1.x,p1.y,p1.z)
 fill(1,0,1)
 ball(r)
 endGroup()
 
--- 2nd plant
+-- 2nd planet
 beginGroup()
 fill(1,1,0)
 move(p2.x,p2.y,p2.z)
 ball(r)
 endGroup()
 
--- 3rd plant
+-- 3rd planet
 beginGroup()
 fill(0,1,1)
 move(p3.x,p3.y,p3.z)
@@ -209,9 +211,10 @@ ball(r)
 endGroup()
 ```
 
-![TheThreeBodyProblemResult](TheThreeBody.gif)
 
-## Cache textures example: Conway's Game of Life
+## キャッシュテクスチャ使用例：ライフゲーム
+
+![GameOfLifeResult](GameOfLife.gif)
 
 ```lua:game_of_life.lua
 version3()
@@ -330,5 +333,3 @@ saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
 
 
 ```
-
-![GameOfLifeResult](GameOfLife.gif)

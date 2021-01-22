@@ -776,6 +776,7 @@
 <li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
 </ol>
 <h2 id="cache-data-example-the-three-body-problem">Cache data example: The three-body problem</h2>
+<p><img src="TheThreeBody.gif" alt="TheThreeBodyProblemResult"></p>
 <div><p class="code-filename">the_three_body_problem.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -896,29 +897,29 @@ p3 <span class="token operator">=</span> p3 <span class="token operator">+</span
 <span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 1st plant</span>
+<span class="token comment">-- 1st planet</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 2nd plant</span>
+<span class="token comment">-- 2nd planet</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 3rd plant</span>
+<span class="token comment">-- 3rd planet</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p3<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<p><img src="TheThreeBody.gif" alt="TheThreeBodyProblemResult"></p>
 <h2 id="cache-textures-example-conways-game-of-life">Cache textures example: Conway&apos;s Game of Life</h2>
+<p><img src="GameOfLife.gif" alt="GameOfLifeResult"></p>
 <div><p class="code-filename">game_of_life.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -1034,7 +1035,6 @@ void main(){
 <span class="token comment">-- Save texture to local</span>
 <span class="token function">saveEXR</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.exr&quot;</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
 </code></pre>
-<p><img src="GameOfLife.gif" alt="GameOfLifeResult"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1069,7 +1069,7 @@ void main(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-01-19T10:37:29.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-19T10:37:36.291Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-01-22T14:10:02.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-22T14:16:00.991Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
