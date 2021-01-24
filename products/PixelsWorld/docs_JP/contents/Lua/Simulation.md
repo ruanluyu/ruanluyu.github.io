@@ -9,7 +9,7 @@
 
 <span style="color:red">注意：正しいシミュレーション結果を得るために、本マニュアルにきちんと読んだ上でコードを実装してください。</span>
 
-> - `v3.3.2+`以上のPixelsWorldが必要です。
+> - `v3.3.3+`以上のPixelsWorldが必要です。
 > - この章は、読者が既にAe及びPixelsWorldを深く理解したと仮定して書いたものです。
 
 <!-- no toc --> 
@@ -265,9 +265,9 @@ if(lastFrameId < 0) then
     lastTexA = newTex(width,height)
 else
     -- Check if last frame texture exists
-    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")) then
+    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")) then
         -- Load last frame texture
-        lastTexA = loadEXR(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")
+        lastTexA = loadRAW(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")
     else 
         error("Please go back to frame 0 to cache your comp")
     end
@@ -335,7 +335,7 @@ swapTex(PARAM0,lastTexA)
 
 
 -- Save texture to local
-saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
+saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 
 ```

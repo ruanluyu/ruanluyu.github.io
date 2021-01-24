@@ -9,7 +9,7 @@ You will learn how to cache data to local disc in this section.
 
 <span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span>
 
-> - Make sure you have updated PixelsWorld to `v3.3.2+`
+> - Make sure you have updated PixelsWorld to `v3.3.3+`
 > - This section is written in a style that assumed the readers are familiar with Ae and PixelsWorld. 
 
 <!-- no toc --> 
@@ -266,9 +266,9 @@ if(lastFrameId < 0) then
     lastTexA = newTex(width,height)
 else
     -- Check if last frame texture exists
-    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")) then
+    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")) then
         -- Load last frame texture
-        lastTexA = loadEXR(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")
+        lastTexA = loadRAW(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")
     else 
         error("Please go back to frame 0 to cache your comp")
     end
@@ -336,7 +336,7 @@ swapTex(PARAM0,lastTexA)
 
 
 -- Save texture to local
-saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
+saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 
 ```

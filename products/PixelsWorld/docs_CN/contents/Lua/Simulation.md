@@ -9,7 +9,7 @@
 
 <span style="color:red">注意：由于Ae功能有限，请严格遵循本手册制定的规范进行缓存。</span>
 
-> - 请检查您拥有`v3.3.2+`版本的PixelsWorld
+> - 请检查您拥有`v3.3.3+`版本的PixelsWorld
 > - 本篇文章认为读者拥有一定的Ae操作和PixelsWorld代码的熟练度，若您还不熟悉PixelsWorld的使用，请进入前面的章节进行学习。
 
 <!-- no toc --> 
@@ -263,9 +263,9 @@ if(lastFrameId < 0) then
     lastTexA = newTex(width,height)
 else
     -- 检查上一帧是否存在
-    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")) then
+    if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")) then
         -- 导入上一帧贴图
-        lastTexA = loadEXR(cachePath .. "A_" .. tostring(lastFrameId) .. ".exr")
+        lastTexA = loadRAW(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")
     else 
         error("Please go back to frame 0 to cache your comp")
     end
@@ -333,7 +333,7 @@ swapTex(PARAM0,lastTexA)
 
 
 -- 储存本帧贴图到本地
-saveEXR(cachePath .. "A_" .. tostring(frameId) .. ".exr",OUTPUT)
+saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 
 ```
