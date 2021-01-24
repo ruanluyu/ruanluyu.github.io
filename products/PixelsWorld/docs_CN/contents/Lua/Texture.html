@@ -741,7 +741,7 @@
 <li><a href="#&#x6295;&#x5C04;&#x6750;&#x8D28;">castTex</a></li>
 <li><a href="#&#x6DF7;&#x5408;&#x6750;&#x8D28;">blendTex</a></li>
 <li><a href="#&#x62F7;&#x8D1D;&#x6750;&#x8D28;">copyTex</a></li>
-<li><a href="#&#x8BFB;&#x53D6;&#x548C;&#x4FDD;&#x5B58;&#x6750;&#x8D28;">savePNG,loadPNG,saveEXR,loadEXR</a></li>
+<li><a href="#&#x8BFB;&#x53D6;&#x548C;&#x4FDD;&#x5B58;&#x6750;&#x8D28;">savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW</a></li>
 <li><a href="#&#x4FEE;&#x6574;&#x6750;&#x8D28;">rotateTex,flipTex,resizeTex,trimTex</a></li>
 </ul>
 <h2 id="&#x6750;&#x8D28;id">&#x6750;&#x8D28;id</h2>
@@ -910,7 +910,10 @@ w<span class="token punctuation">,</span>h <span class="token operator">=</span>
 <h2 id="&#x62F7;&#x8D1D;&#x6750;&#x8D28;">&#x62F7;&#x8D1D;&#x6750;&#x8D28;</h2>
 <p>&#x4F7F;&#x7528;<code>copyTex(refTexId)</code>&#x6765;&#x62F7;&#x8D1D;&#x6750;&#x8D28;&#xFF0C;&#x8FD4;&#x56DE;&#x88AB;&#x62F7;&#x8D1D;&#x7684;&#x65B0;&#x6750;&#x8D28;&#x3002;</p>
 <h2 id="&#x8BFB;&#x53D6;&#x548C;&#x4FDD;&#x5B58;&#x6750;&#x8D28;">&#x8BFB;&#x53D6;&#x548C;&#x4FDD;&#x5B58;&#x6750;&#x8D28;</h2>
-<p>&#x4F7F;&#x7528;<code>savePNG(utf8Path,texId)</code>,<code>loadPNG(utf8Path)</code>&#x6765;&#x4FDD;&#x5B58;&#x3001;&#x8BFB;&#x53D6;PNG&#x56FE;&#x7247;&#xFF0C;&#x4F7F;&#x7528;<code>saveEXR(utf8Path,texId)</code>,<code>loadEXR(utf8Path)</code>&#x6765;&#x4FDD;&#x5B58;&#x3001;&#x8BFB;&#x53D6;EXR&#x56FE;&#x7247;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x53D7;PixelsWorld&#x652F;&#x6301;&#x7684;&#x56FE;&#x7247;&#x89C4;&#x683C;&#x7EC6;&#x8282;&#xFF1A;</p>
+<p>&#x4F7F;&#x7528;<code>savePNG(utf8Path,texId)</code>,<code>loadPNG(utf8Path)</code>&#x6765;&#x4FDD;&#x5B58;&#x3001;&#x8BFB;&#x53D6;PNG&#x56FE;&#x7247;&#x3002;</p>
+<p>&#x4F7F;&#x7528;<code>saveEXR(utf8Path,texId)</code>,<code>loadEXR(utf8Path)</code>&#x6765;&#x4FDD;&#x5B58;&#x3001;&#x8BFB;&#x53D6;EXR&#x56FE;&#x7247;&#x3002;</p>
+<p>&#x4F7F;&#x7528;<code>saveRAW(utf8Path,texId)</code>,<code>loadRAW(utf8Path)</code>&#x6765;&#x4FDD;&#x5B58;&#x3001;&#x8BFB;&#x53D6;MiLai&#x539F;&#x751F;&#x7684;&#x672A;&#x7ECF;&#x538B;&#x7F29;&#x7684;&#x5185;&#x5B58;&#x539F;&#x56FE;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x53D7;PixelsWorld&#x652F;&#x6301;&#x7684;&#x56FE;&#x7247;&#x89C4;&#x683C;&#x7EC6;&#x8282;&#xFF1A;</p>
 <table>
 <thead>
 <tr>
@@ -933,8 +936,15 @@ w<span class="token punctuation">,</span>h <span class="token operator">=</span>
 <td>NONE,RLE,ZIP,ZIPS,PIZ,ZFP</td>
 <td>RGBA,HDR 32bit floating point per channel.</td>
 </tr>
+<tr>
+<td>RAW</td>
+<td>(None)</td>
+<td>MiLai original format.(See figure below)</td>
+<td>RGBA,HDR 32bit floating point per channel.</td>
+</tr>
 </tbody>
 </table>
+<p><img src="milaiBinaryDef.png" alt="MiLaiRAWDef"></p>
 <p>&#x8BFB;&#x53D6;PNG&#x56FE;&#x7247;&#x5230;&#x573A;&#x666F;&#xFF1A;</p>
 <div><p class="code-filename">loadPNG.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -998,7 +1008,7 @@ w<span class="token punctuation">,</span>h <span class="token operator">=</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"材质系统","level":"4.1.6","depth":2,"next":{"title":"物理模拟","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"函数列表","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2021-01-24T08:29:48.817Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-24T09:10:33.091Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"材质系统","level":"4.1.6","depth":2,"next":{"title":"物理模拟","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"函数列表","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2021-01-24T14:05:34.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-24T14:10:01.971Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

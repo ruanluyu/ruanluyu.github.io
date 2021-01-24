@@ -13,7 +13,7 @@
 - [castTex](#投射材质)
 - [blendTex](#混合材质)
 - [copyTex](#拷贝材质)
-- [savePNG,loadPNG,saveEXR,loadEXR](#读取和保存材质)
+- [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#读取和保存材质)
 - [rotateTex,flipTex,resizeTex,trimTex](#修整材质)
 
 
@@ -159,12 +159,21 @@ void main(){
 
 ## 读取和保存材质
 
-使用`savePNG(utf8Path,texId)`,`loadPNG(utf8Path)`来保存、读取PNG图片，使用`saveEXR(utf8Path,texId)`,`loadEXR(utf8Path)`来保存、读取EXR图片。以下是受PixelsWorld支持的图片规格细节：
+使用`savePNG(utf8Path,texId)`,`loadPNG(utf8Path)`来保存、读取PNG图片。
+
+使用`saveEXR(utf8Path,texId)`,`loadEXR(utf8Path)`来保存、读取EXR图片。
+
+使用`saveRAW(utf8Path,texId)`,`loadRAW(utf8Path)`来保存、读取MiLai原生的未经压缩的内存原图。
+
+以下是受PixelsWorld支持的图片规格细节：
 
 |格式|使用的库|支持的压缩方式|图片颜色规格|
 |--|--|--|--|
 |PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
 |EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. |
+|RAW|(None)|MiLai original format.(See figure below)|RGBA,HDR 32bit floating point per channel. |
+
+![MiLaiRAWDef](./milaiBinaryDef.png)
 
 读取PNG图片到场景：
 

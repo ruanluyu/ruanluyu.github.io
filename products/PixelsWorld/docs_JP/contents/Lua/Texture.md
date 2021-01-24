@@ -14,7 +14,7 @@ This section gives a detailed introduction of Texture system in PixelsWorld.
 - [castTex](#cast-texture)
 - [blendTex](#blend-textures)
 - [copyTex](#copy-texture)
-- [savePNG,loadPNG,saveEXR,loadEXR](#texture-io)
+- [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#texture-io)
 - [rotateTex,flipTex,resizeTex,trimTex](#edit-texture)
 
 ## Texture id
@@ -169,12 +169,17 @@ Use `savePNG(utf8Path,texId)`,`loadPNG(utf8Path)` to save or load PNG image.
 
 Use `saveEXR(utf8Path,texId)`,`loadEXR(utf8Path)` to save or load EXR image. 
 
+Use `saveRAW(utf8Path,texId)`,`loadRAW(utf8Path)` to save or load MiLai original raw memory image. 
+
 Supported image specifications are listed below. 
 
 |Format|Library|Supported compression algorithms|Color format|
 |--|--|--|--|
 |PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
-|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel.  |
+|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. |
+|RAW|(None)|MiLai original format.(See figure below)|RGBA,HDR 32bit floating point per channel. |
+
+![MiLaiRAWDef](./milaiBinaryDef.png)
 
 Load PNG image to scene: 
 
