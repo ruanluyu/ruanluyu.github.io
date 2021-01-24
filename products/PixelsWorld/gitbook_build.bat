@@ -1,1 +1,1 @@
-gitbook build docs_work_area docs
+gitbook build docs_work_area docs && 7z.exe a docs.zip docs/
