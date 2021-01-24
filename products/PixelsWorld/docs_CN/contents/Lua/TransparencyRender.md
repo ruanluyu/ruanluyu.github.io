@@ -15,8 +15,8 @@ fill(1,.5)
 move(width/2, height/2)
 
 for i = 1,10 do
-move(20,0,200)
-cube()
+    move(20,0,200)
+    cube()
 end
 ```
 
@@ -38,19 +38,21 @@ sortarr = {}
 beginGroup()
 move(width/2, height/2)
 for i = 1,10 do
-move(20,0,200)
-local x,y,z = global2screen(local2global(0,0,0)) -- Get camera distance
-sortarr[i] = {z,getTransformMatrix()} -- {distance, transform status} pairs
+    move(20,0,200)
+    local x,y,z = global2screen(local2global(0,0,0)) -- Get camera distance
+    sortarr[i] = {z,getTransformMatrix()} -- {distance, transform status} pairs
 end
 endGroup()
 
-table.sort(sortarr,function(a,b) -- Sort by z distance
-return a[1] > b[1]
-end)
+table.sort(
+    sortarr,
+    function(a,b) return a[1] > b[1] end -- Sort by z distance
+)
 
 for i = 1,10 do
-beginGroup(sortarr[i][2]) -- Apply transform status
-cube()
-endGroup()
+    beginGroup(sortarr[i][2]) -- Apply transform status
+    cube()
+    endGroup()
 end
+
 ```
