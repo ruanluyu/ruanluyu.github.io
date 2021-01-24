@@ -731,6 +731,7 @@
 <li><a href="#cache-textures">Cache textures</a></li>
 <li><a href="#cache-data-example-the-three-body-problem">Cache data example: The three body problem</a></li>
 <li><a href="#cache-textures-example-conways-game-of-life">Cache textures example: Conway&apos;s Game of Life</a></li>
+<li><a href="#cache-textures-example-fluid-simulation">Cache textures example: Fluid simulation</a></li>
 </ul>
 <h2 id="cache-data">Cache data</h2>
 <p>To cache data, the following steps should be followed: </p>
@@ -1042,6 +1043,276 @@ void main(){
 <span class="token comment">-- Save texture to local</span>
 <span class="token function">saveRAW</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.raw&quot;</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
 </code></pre>
+<h2 id="cache-textures-example-fluid-simulation">Cache textures example: Fluid simulation</h2>
+<p><img src="fluidDual.gif" alt="fluidDual"></p>
+<blockquote>
+<p>Note: According to the code license declared by <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">original author</a>, the following code should only be used for study purpose. </p>
+</blockquote>
+<div><p class="code-filename">fluid_simulation.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not support&quot;</span> <span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> f<span class="token operator">~=</span><span class="token keyword">nil</span> <span class="token keyword">then</span> io<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">true</span> <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">false</span> <span class="token keyword">end</span>
+ <span class="token keyword">end</span>
+
+<span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
+
+<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
+<span class="token keyword">local</span> cachepath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachepath<span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
+    lastTexC <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    lastTexD <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">drawTo</span><span class="token punctuation">(</span>lastTexC<span class="token punctuation">)</span>
+    <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">drawTo</span><span class="token punctuation">(</span>lastTexD<span class="token punctuation">)</span>
+    <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">drawTo</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;C.raw&quot;</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;D.raw&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token keyword">then</span>
+        lastTexC <span class="token operator">=</span> <span class="token function">loadRAW</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;C.raw&quot;</span><span class="token punctuation">)</span>
+        lastTexD <span class="token operator">=</span> <span class="token function">loadRAW</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;D.raw&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> 
+        <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Please go back to frame 0 to cache your comp&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+
+<span class="token keyword">local</span> commonCode <span class="token operator">=</span> <span class="token string">[==[
+//Chimera&apos;s Breath
+//by nimitz 2018 (twitter: @stormoid)
+
+/*
+    The main interest here is the addition of vorticity confinement with the curl stored in
+    the alpha channel of the simulation texture (which was not used in the paper)
+    this in turns allows for believable simulation of much lower viscosity fluids.
+    Without vorticity confinement, the fluids that can be simulated are much more akin to
+    thick oil.
+
+    Base Simulation based on the 2011 paper: &quot;Simple and fast fluids&quot;
+    (Martin Guay, Fabrice Colin, Richard Egli)
+    (https://hal.inria.fr/inria-00596050/document)
+
+    The actual simulation only requires one pass, Buffer A, B and C    are just copies 
+    of each other to increase the simulation speed (3 simulation passes per frame)
+    and Buffer D is drawing colors on the simulated fluid 
+    (could be using particles instead in a real scenario)
+*/
+
+#define dt 0.15
+#define USE_VORTICITY_CONFINEMENT
+//#define MOUSE_ONLY
+
+//Recommended values between 0.03 and 0.2
+//higher values simulate lower viscosity fluids (think billowing smoke)
+#define VORTICITY_AMOUNT 0.11
+
+float mag2(vec2 p){return dot(p,p);}
+vec2 point1(float t) {
+    t *= 0.62;
+    return vec2(0.12,0.5 + sin(t)*0.2);
+}
+vec2 point2(float t) {
+    t *= 0.62;
+    return vec2(0.88,0.5 + cos(t + 1.5708)*0.2);
+}
+
+vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
+{
+    const float K = 0.2;
+    const float v = 0.55;
+
+    vec4 data = textureLod(smp, uv, 0.0);
+    vec4 tr = textureLod(smp, uv + vec2(w.x , 0), 0.0);
+    vec4 tl = textureLod(smp, uv - vec2(w.x , 0), 0.0);
+    vec4 tu = textureLod(smp, uv + vec2(0 , w.y), 0.0);
+    vec4 td = textureLod(smp, uv - vec2(0 , w.y), 0.0);
+
+    vec3 dx = (tr.xyz - tl.xyz)*0.5;
+    vec3 dy = (tu.xyz - td.xyz)*0.5;
+    vec2 densDif = vec2(dx.z ,dy.z);
+
+    data.z -= dt*dot(vec3(densDif, dx.x + dy.y) ,data.xyz); //density
+    vec2 laplacian = tu.xy + td.xy + tr.xy + tl.xy - 4.0*data.xy;
+    vec2 viscForce = vec2(v)*laplacian;
+    data.xyw = textureLod(smp, uv - dt*data.xy*w, 0.).xyw; //advection
+
+    vec2 newForce = vec2(0);
+
+    newForce.xy += 0.75*vec2(.0003, 0.00015)/(mag2(uv-point1(time))+0.0001);
+    newForce.xy -= 0.75*vec2(.0003, 0.00015)/(mag2(uv-point2(time))+0.0001);
+
+
+    data.xy += dt*(viscForce.xy - K/dt*densDif + newForce); //update velocity
+    data.xy = max(vec2(0), abs(data.xy)-1e-4)*sign(data.xy); //linear velocity decay
+
+    #ifdef USE_VORTICITY_CONFINEMENT
+       data.w = (tr.y - tl.y - tu.x + td.x);
+    vec2 vort = vec2(abs(tu.w) - abs(td.w), abs(tl.w) - abs(tr.w));
+    vort *= VORTICITY_AMOUNT/length(vort + 1e-9)*data.w;
+    data.xy += vort;
+    #endif
+
+    data.y *= smoothstep(.5,.48,abs(uv.y-0.5)); //Boundaries
+
+    data = clamp(data, vec4(vec2(-10), 0.5 , -10.), vec4(vec2(10), 3.0 , 10.));
+
+    return data;
+}
+]==]</span>
+
+<span class="token keyword">local</span> bufferACode <span class="token operator">=</span> <span class="token string">[==[
+
+    float length2(vec2 p){return dot(p,p);}
+    mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
+
+    void mainImage( out vec4 fragColor, in vec2 fragCoord )
+    {
+        vec2 uv = fragCoord.xy/iResolution.xy;
+        vec2 w = 1.0/iResolution.xy;
+
+        vec4 data = solveFluid(iChannel0, uv, w, iTime);
+        fragColor = data;
+
+    }
+]==]</span>
+
+<span class="token keyword">local</span> bufferBCode <span class="token operator">=</span> <span class="token string">[==[
+
+    float length2(vec2 p){return dot(p,p);}
+    mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
+
+    void mainImage( out vec4 fragColor, in vec2 fragCoord )
+    {
+        vec2 uv = fragCoord.xy/iResolution.xy;
+        vec2 w = 1.0/iResolution.xy;
+
+        vec4 data = solveFluid(iChannel0, uv, w, iTime);
+        fragColor = data;
+
+    }
+]==]</span>
+
+<span class="token keyword">local</span> bufferCCode <span class="token operator">=</span> <span class="token string">[==[
+
+    float length2(vec2 p){return dot(p,p);}
+    mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
+
+    void mainImage( out vec4 fragColor, in vec2 fragCoord )
+    {
+        vec2 uv = fragCoord.xy/iResolution.xy;
+        vec2 w = 1.0/iResolution.xy;
+
+        vec4 data = solveFluid(iChannel0, uv, w, iTime);
+        fragColor = data;
+
+    }
+]==]</span>
+
+<span class="token keyword">local</span> bufferDCode <span class="token operator">=</span> <span class="token string">[==[
+    //Chimera&apos;s Breath
+    //by nimitz 2018 (twitter: @stormoid)
+
+    //see &quot;Common&quot; tab for fluid simulation code
+
+    mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
+
+    //shader incoming relating to this palette
+    vec3 getPalette(float x, vec3 c1, vec3 c2, vec3 p1, vec3 p2)
+    {
+        float x2 = fract(x/2.0);
+        x = fract(x);   
+        mat3 m = mat3(c1, p1, c2);
+        mat3 m2 = mat3(c2, p2, c1);
+        float omx = 1.0-x;
+        vec3 pws = vec3(omx*omx, 2.0*omx*x, x*x);
+        return clamp(mix(m*pws, m2*pws, step(x2,0.5)),0.,1.);
+    }
+
+    vec4 pal(float x)
+    {
+        vec3 pal = getPalette(-x, vec3(0.2, 0.5, .7), vec3(.9, 0.4, 0.1), vec3(1., 1.2, .5), vec3(1., -0.4, -.0));
+        return vec4(pal, 1.);
+    }
+
+    vec4 pal2(float x)
+    {
+        vec3 pal = getPalette(-x, vec3(0.4, 0.3, .5), vec3(.9, 0.75, 0.4), vec3(.1, .8, 1.3), vec3(1.25, -0.1, .1));
+        return vec4(pal, 1.);
+    }
+
+    void mainImage( out vec4 fragColor, in vec2 fragCoord )
+    {
+        vec2 uv = fragCoord.xy / iResolution.xy;
+        vec2 mo = iMouse.xy / iResolution.xy;
+        vec2 w = 1.0/iResolution.xy;
+
+        vec2 velo = textureLod(iChannel0, uv, 0.).xy;
+        vec4 col = textureLod(iChannel1, uv - dt*velo*w*3., 0.); //advection
+
+
+        col += .0025/(0.0005+pow(length(uv - point1(iTime)),1.75))*dt*0.12*pal(iTime*0.05 - .0);
+        col += .0025/(0.0005+pow(length(uv - point2(iTime)),1.75))*dt*0.12*pal2(iTime*0.05 + 0.675);
+
+
+        if (iFrame &lt; 20)
+        {
+            col = vec4(0.);
+        }
+
+        col = clamp(col, 0.,5.);
+        col = max(col - (0.0001 + col*0.004)*.5, 0.); //decay
+
+
+        fragColor = col;
+
+    }
+
+]==]</span>
+
+<span class="token keyword">local</span> mainCode <span class="token operator">=</span> <span class="token string">[==[
+    void mainImage( out vec4 fragColor, in vec2 fragCoord )
+    {
+        vec4 col = textureLod(iChannel0, fragCoord/iResolution.xy, 0.);
+        fragColor = col;
+    }
+]==]</span>
+
+
+<span class="token keyword">local</span> texA<span class="token punctuation">,</span>texB<span class="token punctuation">,</span>texC<span class="token operator">=</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexC<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferACode<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexC<span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>texA<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+
+
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferBCode<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>texB<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferCCode<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>texC<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token function">saveRAW</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;C.raw&quot;</span><span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM1<span class="token punctuation">,</span>lastTexD<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferDCode<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM1<span class="token punctuation">,</span>lastTexD<span class="token punctuation">)</span>
+<span class="token function">saveRAW</span><span class="token punctuation">(</span>cachepath <span class="token operator">..</span> <span class="token string">&quot;D.raw&quot;</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+</code></pre>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1076,7 +1347,7 @@ void main(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-01-24T14:52:39.640Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-24T14:52:52.686Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-01-24T15:08:30.662Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-24T15:08:37.940Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
