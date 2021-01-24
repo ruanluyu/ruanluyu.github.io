@@ -66,7 +66,7 @@
 1. 上の手順に満たすコードを実装する。
 2. PixelsWorldパネルの設定の`Advanced->Internal texture format`を`Floating point 32bit x RGBA (HDR)`にする。
 3. Aeの時間カーソルを最初のフレームに移動させる。
-4. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 下の図に示すように)
+4. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 上の図に示すように)
 5.  `Ctrl+Alt`を押しながら、LOGO画像をクリックする。（このステップはオプショナル）
 6. スペースキーを押してレンダリングする。(**フレームをスキップしないこと**)
 

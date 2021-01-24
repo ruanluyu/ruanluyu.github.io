@@ -67,7 +67,7 @@ Operating logic:
 1. Put code satisfies above logic to PixelsWorld. 
 2. Change PixelsWorld settings `Advanced->Internal texture format` to `Floating point 32bit x RGBA (HDR)`
 3. Put the Time indicator to the first frame of current layer. 
-4. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot below)
+4. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot above)
 5. Hold `Ctrl+Alt` and click the LOGO image in plugin panel. (This step is optional)
 6. Press Space key to render(**DON'T skip frames while rendering**)
 
