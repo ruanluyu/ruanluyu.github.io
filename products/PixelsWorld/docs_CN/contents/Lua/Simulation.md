@@ -1,9 +1,11 @@
 # 物理模拟
 ---
 
+
+
 > 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。[查看完整视频](https://www.bilibili.com/video/BV1854y1p7Rv/)
 
-![fluidDual](fluidDual.gif)
+![fluidSingleFrame](./FluidSimSingleFrame.png)
 
 本章将介绍如何在PixelsWorld中缓存数据。
 
