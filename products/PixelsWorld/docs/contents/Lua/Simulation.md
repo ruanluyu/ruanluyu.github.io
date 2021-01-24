@@ -350,6 +350,7 @@ saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 > - Note: According to the code license declared by [original author](https://www.shadertoy.com/view/4tGfDW), the following code should only be used for study purpose. 
 > - Don't forget to set the `Internal texture format` to `Floating point 32 bit x RGBA (HDR)` in plugin panel. 
+> - <span style="color:red">Please make sure you have read the simulation manual before doing it. </span> [Go to manual>>>](#cache-textures)
 > - Setting `Mipmap filter` to `NONE` could speed up render. 
 
 ```lua:fluid_simulation.lua

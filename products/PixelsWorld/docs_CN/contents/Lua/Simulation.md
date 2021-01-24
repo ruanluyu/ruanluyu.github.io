@@ -347,6 +347,7 @@ saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 > - 注意：应[原作者](https://www.shadertoy.com/view/4tGfDW)代码证书要求，下面的代码仅供学习交流使用。请勿商用
 > - 不要忘记把插件面板上的设定`Internal texture format`改成`Floating point 32 bit x RGBA (HDR)`。
+> - <span style="color:red">请在着手模拟前确保您阅读了前文的操作说明！</span> [前去阅读>>>](#缓存贴图)
 > - 把`Mipmap filter`设置成`NONE`可以提速。
 
 ```lua:fluid_simulation.lua
