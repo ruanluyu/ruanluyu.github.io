@@ -319,7 +319,7 @@ void main(){
 ]==]
 
 
--- 把上一帧图片放到PARAM0位置处，这样glsl在layer[0]可以读取上一帧材质
+-- 把上一帧图片放到PARAM0位置处，这样glsl在layer[0]可以读取上一帧贴图
 swapTex(PARAM0,lastTexA)
 
 

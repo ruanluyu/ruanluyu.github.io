@@ -120,7 +120,7 @@ println("Cache path: " .. cachePath)
 
 -- If frameId == 0 (Namely lastFrameId < 0)
 if(lastFrameId < 0) then
-    -- Initialze the position and velocity of 3 plants
+    -- Initialze the position and velocity of 3 planets
     p1 = vec3(100,0,0)
     v1 = vec3(-0.1,-0.1,-0.5)
     p2 = vec3(0,-100,0)
@@ -187,7 +187,7 @@ saveString(
 )
 
 
--- Draw three plants with simulation data. 
+-- Draw three planets with simulation data. 
 dim3()
 
 move(center.x,center.y,center.z)
