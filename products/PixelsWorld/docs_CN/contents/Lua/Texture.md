@@ -164,7 +164,7 @@ void main(){
 |格式|使用的库|支持的压缩方式|图片颜色规格|
 |--|--|--|--|
 |PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
-|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. (Clamped for Alpha) |
+|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. |
 
 读取PNG图片到场景：
 

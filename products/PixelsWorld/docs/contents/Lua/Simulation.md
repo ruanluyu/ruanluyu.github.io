@@ -60,6 +60,8 @@ Code logic:
 7. Render texture file
 8. Save current texture file to local. 
 
+> See [Texture](./Texture.md) section to learn how to work with texture. 
+
 Operating logic: 
 1. Put code satisfies above logic to PixelsWorld. 
 2. Change PixelsWorld settings `Advanced->Internal texture format` to `Floating point 32bit x RGBA (HDR)`

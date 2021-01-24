@@ -174,7 +174,7 @@ Supported image specifications are listed below.
 |Format|Library|Supported compression algorithms|Color format|
 |--|--|--|--|
 |PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
-|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. (Clamped for Alpha) |
+|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel.  |
 
 Load PNG image to scene: 
 

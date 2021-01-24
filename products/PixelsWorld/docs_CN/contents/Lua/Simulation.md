@@ -1,7 +1,7 @@
 # 物理模拟
 ---
 
-> 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。[查看完整视频](https://youtu.be/OvohYJbnOvE)
+> 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。[查看完整视频](https://www.bilibili.com/video/BV1854y1p7Rv/)
 
 ![fluidDual](fluidDual.gif)
 
@@ -59,6 +59,8 @@
 7. 读取本地存储的上一帧贴图文件，文件不存在时报错，否则前往7
 8. 计算本帧贴图文件
 9. 存储本帧贴图文件到本地
+
+> 关于贴图操作，请看[贴图](./Texture.md)章节
 
 操作逻辑：
 1. 将满足上述逻辑的代码写入PixelsWorld中
