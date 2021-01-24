@@ -1,7 +1,7 @@
 # 物理模拟
 ---
 
-> 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。
+> 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。[查看完整视频](https://youtu.be/OvohYJbnOvE)
 
 ![fluidDual](fluidDual.gif)
 

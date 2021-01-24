@@ -1,7 +1,7 @@
 # 物理シミュレーション
 ---
 
-> 次の動画は[nimitzさんが作った作品Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)のPixelsWorldにおいて実装した結果です。
+> 次の動画は[nimitzさんが作った作品Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)のPixelsWorldにおいて実装した結果です。[フルサイズ動画](https://youtu.be/OvohYJbnOvE)
 
 ![fluidDual](fluidDual.gif)
 

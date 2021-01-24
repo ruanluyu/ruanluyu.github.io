@@ -1,7 +1,7 @@
 # Physics simulation
 ---
 
-> The following gif is result of  [Chimera's Breath -by nimitz](https://www.shadertoy.com/view/4tGfDW) run in PixelsWorld. 
+> The following gif is result of  [Chimera's Breath -by nimitz](https://www.shadertoy.com/view/4tGfDW) running in PixelsWorld. [See full resolution video](https://youtu.be/OvohYJbnOvE)
 
 ![fluidDual](fluidDual.gif)
 
