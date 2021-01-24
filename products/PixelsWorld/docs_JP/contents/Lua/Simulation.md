@@ -346,7 +346,9 @@ saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
 
 ![fluidDual](fluidDual.gif)
 
-> 注意：[元作者](https://www.shadertoy.com/view/4tGfDW)のコードライセンスより、次のコードを学習目的のみに使用してください。商業目的はお控えください。
+> - 注意：[元作者](https://www.shadertoy.com/view/4tGfDW)のコードライセンスより、次のコードを学習目的のみに使用してください。商業目的はお控えください。
+> - プラグインパネルの設定`Internal texture format`を`Floating point 32 bit x RGBA (HDR)`にするのを忘れないで下さい。
+> - `Mipmap filter`を`NONE`にすることでスピードアップ
 
 ```lua:fluid_simulation.lua
 version3()
