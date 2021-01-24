@@ -1,6 +1,10 @@
 # Physics simulation
 ---
 
+> The following gif is result of  [Chimera's Breath -by nimitz](https://www.shadertoy.com/view/4tGfDW) run in PixelsWorld. 
+
+![fluidDual](fluidDual.gif)
+
 You will learn how to cache data to local disc in this section. 
 
 <span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span>

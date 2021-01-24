@@ -1,6 +1,10 @@
 # 物理模拟
 ---
 
+> 下图是[由nimitz制作的Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)在PixelsWorld中运行的结果。
+
+![fluidDual](fluidDual.gif)
+
 本章将介绍如何在PixelsWorld中缓存数据。
 
 <span style="color:red">注意：由于Ae功能有限，请严格遵循本手册制定的规范进行缓存。</span>

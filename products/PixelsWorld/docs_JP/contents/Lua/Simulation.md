@@ -1,6 +1,10 @@
 # 物理シミュレーション
 ---
 
+> 次の動画は[nimitzさんが作った作品Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)のPixelsWorldにおいて実装した結果です。
+
+![fluidDual](fluidDual.gif)
+
 この章では、PixelsWorldを用いてキャッシュの扱い方を紹介します。
 
 <span style="color:red">注意：正しいシミュレーション結果を得るために、本マニュアルにきちんと読んだ上でコードを実装してください。</span>
