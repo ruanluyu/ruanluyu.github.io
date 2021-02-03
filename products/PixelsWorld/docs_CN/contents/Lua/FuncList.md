@@ -948,32 +948,36 @@ println(getStatus());
 
 ## getAudio
 
-1. `getAudio(startTime,duration,id,sampleRate)`将索取音频信息，返回四个表，两个波形采样表（左右声道）和两个由波形计算的频谱表（左右声道）。
-1. `getAudio(startTime,duration)`等价于`getAudio(startTime,duration,INPUT,44100)`
-1. `getAudio(startTime,duration,id)`等价于`getAudio(startTime,duration,id,44100)`
+> 确保您拥有`v3.4.0+`版本的PixelsWorld
+
+1. `getAudio([startTime,duration[,id[,sampleRate,startFrequency,endFrequency[,resolution]]]])`将索取音频信息，返回6个表：两个波形采样表（左右声道）、两个FFT结果表（左右声道）和两个频谱表（左右声道）。
+2. 省略项将被填充为插件面板上的音频设定数据
 
 > - 左声道波形 (-1~1)
 > - 右声道波形 (-1~1)
+> - 左声道FFT (0~正无穷)
+> - 右声道FFT (0~正无穷)
 > - 左声道频谱 (0~正无穷)
 > - 右声道频谱 (0~正无穷)
 
 ```lua:waveInfo.lua
 version3()
-background(0.2)
-local wl,wr,fl,fr = getAudio(time-0.1,0.2)
+in2out()
+
+local wl,wr,ftl,ftr,specl,specr = getAudio()
 
 local nm = math.floor(height/8);
 
 for i=1,nm do
     local wid =math.max(math.floor(i/nm*#wl),1)
-    local fid = math.max(math.floor(i/nm*#fl/16),1)
+    local fid = math.max(math.floor(i/nm*#specl),1)
     print(string.format("%8.5f",wl[wid]),wl[wid]*4,0,-wl[wid]*4)
-    print("  < L  R >  ",0,0,0)
+    print("  < L  R >  ",1,0,0,0)
     print(string.format("%8.5f",wr[wid]),wr[wid]*4,0,-wr[wid]*4)
     print("      <   Wave  FFT   >      ",0.5,0.5,0.5)
-    print(string.format("%8.5f",fl[fid]),fl[fid]/math.sqrt(#fl),0,0)
-    print("  < L  R >  ",0,0,0)
-    print(string.format("%8.5f",fr[fid]),0,0,fr[fid]/math.sqrt(#fr))
+    print(string.format("%8.5f",specl[fid]),specl[fid],0,0)
+    print("  < L  R >  ",1,0,0,0)
+    print(string.format("%8.5f",specr[fid]),0,0,specr[fid])
     println("");
 end
 ```

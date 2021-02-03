@@ -592,7 +592,7 @@ local mainCode = [==[
 ]==]
 
 
-local texA,texB,texC=newTex(width,height),newTex(width,height),newTex(width,height),newTex(width,height)
+local texA,texB,texC=newTex(width,height),newTex(width,height),newTex(width,height)
 
 swapTex(PARAM0,lastTexC)
 shadertoy(commonCode .. bufferACode)

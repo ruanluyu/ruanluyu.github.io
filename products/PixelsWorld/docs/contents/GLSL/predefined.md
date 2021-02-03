@@ -34,7 +34,7 @@ uniform float time;
 uniform float inpoint;
 uniform float duration;
 uniform float comp_time;
-uniform vec4 date;
+uniform vec4 date; // vec4(year,month,day,hour*3600 + minute*60 + second + millisecond/1000.)
 uniform float fps;
 uniform float width;
 uniform float height;
@@ -46,13 +46,15 @@ uniform mat4 camera_matrix;
 uniform vec4 camera_info; // x,y: resolution, z: distance to plane, w: distance to focus. 
 uniform bool camera_perspective;
 
-uniform sampler1D inWaveL;
-uniform sampler1D inWaveR;
-uniform float inWaveN;
-uniform float inWaveS;
-uniform sampler1D inSpecL;
-uniform sampler1D inSpecR;
-uniform float inSpecN;
+uniform sampler1D inWaveL; // Left wave samples
+uniform sampler1D inWaveR; // Right wave samples
+uniform float inWaveN; // Wave sample number
+uniform float inWaveS; // Sample rate, settings in plugin panel. Default: 44100.
+uniform vec2 inWaveT; // vec2(sampleStartTime, sampleEndTime), unit: second. New in v3.4.0
+uniform sampler1D inSpecL; // Left spectrum samples
+uniform sampler1D inSpecR; // Right spectrum samples
+uniform float inSpecN; // Spectrum sample number
+uniform vec2 inSpecF; // vec2(spectrumStartFrequency, spectrumEndFrequency), unit: hz. New in v3.4.0
 
 vec4 getColor(int layerId,vec2 coord)
 {
@@ -75,7 +77,6 @@ vec2 xy2uv(vec2 myxy){
 return myxy/resolution.xy;
 }
 
-
 ```
 
 ## shadertoy mode
@@ -83,7 +84,6 @@ return myxy/resolution.xy;
 ### Pre-define code
 
 ```glsl:pre_frag_shader_shadertoy.frag
-
 #define gl_Position (_PixelsWorld_uv * iResolution.xy)
 #define gl_FragCoord (_PixelsWorld_uv * iResolution.xy)
 #define gl_FragColor _PixelsWorld_outColor
@@ -134,9 +134,11 @@ uniform sampler1D _PixelsWorld_inWaveL;
 uniform sampler1D _PixelsWorld_inWaveR;
 uniform float _PixelsWorld_inWaveN;
 uniform float _PixelsWorld_inWaveS;
+uniform vec2 _PixelsWorld_inWaveT;
 uniform sampler1D _PixelsWorld_inSpecL;
 uniform sampler1D _PixelsWorld_inSpecR;
 uniform float _PixelsWorld_inSpecN;
+uniform vec2 _PixelsWorld_inSpecF;
 
 in vec2 _PixelsWorld_uv;
 out vec4 _PixelsWorld_outColor;
@@ -161,8 +163,6 @@ return myuv*_PixelsWorld_resolution.xy;
 vec2 _PixelsWorld_xy2uv(vec2 myxy){
 return myxy/_PixelsWorld_resolution.xy;
 }
-
-
 
 
 

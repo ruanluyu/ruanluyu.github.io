@@ -143,7 +143,6 @@ This page covers all functions provided in Lua render mode.
 [smooth](#smooth),
 [noSmooth](#nosmooth) 
 
-
 **Texture operations**
 
 [newTex, delTex, getSize, swapTex, drawTo, castTex, blendTex, copyTex, savePNG, loadPNG, saveEXR, loadEXR, rotateTex, flipTex, resizeTex, trimTex](Texture.md)
@@ -959,32 +958,35 @@ println(getStatus());
 
 ## getAudio
 
-1. `getAudio(startTime,duration,id,sampleRate)` gets the audio samples. Returns 4 tables. The first 2 are wave sample tables(Left and Right), the last 2 are spectrum sample tables(Left and Right).  
-1. `getAudio(startTime,duration)` equals to `getAudio(startTime,duration,INPUT,44100)`
-1. `getAudio(startTime,duration,id)` equals to `getAudio(startTime,duration,id,44100)`
+> Make sure you have PixelsWorld `v3.4.0+`
+
+1. `getAudio([startTime,duration[,id[,sampleRate,startFrequency,endFrequency[,resolution]]]])` fetches the audio data. Returns 6 tables. The first 2 are wave sample tables(Left and Right), the next 2 are fft result tables(Left and Right), the last 2 are spectrum tables(Left and Right). 
 
 > - Left wave sample range: (-1~1)
 > - Right wave sample range: (-1~1)
+> - Left FFT range: (0~infinity)
+> - Right FFT range: (0~infinity)
 > - Left spectrum sample range: (0~infinity)
 > - Right spectrum sample range: (0~infinity)
 
 ```lua:waveInfo.lua
 version3()
-background(0.2)
-local wl,wr,fl,fr = getAudio(time-0.1,0.2)
+in2out()
+
+local wl,wr,ftl,ftr,specl,specr = getAudio()
 
 local nm = math.floor(height/8);
 
 for i=1,nm do
     local wid =math.max(math.floor(i/nm*#wl),1)
-    local fid = math.max(math.floor(i/nm*#fl/16),1)
+    local fid = math.max(math.floor(i/nm*#specl),1)
     print(string.format("%8.5f",wl[wid]),wl[wid]*4,0,-wl[wid]*4)
-    print("  < L  R >  ",0,0,0)
+    print("  < L  R >  ",1,0,0,0)
     print(string.format("%8.5f",wr[wid]),wr[wid]*4,0,-wr[wid]*4)
     print("      <   Wave  FFT   >      ",0.5,0.5,0.5)
-    print(string.format("%8.5f",fl[fid]),fl[fid]/math.sqrt(#fl),0,0)
-    print("  < L  R >  ",0,0,0)
-    print(string.format("%8.5f",fr[fid]),0,0,fr[fid]/math.sqrt(#fr))
+    print(string.format("%8.5f",specl[fid]),specl[fid],0,0)
+    print("  < L  R >  ",1,0,0,0)
+    print(string.format("%8.5f",specr[fid]),0,0,specr[fid])
     println("");
 end
 ```
