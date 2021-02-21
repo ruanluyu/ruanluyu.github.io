@@ -56,3 +56,7 @@ Luaでは、次のことができます：
 - 外部Cライブラリの実行 **(COOL!)**
 - 外部Luaモデルの読み取り
 
+## PixelsWorld構成図
+
+![PW_Structure](../PW_Structure.png)
+

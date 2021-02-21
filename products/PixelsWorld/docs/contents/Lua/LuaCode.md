@@ -56,3 +56,10 @@ In Lua, you can :
 - Load outer lua module
 
 Because of the advanced features, the users who using Lua render mode should have basic programming abilities and have a primary understanding about Lua language. If you have no idea about Lua, don't warry about it, it is pretty easy to learn. 
+
+
+## PixelsWorld structure
+
+![PW_Structure](../PW_Structure.png)
+
+

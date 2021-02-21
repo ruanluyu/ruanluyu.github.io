@@ -62,6 +62,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 同时Lua与JavaScript非常相似，因为JavaScript是非常易学的语言，所以即使您没有编程基础也会在短时间内迅速掌握它。
 
 
+## PixelsWorld结构
+
+![PW_Structure](../PW_Structure.png)
+
 <br>
 <br>
 <br>
