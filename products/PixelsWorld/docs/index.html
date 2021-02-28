@@ -727,22 +727,22 @@ History<br>
 <p><a href="https://milai.tech/products/PixelsWorld/docs_CN.zip" target="_blank">Download docs(&#x4E2D;&#x6587;)</a></p>
 <p><a href="https://milai.tech/products/PixelsWorld/docs_JP.zip" target="_blank">Download docs(&#x65E5;&#x672C;&#x8A9E;)</a></p>
 <h2 id="welcome-to-pixelsworld">Welcome to PixelsWorld!</h2>
-<p>We have compressed all essence of how to use PixelsWorld in this section. If you master it, you will be a new creator of PixelsWorld! </p>
-<h2 id="to-be-simple">To be simple</h2>
-<p><strong>PixelsWorld renders image basing on your code</strong></p>
+<p>We have compressed all essence of how to use PixelsWorld into this section. If you master it, you will be a new creator of PixelsWorld! </p>
+<h2 id="simply-speaking">Simply speaking</h2>
+<p><strong>PixelsWorld draws graphics basing on your code</strong></p>
 <ul>
-<li>You can use presets that written by other people. </li>
-<li>By learning how to write the Draw code, drawing shapes step-by-step to your scene. </li>
-<li>By learning the hardcore GLSL, creating advanced visual effect by yourself.</li>
+<li>You can apply presets written by others. </li>
+<li>By learning code&apos;s grammar, you can write code to draw the scene by yourself. </li>
+<li>By learning GLSL, you can create advanced visual effect by yourself.</li>
 </ul>
-<h2 id="how-to-do">How to do?</h2>
-<p>PixelsWorld is a Drawing robot, if you tell it what/where to draw step-by-step, it will draw the shapes into the current scene for you. </p>
-<p>For instance, consider the case that you want to draw a house in the middle of the canvas, but the painter is your friend Andrew (and Andrew doesn&apos;t know what you want to draw). How to make the instructions so that Andrew can draw it for you? </p>
-<p>We would say: </p>
+<h2 id="how-to-do-it">How to do it?</h2>
+<p>Let&apos;s begin with regarding PixelsWorld as a Painting robot. If you tell it what/where to draw step-by-step, it will draw graphics into the current layer for you. </p>
+<p>For instance, consider the case you want to draw a house in the middle of the layer, but the painter is your friend Andrew (and Andrew doesn&apos;t know what you want to draw). How to make the instructions so that Andrew can draw it for you? </p>
+<p>We might say: </p>
 <div><p class="code-filename">DrawHouse.myBro</p></div>
-<pre class="language-"><code class="lang-cmd">Draw a house in the middle of the canvas
+<pre class="language-"><code class="lang-cmd">Draw a house in the middle of the layer
 </code></pre>
-<p>This is OK, but what if you cannot tell Andrew the answer directly, but 1. where to draw, 2. what to draw, 3. the color instead, maybe we need to say: </p>
+<p>This is OK, but what if you cannot directly tell Andrew the answer, but 1. where to draw, 2. what to draw, 3. the color instead, maybe we can say: </p>
 <div><p class="code-filename">DrawHouse2.myBro</p></div>
 <pre class="language-"><code class="lang-cmd">move the paintbrush to the center
 use yellow pigment
@@ -751,71 +751,89 @@ move the paintbrush 5cm upward
 use red pigment
 draw a 15cm base length, 10cm height isoceles triangle.
 </code></pre>
-<p>And then, you and Andrew complete the house painting! </p>
-<p>Indeed, the instructions above is exactly what we need to write in PixelsWorld. By clearing it up, it looks like this: </p>
+<p>You and Andrew will complete the masterpiece of a house! </p>
+<p>Indeed, the instructions above is exactly what we need to code in PixelsWorld. It finally looks like this: </p>
 <div><p class="code-filename">DrawHouse3.lua</p></div>
-<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- use version 3, this is a function that you always have to call in the first line. </span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush to the center</span>
-<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- rotate space along X axis</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- use yellow pigment (Red=1,Green=1,Blue=0)</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 100x100px square</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- use red pigment(Red=1,Green=0,Blue=0)</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush 50px up</span>
-<span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 150px base length, 100px height isoceles triangle.</span>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, this is what you always have to call in the first line. </span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate to the center</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- Rotate Paintbrush Coordinate along X axis 180 degrees</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Use yellow pigment (Red=1,Green=1,Blue=0)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a 100x100px square</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Use red pigment(Red=1,Green=0,Blue=0)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 50px upwards</span>
+<span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height.</span>
 </code></pre>
 <blockquote>
-<p>There is a function <code>rotateX(PI)</code> we didn&apos;t mention before. Because the default orientation of the Y axis is downward, we need to rotate it along X axis 180 degrees (PI radians) to make it upward. Otherwise, the following movement of paintbrush will move it 50cm downward. </p>
+<p>There is a function <code>rotateX(PI)</code> not mentioned above. Because the default orientation of the Y axis of Paintbrush Coordinate is downward, we need to rotate it along the X axis 180 degrees (PI radians) to make it upward. Otherwise, the following <code>move(0,50)</code> function would move it 50cm downward. </p>
 </blockquote>
 <p><img src="contents/PutPW_GetStart.png" alt="GetStart"></p>
 <p><img src="contents/HouseRes.png" alt="Res"></p>
-<p>Here we want to add some extra controls to the scene like change the color combination of our house. </p>
+<p>Here we want to add some extra controls to the scene like color combination controllers of our house. </p>
 <div><p class="code-filename">DrawHouse3.lua</p></div>
-<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- use version 3, this is a function that you always have to call in the first line. </span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush to the center</span>
-<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- rotate space along X axis</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- use color parameter 0 as pigment</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 100x100px square</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- use color parameter 1 as pigment</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush 50px up</span>
-<span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 150px base length, 100px height isoceles triangle.</span>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, this is what you always have to call in the first line. </span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate to the center</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- Rotate Paintbrush Coordinate along X axis 180 degrees</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #0</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a 100x100px square</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #1</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 50px upwards</span>
+<span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height.</span>
 </code></pre>
-<p>If you click the Ok button, the house would disappear! </p>
-<p>Actrually the house is still drawn in your scene, but the default color controls are black, so the house is also black. </p>
-<p>Open the Parameter list, find the first 2 Color controls, change it to the color you want. </p>
+<p>Then click the Ok button, the house will... disappear!  </p>
+<p>Actrually, our house is still drawn onto the layer, but because the default color of color controller is black, so as a result, the house seems disappeared. </p>
+<p>To fix it, open the Parameter list, find the first 2 Color controllers, change them to whatever you want. </p>
 <p><img src="contents/ColorHouse.png" alt="ChangeRes"></p>
 <h2 id="mayor-is-me-draw-more-houses">Mayor is me! Draw more houses</h2>
-<p>One big advantage of using code is doing repetitive things. </p>
-<p>Lua language is able to repeat your instructions as many times as you want. </p>
+<p>One tremendous advantage of code is the capability of handling repetitive operations. </p>
+<p>Needless to say, Lua language allows you to write looping code. </p>
 <div><p class="code-filename">DrawHouse3.lua</p></div>
-<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- use version 3, this is a function that you always have to call in the first line. </span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush to the center</span>
-<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- rotate space along X axis</span>
-<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token keyword">do</span> <span class="token comment">-- begin repeat (3 times)</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- use color parameter 0 as pigment</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 100x100px square</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- use color parameter 1 as pigment</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush 50px up</span>
-<span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- draw a 150px base length, 100px height isoceles triangle. </span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush back</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">175</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- move the paintbrush 175px right</span>
-<span class="token keyword">end</span> <span class="token comment">-- End mark of repeat</span>
+<pre class="language-"><code class="lang-lua">
+<span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, this is what you always have to call in the first line. </span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate to the center</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- Rotate Paintbrush Coordinate along X axis 180 degrees</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token keyword">do</span> <span class="token comment">-- Begin repeat (3 times)</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #0</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a 100x100px square</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #1</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 50px upwards</span>
+    <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height. </span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate back</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">175</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 175px rightward</span>
+<span class="token keyword">end</span> <span class="token comment">-- End repeat</span>
 </code></pre>
 <p><img src="contents/RepeatHouse.png" alt="RepeatRes"></p>
-<p>Finally, we want to give the controls some names:  </p>
+<p>If you don&apos;t want to write functions like &quot;move back&quot;. Write in this way: </p>
+<div><p class="code-filename">DrawHouse3_1.lua</p></div>
+<pre class="language-"><code class="lang-lua">
+<span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, this is what you always have to call in the first line. </span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate to the center</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- Rotate Paintbrush Coordinate along X axis 180 degrees</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token keyword">do</span> <span class="token comment">-- Begin loop (3 times)</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #0</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a 100x100px square</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- Use color #1</span>
+    <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- NEW LINE! Begin to record transformations of Paintbrush Coordinate</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 50px upwards</span>
+    <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height. </span>
+    <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- NEW LINE! This line will automatically calls &apos;move(0,-50)&apos;</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">175</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 175px rightward</span>
+<span class="token keyword">end</span> <span class="token comment">-- End loop</span>
+</code></pre>
+<p>Finally, we want to give the controllers names:  </p>
 <p><img src="contents/SetColorsName.png" alt="SetNames"></p>
 <p><img src="contents/ParamRes.png" alt="SetNamesRes"></p>
-<h2 id="save-the-instructions-to-preset">Save the instructions to preset.</h2>
+<h2 id="save-code-as-a-preset">Save code as a preset.</h2>
 <blockquote>
-<p>Note: This step may need the Administrator mode if you have installed Ae in the System disc (maybe C).</p>
+<p>Note: The Administrator mode is required in this step if you installed Ae into the disc in where your system files are (like <code>C:\</code>).</p>
 </blockquote>
-<p>First of all, add a new Preset column to save your preset: </p>
+<p>First of all, add a new Preset column into the popup list: </p>
 <p><img src="contents/AddColumn.png" alt="CreateColumn"></p>
-<p>Then, save your preset in the new Preset column: </p>
+<p>Then, save your preset into the newly created Preset column: </p>
 <p><img src="contents/SavePreset.png" alt="SavePreset"></p>
 <h3 id="apply-preset">Apply preset</h3>
-<p>Select the preset you want to apply, click the Replace button. </p>
+<p>Select the preset you want to apply, click the Replace button in Presets review area. </p>
 <h2 id="congratulations">Congratulations!</h2>
-<p>You have mastered the main part of how to use PixelsWorld. </p>
+<p>You have already mastered almost all of PixelsWorld. </p>
 <p><a href="contents/Lua/LuaCode.html">&gt;&gt;&gt; Next step: Go to the lua chapter for more details</a></p>
 <h2 id="pixelsworld-structure">PixelsWorld structure</h2>
 <p><img src="contents/PW_Structure.png" alt="PW_Structure"></p>
@@ -855,7 +873,7 @@ draw a 15cm base length, 10cm height isoceles triangle.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2021-02-21T06:51:10.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-21T06:52:46.634Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2021-02-28T02:52:38.927Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-28T02:52:41.344Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
