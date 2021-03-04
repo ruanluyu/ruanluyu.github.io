@@ -195,7 +195,7 @@ This page covers all functions provided in Lua render mode.
 
 ## version3
 
-`version3()` function must be called in the first line. It put all functions that in the table `pw3` to the global field. If you don't call it, you need to add a `pw3.` prefix to all the function provided by PixelsWorld. For instance, the following demonstrated function `print()` should be `pw3.print()`. On the contrary, If you call the function `version3()` in the first line, the `pw3.` prefix could be omitted. This function is designed for backward compatibility. We recommend calling `version3()` in the first line any time you use Lua render mode. 
+`version3()` function must be called in the first line. It put all functions in the table `pw3` to the global field. If you don't call it, you need to add a `pw3.` prefix to all the functions provided by PixelsWorld. For instance, the following demonstrated function `print()` should be `pw3.print()`. On the contrary, If you call the function `version3()` in the first line, the `pw3.` prefix could be omitted. This function is designed for backward compatibility. We recommend calling `version3()` in the first line any time you use Lua render mode. 
 
 ```lua:version3.lua
 version3()
@@ -378,7 +378,7 @@ endGroup()
 
 
 ## tri
-1. `tri(radius)` draws a regular triangle with radius `radius`, and the triangle will point to the positive direction of Y axis.
+1. `tri(radius)` draws a regular triangle with radius `radius`, and the triangle will point to the positive direction of the Y-axis.
 2. `tri()` equals to `tri(100)`
 3. `tri(w,h)`draws a triangle with base length `w` and height `h`. 
 4. `tri(p1x,p1y,p2x,p2y,p3x,p3y)` draws a triangle basing on 3 points `p1,p2,p3`.
@@ -413,7 +413,7 @@ tri(0,0,100,50,0,0,0,50,0)
 2. `rect()` equals to `rect(100)`
 3. `rect(width,height)` draws a rectangle with width `width` and height `height`. 
 
-> - The intersection point of rectangle is at the origin of Paintbrush coordinate.  
+> - The intersection point of the rectangle is at the origin of the Paintbrush coordinate.  
 > - `rect` is an abbreviation of `rectangle`. 
 
 ## circle
@@ -448,7 +448,7 @@ tri(0,0,100,50,0,0,0,50,0)
 3. `par(x,y,z)` draws a point at`(x,y,z)`.
 4. `par()` equals to `par(0,0,0)`
 
-> - By default, the point render is turned off, use `dot()` to turn it on. You can call `noDot()` to turn it off again. 
+> - By default, the point rendering is turned off, use `dot()` to turn it on. You can call `noDot()` to turn it off again. 
 > - `dotRadius(radius)` controls point radius. 
 > - `dot(r,g,b)` controls point color. 
 > - `dotGlobal()` makes point be avoid to be squeezed by `scale`. By default, points are rendered with `dotLocal()`.
@@ -479,7 +479,7 @@ tri(0,0,100,50,0,0,0,50,0)
 4. `cone(radius,height,div)` draws a cone with base circle radius `radius`, height `height` and subdivision `div`. 
 
 > - Default subdivision: 64
-> - If `sub` is greater than 16, the side stroke and base point will be hidden. 
+> - If `sub` is greater than 16, the sidestroke and base point will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
 ## ball
@@ -517,7 +517,7 @@ tri(0,0,100,50,0,0,0,50,0)
 
 > - `id` is texture id,`PARAM0`~`PARAM9`means texture load from the layer parameters, `INPUT` means input image, `OUTPUT` means output image. 
 > - If `id` is `OUTPUT`, it will be slow because we need to take a screenshot of your scene. 
-> - The difference with `in2out(id)` is, `image(id,width,height)` draws a rectangle with a texture, which could interact with the depth buffers, where `in2out(id)` just copy pixels from one texture to another. This is also means the image that is drawn to the screen is inversed by default (The default coordinate system of Ae is Y axis downward), so you may need `rotateX(PI)` to fix it. (And we don't recommend calling `scale(1,-1)`, which may cause wrong normals problem. 
+> - The difference with `in2out(id)` is, `image(id, width, height)` draws a rectangle with a texture, which could interact with the depth buffers, where `in2out(id)` just copy pixels from one texture to another. This also means the image that is drawn to the screen is inverted by default (The default coordinate system of Ae is Y axis downward), so you may need `rotateX(PI)` to fix it. (And we don't recommend calling `scale(1,-1)`, which may cause wrong normals problem. 
 
 Example: 
 
@@ -541,9 +541,9 @@ cube()
 - 1st char should be `+` or `-`
 - 2nd char should be one of `x,y,z`
 - 3rd char should be `+` or `-`
-- 4nd char should be one of `x,y,z`
+- 4th char should be one of `x,y,z`
 
-`rule` represents which painter coordinate the texture UV coordinate (the origin is left bottom corner) should align with. By default, the `rule` is `"+x+y"`, it represents u aligns with positive x, v aligns with positive y. 
+`rule` represents which painter coordinates the texture UV coordinate (the origin is left bottom corner) should align with. By default, the `rule` is `"+x+y"`, it represents u aligns with positive x, v aligns with positive y. 
 
 > New in `v3.3.0`
 
@@ -560,7 +560,7 @@ cube()
 
 `setPoly(obj)` analyzes obj only, use `poly()` to draw the previous set obj to scene. 
 
-> - It will be efficient in the case you draw a same obj for many times. 
+> - It will be efficient in the case you draw the same obj for many times. 
 > - See also [Poly](Poly.md)
 
 ## background
@@ -580,15 +580,15 @@ cube()
 
 ## dim2
 
-`dim2()` set the scene to 2D mode. 2D mode is on by default, you usually no need to call it. 
+`dim2()` set the scene to 2D mode. The 2D mode is on by default, you usually no need to call it. 
 
-> In PixelsWorld, 2D scene means a 3D scene without depth test and perspective. 
+> In PixelsWorld, a 2D scene means a 3D scene without depth test and perspective. 
 
 ## dim3
 
 `dim3()` set the scene to 3D mode. Call it immediately after `version3()`. 
 
-> Note: Use [`viewSpace`](#verspace) to change the far plane dimension if your layer size is not equal to the comp size. Otherwise, the shapes in 3D mode will be rendered to an unexprected position. 
+> Note: Use [`viewSpace`](#verspace) to change the far plane dimension if your layer size is not equal to the comp size. Otherwise, the shapes in 3D mode will be rendered to an unexpected position. 
 
 ## perspective
 
@@ -647,7 +647,7 @@ cube()
 
 ## back
 
-`back()` If the fill alpha is smaller than 1, back mode shows the back side of an obj. Off by default. 
+`back()` If the fill alpha is smaller than 1, back mode shows the backside of an obj. Off by default. 
 
 ## noBack
 
@@ -692,9 +692,9 @@ cube()
 
 ## depth
 
-`depth(blackDistance, whiteDistance)` depth output mode. Set pixels at distance `blackDistance` to black, pixels at distance `whiteDistance` to white. If they are same, PixelsWorld set the pixels that nearer than the value you set to black, otherwise white.  
+`depth(blackDistance, whiteDistance)` depth output mode. Set pixels at distance `blackDistance` to black, pixels at distance `whiteDistance` to white. If they are the same, PixelsWorld sets the pixels nearer than the value you set to black, otherwise white.  
 
-> - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - rgba, depth, normal are 3 dependent modes, turn on one may turn off the other two. 
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
 
@@ -704,10 +704,10 @@ cube()
 2. `normal(faceToCamera)` turns the normal output mode on, and configs faceToCamera. 
 3. `normal()` only turns the normal output mode on. 
 
-> - `faceToCamera` is a boolean, `true` means the normals are calculated basing on camera location. `false` means the normals are calculated basing on the global coordinate. 
+> - `faceToCamera` is a boolean, `true` means the normals are calculated based on camera location. `false` means the normals are calculated based on the global coordinate. 
 > - `normalize` is a boolean. 
 > - Default settings: faceToCamera:true, normalize:true.
-> - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
+> - rgba, depth, normal are 3 dependent modes, turn on one may turn off the other two. 
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
 
@@ -716,7 +716,7 @@ cube()
 
 `setDepth(id,blackDistance,whiteDistance)` reads the **red channel** of texture `id`, maps color basing on `blackDistance,whiteDistance` to the depth test buffer in the scene.
 
-> - The depth sequence from other 3DCG softwares can be loaded into PixelsWorld through this function. Namely the shapes can interact with the color sequence rendered from other 3DCG softwares. 
+> - The depth sequence from other 3DCG software can be loaded into PixelsWorld through this function. Namely, the shapes can interact with the color sequence rendered from other 3DCG software. 
 > - Call [dim3()](#dim3) before calling this function. 
 > - Valid texture id: `INPUT`,`PARAM0`~`PARAM9`
 
@@ -729,8 +729,8 @@ cube()
 1. `ambientLight(brightness,intensity)` equals to `ambientLight(brightness,brightness,brightness,intensity)`
 1. `ambientLight(r,g,b)` equals to `ambientLight(r,b,g,1)`
 
-> - Adds a ambient light to the scene. Valid to all objs. 
-> - Objs are lit up by this kind of lights even if they has wrong normals. 
+> - Adds ambient light to the scene. Valid to all objs. 
+> - Objs are lit up by this kind of light even if they have wrong normals. 
 
 ## pointLight
 
@@ -773,8 +773,8 @@ cube()
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)` sets the location and orientation of the current scene camera. 
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)` equals to `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)`
 
-> - `eyePos` is the location of your eyes, `objPos` is the location of the object you are looking at,`upVec` the direction your top of head pointing to. 
-> - Note: Y axis in Ae is downward by default, usually set the `upVec` to (0,-1,0) is enough.
+> - `eyePos` is the location of your eyes, `objPos` is the location of the object you are looking at,`upVec` the direction the top of your head pointing to. 
+> - Note: The Y-axis in Ae is downward by default, usually set the `upVec` to (0,-1,0) is enough.
 > - `eyePos` and `objPos` cannot be too close. (should be bigger than `1e-7`).
 > - `upVec` cannot be parallel to your sight.
 > - The length of `upVec` cannot be too small.
@@ -785,8 +785,8 @@ cube()
 1. `viewSpace(width,height,distanceToPlane)` equals to `viewSpace(width,height,distanceToPlane,4)`
 
 > - `width` and `height` is the dimension of the far plane. 
-> - The perpendicular distance from camera to camera far plane is `distanceToPlane`
-> - `farLevel * distanceToPlane` is the clip plane distance. Objs that farther than this distance will be clipped out. Normally it is enough to left the `farLevel` 4, set it to higher number if your scene is pretty vast. Note that if the `farLevel` is too high, the depth test precision of near objs may decline. 
+> - The perpendicular distance from the camera to the camera's far plane is `distanceToPlane`
+> - `farLevel * distanceToPlane` is the clip plane distance. Objs that farther than this distance will be clipped out. Normally it is enough to leave the `farLevel` 4, set it to a higher number if your scene is pretty vast. Note that if the `farLevel` is too high, the depth test precision of near objs may decline. 
 
 ## strokeWidth
 
@@ -833,12 +833,12 @@ cube()
 
 `smooth()` Smooth render mode. 
 > Default: on
-> The smooth strength can be changed in plugin panel. 
+> The smooth strength can be changed in the plugin panel. 
 
 ## noSmooth
 
 `noSmooth()` Pixel art render mode. 
-> The priority of this function is higher than settings in plugin panel.
+> The priority of this function is higher than the settings in the plugin panel.
 
 ## r2d
 
@@ -888,7 +888,7 @@ $$
 
 `bezier(t,p0,p1,...,pn)` returns the `n` times bezier interpolation basing on `p0,p1,...,pn`. 
 
-Formula of interpolation: 
+The formula of interpolation: 
 
 $$
 Result := \sum_{k=0}^n{C_n^k\cdot (1-t)^{n-k}\cdot t^k\cdot p_k}
@@ -910,7 +910,7 @@ $$
 
 For example, if you want to convert a `hsl` color to `rgb` format, then you need to call the function `hsl2rgb`, both the number of input and output parameters are 3. 
 
-All conversions are done in range `0~1`. 
+All conversions are done in the range `0~1`. 
 
 > - New in `v3.2.0`
 
@@ -928,7 +928,7 @@ All conversions are done in range `0~1`.
 
 ## getGLInfo
 
-`getGLInfo()` gets the information of the current graphic card. 
+`getGLInfo()` gets the information of the current graphics card. 
 
 ## getDrawRecord
 
@@ -1004,17 +1004,17 @@ end
 `getColor(id,x,y)` get pixel color at location (x,y) of texture `id`. Returns `r,g,b,a` 4 doubles.
 `getColor(x,y)` equals to `getColor(INPUT,x,y)`
 
-> - It is high efficient to call `getColor` before any draw function(Such as immediately after `version3()`). Otherwise, it is very low efficient since it queries pixels from the graphic card. 
+> - It is highly efficient to call `getColor` before any draw function(Such as immediately after `version3()`). Otherwise, it is very low efficient since it queries pixels from the graphic card. 
 > - Valid `id`: `INPUT`,`OUTPUT`,`PARAM0`~`PARAM9`
 
 ## setColor
 
 `setColor(x,y,r,g,b,a)` set the pixel at location (x,y) of texture `OUTPUT`. 
-> - It is high efficient to call `setColor` before any draw function
+> - It is highly efficient to call `setColor` before any draw function
 
 ## getSize
 
-`getSize(id)` returns the size of texture `id`. (Two doubles, width and height)
+`getSize(id)` returns the size of texture `id`. (Two doubles, width, and height)
 
 > Due to the Ae's downsample (1/2,1/4) mechanism, the size you get would variating 0~4px. But this kind of variating doesn't change with time. The size is promised to be accurate in full resolution(without downsample). 
 
@@ -1032,7 +1032,7 @@ end
 
 `cmd(code)` runs cmd code. 
 
-> This function is equivalent to the ISO C function system. It passes command to be executed by an operating system shell. Its first result is true if the command terminated successfully, or nil otherwise. After this first result the function returns a string plus a number, as follows:
+> This function is equivalent to the ISO C function system. It passes a command to be executed by an operating system shell. Its first result is true if the command terminated successfully, or nil otherwise. After this first result the function returns a string plus a number, as follows:
 
 > - "exit": the command terminated normally; the following number is the exit status of the command.
 > - "signal": the command was terminated by a signal; the following number is the signal that terminated the command.

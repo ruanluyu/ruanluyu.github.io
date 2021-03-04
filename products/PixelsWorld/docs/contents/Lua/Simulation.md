@@ -1,11 +1,11 @@
 # Physics simulation
 ---
 
-> The following gif is result of  [Chimera's Breath -by nimitz](https://www.shadertoy.com/view/4tGfDW) running in PixelsWorld. [See full resolution video](https://youtu.be/OvohYJbnOvE)
+> The following gif is a result of  [Chimera's Breath -by nimitz](https://www.shadertoy.com/view/4tGfDW) running in PixelsWorld. [See full-resolution video](https://youtu.be/OvohYJbnOvE)
 
 ![fluidSingleFrame](./FluidSimSingleFrame.png)
 
-You will learn how to cache data to local disc in this section. 
+You will learn how to cache data to a local disc in this section. 
 
 <span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span>
 
@@ -30,18 +30,18 @@ Code logic:
 3. Caculate `lastFrameId=frameId-1`
 4. If `lastFrameId` < 0, go to 5, otherwise, go to 6
 5. Initialize data, go to 7
-6. Read data file saved by last frame, throw error if file not exists, go to 7 otherwise. 
+6. Read the data file saved by the last frame, throw an error if the file not exists, go to 7 otherwise. 
 7. Calculate data
 8. Save current data file to local. 
 
 Operating logic: 
-1. Put code satisfies above logic to PixelsWorld. 
-2. Put the Time indicator to the first frame of current layer. 
+1. Put code that satisfies the above logic to PixelsWorld. 
+2. Put the Time indicator to the first frame of the current layer. 
 3. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot below)
-4. Hold `Ctrl+Alt` and click the LOGO image in plugin panel. (This step is optional)
-5. Press Space key to render(**DON'T skip frames while rendering**)
+4. Hold `Ctrl+Alt` and click the LOGO image in the plugin panel. (This step is optional)
+5. Press the Space key to render(**DON'T skip frames while rendering**)
 
-> Note: If something goes wrong (errors, flickers, etc.), redo step 2~5. 
+> Note: If something goes wrong (errors, flickers, etc.), redo steps 2~5. 
 
 ![Purge](purge.png)
 
@@ -51,24 +51,24 @@ Operating logic:
 
 
 Code logic: 
-1. If downsampled(1/2, 1/4 render mode), throw error. 
+1. If downsampled(1/2, 1/4 render mode), throw an error. 
 1. Set cache path and cache name
 2. Caculate `frameId=time*fps`
 3. Caculate `lastFrameId=frameId-1`
 4. If `lastFrameId` < 0, go to 5, otherwise, go to 6
 5. Initialize texture, go to 7
-6. Read texture file saved by last frame, throw error if file not exists, go to 7 otherwise. 
+6. Read texture file saved by the last frame, throw an error if file not exists, go to 7 otherwise. 
 7. Render texture file
-8. Save current texture file to local. 
+8. Save the current texture file to local. 
 
 > See [Texture](./Texture.md) section to learn how to work with texture. 
 
 Operating logic: 
-1. Put code satisfies above logic to PixelsWorld. 
+1. Put code that satisfies the above logic to PixelsWorld. 
 2. Change PixelsWorld settings `Advanced->Internal texture format` to `Floating point 32bit x RGBA (HDR)`
-3. Put the Time indicator to the first frame of current layer. 
+3. Put the Time indicator to the first frame of the current layer. 
 4. Purge Ae cache(`Edit->Purge->All Memory & Disk Cache...` see the screenshot above)
-5. Hold `Ctrl+Alt` and click the LOGO image in plugin panel. (This step is optional)
+5. Hold `Ctrl+Alt` and click the LOGO image in the plugin panel. (This step is optional)
 6. Press Space key to render(**DON'T skip frames while rendering**)
 
 
@@ -323,7 +323,7 @@ void main(){
 ]==]
 
 
--- Put the last frame texture to PARAM0, so that you can read last frame texture via layer[0]
+-- Put the last frame texture to PARAM0, so that you can read the last frame texture via layer[0]
 swapTex(PARAM0,lastTexA)
 
 
@@ -396,20 +396,20 @@ local commonCode = [==[
 //by nimitz 2018 (twitter: @stormoid)
 
 /*
-	The main interest here is the addition of vorticity confinement with the curl stored in
-	the alpha channel of the simulation texture (which was not used in the paper)
-	this in turns allows for believable simulation of much lower viscosity fluids.
-	Without vorticity confinement, the fluids that can be simulated are much more akin to
-	thick oil.
-	
-	Base Simulation based on the 2011 paper: "Simple and fast fluids"
-	(Martin Guay, Fabrice Colin, Richard Egli)
-	(https://hal.inria.fr/inria-00596050/document)
+    The main interest here is the addition of vorticity confinement with the curl stored in
+    the alpha channel of the simulation texture (which was not used in the paper)
+    this in turns allows for believable simulation of much lower viscosity fluids.
+    Without vorticity confinement, the fluids that can be simulated are much more akin to
+    thick oil.
+    
+    Base Simulation based on the 2011 paper: "Simple and fast fluids"
+    (Martin Guay, Fabrice Colin, Richard Egli)
+    (https://hal.inria.fr/inria-00596050/document)
 
-	The actual simulation only requires one pass, Buffer A, B and C	are just copies 
-	of each other to increase the simulation speed (3 simulation passes per frame)
-	and Buffer D is drawing colors on the simulated fluid 
-	(could be using particles instead in a real scenario)
+    The actual simulation only requires one pass, Buffer A, B and C are just copies 
+    of each other to increase the simulation speed (3 simulation passes per frame)
+    and Buffer D is drawing colors on the simulated fluid 
+    (could be using particles instead in a real scenario)
 */
 
 #define dt 0.15
@@ -432,8 +432,8 @@ vec2 point2(float t) {
 
 vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
 {
-	const float K = 0.2;
-	const float v = 0.55;
+    const float K = 0.2;
+    const float v = 0.55;
     
     vec4 data = textureLod(smp, uv, 0.0);
     vec4 tr = textureLod(smp, uv + vec2(w.x , 0), 0.0);
@@ -460,7 +460,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     data.xy = max(vec2(0), abs(data.xy)-1e-4)*sign(data.xy); //linear velocity decay
     
     #ifdef USE_VORTICITY_CONFINEMENT
-   	data.w = (tr.y - tl.y - tu.x + td.x);
+    data.w = (tr.y - tl.y - tu.x + td.x);
     vec2 vort = vec2(abs(tu.w) - abs(td.w), abs(tl.w) - abs(tr.w));
     vort *= VORTICITY_AMOUNT/length(vort + 1e-9)*data.w;
     data.xy += vort;

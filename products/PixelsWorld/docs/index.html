@@ -733,11 +733,11 @@ History<br>
 <ul>
 <li>You can apply presets written by others. </li>
 <li>By learning code&apos;s grammar, you can write code to draw the scene by yourself. </li>
-<li>By learning GLSL, you can create advanced visual effect by yourself.</li>
+<li>By learning GLSL, you can create an advanced visual effect by yourself.</li>
 </ul>
 <h2 id="how-to-do-it">How to do it?</h2>
 <p>Let&apos;s begin with regarding PixelsWorld as a Painting robot. If you tell it what/where to draw step-by-step, it will draw graphics into the current layer for you. </p>
-<p>For instance, consider the case you want to draw a house to the center of the layer, but the painter is your friend Andrew (and Andrew doesn&apos;t know what you want to draw). How to make the instructions so that Andrew can draw it for you? </p>
+<p>For instance, consider the case you want to draw a house to the center of the layer, but the painter is your friend Andrew (and Andrew doesn&apos;t know what you want to draw). How to make the instructions so that Andrew can draw them for you? </p>
 <p>We might say: </p>
 <div><p class="code-filename">DrawHouse.myBro</p></div>
 <pre class="language-"><code class="lang-cmd">Draw a house to the center of the layer
@@ -749,7 +749,7 @@ use yellow pigment
 draw a 10x10cm square
 move the paintbrush 5cm upward
 use red pigment
-draw a 15cm base length, 10cm height isoceles triangle.
+draw a 15cm base length, 10cm height isosceles triangle.
 </code></pre>
 <p>You and Andrew will complete the masterpiece of a house! </p>
 <p>Indeed, the instructions above is exactly what we need to code in PixelsWorld. It finally looks like this: </p>
@@ -764,7 +764,7 @@ draw a 15cm base length, 10cm height isoceles triangle.
 <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height.</span>
 </code></pre>
 <blockquote>
-<p>There is a function <code>rotateX(PI)</code> not mentioned above. Because the default orientation of the Y axis of Paintbrush Coordinate is downward, we need to rotate it along the X axis 180 degrees (PI radians) to make it upward. Otherwise, the following <code>move(0,50)</code> function would move it 50cm downward. </p>
+<p>There is a function <code>rotateX(PI)</code> not mentioned above. Because the default orientation of the Y-axis of Paintbrush Coordinate is downward, we need to rotate it along with the X-axis 180 degrees (PI radians) to make it upward. Otherwise, the following <code>move(0,50)</code> function would move it 50cm downward. </p>
 </blockquote>
 <p><img src="contents/PutPW_GetStart.png" alt="GetStart"></p>
 <p><img src="contents/HouseRes.png" alt="Res"></p>
@@ -780,7 +780,7 @@ draw a 15cm base length, 10cm height isoceles triangle.
 <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height.</span>
 </code></pre>
 <p>Then click the Ok button, the house will... disappear!  </p>
-<p>Actrually, our house is still drawn onto the layer, but because the default color of color controller is black, so as a result, the house seems disappeared. </p>
+<p>Indeed, our house is still drawn onto the layer, but because the default color of the color controller is black, so as a result, the house seems to disappear. </p>
 <p>To fix it, open the Parameter list, find the first 2 Color controllers, change them to whatever you want. </p>
 <p><img src="contents/ColorHouse.png" alt="ChangeRes"></p>
 <h2 id="mayor-is-me-draw-more-houses">Mayor is me! Draw more houses</h2>
@@ -824,7 +824,7 @@ draw a 15cm base length, 10cm height isoceles triangle.
 <p><img src="contents/ParamRes.png" alt="SetNamesRes"></p>
 <h2 id="save-code-as-a-preset">Save code as a preset.</h2>
 <blockquote>
-<p>Note: The Administrator mode is required in this step if you installed Ae into the disc in where your system files are (like <code>C:\</code>).</p>
+<p>Note: The Administrator mode is required in this step if you installed Ae into the disc where your system files are (like <code>C:\</code>).</p>
 </blockquote>
 <p>First of all, add a new Preset column into the popup list: </p>
 <p><img src="contents/AddColumn.png" alt="CreateColumn"></p>
@@ -873,7 +873,7 @@ draw a 15cm base length, 10cm height isoceles triangle.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2021-02-28T02:58:00.011Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-28T02:58:04.061Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2021-03-04T04:20:57.770Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T04:39:59.971Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

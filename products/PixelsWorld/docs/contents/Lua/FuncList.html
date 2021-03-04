@@ -862,7 +862,7 @@
 <p><br><br><br><br><br></p>
 <h1 id="detailed-descriptions">Detailed descriptions</h1>
 <h2 id="version3">version3</h2>
-<p><code>version3()</code> function must be called in the first line. It put all functions that in the table <code>pw3</code> to the global field. If you don&apos;t call it, you need to add a <code>pw3.</code> prefix to all the function provided by PixelsWorld. For instance, the following demonstrated function <code>print()</code> should be <code>pw3.print()</code>. On the contrary, If you call the function <code>version3()</code> in the first line, the <code>pw3.</code> prefix could be omitted. This function is designed for backward compatibility. We recommend calling <code>version3()</code> in the first line any time you use Lua render mode. </p>
+<p><code>version3()</code> function must be called in the first line. It put all functions in the table <code>pw3</code> to the global field. If you don&apos;t call it, you need to add a <code>pw3.</code> prefix to all the functions provided by PixelsWorld. For instance, the following demonstrated function <code>print()</code> should be <code>pw3.print()</code>. On the contrary, If you call the function <code>version3()</code> in the first line, the <code>pw3.</code> prefix could be omitted. This function is designed for backward compatibility. We recommend calling <code>version3()</code> in the first line any time you use Lua render mode. </p>
 <div><p class="code-filename">version3.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
@@ -1020,7 +1020,7 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 </code></pre>
 <h2 id="tri">tri</h2>
 <ol>
-<li><code>tri(radius)</code> draws a regular triangle with radius <code>radius</code>, and the triangle will point to the positive direction of Y axis.</li>
+<li><code>tri(radius)</code> draws a regular triangle with radius <code>radius</code>, and the triangle will point to the positive direction of the Y-axis.</li>
 <li><code>tri()</code> equals to <code>tri(100)</code></li>
 <li><code>tri(w,h)</code>draws a triangle with base length <code>w</code> and height <code>h</code>. </li>
 <li><code>tri(p1x,p1y,p2x,p2y,p3x,p3y)</code> draws a triangle basing on 3 points <code>p1,p2,p3</code>.</li>
@@ -1062,7 +1062,7 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 </ol>
 <blockquote>
 <ul>
-<li>The intersection point of rectangle is at the origin of Paintbrush coordinate.  </li>
+<li>The intersection point of the rectangle is at the origin of the Paintbrush coordinate.  </li>
 <li><code>rect</code> is an abbreviation of <code>rectangle</code>. </li>
 </ul>
 </blockquote>
@@ -1106,7 +1106,7 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 </ol>
 <blockquote>
 <ul>
-<li>By default, the point render is turned off, use <code>dot()</code> to turn it on. You can call <code>noDot()</code> to turn it off again. </li>
+<li>By default, the point rendering is turned off, use <code>dot()</code> to turn it on. You can call <code>noDot()</code> to turn it off again. </li>
 <li><code>dotRadius(radius)</code> controls point radius. </li>
 <li><code>dot(r,g,b)</code> controls point color. </li>
 <li><code>dotGlobal()</code> makes point be avoid to be squeezed by <code>scale</code>. By default, points are rendered with <code>dotLocal()</code>.</li>
@@ -1144,7 +1144,7 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <blockquote>
 <ul>
 <li>Default subdivision: 64</li>
-<li>If <code>sub</code> is greater than 16, the side stroke and base point will be hidden. 
+<li>If <code>sub</code> is greater than 16, the sidestroke and base point will be hidden. 
 Negative inputs or negative <code>scale()</code> would cause wrong normals. </li>
 </ul>
 </blockquote>
@@ -1189,7 +1189,7 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <ul>
 <li><code>id</code> is texture id,<code>PARAM0</code>~<code>PARAM9</code>means texture load from the layer parameters, <code>INPUT</code> means input image, <code>OUTPUT</code> means output image. </li>
 <li>If <code>id</code> is <code>OUTPUT</code>, it will be slow because we need to take a screenshot of your scene. </li>
-<li>The difference with <code>in2out(id)</code> is, <code>image(id,width,height)</code> draws a rectangle with a texture, which could interact with the depth buffers, where <code>in2out(id)</code> just copy pixels from one texture to another. This is also means the image that is drawn to the screen is inversed by default (The default coordinate system of Ae is Y axis downward), so you may need <code>rotateX(PI)</code> to fix it. (And we don&apos;t recommend calling <code>scale(1,-1)</code>, which may cause wrong normals problem. </li>
+<li>The difference with <code>in2out(id)</code> is, <code>image(id, width, height)</code> draws a rectangle with a texture, which could interact with the depth buffers, where <code>in2out(id)</code> just copy pixels from one texture to another. This also means the image that is drawn to the screen is inverted by default (The default coordinate system of Ae is Y axis downward), so you may need <code>rotateX(PI)</code> to fix it. (And we don&apos;t recommend calling <code>scale(1,-1)</code>, which may cause wrong normals problem. </li>
 </ul>
 </blockquote>
 <p>Example: </p>
@@ -1212,9 +1212,9 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <li>1st char should be <code>+</code> or <code>-</code></li>
 <li>2nd char should be one of <code>x,y,z</code></li>
 <li>3rd char should be <code>+</code> or <code>-</code></li>
-<li>4nd char should be one of <code>x,y,z</code></li>
+<li>4th char should be one of <code>x,y,z</code></li>
 </ul>
-<p><code>rule</code> represents which painter coordinate the texture UV coordinate (the origin is left bottom corner) should align with. By default, the <code>rule</code> is <code>&quot;+x+y&quot;</code>, it represents u aligns with positive x, v aligns with positive y. </p>
+<p><code>rule</code> represents which painter coordinates the texture UV coordinate (the origin is left bottom corner) should align with. By default, the <code>rule</code> is <code>&quot;+x+y&quot;</code>, it represents u aligns with positive x, v aligns with positive y. </p>
 <blockquote>
 <p>New in <code>v3.3.0</code></p>
 </blockquote>
@@ -1226,7 +1226,7 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <p><code>setPoly(obj)</code> analyzes obj only, use <code>poly()</code> to draw the previous set obj to scene. </p>
 <blockquote>
 <ul>
-<li>It will be efficient in the case you draw a same obj for many times. </li>
+<li>It will be efficient in the case you draw the same obj for many times. </li>
 <li>See also <a href="Poly.html">Poly</a></li>
 </ul>
 </blockquote>
@@ -1246,14 +1246,14 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <p><code>id</code> range: <code>PARAM0</code>~<code>PARAM9</code> or <code>INPUT</code>. </p>
 </blockquote>
 <h2 id="dim2">dim2</h2>
-<p><code>dim2()</code> set the scene to 2D mode. 2D mode is on by default, you usually no need to call it. </p>
+<p><code>dim2()</code> set the scene to 2D mode. The 2D mode is on by default, you usually no need to call it. </p>
 <blockquote>
-<p>In PixelsWorld, 2D scene means a 3D scene without depth test and perspective. </p>
+<p>In PixelsWorld, a 2D scene means a 3D scene without depth test and perspective. </p>
 </blockquote>
 <h2 id="dim3">dim3</h2>
 <p><code>dim3()</code> set the scene to 3D mode. Call it immediately after <code>version3()</code>. </p>
 <blockquote>
-<p>Note: Use <a href="#verspace"><code>viewSpace</code></a> to change the far plane dimension if your layer size is not equal to the comp size. Otherwise, the shapes in 3D mode will be rendered to an unexprected position. </p>
+<p>Note: Use <a href="#verspace"><code>viewSpace</code></a> to change the far plane dimension if your layer size is not equal to the comp size. Otherwise, the shapes in 3D mode will be rendered to an unexpected position. </p>
 </blockquote>
 <h2 id="perspective">perspective</h2>
 <p><code>perspective()</code> set the scene to perspective mode, everything looks small in the distance and big on the contrary. Use <a href="#viewspace">viewSpace</a> to change the camera information. Use <a href="#lookat">lookAt</a> to set the location of the camera. </p>
@@ -1297,7 +1297,7 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <h2 id="noblendalpha">noBlendAlpha</h2>
 <p><code>noBlendAlpha</code> turns off the alpha blending. </p>
 <h2 id="back">back</h2>
-<p><code>back()</code> If the fill alpha is smaller than 1, back mode shows the back side of an obj. Off by default. </p>
+<p><code>back()</code> If the fill alpha is smaller than 1, back mode shows the backside of an obj. Off by default. </p>
 <h2 id="noback">noBack</h2>
 <p><code>noBack()</code> turn off back mode. </p>
 <h2 id="pure">pure</h2>
@@ -1342,10 +1342,10 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 </ul>
 </blockquote>
 <h2 id="depth">depth</h2>
-<p><code>depth(blackDistance, whiteDistance)</code> depth output mode. Set pixels at distance <code>blackDistance</code> to black, pixels at distance <code>whiteDistance</code> to white. If they are same, PixelsWorld set the pixels that nearer than the value you set to black, otherwise white.  </p>
+<p><code>depth(blackDistance, whiteDistance)</code> depth output mode. Set pixels at distance <code>blackDistance</code> to black, pixels at distance <code>whiteDistance</code> to white. If they are the same, PixelsWorld sets the pixels nearer than the value you set to black, otherwise white.  </p>
 <blockquote>
 <ul>
-<li>rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
+<li>rgba, depth, normal are 3 dependent modes, turn on one may turn off the other two. </li>
 <li><code>phong(),anime()</code> will be ignored in this output mode. </li>
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 </ul>
@@ -1358,10 +1358,10 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 </ol>
 <blockquote>
 <ul>
-<li><code>faceToCamera</code> is a boolean, <code>true</code> means the normals are calculated basing on camera location. <code>false</code> means the normals are calculated basing on the global coordinate. </li>
+<li><code>faceToCamera</code> is a boolean, <code>true</code> means the normals are calculated based on camera location. <code>false</code> means the normals are calculated based on the global coordinate. </li>
 <li><code>normalize</code> is a boolean. </li>
 <li>Default settings: faceToCamera:true, normalize:true.</li>
-<li>rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. </li>
+<li>rgba, depth, normal are 3 dependent modes, turn on one may turn off the other two. </li>
 <li><code>phong(),anime()</code> will be ignored in this output mode. </li>
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 </ul>
@@ -1370,7 +1370,7 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <p><code>setDepth(id,blackDistance,whiteDistance)</code> reads the <strong>red channel</strong> of texture <code>id</code>, maps color basing on <code>blackDistance,whiteDistance</code> to the depth test buffer in the scene.</p>
 <blockquote>
 <ul>
-<li>The depth sequence from other 3DCG softwares can be loaded into PixelsWorld through this function. Namely the shapes can interact with the color sequence rendered from other 3DCG softwares. </li>
+<li>The depth sequence from other 3DCG software can be loaded into PixelsWorld through this function. Namely, the shapes can interact with the color sequence rendered from other 3DCG software. </li>
 <li>Call <a href="#dim3">dim3()</a> before calling this function. </li>
 <li>Valid texture id: <code>INPUT</code>,<code>PARAM0</code>~<code>PARAM9</code></li>
 </ul>
@@ -1385,8 +1385,8 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 </ol>
 <blockquote>
 <ul>
-<li>Adds a ambient light to the scene. Valid to all objs. </li>
-<li>Objs are lit up by this kind of lights even if they has wrong normals. </li>
+<li>Adds ambient light to the scene. Valid to all objs. </li>
+<li>Objs are lit up by this kind of light even if they have wrong normals. </li>
 </ul>
 </blockquote>
 <h2 id="pointlight">pointLight</h2>
@@ -1437,8 +1437,8 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 </ol>
 <blockquote>
 <ul>
-<li><code>eyePos</code> is the location of your eyes, <code>objPos</code> is the location of the object you are looking at,<code>upVec</code> the direction your top of head pointing to. </li>
-<li>Note: Y axis in Ae is downward by default, usually set the <code>upVec</code> to (0,-1,0) is enough.</li>
+<li><code>eyePos</code> is the location of your eyes, <code>objPos</code> is the location of the object you are looking at,<code>upVec</code> the direction the top of your head pointing to. </li>
+<li>Note: The Y-axis in Ae is downward by default, usually set the <code>upVec</code> to (0,-1,0) is enough.</li>
 <li><code>eyePos</code> and <code>objPos</code> cannot be too close. (should be bigger than <code>1e-7</code>).</li>
 <li><code>upVec</code> cannot be parallel to your sight.</li>
 <li>The length of <code>upVec</code> cannot be too small.</li>
@@ -1452,8 +1452,8 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <blockquote>
 <ul>
 <li><code>width</code> and <code>height</code> is the dimension of the far plane. </li>
-<li>The perpendicular distance from camera to camera far plane is <code>distanceToPlane</code></li>
-<li><code>farLevel * distanceToPlane</code> is the clip plane distance. Objs that farther than this distance will be clipped out. Normally it is enough to left the <code>farLevel</code> 4, set it to higher number if your scene is pretty vast. Note that if the <code>farLevel</code> is too high, the depth test precision of near objs may decline. </li>
+<li>The perpendicular distance from the camera to the camera&apos;s far plane is <code>distanceToPlane</code></li>
+<li><code>farLevel * distanceToPlane</code> is the clip plane distance. Objs that farther than this distance will be clipped out. Normally it is enough to leave the <code>farLevel</code> 4, set it to a higher number if your scene is pretty vast. Note that if the <code>farLevel</code> is too high, the depth test precision of near objs may decline. </li>
 </ul>
 </blockquote>
 <h2 id="strokewidth">strokeWidth</h2>
@@ -1513,12 +1513,12 @@ anime, phong, pure are 3 dependent mode, turn on one may turn off the other two.
 <p><code>smooth()</code> Smooth render mode. </p>
 <blockquote>
 <p>Default: on
-The smooth strength can be changed in plugin panel. </p>
+The smooth strength can be changed in the plugin panel. </p>
 </blockquote>
 <h2 id="nosmooth">noSmooth</h2>
 <p><code>noSmooth()</code> Pixel art render mode. </p>
 <blockquote>
-<p>The priority of this function is higher than settings in plugin panel.</p>
+<p>The priority of this function is higher than the settings in the plugin panel.</p>
 </blockquote>
 <h2 id="r2d">r2d</h2>
 <p><code>r2d(degrees)</code> radians to degrees, return degrees. </p>
@@ -1560,7 +1560,7 @@ Result:=t^2(3 - 2t)
 </blockquote>
 <h2 id="bezier">bezier</h2>
 <p><code>bezier(t,p0,p1,...,pn)</code> returns the <code>n</code> times bezier interpolation basing on <code>p0,p1,...,pn</code>. </p>
-<p>Formula of interpolation: </p>
+<p>The formula of interpolation: </p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mi>e</mi><mi>s</mi><mi>u</mi><mi>l</mi><mi>t</mi><mo>:</mo><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></msubsup><mrow><msubsup><mi>C</mi><mi>n</mi><mi>k</mi></msubsup><mo>&#x22C5;</mo><mo>(</mo><mn>1</mn><mo>&#x2212;</mo><mi>t</mi><msup><mo>)</mo><mrow><mi>n</mi><mo>&#x2212;</mo><mi>k</mi></mrow></msup><mo>&#x22C5;</mo><msup><mi>t</mi><mi>k</mi></msup><mo>&#x22C5;</mo><msub><mi>p</mi><mi>k</mi></msub></mrow></mrow><annotation encoding="application/x-tex">
 Result := \sum_{k=0}^n{C_n^k\cdot (1-t)^{n-k}\cdot t^k\cdot p_k}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.149118em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">u</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">t</span><span class="mrel">:</span><span class="mrel">=</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">0</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist"><span style="top:0.247em;margin-left:-0.07153em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">n</span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x22C5;</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">&#x2212;</span><span class="mord mathit">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span><span class="mbin mtight">&#x2212;</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x22C5;</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x22C5;</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
@@ -1577,7 +1577,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <p><code>xxx2xxx</code> allows the following color conversion: </p>
 <p><img src="colorConvert.png" alt="ColorConvert"></p>
 <p>For example, if you want to convert a <code>hsl</code> color to <code>rgb</code> format, then you need to call the function <code>hsl2rgb</code>, both the number of input and output parameters are 3. </p>
-<p>All conversions are done in range <code>0~1</code>. </p>
+<p>All conversions are done in the range <code>0~1</code>. </p>
 <blockquote>
 <ul>
 <li>New in <code>v3.2.0</code></li>
@@ -1591,7 +1591,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <h2 id="localtoutf8">localToUtf8</h2>
 <p><code>localToUtf8(str)</code>local string to unicode string</p>
 <h2 id="getglinfo">getGLInfo</h2>
-<p><code>getGLInfo()</code> gets the information of the current graphic card. </p>
+<p><code>getGLInfo()</code> gets the information of the current graphics card. </p>
 <h2 id="getdrawrecord">getDrawRecord</h2>
 <ol>
 <li><code>getDrawRecord(needStringFormat)</code> gets current draw records. <code>needStringFormat</code> is a boolean, when <code>true</code>, returns a string, otherwise, returns a Lua table.</li>
@@ -1663,7 +1663,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <code>getColor(x,y)</code> equals to <code>getColor(INPUT,x,y)</code></p>
 <blockquote>
 <ul>
-<li>It is high efficient to call <code>getColor</code> before any draw function(Such as immediately after <code>version3()</code>). Otherwise, it is very low efficient since it queries pixels from the graphic card. </li>
+<li>It is highly efficient to call <code>getColor</code> before any draw function(Such as immediately after <code>version3()</code>). Otherwise, it is very low efficient since it queries pixels from the graphic card. </li>
 <li>Valid <code>id</code>: <code>INPUT</code>,<code>OUTPUT</code>,<code>PARAM0</code>~<code>PARAM9</code></li>
 </ul>
 </blockquote>
@@ -1671,11 +1671,11 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <p><code>setColor(x,y,r,g,b,a)</code> set the pixel at location (x,y) of texture <code>OUTPUT</code>. </p>
 <blockquote>
 <ul>
-<li>It is high efficient to call <code>setColor</code> before any draw function</li>
+<li>It is highly efficient to call <code>setColor</code> before any draw function</li>
 </ul>
 </blockquote>
 <h2 id="getsize">getSize</h2>
-<p><code>getSize(id)</code> returns the size of texture <code>id</code>. (Two doubles, width and height)</p>
+<p><code>getSize(id)</code> returns the size of texture <code>id</code>. (Two doubles, width, and height)</p>
 <blockquote>
 <p>Due to the Ae&apos;s downsample (1/2,1/4) mechanism, the size you get would variating 0~4px. But this kind of variating doesn&apos;t change with time. The size is promised to be accurate in full resolution(without downsample). </p>
 </blockquote>
@@ -1691,7 +1691,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <h2 id="cmd">cmd</h2>
 <p><code>cmd(code)</code> runs cmd code. </p>
 <blockquote>
-<p>This function is equivalent to the ISO C function system. It passes command to be executed by an operating system shell. Its first result is true if the command terminated successfully, or nil otherwise. After this first result the function returns a string plus a number, as follows:</p>
+<p>This function is equivalent to the ISO C function system. It passes a command to be executed by an operating system shell. Its first result is true if the command terminated successfully, or nil otherwise. After this first result the function returns a string plus a number, as follows:</p>
 <ul>
 <li>&quot;exit&quot;: the command terminated normally; the following number is the exit status of the command.</li>
 <li>&quot;signal&quot;: the command was terminated by a signal; the following number is the signal that terminated the command.</li>
@@ -1743,7 +1743,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-02-03T10:04:00.110Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-28T02:58:04.061Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-03-04T04:36:01.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T04:39:59.971Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

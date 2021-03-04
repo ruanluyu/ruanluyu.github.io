@@ -714,10 +714,10 @@
                                 <h1 id="physics-simulation">Physics simulation</h1>
 <hr>
 <blockquote>
-<p>The following gif is result of  <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">Chimera&apos;s Breath -by nimitz</a> running in PixelsWorld. <a href="https://youtu.be/OvohYJbnOvE" target="_blank">See full resolution video</a></p>
+<p>The following gif is a result of  <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">Chimera&apos;s Breath -by nimitz</a> running in PixelsWorld. <a href="https://youtu.be/OvohYJbnOvE" target="_blank">See full-resolution video</a></p>
 </blockquote>
 <p><img src="FluidSimSingleFrame.png" alt="fluidSingleFrame"></p>
-<p>You will learn how to cache data to local disc in this section. </p>
+<p>You will learn how to cache data to a local disc in this section. </p>
 <p><span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span></p>
 <blockquote>
 <ul>
@@ -742,45 +742,45 @@
 <li>Caculate <code>lastFrameId=frameId-1</code></li>
 <li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
 <li>Initialize data, go to 7</li>
-<li>Read data file saved by last frame, throw error if file not exists, go to 7 otherwise. </li>
+<li>Read the data file saved by the last frame, throw an error if the file not exists, go to 7 otherwise. </li>
 <li>Calculate data</li>
 <li>Save current data file to local. </li>
 </ol>
 <p>Operating logic: </p>
 <ol>
-<li>Put code satisfies above logic to PixelsWorld. </li>
-<li>Put the Time indicator to the first frame of current layer. </li>
+<li>Put code that satisfies the above logic to PixelsWorld. </li>
+<li>Put the Time indicator to the first frame of the current layer. </li>
 <li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot below)</li>
-<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in plugin panel. (This step is optional)</li>
-<li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in the plugin panel. (This step is optional)</li>
+<li>Press the Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
 </ol>
 <blockquote>
-<p>Note: If something goes wrong (errors, flickers, etc.), redo step 2~5. </p>
+<p>Note: If something goes wrong (errors, flickers, etc.), redo steps 2~5. </p>
 </blockquote>
 <p><img src="purge.png" alt="Purge"></p>
 <h2 id="cache-textures">Cache textures</h2>
 <p>Code logic: </p>
 <ol>
-<li>If downsampled(1/2, 1/4 render mode), throw error. </li>
+<li>If downsampled(1/2, 1/4 render mode), throw an error. </li>
 <li>Set cache path and cache name</li>
 <li>Caculate <code>frameId=time*fps</code></li>
 <li>Caculate <code>lastFrameId=frameId-1</code></li>
 <li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
 <li>Initialize texture, go to 7</li>
-<li>Read texture file saved by last frame, throw error if file not exists, go to 7 otherwise. </li>
+<li>Read texture file saved by the last frame, throw an error if file not exists, go to 7 otherwise. </li>
 <li>Render texture file</li>
-<li>Save current texture file to local. </li>
+<li>Save the current texture file to local. </li>
 </ol>
 <blockquote>
 <p>See <a href="Texture.html">Texture</a> section to learn how to work with texture. </p>
 </blockquote>
 <p>Operating logic: </p>
 <ol>
-<li>Put code satisfies above logic to PixelsWorld. </li>
+<li>Put code that satisfies the above logic to PixelsWorld. </li>
 <li>Change PixelsWorld settings <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32bit x RGBA (HDR)</code></li>
-<li>Put the Time indicator to the first frame of current layer. </li>
+<li>Put the Time indicator to the first frame of the current layer. </li>
 <li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot above)</li>
-<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in plugin panel. (This step is optional)</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in the plugin panel. (This step is optional)</li>
 <li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
 </ol>
 <h2 id="cache-data-example-the-three-body-problem">Cache data example: The three-body problem</h2>
@@ -1027,7 +1027,7 @@ void main(){
 ]==]</span>
 
 
-<span class="token comment">-- Put the last frame texture to PARAM0, so that you can read last frame texture via layer[0]</span>
+<span class="token comment">-- Put the last frame texture to PARAM0, so that you can read the last frame texture via layer[0]</span>
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexA<span class="token punctuation">)</span>
 
 
@@ -1106,7 +1106,7 @@ void main(){
     (Martin Guay, Fabrice Colin, Richard Egli)
     (https://hal.inria.fr/inria-00596050/document)
 
-    The actual simulation only requires one pass, Buffer A, B and C    are just copies 
+    The actual simulation only requires one pass, Buffer A, B and C are just copies 
     of each other to increase the simulation speed (3 simulation passes per frame)
     and Buffer D is drawing colors on the simulated fluid 
     (could be using particles instead in a real scenario)
@@ -1160,7 +1160,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     data.xy = max(vec2(0), abs(data.xy)-1e-4)*sign(data.xy); //linear velocity decay
 
     #ifdef USE_VORTICITY_CONFINEMENT
-       data.w = (tr.y - tl.y - tu.x + td.x);
+    data.w = (tr.y - tl.y - tu.x + td.x);
     vec2 vort = vec2(abs(tu.w) - abs(td.w), abs(tl.w) - abs(tr.w));
     vort *= VORTICITY_AMOUNT/length(vort + 1e-9)*data.w;
     data.xy += vort;
@@ -1352,7 +1352,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-02-02T12:14:42.666Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-28T02:58:04.061Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.7","depth":2,"next":{"title":"Poly function","level":"4.1.8","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2021-03-04T04:39:44.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T04:39:59.971Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
