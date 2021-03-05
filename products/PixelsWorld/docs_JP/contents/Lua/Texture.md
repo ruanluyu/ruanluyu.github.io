@@ -32,16 +32,16 @@ In PixelsWorld, every texture is represented as an integer. It is called `texId`
 |`...`|`PARAM...`|`...`|`...`|...|
 |`9`|`PARAM9`|`9`|`9`|Layer parameter 9 texture|
 
-> You can also create your own texId. The method will be covered below. 
+> You can also create your texId. The method will be covered below. 
 
 ## How they work
 
-Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the `INPUT` texId, writes result to `OUTPUT` texId. Finally blits all pixels to Ae. 
+Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the `INPUT` texId, writes the result to `OUTPUT` texId. Finally blits all pixels to Ae. 
 
 
 ## What is TEMP texId
 
-Because `OpenGL` doesn't support read and write to a same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only make sense in Lua mode and you called glsl function twice or more). You can use `getColor(PW_TEMP_LAYER,uv);` in glsl code to sample colors in TEMP texId. 
+Because `OpenGL` doesn't support read and write to the same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only makes sense in Lua mode and you called glsl function twice or more). You can use `getColor(PW_TEMP_LAYER,uv);` in glsl code to sample colors in TEMP texId. 
 
 
 ---
@@ -53,7 +53,7 @@ Use `newTex(width,height)` to create a texture. Returns a texId. (a random integ
 ## Delete texture
 
 Use `delTex(id)` to delete a texture. 
-> In most case, you don't have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. 
+> In most cases, you don't have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. 
 
 
 ## Size of texture
@@ -125,14 +125,14 @@ Use `blendTex(toTexId,fromTexId,blendRule)` to blend `fromTex` to `toTex` by rul
    - `A` menas input pixels of `toTexId`
    - `B` means input pixels of `fromTexId`
    - `C` means output pixels of `toTexId`
-E.g. you can specify your rule to blend `PARAM0` and `INPUT` together. 
+E.g. you can specify your rule to blend `PARAM0` and `INPUT`. 
 
 ```lua:blendRule.lua
 version3()
 castTex(OUTPUT,INPUT) -- Cast INPUT texture to OUTPUT firstly. 
 blendTex(OUTPUT,PARAM0,"C=A+B") -- Blend PARAM0 to OUTPUT. 
 ```
-Actually the `"C=A+B"` will be processed to following code inside PixelsWorld. 
+Indeed, the `"C=A+B"` will be processed to the following code inside PixelsWorld. 
 
 ```glsl:blendRuleGLSL.frag
 #version 330 core
@@ -177,7 +177,7 @@ Supported image specifications are listed below.
 |--|--|--|--|
 |PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
 |EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. |
-|RAW|(None)|MiLai original format.(See figure below)|RGBA,HDR 32bit floating point per channel. |
+|RAW|(None)|MiLai original format. (See figure below)|RGBA, HDR 32bit floating-point per channel. |
 
 ![MiLaiRAWDef](./milaiBinaryDef.png)
 
@@ -203,13 +203,13 @@ savePNG([[d:\test.png]],OUTPUT) -- Save OUTPUT as PNG to local disc. Replace to 
 ```
 
 > - Change `PNG` to `EXR` to read/write EXR file. 
-> - Some local path might need running Ae under the Administrator mode. 
+> - Some local paths might need running Ae under the Administrator mode. 
 
 ## Edit texture
 
 Use `rotateTex(texId,times)` to rotate texture `90*times`degrees, `rotateTex(texId)` equals to `rotateTex(texId,1)`
 
-Use `flipTex(texId,flipV)` to mirror flip a image. `flipV` is a boolean. When `flipV` is `true`, flip image vertically, and horizontally otherwise. 
+Use `flipTex(texId,flipV)` to mirror flip a image. `flipV` is a boolean. When `flipV` is `true`, flip the image vertically, and horizontally otherwise. 
 
 Use `resizeTex(texId,width,height)` to resize texture. 
 

@@ -17,7 +17,7 @@ This function has two versions: **getColor(vec2)** and **getColor(int ,vec2)**.
  - Get the color of **specified layer** in specified position. 
 
 **Parameters : **
-- int : layer id, -1 (or AE_INPUT_LAYER) means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (PW_TEMP_LAYER (which is -2) is provided in Lua render mode)
+- int: layer id, -1 (or AE_INPUT_LAYER) means inLayer, a number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (PW_TEMP_LAYER (which is -2) is provided in Lua render mode)
 - vec2 : uv coordinates.
 
 **Return : **

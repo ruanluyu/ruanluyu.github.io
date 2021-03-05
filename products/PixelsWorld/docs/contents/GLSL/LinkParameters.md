@@ -13,7 +13,7 @@ As you can see, there are 7 types of parameters are provided.
 - Colors
 - Layers
 
-Each of them have 10 controler for using. 
+Each of them has 10 controllers to use. 
 
 **Example :**
 ```glsl:link_slider.shader

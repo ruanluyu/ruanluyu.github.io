@@ -20,7 +20,7 @@ for i = 1,10 do
 end
 ```
 
-The result was wrong, because we cannot see the behind cubes. 
+The result was wrong because we cannot see the behind cubes. 
 
 We should adjust the render order (farthest to nearest) basing on the camera distance to obtain the right blending color. 
 

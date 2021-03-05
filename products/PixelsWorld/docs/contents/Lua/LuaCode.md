@@ -9,7 +9,7 @@ The instructions that we wrote in chapter 1 is called **Lua**
 
 > Note: Beginning `PixelsWorld v3.2.0`, using `Lua5.4`
 
-So Lua plays the roll that manages the communication between Ae and Users. It is quite similar to Ae script and expression language. Basically you can draw highly variant scene by remembering just a little words. For instance, if you want to draw a cube that can interact with Ae camera, just type: 
+So Lua plays the role that manages the communication between Ae and Users. It is quite similar to Ae script and expression language. Basically, you can draw highly variant scenes by remembering just a few words. For instance, if you want to draw a cube that can interact with Ae camera, just type: 
 
 ```lua:DrawCube.lua
 version3()
@@ -51,11 +51,11 @@ In Lua, you can :
 - Write pixels data
 - Run JavaScript
 - Run GLSL
-- Get paramters data
+- Get parameters data
 - Run outer C library **(COOL!)**
 - Load outer lua module
 
-Because of the advanced features, the users who using Lua render mode should have basic programming abilities and have a primary understanding about Lua language. If you have no idea about Lua, don't warry about it, it is pretty easy to learn. 
+Because of the advanced features, the users who using Lua render mode should have basic programming abilities and have a primary understanding of the Lua language. If you have no idea about Lua, don't worry about it, it is pretty easy to learn. 
 
 
 ## PixelsWorld structure

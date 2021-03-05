@@ -851,11 +851,11 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 </tbody>
 </table>
 <h2 id="the-structure-of-obj">The structure of obj</h2>
-<p>The obj struction is defined by following steps: </p>
+<p>The obj structure is defined by the following steps: </p>
 <ul>
 <li><code>obj</code> is a table. </li>
 <li><code>obj</code> contains 4 keys: <code>point</code>,<code>vertex</code>,<code>prim</code>,<code>detail</code>. </li>
-<li>The 4 keys in <code>obj</code> have their own value called <code>pointArray</code>,<code>vertexArray</code>,<code>primArray</code>,<code>detailList</code>. </li>
+<li>The 4 keys in <code>obj</code> have their value called <code>pointArray</code>, <code>vertexArray</code>, <code>primArray</code>, <code>detailList</code>. </li>
 <li><code>pointArray</code> is required. </li>
 <li><code>vertexArray</code> is optional. </li>
 <li><code>primArray</code> is required. </li>
@@ -864,8 +864,8 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <li>The kth sub-table of <code>pointArray</code> is called <code>point[k]</code> or <code>&quot;The kth point&quot;</code>. </li>
 <li>The kth sub-table of <code>vertexArray</code> is called <code>vertex[k]</code> or <code>&quot;The kth child-point&quot;</code>.</li>
 <li>The kth sub-table of <code>primArray</code> is called <code>prim[k]</code> or <code>&quot;The kth primitive&quot;</code>. </li>
-<li>The <code>detailList</code> and <code>Points, child-points, primitives</code>, has some unsubdividable units&#xFF1A;the Key-value pairs. We call these keys <code>K</code>, and values <code>V</code>.</li>
-<li><code>K</code> should only contains alphabets, numbers and underlines. And <code>K</code> shouldn&apos;t be all numbers. </li>
+<li>The <code>detailList</code> and <code>Points, child-points, primitives</code>, have some non-subdividable units&#xFF1A;the Key-value pairs. We call these keys <code>K</code>, and values <code>V</code>.</li>
+<li><code>K</code> should only contain alphabets, numbers, and underlines. And <code>K</code> shouldn&apos;t be all numbers. </li>
 <li><code>V</code> has 7 types: <code>1D</code>, <code>2D</code>, <code>3D</code>, <code>4D</code>, string, <code>texture id</code> and <code>index serial</code>. </li>
 <li>For all double floating numbers <code>x,y,z,w</code></li>
 <li><code>x</code> or <code>{x}</code> is <code>1D V</code>.</li>
@@ -873,10 +873,10 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <li><code>{x,y,z}</code> is <code>3D V</code>.</li>
 <li><code>{x,y,z,w}</code> is <code>4D V</code>.</li>
 <li><code>&quot;Hello! PixelsWorld!&quot;</code> is <code>string V</code>.</li>
-<li>When (<code>K</code> ends up with <code>&quot;_tex&quot;</code>) and (<code>V</code> is integer and the corresponding texture exists), it is <code>texture id V</code>.</li>
+<li>When (<code>K</code> ends up with <code>&quot;_tex&quot;</code>) and (<code>V</code> is an integer and the corresponding texture exists), it is <code>texture id V</code>.</li>
 <li>For integer serial <code>a1,...,an</code>,<code>{a1,a2,a3,...,an}</code> is <code>index serial V</code>.</li>
-<li>For all <code>point[k]</code>, there must be a <code>K</code> named <code>&quot;p&quot;</code> to represents the location, or it is a invalid point.</li>
-<li>For all <code>vertex[k]</code>, there must be a <code>K</code> named <code>&quot;pref&quot;</code> and its <code>V</code> is integer to represent the reference point id, or it is an invalid child-point.</li>
+<li>For all <code>point[k]</code>, there must be a <code>K</code> named <code>&quot;p&quot;</code> to represents the location, or it is an invalid point.</li>
+<li>For all <code>vertex[k]</code>, there must be a <code>K</code> named <code>&quot;pref&quot;</code> and its <code>V</code> is an integer to represent the reference point id, or it is an invalid child-point.</li>
 <li>For all <code>prim[k]</code>, there must be a <code>K</code> named <code>&quot;type&quot;</code> and its <code>V</code> is <code>string</code> to represents the type of the primitive. And there also must be a <code>K</code> named <code>&quot;vref&quot;</code>or <code>&quot;pref&quot;</code> and its <code>V</code> is <code>index serial</code> to represent the order of points drawing.</li>
 </ul>
 <h2 id="override-priority">Override priority</h2>
@@ -891,7 +891,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <li>detail</li>
 </ol>
 <p>Example: </p>
-<p>The following <code>obj</code>&apos;s <code>prim</code> contains color attribute (Red), So we will get a red triangle. </p>
+<p>The following <code>obj</code>&apos;s <code>prim</code> contains a color attribute (Red), So we will get a red triangle. </p>
 <p><img src="polyPrimColor.png" alt="PrimColor"></p>
 <div><p class="code-filename">PrimColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -911,7 +911,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
 <hr>
-<p>This time, both <code>prim</code> and <code>point</code> contains <code>color</code>, and because the priority of <code>point</code> is higher, so the color attribute in <code>point</code>will be used, then we will get a colorful triangle. </p>
+<p>This time, both <code>prim</code> and <code>point</code> contain <code>color</code>, and because the priority of <code>point</code> is higher, so the color attribute in <code>point</code> will be used, then we will get a colorful triangle. </p>
 <p><img src="polyPointColor.png" alt="PointColor"></p>
 <div><p class="code-filename">PointColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -961,9 +961,9 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 </code></pre>
 <blockquote>
 <ul>
-<li><code>pref</code> is used to defined which point to be referenced, the full name of <code>pref</code> is <code>Point reference</code>.</li>
+<li><code>pref</code> is used to define which point to be referenced, the full name of <code>pref</code> is <code>Point reference</code>.</li>
 <li>So the <code>vref</code> means <code>Vertex reference</code>.</li>
-<li>Note: The index in Lua starts from 1 not 0. </li>
+<li>Note: The index in Lua starts from 1, not 0. </li>
 </ul>
 </blockquote>
 <hr>
@@ -988,7 +988,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="extra-shader">Extra shader</h2>
-<p>Yes! You can even write shader in an obj. </p>
+<p>Yes! You can even write a shader to an obj. </p>
 <p><img src="polyVertexFragTest.png" alt="FragColorRes"></p>
 <div><p class="code-filename">FragColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1023,7 +1023,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <ul>
 <li>Here is an example of how to use uv texture. </li>
 <li>The integer that its key name ends up with <code>_tex</code> is treated as a texture id. </li>
-<li>Using an extra shader in a prim can handle more than one textures. </li>
+<li>Using an extra shader in a prim can handle more than one texture. </li>
 </ul>
 </blockquote>
 <div><p class="code-filename">UVTex.lua</p></div>
@@ -1082,7 +1082,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Poly function","level":"4.1.8","depth":2,"next":{"title":"Transparency render","level":"4.1.9","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"Physics simulation","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2020-09-22T07:05:02.512Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T14:16:11.916Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Poly function","level":"4.1.8","depth":2,"next":{"title":"Transparency render","level":"4.1.9","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"Physics simulation","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2021-03-05T14:25:27.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T14:49:31.748Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

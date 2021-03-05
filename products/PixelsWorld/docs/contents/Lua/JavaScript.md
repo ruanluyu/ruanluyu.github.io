@@ -12,4 +12,4 @@ version3()
 js("alert('Hello PixelsWorld!')");
 ```
 
-> Note: Due to the structure of Ae, running js code inside PixelsWorld is not recommended. You are supposed to use js to do some simple calculations basing on local variables. 
+> Note: Due to the structure of Ae, running js code inside PixelsWorld is not recommended. You are supposed to use js to do some simple calculations based on local variables. 

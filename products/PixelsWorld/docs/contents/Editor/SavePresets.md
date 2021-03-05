@@ -1,12 +1,12 @@
 # Preset management
 -------
 ## Save preset
-In [World formula editor](ScriptWindow.md),you can click the `Save as preset` button to save your code as a preset. 
-> Note: Same name brings overriding. 
+In [World formula editor](ScriptWindow.md), you can click the `Save as preset` button to save your code as a preset. 
+> Note: Identical name incurs overriding. 
 
 ## Override save
 
-In [World formula editor](ScriptWindow.md),click the `Save as preset` button, and type the existing name to override the previous preset. 
+In [World formula editor](ScriptWindow.md), click the `Save as preset` button, and type the existing name to override the previous preset. 
 
 > Note
 > - All operation in the editor is not undoable. 

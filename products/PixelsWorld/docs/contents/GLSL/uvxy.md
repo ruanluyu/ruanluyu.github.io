@@ -1,6 +1,6 @@
 #uv2xy,xy2uv
 ---
-This two functions can translate a vec2 between **UV Coordinate** and **XY Coordinate**.
+These two functions can translate a vec2 between **UV Coordinate** and **XY Coordinate**.
 It just do some multiplication and division for you. 
 ##uv2xy(vec2)
 **Description : **

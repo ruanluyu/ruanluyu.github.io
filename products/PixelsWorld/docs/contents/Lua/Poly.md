@@ -63,11 +63,11 @@ Assume`pref={1,2,3,4,5,6}`.
 
 ## The structure of obj
 
-The obj struction is defined by following steps: 
+The obj structure is defined by the following steps: 
 
 - `obj` is a table. 
 - `obj` contains 4 keys: `point`,`vertex`,`prim`,`detail`. 
-- The 4 keys in `obj` have their own value called `pointArray`,`vertexArray`,`primArray`,`detailList`. 
+- The 4 keys in `obj` have their value called `pointArray`, `vertexArray`, `primArray`, `detailList`. 
 - `pointArray` is required. 
 - `vertexArray` is optional. 
 - `primArray` is required. 
@@ -76,8 +76,8 @@ The obj struction is defined by following steps:
 - The kth sub-table of `pointArray` is called `point[k]` or `"The kth point"`. 
 - The kth sub-table of `vertexArray` is called `vertex[k]` or `"The kth child-point"`.
 - The kth sub-table of `primArray` is called `prim[k]` or `"The kth primitive"`. 
-- The `detailList` and `Points, child-points, primitives`, has some unsubdividable units：the Key-value pairs. We call these keys `K`, and values `V`.
-- `K` should only contains alphabets, numbers and underlines. And `K` shouldn't be all numbers. 
+- The `detailList` and `Points, child-points, primitives`, have some non-subdividable units：the Key-value pairs. We call these keys `K`, and values `V`.
+- `K` should only contain alphabets, numbers, and underlines. And `K` shouldn't be all numbers. 
 - `V` has 7 types: `1D`, `2D`, `3D`, `4D`, string, `texture id` and `index serial`. 
 - For all double floating numbers `x,y,z,w`
 - `x` or `{x}` is `1D V`.
@@ -85,10 +85,10 @@ The obj struction is defined by following steps:
 - `{x,y,z}` is `3D V`.
 - `{x,y,z,w}` is `4D V`.
 - `"Hello! PixelsWorld!"` is `string V`.
-- When (`K` ends up with `"_tex"`) and (`V` is integer and the corresponding texture exists), it is `texture id V`.
+- When (`K` ends up with `"_tex"`) and (`V` is an integer and the corresponding texture exists), it is `texture id V`.
 - For integer serial `a1,...,an`,`{a1,a2,a3,...,an}` is `index serial V`.
-- For all `point[k]`, there must be a `K` named `"p"` to represents the location, or it is a invalid point.
-- For all `vertex[k]`, there must be a `K` named `"pref"` and its `V` is integer to represent the reference point id, or it is an invalid child-point.
+- For all `point[k]`, there must be a `K` named `"p"` to represents the location, or it is an invalid point.
+- For all `vertex[k]`, there must be a `K` named `"pref"` and its `V` is an integer to represent the reference point id, or it is an invalid child-point.
 - For all `prim[k]`, there must be a `K` named `"type"` and its `V` is `string` to represents the type of the primitive. And there also must be a `K` named `"vref"`or `"pref"` and its `V` is `index serial` to represent the order of points drawing.
 
 ## Override priority
@@ -104,7 +104,7 @@ For same `K`, the following override priority is defined:
 
 Example: 
 
-The following `obj`'s `prim` contains color attribute (Red), So we will get a red triangle. 
+The following `obj`'s `prim` contains a color attribute (Red), So we will get a red triangle. 
 
 ![PrimColor](polyPrimColor.png)
 
@@ -128,7 +128,7 @@ poly(obj)
 
 ---
 
-This time, both `prim` and `point` contains `color`, and because the priority of `point` is higher, so the color attribute in `point`will be used, then we will get a colorful triangle. 
+This time, both `prim` and `point` contain `color`, and because the priority of `point` is higher, so the color attribute in `point` will be used, then we will get a colorful triangle. 
 
 ![PointColor](polyPointColor.png)
 ```lua:PointColor.lua
@@ -182,9 +182,9 @@ obj={
 poly(obj)
 ```
 
-> - `pref` is used to defined which point to be referenced, the full name of `pref` is `Point reference`.
+> - `pref` is used to define which point to be referenced, the full name of `pref` is `Point reference`.
 > - So the `vref` means `Vertex reference`.
-> - Note: The index in Lua starts from 1 not 0. 
+> - Note: The index in Lua starts from 1, not 0. 
 
 ---
 
@@ -214,7 +214,7 @@ poly(obj)
 
 ## Extra shader
 
-Yes! You can even write shader in an obj. 
+Yes! You can even write a shader to an obj. 
 
 ![FragColorRes](polyVertexFragTest.png)
 
@@ -251,7 +251,7 @@ poly(obj)
 
 > - Here is an example of how to use uv texture. 
 > - The integer that its key name ends up with `_tex` is treated as a texture id. 
-> - Using an extra shader in a prim can handle more than one textures. 
+> - Using an extra shader in a prim can handle more than one texture. 
 
 
 ```lua:UVTex.lua

@@ -795,19 +795,19 @@
 </tbody>
 </table>
 <blockquote>
-<p>You can also create your own texId. The method will be covered below. </p>
+<p>You can also create your texId. The method will be covered below. </p>
 </blockquote>
 <h2 id="how-they-work">How they work</h2>
-<p>Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the <code>INPUT</code> texId, writes result to <code>OUTPUT</code> texId. Finally blits all pixels to Ae. </p>
+<p>Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the <code>INPUT</code> texId, writes the result to <code>OUTPUT</code> texId. Finally blits all pixels to Ae. </p>
 <h2 id="what-is-temp-texid">What is TEMP texId</h2>
-<p>Because <code>OpenGL</code> doesn&apos;t support read and write to a same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only make sense in Lua mode and you called glsl function twice or more). You can use <code>getColor(PW_TEMP_LAYER,uv);</code> in glsl code to sample colors in TEMP texId. </p>
+<p>Because <code>OpenGL</code> doesn&apos;t support read and write to the same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only makes sense in Lua mode and you called glsl function twice or more). You can use <code>getColor(PW_TEMP_LAYER,uv);</code> in glsl code to sample colors in TEMP texId. </p>
 <hr>
 <h2 id="create-texture">Create texture</h2>
 <p>Use <code>newTex(width,height)</code> to create a texture. Returns a texId. (a random integer)</p>
 <h2 id="delete-texture">Delete texture</h2>
 <p>Use <code>delTex(id)</code> to delete a texture. </p>
 <blockquote>
-<p>In most case, you don&apos;t have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. </p>
+<p>In most cases, you don&apos;t have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. </p>
 </blockquote>
 <h2 id="size-of-texture">Size of texture</h2>
 <p>Use <code>getSize(id)</code> to get the size of a texture. </p>
@@ -862,7 +862,7 @@ w<span class="token punctuation">,</span>h <span class="token operator">=</span>
 <li><code>A</code> menas input pixels of <code>toTexId</code></li>
 <li><code>B</code> means input pixels of <code>fromTexId</code></li>
 <li><code>C</code> means output pixels of <code>toTexId</code>
-E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</code> together. </li>
+E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</code>. </li>
 </ul>
 </li>
 </ol>
@@ -871,7 +871,7 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
 <span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>INPUT<span class="token punctuation">)</span> <span class="token comment">-- Cast INPUT texture to OUTPUT firstly. </span>
 <span class="token function">blendTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>PARAM0<span class="token punctuation">,</span><span class="token string">&quot;C=A+B&quot;</span><span class="token punctuation">)</span> <span class="token comment">-- Blend PARAM0 to OUTPUT.</span>
 </code></pre>
-<p>Actually the <code>&quot;C=A+B&quot;</code> will be processed to following code inside PixelsWorld. </p>
+<p>Indeed, the <code>&quot;C=A+B&quot;</code> will be processed to the following code inside PixelsWorld. </p>
 <div><p class="code-filename">blendRuleGLSL.frag</p></div>
 <pre class="language-"><code class="lang-glsl"><span class="token preprocessor builtin">#version</span> <span class="token number">330</span> core
 <span class="token keyword">out</span> <span class="token keyword">vec4</span> outColor<span class="token punctuation">;</span>
@@ -925,8 +925,8 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
 <tr>
 <td>RAW</td>
 <td>(None)</td>
-<td>MiLai original format.(See figure below)</td>
-<td>RGBA,HDR 32bit floating point per channel.</td>
+<td>MiLai original format. (See figure below)</td>
+<td>RGBA, HDR 32bit floating-point per channel.</td>
 </tr>
 </tbody>
 </table>
@@ -952,12 +952,12 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
 <blockquote>
 <ul>
 <li>Change <code>PNG</code> to <code>EXR</code> to read/write EXR file. </li>
-<li>Some local path might need running Ae under the Administrator mode. </li>
+<li>Some local paths might need running Ae under the Administrator mode. </li>
 </ul>
 </blockquote>
 <h2 id="edit-texture">Edit texture</h2>
 <p>Use <code>rotateTex(texId,times)</code> to rotate texture <code>90*times</code>degrees, <code>rotateTex(texId)</code> equals to <code>rotateTex(texId,1)</code></p>
-<p>Use <code>flipTex(texId,flipV)</code> to mirror flip a image. <code>flipV</code> is a boolean. When <code>flipV</code> is <code>true</code>, flip image vertically, and horizontally otherwise. </p>
+<p>Use <code>flipTex(texId,flipV)</code> to mirror flip a image. <code>flipV</code> is a boolean. When <code>flipV</code> is <code>true</code>, flip the image vertically, and horizontally otherwise. </p>
 <p>Use <code>resizeTex(texId,width,height)</code> to resize texture. </p>
 <p>Use <code>trimTex(texId,p1x,p1y,p2x,p2y)</code> to trim texture. The origin of <code>p1x,p1y,p2x,p2y</code> is left top corner. </p>
 
@@ -994,7 +994,7 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Texture system","level":"4.1.6","depth":2,"next":{"title":"Physics simulation","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2021-01-24T14:09:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T14:16:11.916Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Texture system","level":"4.1.6","depth":2,"next":{"title":"Physics simulation","level":"4.1.7","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2021-03-05T14:30:27.035Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-05T14:49:31.748Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

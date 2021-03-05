@@ -1,9 +1,9 @@
 # Predifined code
 
-Before run shader code, PixelsWorld conbine your input with some predifined code to support some features. 
+Before run shader code, PixelsWorld combines your input with some predefined code to support some features. 
 
 - GLSL mode only has pre-define code. 
-- shadertoy mode has both pre-define and post-define code. 
+- shadertoy mode has both pre-define and post-define codes. 
 
 
 ## GLSL mode
