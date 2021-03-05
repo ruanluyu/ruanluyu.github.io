@@ -15,5 +15,6 @@
 
 > 比如在GLSL模式下的`slider[0]`将变成`_PixelsWorld_slider[0]`
 
+参考[这里](./predefined.md#shadertoy-mode)来了解所有全局变量的定义。
 
 当然在shadertoy模式下我们不推荐您自己定义带有**`_PixelsWorld_`**前缀的变量。

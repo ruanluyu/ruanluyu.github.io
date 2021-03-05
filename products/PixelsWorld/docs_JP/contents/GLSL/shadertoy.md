@@ -17,5 +17,6 @@ PixelsWorldの変数をこのモードで使いたいならば、**`_PixelsWorld
 
 > 例えば、GLSLモードの`slider[0]`　は　`_PixelsWorld_slider[0]`　になります。
 
+すべてのグローバル変数の定義は[このページ](./predefined.md#shadertoy-mode)に書かれているので、参考にしてください。
 
 **`_PixelsWorld_`**の付いた変数名の宣言はお勧めしません。

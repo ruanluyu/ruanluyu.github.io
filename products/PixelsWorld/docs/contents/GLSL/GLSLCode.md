@@ -13,26 +13,27 @@ We recommend [The book of shaders](https://thebookofshaders.com/)
 
 ### Advantage of GPU render
 
-If we treat CPU as a supercar, the GPU should be more like a bus. 
+If we treat the CPU as a supercar, the GPU should be more like a bus. 
 
 ![Metaphor](bus_vs_car.png)
 
-In the case we transport little people, like one or three, the supercar would be nice. (Handle single complicated calculation)
+In the case we transport a few people, one or three, a supercar is adequate. (Handle single complicated calculation)
 
-But when there are thousands of people need to be transported, it seems that the bus should be the right option. (Render thousands of data symultaneously)
+When it comes to thousands of people, a bus could be helpful. (Render thousands of data simultaneously)
 
-The language we are learning, like C/C++, Java, Python, almost are running on CPU.
+Languages like C/C++, Java, Python, etc., are almost designed to run on CPU.
 
-Languages like GLSL, is designed for GPU. 
+Languages like GLSL are designed for GPU. 
 
-When we are about to render a picture. GPU can distribute one repetitive task to a number of "workers". 
+When we want to render a picture. 
+GPU distributes your code to many "workers" to repetitively calculate the result for each pixel. 
 
 
-> If you want to learn more about GLSL, we recommand you to go to [shadertoy.com](https://www.shadertoy.com/), find some interesting arts and make out why this works. 
+> If you want to learn more about GLSL, we recommend you to go to [shadertoy.com](https://www.shadertoy.com/), find some interesting arts, and make out why this works. 
 
 ## Details
 
-Before the GLSL is sent to OpenGL, PixelsWorld will combine pre-defined and post-defined codes to support features of Ae. If you are beginner, you can ignore this section for the moment. 
+Before the GLSL is sent to OpenGL, PixelsWorld will combine pre-defined and post-defined codes to support features of Ae. If you are a beginner, you can ignore this section for the moment. 
 
 
 - **PixelsWorld V3.0.0** use **#version 330 core**. 
