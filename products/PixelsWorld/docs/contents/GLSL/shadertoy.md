@@ -1,4 +1,4 @@
-# Template Zone Sahdertoy
+# Template Zone Shadertoy
 ---
 ## Usage
 On the Shadertoy mode, you can run codes from [shadertoy.com](https://shadertoy.com). 
