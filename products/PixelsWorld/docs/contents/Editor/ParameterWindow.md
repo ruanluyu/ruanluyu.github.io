@@ -16,7 +16,9 @@ Type the labels into the first input area, the default values into the following
 `Reset all names` button resets all label names to default.
 
 `Reset values` button resets values.
-`Reset all value` button resets all values. 
+`Reset all value` button resets all values.
+
+> Notice: The ranges of the points and the 3d points are `0~1`. If the size of the layer is `1280x720`, `0.5, 0.5` of default point value means `640x360` in the plugin panel. 
 
 ## Encoding
 
