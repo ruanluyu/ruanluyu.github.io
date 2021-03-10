@@ -727,6 +727,314 @@
 </blockquote>
 <p>Refer to <a href="predefined.html#shadertoy-mode">this page</a> to learn more global definitions in the Shadertoy mode. </p>
 <p>It is not recommended to define your own <strong><code>_PixelsWorld_</code></strong> prefixed variables. </p>
+<h2 id="use-buffers">Use Buffers</h2>
+<p>Shadertoy has 4 Buffers (or iChannels), which can be also applied into PixelsWorld. </p>
+<h3 id="no-loop-ref-buffers">No-loop-ref Buffers</h3>
+<p>If the effect you want to apply doesn&apos;t involve loop references (like the bottom part of the figure above). Then the effect is &quot;no-loop-ref&quot;. You can apply the effect via the code template below. (Also need the Lua render mode)</p>
+<p>E.g.: An effect from <a href="https://www.shadertoy.com/view/4dVGRW" target="_blank">https://www.shadertoy.com/view/4dVGRW</a> </p>
+<ol>
+<li>This effect uses the <code>BufferA</code>, so <code>A</code> is set to <code>true</code> at the 4th line of the code below. </li>
+<li><code>BufferA</code> is bound to the <code>iChannel0</code> of the <code>Main</code> image. So <code>AtoMain</code> is set to <code>0</code> at the 15th line. </li>
+<li>Then, copy-paste the code of <code>BufferA</code> and <code>Main</code> to the corresponding variables. </li>
+<li>Finally, to make sure the result is right, set <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32 bit x RGBA (HDR)</code> to prevent PixelsWorld to clamp the value of the Alpha color channel. </li>
+<li>Also don&apos;t forget to check if the PixelsWorld is on the Lua render mode. </li>
+</ol>
+<div><p class="code-filename">rotatingCubes.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+enable <span class="token operator">=</span> <span class="token punctuation">{</span>
+    A<span class="token operator">=</span><span class="token keyword">true</span><span class="token punctuation">,</span>
+    B<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+    C<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+    D<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+
+    <span class="token comment">-- &apos;-1&apos;: disable</span>
+    <span class="token comment">-- &apos;0~3&apos;: which iChannel to set</span>
+
+    AtoB <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoC <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoMain <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+
+    BtoC <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    BtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    BtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+
+    CtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    CtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+
+    DtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+mainCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the main code here. 
+mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
+    vec3 rr = vec3(sin(roll), cos(roll), 0.0);
+    vec3 ww = normalize(target - origin);
+    vec3 uu = normalize(cross(ww, rr));
+    vec3 vv = normalize(cross(uu, ww));
+
+    return mat3(uu, vv, ww);
+  }
+
+  vec3 getRay(vec3 origin, vec3 target, vec2 screenPos, float lensLength) {
+    mat3 camMat = calcLookAtMatrix(origin, target, 0.0);
+    return normalize(camMat * vec3(screenPos, lensLength));
+  }
+
+  vec2 squareFrame(vec2 screenSize, vec2 coord) {
+    vec2 position = 2.0 * (coord.xy / screenSize.xy) - 1.0;
+    position.x *= screenSize.x / screenSize.y;
+    return position;
+  }
+
+  vec2 getDeltas(sampler2D buffer, vec2 uv) {
+    vec2 pixel = vec2(1. / iResolution.xy);
+    vec3 pole = vec3(-1, 0, +1);
+    float dpos = 0.0;
+    float dnor = 0.0;
+
+    vec4 s0 = texture(iChannel0, uv + pixel.xy * pole.xx); // x1, y1
+    vec4 s1 = texture(iChannel0, uv + pixel.xy * pole.yx); // x2, y1
+    vec4 s2 = texture(iChannel0, uv + pixel.xy * pole.zx); // x3, y1
+    vec4 s3 = texture(iChannel0, uv + pixel.xy * pole.xy); // x1, y2
+    vec4 s4 = texture(iChannel0, uv + pixel.xy * pole.yy); // x2, y2
+    vec4 s5 = texture(iChannel0, uv + pixel.xy * pole.zy); // x3, y2
+    vec4 s6 = texture(iChannel0, uv + pixel.xy * pole.xz); // x1, y3
+    vec4 s7 = texture(iChannel0, uv + pixel.xy * pole.yz); // x2, y3
+    vec4 s8 = texture(iChannel0, uv + pixel.xy * pole.zz); // x3, y3
+
+    dpos = (
+      abs(s1.a - s7.a) +
+      abs(s5.a - s3.a) +
+      abs(s0.a - s8.a) +
+      abs(s2.a - s6.a)
+    ) * 0.5;
+    dpos += (
+      max(0.0, 1.0 - dot(s1.rgb, s7.rgb)) +
+      max(0.0, 1.0 - dot(s5.rgb, s3.rgb)) +
+      max(0.0, 1.0 - dot(s0.rgb, s8.rgb)) +
+      max(0.0, 1.0 - dot(s2.rgb, s6.rgb))
+    );
+
+    dpos = pow(max(dpos - 0.5, 0.0), 5.0);
+
+    return vec2(dpos, dnor);
+  }
+
+  void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec3 ro = vec3(sin(iTime * 0.2), 1.5, cos(iTime * 0.2)) * 5.;
+    vec3 ta = vec3(0, 0, 0);
+    vec3 rd = getRay(ro, ta, squareFrame(iResolution.xy, fragCoord.xy), 2.0);
+    vec2 uv = fragCoord.xy / iResolution.xy;
+
+    vec4 buf = texture(iChannel0, fragCoord.xy / iResolution.xy);
+    float t = buf.a;
+    vec3 nor = buf.rgb;
+    vec3 pos = ro + rd * t;
+
+    vec3 col = vec3(0.5, 0.8, 1);
+    vec2 deltas = getDeltas(iChannel0, uv);
+    if (t &gt; -0.5) {
+      col = vec3(1.0);
+      col *= max(0.3, 0.3 + dot(nor, normalize(vec3(0, 1, 0.5))));
+      col *= vec3(1, 0.8, 0.35);
+    }
+    col.r = smoothstep(0.1, 1.0, col.r);
+    col.g = smoothstep(0.1, 1.1, col.g);
+    col.b = smoothstep(-0.1, 1.0, col.b);
+    col = pow(col, vec3(1.1));
+    col -= deltas.x - deltas.y;
+
+
+    fragColor = vec4(col, 1);
+  }
+]==]</span><span class="token punctuation">;</span>
+
+commonCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the common code here. 
+
+]==]</span>
+
+bufferACode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer A code here. 
+float sdBox( vec3 p, vec3 b ) {
+    vec3 d = abs(p) - b;
+    return min(max(d.x,max(d.y,d.z)),0.0) +
+           length(max(d,0.0));
+  }
+
+  vec2 mirror(vec2 p, float v) {
+    float hv = v * 0.5;
+    vec2  fl = mod(floor(p / v + 0.5), 2.0) * 2.0 - 1.0;
+    vec2  mp = mod(p + hv, v) - hv;
+
+    return fl * mp;
+  }
+
+  vec2 rotate2D(vec2 p, float a) {
+    return p * mat2(cos(a), -sin(a), sin(a),  cos(a));
+  }
+
+  float map(vec3 p) {
+    float r = iMouse.z &gt; 0.0 ? iMouse.x / 100.0 : iTime * 0.9;
+    p.xz = mirror(p.xz, 4.);
+    p.xz = rotate2D(p.xz, r);
+    float d = sdBox(p, vec3(1));
+    d = min(d, sdBox(p, vec3(0.1, 0.1, 3)));
+    d = min(d, sdBox(p, vec3(3, 0.1, 0.1)));
+    return d;
+  }
+
+  mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
+    vec3 rr = vec3(sin(roll), cos(roll), 0.0);
+    vec3 ww = normalize(target - origin);
+    vec3 uu = normalize(cross(ww, rr));
+    vec3 vv = normalize(cross(uu, ww));
+
+    return mat3(uu, vv, ww);
+  }
+
+  vec3 getRay(vec3 origin, vec3 target, vec2 screenPos, float lensLength) {
+    mat3 camMat = calcLookAtMatrix(origin, target, 0.0);
+    return normalize(camMat * vec3(screenPos, lensLength));
+  }
+
+  float calcRayIntersection(vec3 rayOrigin, vec3 rayDir, float maxd, float precis) {
+    float latest = precis * 2.0;
+    float dist   = +0.0;
+    float type   = -1.0;
+    float res    = -1.0;
+
+    for (int i = 0; i &lt; 30; i++) {
+      if (latest &lt; precis || dist &gt; maxd) break;
+
+      float result = map(rayOrigin + rayDir * dist);
+
+      latest = result;
+      dist  += latest;
+    }
+
+    if (dist &lt; maxd) {
+      res = dist;
+    }
+
+    return res;
+  }
+
+  vec2 squareFrame(vec2 screenSize, vec2 coord) {
+    vec2 position = 2.0 * (coord.xy / screenSize.xy) - 1.0;
+    position.x *= screenSize.x / screenSize.y;
+    return position;
+  }
+
+  vec3 calcNormal(vec3 pos, float eps) {
+    const vec3 v1 = vec3( 1.0,-1.0,-1.0);
+    const vec3 v2 = vec3(-1.0,-1.0, 1.0);
+    const vec3 v3 = vec3(-1.0, 1.0,-1.0);
+    const vec3 v4 = vec3( 1.0, 1.0, 1.0);
+
+    return normalize( v1 * map( pos + v1*eps ) +
+                      v2 * map( pos + v2*eps ) +
+                      v3 * map( pos + v3*eps ) +
+                      v4 * map( pos + v4*eps ) );
+  }
+
+  vec3 calcNormal(vec3 pos) {
+    return calcNormal(pos, 0.002);
+  }
+
+  void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec2 uv = squareFrame(iResolution.xy, fragCoord.xy);
+    vec3 ro = vec3(sin(iTime * 0.2), 1.5, cos(iTime * 0.2)) * 5.;
+    vec3 ta = vec3(0, 0, 0);
+    vec3 rd = getRay(ro, ta, uv, 2.0);
+
+    float t = calcRayIntersection(ro, rd, 20.0, 0.001);
+    vec3 pos = ro + rd * t;
+    vec3 nor = calcNormal(pos);
+
+    fragColor = vec4(nor, t);
+  }
+]==]</span><span class="token punctuation">;</span>
+
+bufferBCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer B code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+bufferCCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer C code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+bufferDCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer D code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- == WARNING WARNING WARNING WARNING WARNING == --</span>
+<span class="token comment">-- == Code below this line should not be modified. == --</span>
+
+<span class="token comment">-- Code By ZzStarSound </span>
+<span class="token comment">-- This preset code should only be used inside PixelsWorld. </span>
+<span class="token comment">-- Any abusing of the code is not permitted. </span>
+
+
+swapTexDet <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sch<span class="token punctuation">,</span>tch<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> sch <span class="token operator">==</span> <span class="token keyword">nil</span> <span class="token keyword">or</span> tch <span class="token operator">==</span> <span class="token keyword">nil</span> <span class="token keyword">then</span> <span class="token keyword">return</span> <span class="token keyword">end</span>
+    <span class="token keyword">if</span> sch <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token keyword">and</span> sch <span class="token operator">&lt;=</span> <span class="token number">3</span> <span class="token keyword">then</span>
+        <span class="token function">swapTex</span><span class="token punctuation">(</span>sch<span class="token punctuation">,</span>tch<span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>A <span class="token keyword">then</span> 
+    texA <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferACode<span class="token punctuation">)</span>
+    <span class="token function">swapTex</span><span class="token punctuation">(</span>texA<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>B <span class="token keyword">then</span>
+    texB <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoB<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferBCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoB<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>C <span class="token keyword">then</span>
+    texC <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoC<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoC<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferCCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoC<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoC<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>D <span class="token keyword">then</span>
+    texD <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoD<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoD<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoD<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferDCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoD<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoD<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoD<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoMain<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoMain<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoMain<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>DtoMain<span class="token punctuation">,</span>texD<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> mainCode<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoMain<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoMain<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoMain<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>DtoMain<span class="token punctuation">,</span>texD<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="loop-ref-buffer">Loop-ref Buffer</h3>
+<p>Um...We really don&apos;t recommend applying the Loop-ref Buffer. (But there still a way to do it. You should get ready to fight with Ae and PixelsWorld for a long night. <a href="../Lua/Simulation.html">I&apos;m ready to go&gt;&gt;&gt;</a>)</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -761,7 +1069,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Template Zone shadertoy","level":"4.3","depth":1,"next":{"title":"World Outskirts JavaScript","level":"4.4","depth":1,"path":"contents/Lua/JavaScript.md","ref":"contents/Lua/JavaScript.md","articles":[]},"previous":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/shadertoy.md","mtime":"2021-03-05T15:07:27.471Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-09T16:21:13.878Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Template Zone shadertoy","level":"4.3","depth":1,"next":{"title":"World Outskirts JavaScript","level":"4.4","depth":1,"path":"contents/Lua/JavaScript.md","ref":"contents/Lua/JavaScript.md","articles":[]},"previous":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/shadertoy.md","mtime":"2021-03-10T08:39:47.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-10T08:55:20.924Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
