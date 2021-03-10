@@ -301,6 +301,7 @@ if enable.B then
     swapTexDet(enable.AtoB,texA)
     shadertoy(commonCode .. bufferBCode)
     swapTexDet(enable.AtoB,texA)
+    swapTex(texB,OUTPUT)
 end
 
 if enable.C then
@@ -310,6 +311,7 @@ if enable.C then
     shadertoy(commonCode .. bufferCCode)
     swapTexDet(enable.AtoC,texA)
     swapTexDet(enable.BtoC,texB)
+    swapTex(texC,OUTPUT)
 end
 
 if enable.D then
@@ -321,6 +323,7 @@ if enable.D then
     swapTexDet(enable.AtoD,texA)
     swapTexDet(enable.BtoD,texB)
     swapTexDet(enable.CtoD,texC)
+    swapTex(texD,OUTPUT)
 end
 
 swapTexDet(enable.AtoMain,texA)
