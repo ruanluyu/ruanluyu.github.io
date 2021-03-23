@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <title>AAit
+    </title>
+</head>
+
+<body>
+    <h1>Download</h1>
+    <p>
+        <a href="AAit.aex" download>Download AAit.aex for win10, Ae CC2014+, multi-frame render support</a>
+    </p>
+    <p>AAit for MAC (Coming soon...)</p>
+
+    <br>
+
+    <h1>Usage</h1>
+
+    <img src="panel.png" alt="panel">
+    <p>If you apply AAit to a pixel-art image drawn with pixels bigger than 1x1, <br> change the "Pixel width/height" to the corresponding size. (e.g. 2x2) <br> Leave it to default otherwise.</p>
+
+    <p>"Area reference" is used to set Object ID info. See the figure below for more details. </p>
+
+    <p>Increase the "Edge threshold" to 10 or more if you are processing a colorful picture</p>
+
+
+
+
+    <h2>Apply AAit directly to anime drafts</h2>
+    <img src="ex1.png" alt="Anime drafts">
+    <br><br><br><br>
+    <img src="ex2.png" alt="Anime drafts"> <br><br><br><br>
+    <img src="ex3.png" alt="Anime drafts"> <br><br><br><br>
+    <h2>Apply AAit to 3DCG layer</h2>
+    <p>Note: Only the edge of the ObjectID is the valid AA area. If you want to AA the whole image, set "Area reference" to NONE and "Edge threshold" to 10</p>
+    <img src="ex4.png" alt="Anime drafts">
+
+    <h2>Apply AAit to posterized effects</h2>
+    <img src="ex5.png" alt="Anime drafts">
+
+    <h1>Details</h1>
+    <h2>No limitation Anti-aliasing</h2>
+    Since our AA algorithm is based on MLAA, not like FXAA or others, the length of the sawtooth-edge is unlimited.
+    <br>
+    <img src="ex6.png" alt="Anime drafts">
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
