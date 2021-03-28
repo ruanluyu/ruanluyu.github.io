@@ -14,6 +14,7 @@ This section gives a detailed introduction of Texture system in PixelsWorld.
 - [castTex](#cast-texture)
 - [blendTex](#blend-textures)
 - [copyTex](#copy-texture)
+- [fetchTex](#fetch-texture-at-any-time)
 - [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#texture-io)
 - [rotateTex,flipTex,resizeTex,trimTex](#edit-texture)
 
@@ -162,6 +163,13 @@ Same with `castTex`, `blendTex` also supports range specifying:
 ## Copy texture
 
 Use `copyTex(refTexId)` to copy texture. Returns new texId. 
+
+## Fetch texture at any time
+
+Use `fetchTex(layerId, time)` to obtain the specified layer pixels at the specified time. It returns a random texture ID. 
+
+> - Note: Use of this function would cause wrong caching. Please purge the chache while you are using this function. 
+> - New in `v3.4.3+`. 
 
 ## Texture IO
 

@@ -13,6 +13,7 @@
 - [castTex](#投射贴图)
 - [blendTex](#混合贴图)
 - [copyTex](#拷贝贴图)
+- [fetchTex](#获取任意时间图层像素)
 - [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#读取和保存贴图)
 - [rotateTex,flipTex,resizeTex,trimTex](#修整贴图)
 
@@ -156,6 +157,13 @@ void main(){
 ## 拷贝贴图
 
 使用`copyTex(refTexId)`来拷贝贴图，返回被拷贝的新贴图。
+
+## 获取任意时间图层像素
+
+使用`fetchTex(layerId, time)`来获取某时间下指定图层的贴图，返回抓取来的贴图id。
+
+> - 注意：使用这个函数可能会造成Ae的缓存错误，请时常清理缓存。
+> - `v3.4.3+`新增函数。
 
 ## 读取和保存贴图
 
