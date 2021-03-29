@@ -166,7 +166,10 @@ Use `copyTex(refTexId)` to copy texture. Returns new texId.
 
 ## Fetch texture at any time
 
-Use `fetchTex(layerId, time)` to obtain the specified layer pixels at the specified time. It returns a random texture ID. 
+Use `fetchTex(layerId, time)` to obtain the specified layer pixels at the specified time. It returns a random texture ID.
+
+- layerId: Only `PARAM0~PARAM9` are accepted. 
+- time: The double layer time in seconds. 
 
 > - Note: Use of this function would cause wrong caching. Please purge the chache while you are using this function. 
 > - New in `v3.4.3+`. 
