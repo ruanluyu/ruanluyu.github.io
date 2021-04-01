@@ -1,0 +1,132 @@
+.markdown-section {
+    padding: 20px 30px 500px;
+}
+
+code.lang-cmd,
+span.token.comment {
+    font-family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', '游ゴシック', '游ゴシック体', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ ゴシック', 'MS Gothic', HiraKakuProN-W3, 'TakaoExゴシック', TakaoExGothic, 'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: rgb(40, 40, 40);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.book-body {
+    background: rgb(30, 30, 30);
+    padding-bottom: 500px;
+}
+
+section.markdown-section,
+div.book-header {
+    background-color: rgb(30, 30, 30);
+}
+
+div.book-summary {
+    background-color: rgb(34, 34, 34);
+}
+
+section.markdown-section ul {
+    background-color: rgb(40, 40, 40);
+}
+
+section.markdown-section hr {
+    background-color: rgb(50, 50, 50);
+}
+
+section.markdown-section blockquote,
+.book-summary ul.summary li.active>a {
+    border-left: 4px solid rgb(19, 80, 121);
+    color: rgb(96, 163, 221)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+    color: rgb(212, 212, 212)
+}
+
+.markdown-section code {
+    background-color: rgb(40, 40, 40);
+    color: rgb(215, 186, 125);
+}
+
+p.code-filename {
+    background-color: rgb(40, 40, 40);
+    border-radius: 3px;
+}
+
+.book-summary ul.summary li a {
+    color: rgb(147, 157, 163)
+}
+
+.book-summary ul.summary li.header {
+    font-size: 110%;
+    color: rgb(212, 212, 212)
+}
+
+.markdown-section a {
+    color: rgb(96, 163, 221)
+}
+
+section.markdown-section blockquote {
+    background: rgb(40, 40, 40);
+}
+
+.markdown-section img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 0px;
+    max-width: 75%;
+}
+
+.markdown-section .fullscreen-logo img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.markdown-section table {
+    width: auto;
+    margin: auto;
+    margin-bottom: 17px;
+    color: rgb(212, 212, 212);
+    border: 1px solid rgb(117, 117, 117);
+}
+
+.markdown-section table tr {
+    background-color: rgb(40, 40, 40);
+    border: 1px solid rgb(117, 117, 117);
+}
+
+.markdown-section table td {
+    background-color: rgb(30, 30, 30);
+    border: 1px solid rgb(117, 117, 117);
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.katex {
+    color: rgb(212, 212, 212);
+}

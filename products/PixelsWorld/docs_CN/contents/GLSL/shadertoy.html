@@ -1,0 +1,1146 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>模板圣域shadertoy · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-monokai.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Lua/JavaScript.html" />
+    
+    
+    <link rel="prev" href="predefined.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1. 你好，像素世界！</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    成为创世神
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../HowTo.html">
+            
+                <a href="../HowTo.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    获得与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../gotoForum.html">
+            
+                <a href="../gotoForum.html">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    前往论坛
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2. 推荐教程</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://space.bilibili.com/564908/channel/detail?cid=157634">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    PixelsWorld官方中文教程汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://cloudwu.github.io/lua53doc/contents.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Lua 5.3手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://thebookofshaders.com/?lan=ch">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    着色器之书
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3. 面板说明</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../Editor/ScriptWindow.html">
+            
+                <a href="../Editor/ScriptWindow.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    世界法则编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../Editor/ParameterWindow.html">
+            
+                <a href="../Editor/ParameterWindow.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    参数编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../Editor/SavePresets.html">
+            
+                <a href="../Editor/SavePresets.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    预设管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4. 代码说明</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../Lua/LuaCode.html">
+            
+                <a href="../Lua/LuaCode.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    世界的中心Lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../Lua/RunLua.html">
+            
+                <a href="../Lua/RunLua.html">
+            
+                    
+                        <b>4.1.1.</b>
+                    
+                    运行Lua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../Lua/WriteLocalCode.html">
+            
+                <a href="../Lua/WriteLocalCode.html">
+            
+                    
+                        <b>4.1.2.</b>
+                    
+                    读取本地代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../Lua/LinkParameters.html">
+            
+                <a href="../Lua/LinkParameters.html">
+            
+                    
+                        <b>4.1.3.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../Lua/globals.html">
+            
+                <a href="../Lua/globals.html">
+            
+                    
+                        <b>4.1.4.</b>
+                    
+                    全局参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../Lua/FuncList.html">
+            
+                <a href="../Lua/FuncList.html">
+            
+                    
+                        <b>4.1.5.</b>
+                    
+                    函数列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../Lua/Texture.html">
+            
+                <a href="../Lua/Texture.html">
+            
+                    
+                        <b>4.1.6.</b>
+                    
+                    贴图系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../Lua/Simulation.html">
+            
+                <a href="../Lua/Simulation.html">
+            
+                    
+                        <b>4.1.7.</b>
+                    
+                    物理模拟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../Lua/Poly.html">
+            
+                <a href="../Lua/Poly.html">
+            
+                    
+                        <b>4.1.8.</b>
+                    
+                    Poly函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../Lua/TransparencyRender.html">
+            
+                <a href="../Lua/TransparencyRender.html">
+            
+                    
+                        <b>4.1.9.</b>
+                    
+                    透明渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../Lua/RunGLSL.html">
+            
+                <a href="../Lua/RunGLSL.html">
+            
+                    
+                        <b>4.1.10.</b>
+                    
+                    在Lua中运行GLSL 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="GLSLCode.html">
+            
+                <a href="GLSLCode.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    显卡狂战士GLSL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="RunGLSL.html">
+            
+                <a href="RunGLSL.html">
+            
+                    
+                        <b>4.2.1.</b>
+                    
+                    运行GLSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="GetStart.html">
+            
+                <a href="GetStart.html">
+            
+                    
+                        <b>4.2.2.</b>
+                    
+                    快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="Functions.html">
+            
+                <a href="Functions.html">
+            
+                    
+                        <b>4.2.3.</b>
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.3.1" data-path="getColor.html">
+            
+                <a href="getColor.html">
+            
+                    
+                        <b>4.2.3.1.</b>
+                    
+                    getColor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3.2" data-path="uvxy.html">
+            
+                <a href="uvxy.html">
+            
+                    
+                        <b>4.2.3.2.</b>
+                    
+                    uv2xy,xy2uv
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="LinkParameters.html">
+            
+                <a href="LinkParameters.html">
+            
+                    
+                        <b>4.2.4.</b>
+                    
+                    链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="debug.html">
+            
+                <a href="debug.html">
+            
+                    
+                        <b>4.2.5.</b>
+                    
+                    调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="Advanced_settings.html">
+            
+                <a href="Advanced_settings.html">
+            
+                    
+                        <b>4.2.6.</b>
+                    
+                    高级设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="predefined.html">
+            
+                <a href="predefined.html">
+            
+                    
+                        <b>4.2.7.</b>
+                    
+                    预定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="shadertoy.html">
+            
+                <a href="shadertoy.html">
+            
+                    
+                        <b>4.3.</b>
+                    
+                    模板圣域shadertoy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../Lua/JavaScript.html">
+            
+                <a href="../Lua/JavaScript.html">
+            
+                    
+                        <b>4.4.</b>
+                    
+                    世界的郊区JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../Lua/CMDCode.html">
+            
+                <a href="../Lua/CMDCode.html">
+            
+                    
+                        <b>4.5.</b>
+                    
+                    世界的基盘CMD指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5. 序列号注意事项</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../Serial/SerialAttention.html">
+            
+                <a href="../Serial/SerialAttention.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    序列号使用约定
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6. 答疑</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../QA/EntryPointErr.html">
+            
+                <a href="../QA/EntryPointErr.html">
+            
+                    
+                        <b>6.1.</b>
+                    
+                    报错Couldn't find main entry point for PixelsWorld.aex (48::72)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >模板圣域shadertoy</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6A21;&#x677F;&#x5723;&#x57DF;shadertoy">&#x6A21;&#x677F;&#x5723;&#x57DF;shadertoy</h1>
+<hr>
+<h2 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h2>
+<p>&#x5728;&#x6B64;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6765;&#x81EA; <a href="https://shadertoy.com" target="_blank">shadertoy.com</a>&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p><img src="shadertoyMode.png" alt="shadertoyMode"></p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong> <br>&#x5E76;&#x975E;&#x6240;&#x6709;&#x6765;&#x81EA; shadertoy.com&#x7684;&#x4EE3;&#x7801;&#x5747;&#x53EF;&#x5728;PixelsWorld&#x4E0B;&#x5B8C;&#x7F8E;&#x8FD0;&#x884C; (&#x6BD4;&#x5982;&#x5E26;&#x6709;&#x97F3;&#x9891;&#x8F93;&#x5165;&#x3001;&#x9700;&#x8981;VR&#x652F;&#x6301;&#x548C;&#x542B;&#x6709;&#x5FAA;&#x73AF;Buffer&#x5F15;&#x7528;&#x7684;&#x4EE3;&#x7801;)</p>
+</blockquote>
+<p><img src="loopbuffer.png" alt="loopRef"></p>
+<h2 id="&#x7EC6;&#x8282;">&#x7EC6;&#x8282;</h2>
+<p>&#x5982;&#x679C;&#x60A8;&#x60F3;&#x5728;shadertoy&#x6A21;&#x5F0F;&#x4E0B;&#x81EA;&#x6709;&#x8C03;&#x7528;&#x53C2;&#x6570;&#x9762;&#x677F;&#xFF0C;&#x8BF7;&#x628A;&#x6240;&#x6709;GLSL&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x53D8;&#x91CF;&#x52A0;&#x4E0A;<strong><code>_PixelsWorld_</code></strong>&#x524D;&#x7F00;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x3002;</p>
+<blockquote>
+<p>&#x6BD4;&#x5982;&#x5728;GLSL&#x6A21;&#x5F0F;&#x4E0B;&#x7684;<code>slider[0]</code>&#x5C06;&#x53D8;&#x6210;<code>_PixelsWorld_slider[0]</code></p>
+</blockquote>
+<p>&#x53C2;&#x8003;<a href="predefined.html#shadertoy-mode">&#x8FD9;&#x91CC;</a>&#x6765;&#x4E86;&#x89E3;&#x6240;&#x6709;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#x5728;shadertoy&#x6A21;&#x5F0F;&#x4E0B;&#x6211;&#x4EEC;&#x4E0D;&#x63A8;&#x8350;&#x60A8;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x5E26;&#x6709;<strong><code>_PixelsWorld_</code></strong>&#x524D;&#x7F00;&#x7684;&#x53D8;&#x91CF;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;buffers">&#x4F7F;&#x7528;Buffers</h2>
+<p>Shadertoy&#x81EA;&#x5E26;4&#x4E2A;Buffers&#xFF0C;&#x5728;PixelsWorld&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;Buffers&#x3002;</p>
+<h3 id="&#x975E;&#x5FAA;&#x73AF;&#x5F0F;buffers">&#x975E;&#x5FAA;&#x73AF;&#x5F0F;Buffers</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x662F;&#x7528;&#x7684;&#x7279;&#x6548;&#x6CA1;&#x6709;&#x5FAA;&#x73AF;Buffers&#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x8C03;&#x7528;&#xFF08;&#x5982;&#x4E0A;&#x56FE;&#x7684;&#x4E0B;&#x534A;&#x90E8;&#x5206;&#xFF09;&#x3002;&#x90A3;&#x4E48;&#x4F60;&#x7684;&#x7279;&#x6548;&#x4E2D;&#x7684;Buffers&#x5C5E;&#x4E8E;&#x975E;&#x5FAA;&#x73AF;&#x5F0F;Buffers&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6A21;&#x677F;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x9700;&#x8981;&#x5207;&#x6362;&#x5230;Lua&#x6A21;&#x5F0F;&#xFF09;&#x3002; </p>
+<p>&#x4F8B;&#x5982;&#x6765;&#x81EA;&#xFF1A;<a href="https://www.shadertoy.com/view/4dVGRW" target="_blank">https://www.shadertoy.com/view/4dVGRW</a> &#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<ol>
+<li>&#x8FD9;&#x4E2A;&#x6548;&#x679C;&#x4F7F;&#x7528;&#x4E86;<code>BufferA</code>&#xFF0C;&#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x7B2C;&#x56DB;&#x884C;&#x628A;<code>A</code>&#x8BBE;&#x4E3A;&#x4E86;<code>true</code>&#x3002;</li>
+<li><code>BufferA</code>&#x5728;&#x6700;&#x7EC8;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;<code>Main</code>&#x56FE;&#x50CF;&#x7684;<code>iChannel0</code>&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x5728;15&#x884C;&#x628A;<code>AtoMain</code>&#x8BBE;&#x4E3A;<code>0</code>&#x3002;</li>
+<li>&#x7136;&#x540E;&#xFF0C;&#x628A;<code>BufferA</code>&#x548C;<code>Main</code>&#x7684;&#x4EE3;&#x7801;&#x5206;&#x522B;&#x590D;&#x5236;&#x5230;&#x76F8;&#x5E94;&#x53D8;&#x91CF;&#x4E0A;&#x5373;&#x53EF;&#x3002;</li>
+<li>&#x6700;&#x540E;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x6B63;&#x786E;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5C06;&#x63D2;&#x4EF6;&#x9762;&#x677F;&#x4E0A;&#x7684;<code>Advanced-&gt;Internal texture format</code>&#x8BBE;&#x4E3A;<code>Floating point 32 bit x RGBA (HDR)</code>&#x6765;&#x963B;&#x6B62;PixelsWorld&#x5728;&#x5185;&#x90E8;&#x524A;&#x5E73;Alpha&#x901A;&#x9053;&#x7684;&#x6570;&#x503C;&#x3002;</li>
+<li>&#x786E;&#x4FDD;&#x4F60;&#x5728;Lua&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x4E0B;&#x3002;</li>
+</ol>
+<div><p class="code-filename">rotatingCubes.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+enable <span class="token operator">=</span> <span class="token punctuation">{</span>
+    A<span class="token operator">=</span><span class="token keyword">true</span><span class="token punctuation">,</span>
+    B<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+    C<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+    D<span class="token operator">=</span><span class="token keyword">false</span><span class="token punctuation">,</span>
+
+    <span class="token comment">-- &apos;-1&apos;: disable</span>
+    <span class="token comment">-- &apos;0~3&apos;: which iChannel to set</span>
+
+    AtoB <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoC <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    AtoMain <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+
+    BtoC <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    BtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    BtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+
+    CtoD <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    CtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+
+    DtoMain <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+mainCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the main code here. 
+mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
+    vec3 rr = vec3(sin(roll), cos(roll), 0.0);
+    vec3 ww = normalize(target - origin);
+    vec3 uu = normalize(cross(ww, rr));
+    vec3 vv = normalize(cross(uu, ww));
+
+    return mat3(uu, vv, ww);
+  }
+
+  vec3 getRay(vec3 origin, vec3 target, vec2 screenPos, float lensLength) {
+    mat3 camMat = calcLookAtMatrix(origin, target, 0.0);
+    return normalize(camMat * vec3(screenPos, lensLength));
+  }
+
+  vec2 squareFrame(vec2 screenSize, vec2 coord) {
+    vec2 position = 2.0 * (coord.xy / screenSize.xy) - 1.0;
+    position.x *= screenSize.x / screenSize.y;
+    return position;
+  }
+
+  vec2 getDeltas(sampler2D buffer, vec2 uv) {
+    vec2 pixel = vec2(1. / iResolution.xy);
+    vec3 pole = vec3(-1, 0, +1);
+    float dpos = 0.0;
+    float dnor = 0.0;
+
+    vec4 s0 = texture(iChannel0, uv + pixel.xy * pole.xx); // x1, y1
+    vec4 s1 = texture(iChannel0, uv + pixel.xy * pole.yx); // x2, y1
+    vec4 s2 = texture(iChannel0, uv + pixel.xy * pole.zx); // x3, y1
+    vec4 s3 = texture(iChannel0, uv + pixel.xy * pole.xy); // x1, y2
+    vec4 s4 = texture(iChannel0, uv + pixel.xy * pole.yy); // x2, y2
+    vec4 s5 = texture(iChannel0, uv + pixel.xy * pole.zy); // x3, y2
+    vec4 s6 = texture(iChannel0, uv + pixel.xy * pole.xz); // x1, y3
+    vec4 s7 = texture(iChannel0, uv + pixel.xy * pole.yz); // x2, y3
+    vec4 s8 = texture(iChannel0, uv + pixel.xy * pole.zz); // x3, y3
+
+    dpos = (
+      abs(s1.a - s7.a) +
+      abs(s5.a - s3.a) +
+      abs(s0.a - s8.a) +
+      abs(s2.a - s6.a)
+    ) * 0.5;
+    dpos += (
+      max(0.0, 1.0 - dot(s1.rgb, s7.rgb)) +
+      max(0.0, 1.0 - dot(s5.rgb, s3.rgb)) +
+      max(0.0, 1.0 - dot(s0.rgb, s8.rgb)) +
+      max(0.0, 1.0 - dot(s2.rgb, s6.rgb))
+    );
+
+    dpos = pow(max(dpos - 0.5, 0.0), 5.0);
+
+    return vec2(dpos, dnor);
+  }
+
+  void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec3 ro = vec3(sin(iTime * 0.2), 1.5, cos(iTime * 0.2)) * 5.;
+    vec3 ta = vec3(0, 0, 0);
+    vec3 rd = getRay(ro, ta, squareFrame(iResolution.xy, fragCoord.xy), 2.0);
+    vec2 uv = fragCoord.xy / iResolution.xy;
+
+    vec4 buf = texture(iChannel0, fragCoord.xy / iResolution.xy);
+    float t = buf.a;
+    vec3 nor = buf.rgb;
+    vec3 pos = ro + rd * t;
+
+    vec3 col = vec3(0.5, 0.8, 1);
+    vec2 deltas = getDeltas(iChannel0, uv);
+    if (t &gt; -0.5) {
+      col = vec3(1.0);
+      col *= max(0.3, 0.3 + dot(nor, normalize(vec3(0, 1, 0.5))));
+      col *= vec3(1, 0.8, 0.35);
+    }
+    col.r = smoothstep(0.1, 1.0, col.r);
+    col.g = smoothstep(0.1, 1.1, col.g);
+    col.b = smoothstep(-0.1, 1.0, col.b);
+    col = pow(col, vec3(1.1));
+    col -= deltas.x - deltas.y;
+
+
+    fragColor = vec4(col, 1);
+  }
+]==]</span><span class="token punctuation">;</span>
+
+commonCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the common code here. 
+
+]==]</span>
+
+bufferACode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer A code here. 
+float sdBox( vec3 p, vec3 b ) {
+    vec3 d = abs(p) - b;
+    return min(max(d.x,max(d.y,d.z)),0.0) +
+           length(max(d,0.0));
+  }
+
+  vec2 mirror(vec2 p, float v) {
+    float hv = v * 0.5;
+    vec2  fl = mod(floor(p / v + 0.5), 2.0) * 2.0 - 1.0;
+    vec2  mp = mod(p + hv, v) - hv;
+
+    return fl * mp;
+  }
+
+  vec2 rotate2D(vec2 p, float a) {
+    return p * mat2(cos(a), -sin(a), sin(a),  cos(a));
+  }
+
+  float map(vec3 p) {
+    float r = iMouse.z &gt; 0.0 ? iMouse.x / 100.0 : iTime * 0.9;
+    p.xz = mirror(p.xz, 4.);
+    p.xz = rotate2D(p.xz, r);
+    float d = sdBox(p, vec3(1));
+    d = min(d, sdBox(p, vec3(0.1, 0.1, 3)));
+    d = min(d, sdBox(p, vec3(3, 0.1, 0.1)));
+    return d;
+  }
+
+  mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
+    vec3 rr = vec3(sin(roll), cos(roll), 0.0);
+    vec3 ww = normalize(target - origin);
+    vec3 uu = normalize(cross(ww, rr));
+    vec3 vv = normalize(cross(uu, ww));
+
+    return mat3(uu, vv, ww);
+  }
+
+  vec3 getRay(vec3 origin, vec3 target, vec2 screenPos, float lensLength) {
+    mat3 camMat = calcLookAtMatrix(origin, target, 0.0);
+    return normalize(camMat * vec3(screenPos, lensLength));
+  }
+
+  float calcRayIntersection(vec3 rayOrigin, vec3 rayDir, float maxd, float precis) {
+    float latest = precis * 2.0;
+    float dist   = +0.0;
+    float type   = -1.0;
+    float res    = -1.0;
+
+    for (int i = 0; i &lt; 30; i++) {
+      if (latest &lt; precis || dist &gt; maxd) break;
+
+      float result = map(rayOrigin + rayDir * dist);
+
+      latest = result;
+      dist  += latest;
+    }
+
+    if (dist &lt; maxd) {
+      res = dist;
+    }
+
+    return res;
+  }
+
+  vec2 squareFrame(vec2 screenSize, vec2 coord) {
+    vec2 position = 2.0 * (coord.xy / screenSize.xy) - 1.0;
+    position.x *= screenSize.x / screenSize.y;
+    return position;
+  }
+
+  vec3 calcNormal(vec3 pos, float eps) {
+    const vec3 v1 = vec3( 1.0,-1.0,-1.0);
+    const vec3 v2 = vec3(-1.0,-1.0, 1.0);
+    const vec3 v3 = vec3(-1.0, 1.0,-1.0);
+    const vec3 v4 = vec3( 1.0, 1.0, 1.0);
+
+    return normalize( v1 * map( pos + v1*eps ) +
+                      v2 * map( pos + v2*eps ) +
+                      v3 * map( pos + v3*eps ) +
+                      v4 * map( pos + v4*eps ) );
+  }
+
+  vec3 calcNormal(vec3 pos) {
+    return calcNormal(pos, 0.002);
+  }
+
+  void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec2 uv = squareFrame(iResolution.xy, fragCoord.xy);
+    vec3 ro = vec3(sin(iTime * 0.2), 1.5, cos(iTime * 0.2)) * 5.;
+    vec3 ta = vec3(0, 0, 0);
+    vec3 rd = getRay(ro, ta, uv, 2.0);
+
+    float t = calcRayIntersection(ro, rd, 20.0, 0.001);
+    vec3 pos = ro + rd * t;
+    vec3 nor = calcNormal(pos);
+
+    fragColor = vec4(nor, t);
+  }
+]==]</span><span class="token punctuation">;</span>
+
+bufferBCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer B code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+bufferCCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer C code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+bufferDCode <span class="token operator">=</span> <span class="token string">[==[
+// Paste the Buffer D code here. 
+
+]==]</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- == WARNING WARNING WARNING WARNING WARNING == --</span>
+<span class="token comment">-- == Code below this line should not be modified. == --</span>
+
+<span class="token comment">-- Code By ZzStarSound </span>
+<span class="token comment">-- This preset code should only be used inside PixelsWorld. </span>
+<span class="token comment">-- Any abusing of the code is not permitted. </span>
+
+
+swapTexDet <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>sch<span class="token punctuation">,</span>tch<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> sch <span class="token operator">==</span> <span class="token keyword">nil</span> <span class="token keyword">or</span> tch <span class="token operator">==</span> <span class="token keyword">nil</span> <span class="token keyword">then</span> <span class="token keyword">return</span> <span class="token keyword">end</span>
+    <span class="token keyword">if</span> sch <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token keyword">and</span> sch <span class="token operator">&lt;=</span> <span class="token number">3</span> <span class="token keyword">then</span>
+        <span class="token function">swapTex</span><span class="token punctuation">(</span>sch<span class="token punctuation">,</span>tch<span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>A <span class="token keyword">then</span> 
+    texA <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferACode<span class="token punctuation">)</span>
+    <span class="token function">swapTex</span><span class="token punctuation">(</span>texA<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>B <span class="token keyword">then</span>
+    texB <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoB<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferBCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoB<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTex</span><span class="token punctuation">(</span>texB<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>C <span class="token keyword">then</span>
+    texC <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoC<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoC<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferCCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoC<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoC<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">swapTex</span><span class="token punctuation">(</span>texC<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">if</span> enable<span class="token punctuation">.</span>D <span class="token keyword">then</span>
+    texD <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoD<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoD<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoD<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+    <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferDCode<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoD<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoD<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+    <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoD<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+    <span class="token function">swapTex</span><span class="token punctuation">(</span>texD<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoMain<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoMain<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoMain<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>DtoMain<span class="token punctuation">,</span>texD<span class="token punctuation">)</span>
+<span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> mainCode<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>AtoMain<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>BtoMain<span class="token punctuation">,</span>texB<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoMain<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
+<span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>DtoMain<span class="token punctuation">,</span>texD<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="&#x5FAA;&#x73AF;&#x5F0F;buffer">&#x5FAA;&#x73AF;&#x5F0F;Buffer</h3>
+<p>&#x55EF;...&#x5982;&#x679C;&#x4F60;&#x60F3;&#x7528;&#x7684;&#x6548;&#x679C;&#x662F;&#x5FAA;&#x73AF;Buffer&#xFF0C;&#x6211;&#x4EEC;&#x5341;&#x5206;&#x4E0D;&#x63A8;&#x8350;&#x5728;PixelsWorld&#x4E2D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;&#xFF08;&#x4E0D;&#x8FC7;&#x8FD9;&#x4F9D;&#x7136;&#x662F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x505A;&#x597D;&#x8DDF;Ae&#x53CA;PixelsWorld&#x82E6;&#x6597;&#x4E00;&#x591C;&#x7684;&#x51C6;&#x5907;&#xFF0C;<a href="../Lua/Simulation.html">&#x6211;&#x51C6;&#x5907;&#x597D;&#x4E86;&gt;&gt;&gt;</a>&#xFF09;</p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"模板圣域shadertoy","level":"4.3","depth":1,"next":{"title":"世界的郊区JavaScript","level":"4.4","depth":1,"path":"contents/Lua/JavaScript.md","ref":"contents/Lua/JavaScript.md","articles":[]},"previous":{"title":"预定义","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/shadertoy.md","mtime":"2021-03-10T10:41:07.040Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T14:43:49.659Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
