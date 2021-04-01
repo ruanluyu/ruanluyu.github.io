@@ -210,7 +210,7 @@ pw3.println("Hello PixelsWorld! ")
 
 `print(str)`,`print(str,brightness)`,`print(str,r,g,b)`,`print(str,r,g,b,a)` prints message to the left top corner of your scene. 
 
-![result_of_below](funcex/ex0001.png)
+![result_of_below](funcex/output_00001.png)
 
 ```lua:print.lua
 version3()
@@ -227,7 +227,7 @@ end
 
 `println(str)`,`println(str,brightness)`,`println(str,r,g,b)`,`println(str,r,g,b,a)` prints message to the left top corner of your scene, this function adds `\n` in the end of input string. 
 
-![result_of_below](funcex/ex0002.png)
+![result_of_below](funcex/output_00002.png)
 
 ```lua:println.lua
 version3()
@@ -245,7 +245,7 @@ end
 
 `alert(str)` prints **caution** message, equals to `println(str,1,1,0,1)`
 
-![result_of_below](funcex/ex0003.png)
+![result_of_below](funcex/output_00003.png)
 
 ```lua:alert.lua
 version3()
@@ -260,8 +260,8 @@ alert("Warning: Write your message here! ")
 
 Example: 
 
-![result_of_below](funcex/ex0004.png)
-![result_of_below](funcex/ex0005.png)
+![result_of_below](funcex/output_00004.png)
+![result_of_below](funcex/output_00005.png)
 
 ```lua:move.md
 version3()
@@ -280,7 +280,7 @@ Finally, the Paintbrush is located at `(100,100,0)`.
 > All transforms are done basing on the Paintbrush coordinate. 
 
 
-![result_of_below](funcex/ex0006.png)
+![result_of_below](funcex/output_00006.png)
 
 ```lua:scale.lua
 version3()
@@ -290,7 +290,7 @@ rect(50,25)
 ```
 --- 
 
-![result_of_below](funcex/ex0007.png)
+![result_of_below](funcex/output_00007.png)
 
 ```lua:no_scale.lua
 version3()
@@ -309,7 +309,7 @@ rect(50,25)
 > - If you are not familiar with radians, use `d2r(degree)` to convert a degree to a radian. For example：`rotate(d2r(90))` means rotate 90 degrees. 
 
 
-![result_of_below](funcex/ex0008.png)
+![result_of_below](funcex/output_00008.png)
 
 ```lua:rotate_degree.lua
 version3()
@@ -318,7 +318,7 @@ rotate(d2r(45))
 rect(50,25)
 ```
 ---
-![result_of_below](funcex/ex0008.png)
+![result_of_below](funcex/output_00008.png)
 
 ```lua:rotate_radian.lua
 version3()
@@ -327,7 +327,7 @@ rotate(PI/4)
 rect(50,25)
 ```
 ---
-![result_of_below](funcex/ex0009.png)
+![result_of_below](funcex/output_00009.png)
 
 ```lua:rotateX.lua
 version3()
@@ -340,7 +340,7 @@ cube(50,25,10)
 ```
 ---
 
-![result_of_below](funcex/ex0010.png)
+![result_of_below](funcex/output_00010.png)
 
 ```lua:rotateY.lua
 version3()
@@ -354,7 +354,7 @@ cube(50,25,10)
 
 ---
 
-![result_of_below](funcex/ex0011.png)
+![result_of_below](funcex/output_00011.png)
 
 ```lua:rotateZ.lua
 version3()
@@ -373,7 +373,7 @@ cube(50,25,10)
 > - `twirl` is an matrix implementation of quaternion rotation. 
 
 
-![result_of_below](funcex/ex0012.png)
+![result_of_below](funcex/output_00012.png)
 
 ```lua:twirl.lua
 version3()
@@ -398,7 +398,7 @@ cube(50,25,10)
 Example: The following two code are equivalent. 
 
 
-![result_of_below](funcex/ex0013.png)
+![result_of_below](funcex/output_00013.png)
 
 ```lua:group.lua
 version3()
@@ -412,7 +412,7 @@ end
 ```
 
 ---
-![result_of_below](funcex/ex0013.png)
+![result_of_below](funcex/output_00013.png)
 
 ```lua:without_group.lua
 version3()
@@ -429,7 +429,7 @@ end
 ## endGlobal
 Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global coordinates. 
 
-![result_of_below](funcex/ex0014.png)
+![result_of_below](funcex/output_00014.png)
 
 ```lua:beginGlobal.lua
 version3()
@@ -450,7 +450,7 @@ rect(50) -- Draw on (200,200,0)
 `global2local(x,y,z)` converts a global point to a local point. Returns 3 doubles. 
 
 
-![result_of_below](funcex/ex0015.png)
+![result_of_below](funcex/output_00015.png)
 
 ```lua:global2local.lua
 version3()
@@ -468,7 +468,7 @@ println("The local coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ", 
 `local2global(x,y,z)` converts a local point to a global point. Returns 3 doubles. 
 
 
-![result_of_below](funcex/ex0016.png)
+![result_of_below](funcex/output_00016.png)
 
 ```lua:local2global.lua
 version3()
@@ -489,7 +489,7 @@ println("The global coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ",
 > The result is affected by perspective mode. 
 
 
-![result_of_below](funcex/ex0017.png)
+![result_of_below](funcex/output_00017.png)
 
 ```lua:global2screen.lua
 version3()
@@ -512,7 +512,7 @@ println("The screen coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ",
 > The result is affected by perspective mode. 
 
 
-![result_of_below](funcex/ex0018.png)
+![result_of_below](funcex/output_00018.png)
 
 ```lua:screen2global.lua
 version3()
@@ -529,7 +529,7 @@ println("The global coordinate of the camera is:\n (" .. x .. ", " .. y .. ", " 
 > `mat[i][j]` returns the entry in `i`th column `j`th row. (`i`,`j`range: 1~4)
 
 
-![result_of_below](funcex/ex0019.png)
+![result_of_below](funcex/output_00019.png)
 
 ```lua:matrix.lua
 version3()
@@ -561,7 +561,7 @@ endGroup()
 > - `tri` is an abbreviation of `triangle`
 
 
-![result_of_below](funcex/ex0020.png)
+![result_of_below](funcex/output_00020.png)
 
 ```lua:tri1.lua
 version3()
@@ -570,7 +570,7 @@ tri(100)
 ```
 ---
 
-![result_of_below](funcex/ex0021.png)
+![result_of_below](funcex/output_00021.png)
 
 ```lua:tri5.lua
 version3()
@@ -586,7 +586,7 @@ tri(0,0,100,50,0,0,0,50,0)
 > - Draws 2 triangles with order: `p1,p2,p3`,then `p1,p3,p4`.
 
 
-![result_of_below](funcex/ex0022.png)
+![result_of_below](funcex/output_00022.png)
 
 ```lua:quad.lua
 version3()
@@ -604,7 +604,7 @@ quad(0,0,75,0,50,40,0,15)
 > - `rect` is an abbreviation of `rectangle`. 
 
 
-![result_of_below](funcex/ex0023.png)
+![result_of_below](funcex/output_00023.png)
 
 ```lua:rect.lua
 version3()
@@ -621,7 +621,7 @@ rect(100,75)
 > Default subdivision: 128
 
 
-![result_of_below](funcex/ex0024.png)
+![result_of_below](funcex/output_00024.png)
 
 ```lua:circle.lua
 version3()
@@ -647,7 +647,7 @@ circle(25,3)
 > Default subdivision: 128
 
 
-![result_of_below](funcex/ex0025.png)
+![result_of_below](funcex/output_00025.png)
 
 ```lua:ellipse.lua
 version3()
@@ -676,7 +676,7 @@ ellipse(25,15,4)
 > - Use `noStroke()` to turn off line render, `stroke()` to turn on line render. 
 
 
-![result_of_below](funcex/ex0026.png)
+![result_of_below](funcex/output_00026.png)
 
 ```lua:line.lua
 version3()
@@ -694,7 +694,7 @@ stroke(0,0,1)
 line(0,0,0,50)
 ```
 ---
-![result_of_below](funcex/ex0027.png)
+![result_of_below](funcex/output_00027.png)
 
 ```lua:line_circle.lua
 version3()
@@ -725,7 +725,7 @@ end
 > - `dotGlobal()` makes point be avoid to be squeezed by `scale`. By default, points are rendered with `dotLocal()`.
 
 
-![result_of_below](funcex/ex0028.png)
+![result_of_below](funcex/output_00028.png)
 
 ```lua:par.lua
 version3()
@@ -752,7 +752,7 @@ par()
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
 
-![result_of_below](funcex/ex0029.png)
+![result_of_below](funcex/output_00029.png)
 
 ```lua:cube.lua
 version3()
@@ -774,7 +774,7 @@ cube(40,25,10)
 > - `tet` is an abbreviation of `tetrahedron`. 
 
 
-![result_of_below](funcex/ex0030.png)
+![result_of_below](funcex/output_00030.png)
 
 ```lua:tet.lua
 version3()
@@ -800,7 +800,7 @@ tet(0,0,0,
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
 
-![result_of_below](funcex/ex0031.png)
+![result_of_below](funcex/output_00031.png)
 
 ```lua:cone.lua
 version3()
@@ -842,7 +842,7 @@ endGroup()
 > - If `level` is greater than 2, the strokes and points will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
-![result_of_below](funcex/ex0032.png)
+![result_of_below](funcex/output_00032.png)
 
 ```lua:ball.lua
 version3()
@@ -881,7 +881,7 @@ endGroup()
 > - If `div` is greater than 16, the side strokes and the base points will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
-![result_of_below](funcex/ex0033.png)
+![result_of_below](funcex/output_00033.png)
 
 ```lua:tube.lua
 version3()
@@ -913,7 +913,7 @@ endGroup()
 
 Example: 
 
-![result_of_below](funcex/ex0034.png)
+![result_of_below](funcex/output_00034.png)
 
 ```lua:render_image.lua
 version3()
@@ -941,7 +941,7 @@ cube()
 
 > New in `v3.3.0`
 
-![result_of_below](funcex/ex0035.png)
+![result_of_below](funcex/output_00035.png)
 
 ```lua:imageAlign.lua
 version3()
@@ -966,7 +966,7 @@ image(PARAM0,128,128)
 
 `coord()` draws the current Paintbrush coordinate. 
 
-![result_of_below](funcex/ex0036.png)
+![result_of_below](funcex/output_00036.png)
 
 ```lua:coord.lua
 version3()
@@ -987,7 +987,7 @@ coord()
 
 `grid()` draws a grid with many 100x100px squares. 
 
-![result_of_below](funcex/ex0037.png)
+![result_of_below](funcex/output_00037.png)
 
 ```lua:grid.lua
 version3()
@@ -1010,7 +1010,7 @@ grid()
 
 > - Notes: This function overrides all shapes you drew before. 
 
-![result_of_below](funcex/ex0038.png)
+![result_of_below](funcex/output_00038.png)
 
 ```lua:background.lua
 version3()
@@ -1048,7 +1048,7 @@ background(1,1,0)
 
 `noPerspective()` set the scene to orthogonal mode. 
 
-![result_of_below](funcex/ex0039.png)
+![result_of_below](funcex/output_00039.png)
 
 ```lua:noPerspective.lua
 version3()
@@ -1088,7 +1088,7 @@ endGroup()
 
 `noFill()` turns off the fill mode.
 
-![result_of_below](funcex/ex0040.png)
+![result_of_below](funcex/output_00040.png)
 
 ```lua:fill.lua
 version3()
@@ -1115,7 +1115,7 @@ rect(50)
 
 `noStroke()` turns off stroke mode. 
 
-![result_of_below](funcex/ex0041.png)
+![result_of_below](funcex/output_00041.png)
 
 ```lua:stroke.lua
 version3()
@@ -1144,7 +1144,7 @@ rect(50)
 
 `noDot()` turns off the dot mode. 
 
-![result_of_below](funcex/ex0042.png)
+![result_of_below](funcex/output_00042.png)
 
 ```lua:dot.lua
 version3()
@@ -1171,7 +1171,7 @@ rect(50)
 
 `noWireframe()` turns off the wireframe mode.
 
-![result_of_below](funcex/ex0043.png)
+![result_of_below](funcex/output_00043.png)
 
 ```lua:wireframe.lua
 version3()
@@ -1199,7 +1199,7 @@ end
 
 `noBlendAlpha` turns off the alpha blending. 
 
-![result_of_below](funcex/ex0044.png)
+![result_of_below](funcex/output_00044.png)
 
 ```lua:blendAlpha.lua
 version3()
@@ -1223,7 +1223,7 @@ rect(80)
 
 `noBack()` turn off back mode. 
 
-![result_of_below](funcex/ex0045.png)
+![result_of_below](funcex/output_00045.png)
 
 ```lua:back.lua
 version3()
@@ -1257,6 +1257,36 @@ cube(80)
 > - anime, phong, pure are 3 dependent mode, turn on one may turn off the other two. 
 > - Call [dim3()](#dim3) before calling this function. 
 
+![result_of_below](funcex/output_00046.png)
+
+```lua:phong.lua
+version3()
+dim3()
+
+move(width/2,height/2,0)
+
+grid()
+coord()
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+for i=1,n do
+    beginGroup()
+    rotateZ(d2r(i*360/n))
+    move(100,0,0)
+    fill(i/n,1-i/n,1)
+    if(i<=n//2) then pure()
+    else phong() end
+    ball(25)
+    endGroup()
+end
+```
+
 ## anime
 
 1. `anime(ambient,diffuse,specular,specularPower,diffuseThreshold,specularThreshold)`
@@ -1268,6 +1298,36 @@ cube(80)
 > anime, phong, pure are 3 dependent mode, turn on one may turn off the other two. 
 > - Call [dim3()](#dim3) before calling this function. 
 
+![result_of_below](funcex/output_00047.png)
+
+```lua:anime.lua
+version3()
+dim3()
+
+move(width/2,height/2,0)
+
+grid()
+coord()
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+for i=1,n do
+    beginGroup()
+    rotateZ(d2r(i*360/n))
+    move(100,0,0)
+    fill(i/n,1-i/n,1)
+    if(i<=n//2) then pure()
+    else anime() end
+    ball(25)
+    endGroup()
+end
+```
+
 
 ## rgba
 
@@ -1276,6 +1336,39 @@ cube(80)
 > - rgba, depth, normal are 3 dependent mode, turn on one may turn off the other two. 
 > - You can use `phong(),anime()` in this output mode. 
 
+![result_of_below](funcex/output_00048.png)
+
+```lua:rgba.lua
+version3()
+dim3()
+background(1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+rgba()
+-- depth()
+-- normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
+
 ## depth
 
 `depth(blackDistance, whiteDistance)` depth output mode. Set pixels at distance `blackDistance` to black, pixels at distance `whiteDistance` to white. If they are the same, PixelsWorld sets the pixels nearer than the value you set to black, otherwise white.  
@@ -1283,6 +1376,39 @@ cube(80)
 > - rgba, depth, normal are 3 dependent modes, turn on one may turn off the other two. 
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
+
+![result_of_below](funcex/output_00049.png)
+
+```lua:depth.lua
+version3()
+dim3()
+background(1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+-- rgba()
+depth()
+-- normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
 
 ## normal
 
@@ -1297,6 +1423,39 @@ cube(80)
 > - `phong(),anime()` will be ignored in this output mode. 
 > - Call [dim3()](#dim3) before calling this function. 
 
+
+![result_of_below](funcex/output_00050.png)
+
+```lua:normal.lua
+version3()
+dim3()
+background(.5,.5,1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+-- rgba()
+-- depth()
+normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
 
 ## setDepth
 
@@ -1318,6 +1477,36 @@ cube(80)
 > - Adds ambient light to the scene. Valid to all objs. 
 > - Objs are lit up by this kind of light even if they have wrong normals. 
 
+
+![result_of_below](funcex/output_00051.png)
+
+```lua:al.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(1,0.5,0.2,10)
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
 ## pointLight
 
 1. `pointLight(r,g,b,intensity,radius,smoothWidth)`
@@ -1331,11 +1520,136 @@ cube(80)
 > - This light is affected by objs' normals. The specular and diffuse will be failed if the normals are inward, but the ambient brightness of point light still lights up the objs. 
 > - `radius` is range radius of point light. Range from `radius` to `radius+smoothWidth`, the brightness damps.
 
+![result_of_below](funcex/output_00052.png)
+
+```lua:pl.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(0.2,0.5,1,2)
+
+beginGroup()
+move(0,0,-100)
+pointLight(1,0.5,0.2,2,500,100)
+endGroup()
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
 ## parallelLight
 
 1. `parallelLight(r,g,b,intensity,tx,ty,tz)`
 
 > - Adds a parallel light with direction vector `(tx,ty,tz)`.
+
+![result_of_below](funcex/output_00053.png)
+
+```lua:pll.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(0.2,0.5,1,2)
+parallelLight(1,0.5,0.2,2,1,-1,1)
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
+--- 
+
+![result_of_below](funcex/output_00054.png)
+
+```lua:light_effects.lua
+version3()
+dim3()
+background(0.1,0.2,0.3)
+move(width/2,height/2,0)
+math.randomseed(1)
+n=5
+
+ambientLight(0.2,0.5,1,1)
+parallelLight(1,0.5,0.2,0.1,1,-1,1)
+
+beginGroup()
+move(200,0,-100)
+pointLight(1,0.5,0.2,1,200,100)
+endGroup()
+
+beginGroup()
+move(-30,200,-100)
+pointLight(0,1,1,1,200,100)
+endGroup()
+
+beginGroup()
+move(-30,-200,-100)
+pointLight(0,1,1,1,200,100)
+endGroup()
+
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,r/n,0.6))
+        move(ra,0,0)
+
+        if math.random() < .15 then
+        wireframe()
+        else noWireframe() end
+        
+        if math.random() < .15 then 
+        anime()
+        else phong() end
+
+        if math.random() <.8 then
+            if math.random() < .3 then 
+                ball(15,3)
+            else ball(15,2) end
+        else cone(15,30,6) end
+
+        endGroup()
+    end
+end
+```
+
 
 ## clearLight
 

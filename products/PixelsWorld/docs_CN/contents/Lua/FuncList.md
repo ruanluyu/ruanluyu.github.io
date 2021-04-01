@@ -209,7 +209,7 @@ pw3.println("Hello PixelsWorld! ")
 
 `print(str)`,`print(str,brightness)`,`print(str,r,g,b)`,`print(str,r,g,b,a)`是在屏幕左上角输出信息的函数。
 
-![result_of_below](funcex/ex0001.png)
+![result_of_below](funcex/output_00001.png)
 
 ```lua:print.lua
 version3()
@@ -226,7 +226,7 @@ end
 
 `println(str)`,`println(str,brightness)`,`println(str,r,g,b)`,`println(str,r,g,b,a)`是在屏幕左上角输出信息的函数。并在每次输出信息后换行。
 
-![result_of_below](funcex/ex0002.png)
+![result_of_below](funcex/output_00002.png)
 
 ```lua:println.lua
 version3()
@@ -244,7 +244,7 @@ end
 
 `alert(str)`是在屏幕左上角输出**警示信息**的函数。它目前等价于`println(str,1,1,0,1)`
 
-![result_of_below](funcex/ex0003.png)
+![result_of_below](funcex/output_00003.png)
 
 ```lua:alert.lua
 version3()
@@ -259,8 +259,8 @@ alert("Warning: Write your message here! ")
 
 例如下面这个例子：
 
-![result_of_below](funcex/ex0004.png)
-![result_of_below](funcex/ex0005.png)
+![result_of_below](funcex/output_00004.png)
+![result_of_below](funcex/output_00005.png)
 
 ```lua:move.lua
 version3()
@@ -279,7 +279,7 @@ coord() -- 显示第2次变换后的画笔位置
 `scale(ratio)`,`scale(x,y)`,`scale(x,y,z)`是缩放画笔坐标的函数。
 > 所有变换都是以当前画笔坐标为基准进行的。
 
-![result_of_below](funcex/ex0006.png)
+![result_of_below](funcex/output_00006.png)
 
 ```lua:scale.lua
 version3()
@@ -290,7 +290,7 @@ rect(50,25)
 
 --- 
 
-![result_of_below](funcex/ex0007.png)
+![result_of_below](funcex/output_00007.png)
 
 ```lua:no_scale.lua
 version3()
@@ -311,7 +311,7 @@ rect(50,25)
 > - 所有变换都是以当前画笔坐标为基准进行的。
 > - 如果您不熟悉弧度，可以用函数`d2r(degree)`来把角度转成弧度。例如：`rotate(d2r(90))`则是旋转九十度。
 
-![result_of_below](funcex/ex0008.png)
+![result_of_below](funcex/output_00008.png)
 
 ```lua:rotate_degree.lua
 version3()
@@ -320,7 +320,7 @@ rotate(d2r(45))
 rect(50,25)
 ```
 ---
-![result_of_below](funcex/ex0008.png)
+![result_of_below](funcex/output_00008.png)
 
 ```lua:rotate_radian.lua
 version3()
@@ -329,7 +329,7 @@ rotate(PI/4)
 rect(50,25)
 ```
 ---
-![result_of_below](funcex/ex0009.png)
+![result_of_below](funcex/output_00009.png)
 
 ```lua:rotateX.lua
 version3()
@@ -342,7 +342,7 @@ cube(50,25,10)
 ```
 ---
 
-![result_of_below](funcex/ex0010.png)
+![result_of_below](funcex/output_00010.png)
 
 ```lua:rotateY.lua
 version3()
@@ -356,7 +356,7 @@ cube(50,25,10)
 
 ---
 
-![result_of_below](funcex/ex0011.png)
+![result_of_below](funcex/output_00011.png)
 
 ```lua:rotateZ.lua
 version3()
@@ -373,7 +373,7 @@ cube(50,25,10)
 > - 所有变换都是以当前画笔坐标为基准进行的。
 > - `twirl`是对四元数旋转的一种矩阵实现。
 
-![result_of_below](funcex/ex0012.png)
+![result_of_below](funcex/output_00012.png)
 
 ```lua:twirl.lua
 version3()
@@ -396,7 +396,7 @@ cube(50,25,10)
 
 例如：下面两块代码是等价的
 
-![result_of_below](funcex/ex0013.png)
+![result_of_below](funcex/output_00013.png)
 
 ```lua:group.lua
 version3()
@@ -410,7 +410,7 @@ end
 ```
 
 ---
-![result_of_below](funcex/ex0013.png)
+![result_of_below](funcex/output_00013.png)
 
 ```lua:without_group.lua
 version3()
@@ -428,7 +428,7 @@ end
 夹在`beginGlobal`,`endGlobal`之间的绘图函数
 将暂时以全局坐标系绘制
 
-![result_of_below](funcex/ex0014.png)
+![result_of_below](funcex/output_00014.png)
 
 ```lua:beginGlobal.lua
 version3()
@@ -448,7 +448,7 @@ rect(50) -- Draw on (200,200,0)
 
 `global2local(x,y,z)`将全局坐标转为局部坐标。返回三个double。
 
-![result_of_below](funcex/ex0015.png)
+![result_of_below](funcex/output_00015.png)
 
 ```lua:global2local.lua
 version3()
@@ -467,7 +467,7 @@ println("The local coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ", 
 
 `local2global(x,y,z)`将局部坐标转为全局坐标。返回三个double。
 
-![result_of_below](funcex/ex0016.png)
+![result_of_below](funcex/output_00016.png)
 
 ```lua:local2global.lua
 version3()
@@ -487,7 +487,7 @@ println("The global coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ",
 
 > 此转换受透视与否影响
 
-![result_of_below](funcex/ex0017.png)
+![result_of_below](funcex/output_00017.png)
 
 ```lua:global2screen.lua
 version3()
@@ -508,7 +508,7 @@ println("The screen coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ",
 
 > 此转换受透视与否影响
 
-![result_of_below](funcex/ex0018.png)
+![result_of_below](funcex/output_00018.png)
 
 ```lua:screen2global.lua
 version3()
@@ -526,7 +526,7 @@ println("The global coordinate of the camera is:\n (" .. x .. ", " .. y .. ", " 
 
 例子：
 
-![result_of_below](funcex/ex0019.png)
+![result_of_below](funcex/output_00019.png)
 
 ```lua:matrix.lua
 version3()
@@ -554,7 +554,7 @@ endGroup()
 > - 前3种方式构造的三角形的法线默认为画笔坐标z轴负方向，后2种方式构造的三角形则以`cross(p1-p2,p3-p2)`定几何法线。
 > - 函数名为`triangle`的缩写
 
-![result_of_below](funcex/ex0020.png)
+![result_of_below](funcex/output_00020.png)
 
 ```lua:tri1.lua
 version3()
@@ -563,7 +563,7 @@ tri(100)
 ```
 ---
 
-![result_of_below](funcex/ex0021.png)
+![result_of_below](funcex/output_00021.png)
 
 ```lua:tri5.lua
 version3()
@@ -578,7 +578,7 @@ tri(0,0,100,50,0,0,0,50,0)
 
 > - 以`p1,p2,p3`的顺序绘制第一个三角形，以`p1,p3,p4`的顺序绘制第二个三角形。
 
-![result_of_below](funcex/ex0022.png)
+![result_of_below](funcex/output_00022.png)
 
 ```lua:quad.lua
 version3()
@@ -595,7 +595,7 @@ quad(0,0,75,0,50,40,0,15)
 > - 长方形将以画笔坐标中心为对角线交点生成。
 > - 函数名为`rectangle`的缩写
 
-![result_of_below](funcex/ex0023.png)
+![result_of_below](funcex/output_00023.png)
 
 ```lua:rect.lua
 version3()
@@ -611,7 +611,7 @@ rect(100,75)
 
 > 默认分段为128
 
-![result_of_below](funcex/ex0024.png)
+![result_of_below](funcex/output_00024.png)
 
 ```lua:circle.lua
 version3()
@@ -636,7 +636,7 @@ circle(25,3)
 
 > 默认分段为128
 
-![result_of_below](funcex/ex0025.png)
+![result_of_below](funcex/output_00025.png)
 
 ```lua:ellipse.lua
 version3()
@@ -664,7 +664,7 @@ ellipse(25,15,4)
 > - 线的粗细是由`strokeWidth(width)`控制的
 > - 线默认是被渲染出来的，屏蔽线渲染请使用`noStroke()`，开启线渲染则用`stroke()`
 
-![result_of_below](funcex/ex0026.png)
+![result_of_below](funcex/output_00026.png)
 
 ```lua:line.lua
 version3()
@@ -682,7 +682,7 @@ stroke(0,0,1)
 line(0,0,0,50)
 ```
 ---
-![result_of_below](funcex/ex0027.png)
+![result_of_below](funcex/output_00027.png)
 
 ```lua:line_circle.lua
 version3()
@@ -712,7 +712,7 @@ end
 > - 点的颜色由`dot(r,g,b)`控制
 > - 如果您不想让点被变换压扁或者缩小，使用`dotGlobal()`。默认情况下点是在`dotLocal()`模式下渲染的。
 
-![result_of_below](funcex/ex0028.png)
+![result_of_below](funcex/output_00028.png)
 
 ```lua:par.lua
 version3()
@@ -738,7 +738,7 @@ par()
 
 > 长方体的法线默认是朝外的，如果输入负数长度、或者使用了带负号的`scale()`函数会导致法线向内
 
-![result_of_below](funcex/ex0029.png)
+![result_of_below](funcex/output_00029.png)
 
 ```lua:cube.lua
 version3()
@@ -759,7 +759,7 @@ cube(40,25,10)
 > - 第三项绘制的四面体的法线根据绘制顺序而定，具体为：`p1,p2,p3;p2,p1,p4;p3,p2,p4;p1,p3,p4.`的顺序依次绘制四个三角面。关于三角面的法线方向请参考[`tri`](#tri)
 > - 函数名为`tetrahedron`的缩写
 
-![result_of_below](funcex/ex0030.png)
+![result_of_below](funcex/output_00030.png)
 
 ```lua:tet.lua
 version3()
@@ -784,7 +784,7 @@ tet(0,0,0,
 > - 当分段大于16时会隐藏锥面描边和底边顶点
 > - 负数的输入值或带负号的`scale()`有可能导致法线向内
 
-![result_of_below](funcex/ex0031.png)
+![result_of_below](funcex/output_00031.png)
 
 ```lua:cone.lua
 version3()
@@ -826,7 +826,7 @@ endGroup()
 > - level大于2时将隐藏描边和顶点
 > - 负数的输入值或带负号的`scale()`有可能导致法线向内
 
-![result_of_below](funcex/ex0032.png)
+![result_of_below](funcex/output_00032.png)
 
 ```lua:ball.lua
 version3()
@@ -864,7 +864,7 @@ endGroup()
 > - 当分段大于16时会隐藏柱面描边和两底边顶点
 > - 负数的输入值或带负号的`scale()`有可能导致法线向内
 
-![result_of_below](funcex/ex0033.png)
+![result_of_below](funcex/output_00033.png)
 
 ```lua:tube.lua
 version3()
@@ -897,7 +897,7 @@ endGroup()
 
 下面这个例子将演示一个与输入图片穿插交互的立方体
 
-![result_of_below](funcex/ex0034.png)
+![result_of_below](funcex/output_00034.png)
 
 ```lua:render_image.lua
 version3()
@@ -925,7 +925,7 @@ cube()
 
 > `v3.3.0`新函数
 
-![result_of_below](funcex/ex0035.png)
+![result_of_below](funcex/output_00035.png)
 
 ```lua:imageAlign.lua
 version3()
@@ -950,7 +950,7 @@ image(PARAM0,128,128)
 
 `coord()`将把当前绘笔坐标可视化出来。
 
-![result_of_below](funcex/ex0036.png)
+![result_of_below](funcex/output_00036.png)
 
 ```lua:coord.lua
 version3()
@@ -971,7 +971,7 @@ coord()
 
 `grid()`将把当前绘笔坐标所在的xy平面以100x100网眼大小的的网格可视化出来。
 
-![result_of_below](funcex/ex0037.png)
+![result_of_below](funcex/output_00037.png)
 
 ```lua:grid.lua
 version3()
@@ -994,7 +994,7 @@ grid()
 
 > - 注意：如果您之前绘制过形状，这些形状会被覆盖。
 
-![result_of_below](funcex/ex0038.png)
+![result_of_below](funcex/output_00038.png)
 
 ```lua:background.lua
 version3()
@@ -1030,7 +1030,7 @@ background(1,1,0)
 
 `noPerspective()`将使用正交视图渲染，物体互相平行的边缘在渲染视图中也将平行。
 
-![result_of_below](funcex/ex0039.png)
+![result_of_below](funcex/output_00039.png)
 
 ```lua:noPerspective.lua
 version3()
@@ -1070,7 +1070,7 @@ endGroup()
 
 `noFill()`将关闭填充。
 
-![result_of_below](funcex/ex0040.png)
+![result_of_below](funcex/output_00040.png)
 
 ```lua:fill.lua
 version3()
@@ -1098,7 +1098,7 @@ rect(50)
 
 `noStroke()`将关闭描边。
 
-![result_of_below](funcex/ex0041.png)
+![result_of_below](funcex/output_00041.png)
 
 ```lua:stroke.lua
 version3()
@@ -1127,7 +1127,7 @@ rect(50)
 
 `noDot()`将关闭顶点渲染。
 
-![result_of_below](funcex/ex0042.png)
+![result_of_below](funcex/output_00042.png)
 
 ```lua:dot.lua
 version3()
@@ -1155,7 +1155,7 @@ rect(50)
 
 `noWireframe()`将关闭线框模式。
 
-![result_of_below](funcex/ex0043.png)
+![result_of_below](funcex/output_00043.png)
 
 ```lua:wireframe.lua
 version3()
@@ -1184,7 +1184,7 @@ end
 
 `noBlendAlpha`将关闭混色。
 
-![result_of_below](funcex/ex0044.png)
+![result_of_below](funcex/output_00044.png)
 
 ```lua:blendAlpha.lua
 version3()
@@ -1208,7 +1208,7 @@ rect(80)
 
 `noBack()`关闭背面渲染模式。
 
-![result_of_below](funcex/ex0045.png)
+![result_of_below](funcex/output_00045.png)
 
 ```lua:back.lua
 version3()
@@ -1242,6 +1242,37 @@ cube(80)
 > - anime,phong,pure是三种不能同时应用的材质，您在打开其中一个的时候另外两种会被关掉。
 > - 请在使用前执行[dim3()](#dim3)
 
+![result_of_below](funcex/output_00046.png)
+
+```lua:phong.lua
+version3()
+dim3()
+
+move(width/2,height/2,0)
+
+grid()
+coord()
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+for i=1,n do
+    beginGroup()
+    rotateZ(d2r(i*360/n))
+    move(100,0,0)
+    fill(i/n,1-i/n,1)
+    if(i<=n//2) then pure()
+    else phong() end
+    ball(25)
+    endGroup()
+end
+```
+
+
 ## anime
 
 1. `anime(ambient,diffuse,specular,specularPower,diffuseThreshold,specularThreshold)`
@@ -1253,6 +1284,36 @@ cube(80)
 > - anime,phong,pure是三种不能同时应用的材质，您在打开其中一个的时候另外两种会被关掉。
 > - 请在使用前执行[dim3()](#dim3)
 
+![result_of_below](funcex/output_00047.png)
+
+```lua:anime.lua
+version3()
+dim3()
+
+move(width/2,height/2,0)
+
+grid()
+coord()
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+for i=1,n do
+    beginGroup()
+    rotateZ(d2r(i*360/n))
+    move(100,0,0)
+    fill(i/n,1-i/n,1)
+    if(i<=n//2) then pure()
+    else anime() end
+    ball(25)
+    endGroup()
+end
+```
+
 
 ## rgba
 
@@ -1261,6 +1322,39 @@ cube(80)
 > - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式可以使用材质。
 
+![result_of_below](funcex/output_00048.png)
+
+```lua:rgba.lua
+version3()
+dim3()
+background(1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+rgba()
+-- depth()
+-- normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
+
 ## depth
 
 `depth(blackDistance, whiteDistance)`是把深度当做亮度信息输出的模式。例如您想输出一张深度图，可以指定blackDistance和whiteDistance来设置距离摄像机多远的时候输出黑色或白色。对于之间的距离，像素世界会做线性插值成灰色。当您把blackDistance和whiteDistance设为同一数值时，像素世界会把您设置的数值当做阈值来输出纯黑色或纯白色。
@@ -1268,6 +1362,40 @@ cube(80)
 > - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式会无视材质。
 > - 请在使用前执行[dim3()](#dim3)
+
+![result_of_below](funcex/output_00049.png)
+
+```lua:depth.lua
+version3()
+dim3()
+background(1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+-- rgba()
+depth()
+-- normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
+
 
 ## normal
 
@@ -1281,6 +1409,39 @@ cube(80)
 > - rgba,depth,normal是三个不能同时成立的模式，您在打开其中一项的时候另外两项会被关掉。
 > - 这个模式会无视材质。
 > - 请在使用前执行[dim3()](#dim3)
+
+![result_of_below](funcex/output_00050.png)
+
+```lua:normal.lua
+version3()
+dim3()
+background(.5,.5,1)
+move(width/2,height/2,0)
+
+n=10
+
+beginGroup()
+move(0,0,-100)
+pointLight()
+endGroup()
+
+-- rgba()
+-- depth()
+normal()
+
+noStroke()
+for x=1,n do
+    for y=1,n do
+        for z=1,n do
+            beginGroup()
+            fill(x/n,y/n,z/n)
+            move(map(x,1,n,-n/2,n/2)*50,map(y,1,n,-n/2,n/2)*50,map(z,1,n,-n/2,n/2)*200)
+            ball(10,2)
+            endGroup()
+        end
+    end
+end
+```
 
 
 ## setDepth
@@ -1303,6 +1464,35 @@ cube(80)
 > - 生成一个环境光，对场景内所有物体有效。
 > - 这个光可以无视物体法线方向，即使法线方向反向仍能照亮物体。
 
+![result_of_below](funcex/output_00051.png)
+
+```lua:al.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(1,0.5,0.2,10)
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
 ## pointLight
 
 1. `pointLight(r,g,b,intensity,radius,smoothWidth)`
@@ -1316,11 +1506,137 @@ cube(80)
 > - 这个光受物体法线方向影响，法线方向的物体不会产生漫反射和高光，但仍能接受点光源产生的环境光。
 > - `radius`为点光源的光照半径，`radius`到`radius+smoothWidth`之间光照强度会衰减。
 
+![result_of_below](funcex/output_00052.png)
+
+```lua:pl.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(0.2,0.5,1,2)
+
+beginGroup()
+move(0,0,-100)
+pointLight(1,0.5,0.2,2,500,100)
+endGroup()
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
 ## parallelLight
 
 1. `parallelLight(r,g,b,intensity,tx,ty,tz)`
 
 > - 在全局范围内生成一个方向为`(tx,ty,tz)`的平行光。
+
+![result_of_below](funcex/output_00053.png)
+
+```lua:pll.lua
+version3()
+dim3()
+move(width/2,height/2,0)
+
+n=4
+
+phong()
+
+ambientLight(0.2,0.5,1,2)
+parallelLight(1,0.5,0.2,2,1,-1,1)
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,0.5,0.5))
+        move(ra,0,0)
+        ball(15,3)
+        endGroup()
+    end
+end
+```
+
+--- 
+
+![result_of_below](funcex/output_00054.png)
+
+```lua:light_effects.lua
+version3()
+dim3()
+background(0.1,0.2,0.3)
+move(width/2,height/2,0)
+math.randomseed(1)
+n=5
+
+ambientLight(0.2,0.5,1,1)
+parallelLight(1,0.5,0.2,0.1,1,-1,1)
+
+beginGroup()
+move(200,0,-100)
+pointLight(1,0.5,0.2,1,200,100)
+endGroup()
+
+beginGroup()
+move(-30,200,-100)
+pointLight(0,1,1,1,200,100)
+endGroup()
+
+beginGroup()
+move(-30,-200,-100)
+pointLight(0,1,1,1,200,100)
+endGroup()
+
+
+noStroke()
+
+for r=1,n do
+    local ra = r*50
+    local cn = math.floor(ra*TPI/40)
+    for i=1,cn do
+        beginGroup()
+        rotateZ(d2r(i/cn*360))
+        fill(hsl2rgb(i/cn,r/n,0.6))
+        move(ra,0,0)
+
+        if math.random() < .15 then
+        wireframe()
+        else noWireframe() end
+        
+        if math.random() < .15 then 
+        anime()
+        else phong() end
+
+        if math.random() <.8 then
+            if math.random() < .3 then 
+                ball(15,3)
+            else ball(15,2) end
+        else cone(15,30,6) end
+
+        endGroup()
+    end
+end
+```
+
+
 
 ## clearLight
 
