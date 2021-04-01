@@ -872,6 +872,7 @@
 </code></pre>
 <h2 id="print">print</h2>
 <p><code>print(str)</code>,<code>print(str,brightness)</code>,<code>print(str,r,g,b)</code>,<code>print(str,r,g,b,a)</code> prints message to the left top corner of your scene. </p>
+<p><img src="funcex/ex0001.png" alt="result_of_below"></p>
 <div><p class="code-filename">print.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
@@ -884,6 +885,7 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 </code></pre>
 <h2 id="println">println</h2>
 <p><code>println(str)</code>,<code>println(str,brightness)</code>,<code>println(str,r,g,b)</code>,<code>println(str,r,g,b,a)</code> prints message to the left top corner of your scene, this function adds <code>\n</code> in the end of input string. </p>
+<p><img src="funcex/ex0002.png" alt="result_of_below"></p>
 <div><p class="code-filename">println.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld! &quot;</span><span class="token punctuation">)</span>
@@ -897,6 +899,7 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 </code></pre>
 <h2 id="alert">alert</h2>
 <p><code>alert(str)</code> prints <strong>caution</strong> message, equals to <code>println(str,1,1,0,1)</code></p>
+<p><img src="funcex/ex0003.png" alt="result_of_below"></p>
 <div><p class="code-filename">alert.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&quot;Warning: Write your message here! &quot;</span><span class="token punctuation">)</span>
@@ -907,6 +910,8 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <p>All transforms are done basing on the Paintbrush coordinate. </p>
 </blockquote>
 <p>Example: </p>
+<p><img src="funcex/ex0004.png" alt="result_of_below">
+<img src="funcex/ex0005.png" alt="result_of_below"></p>
 <div><p class="code-filename">move.md</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- show Paintbrush coordinate</span>
@@ -921,6 +926,21 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <blockquote>
 <p>All transforms are done basing on the Paintbrush coordinate. </p>
 </blockquote>
+<p><img src="funcex/ex0006.png" alt="result_of_below"></p>
+<div><p class="code-filename">scale.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0007.png" alt="result_of_below"></p>
+<div><p class="code-filename">no_scale.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment">--scale(2)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="rotate">rotate</h2>
 <h2 id="rotatex">rotateX</h2>
 <h2 id="rotatey">rotateY</h2>
@@ -932,6 +952,54 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <li>If you are not familiar with radians, use <code>d2r(degree)</code> to convert a degree to a radian. For example&#xFF1A;<code>rotate(d2r(90))</code> means rotate 90 degrees. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0008.png" alt="result_of_below"></p>
+<div><p class="code-filename">rotate_degree.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0008.png" alt="result_of_below"></p>
+<div><p class="code-filename">rotate_radian.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span>PI<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0009.png" alt="result_of_below"></p>
+<div><p class="code-filename">rotateX.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0010.png" alt="result_of_below"></p>
+<div><p class="code-filename">rotateY.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0011.png" alt="result_of_below"></p>
+<div><p class="code-filename">rotateZ.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateZ</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="twirl">twirl</h2>
 <p><code>twirl(theta,x,y,z)</code> rotates Paintbrush along <code>(x,y,z)</code> axis with <code>theta</code> radians. For example, above-mentioned <code>rotateX(theta)</code> equals to <code>twirl(theta,1,0,0)</code>.</p>
 <blockquote>
@@ -940,6 +1008,19 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <li><code>twirl</code> is an matrix implementation of quaternion rotation. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0012.png" alt="result_of_below"></p>
+<div><p class="code-filename">twirl.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">line</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">twirl</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="begingroup">beginGroup</h2>
 <h2 id="endgroup">endGroup</h2>
 <ol>
@@ -950,29 +1031,33 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 <p>It equals to <code>pushMatrix()</code> and <code>popMatrix()</code> in Processing. </p>
 </blockquote>
 <p>Example: The following two code are equivalent. </p>
+<p><img src="funcex/ex0013.png" alt="result_of_below"></p>
 <div><p class="code-filename">group.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span> <span class="token keyword">do</span>
+<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span> <span class="token keyword">do</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span>
-<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">,</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
+<hr>
+<p><img src="funcex/ex0013.png" alt="result_of_below"></p>
 <div><p class="code-filename">without_group.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span> <span class="token keyword">do</span>
-<span class="token function">move</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span>
-<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
-<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">45</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span><span class="token operator">-</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token operator">-</span>i<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span> <span class="token keyword">do</span>
+<span class="token function">move</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">,</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">15</span><span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token operator">-</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token operator">-</span>i<span class="token operator">*</span><span class="token number">25</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
 <h2 id="beginglobal">beginGlobal</h2>
 <h2 id="endglobal">endGlobal</h2>
 <p>Draw functions between <code>beginGlobal</code> and <code>endGlobal</code> will draw shapes in global coordinates. </p>
+<p><img src="funcex/ex0014.png" alt="result_of_below"></p>
 <div><p class="code-filename">beginGlobal.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
@@ -988,34 +1073,80 @@ str <span class="token operator">=</span> <span class="token string">&quot;Hello
 </code></pre>
 <h2 id="global2local">global2local</h2>
 <p><code>global2local(x,y,z)</code> converts a global point to a local point. Returns 3 doubles. </p>
+<p><img src="funcex/ex0015.png" alt="result_of_below"></p>
+<div><p class="code-filename">global2local.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token operator">=</span><span class="token function">global2local</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;The local coordinate of the rectangle is:\n (&quot;</span> <span class="token operator">..</span> x <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> y <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> z <span class="token operator">..</span> <span class="token string">&quot;).&quot;</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="local2global">local2global</h2>
 <p><code>local2global(x,y,z)</code> converts a local point to a global point. Returns 3 doubles. </p>
+<p><img src="funcex/ex0016.png" alt="result_of_below"></p>
+<div><p class="code-filename">local2global.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token operator">=</span><span class="token function">local2global</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;The global coordinate of the rectangle is:\n (&quot;</span> <span class="token operator">..</span> x <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> y <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> z <span class="token operator">..</span> <span class="token string">&quot;).&quot;</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="global2screen">global2screen</h2>
 <p><code>global2screen(x,y,z)</code> converts a global point to a screen point. Returns 3 doubles. </p>
 <blockquote>
 <p>The result is affected by perspective mode. </p>
 </blockquote>
+<p><img src="funcex/ex0017.png" alt="result_of_below"></p>
+<div><p class="code-filename">global2screen.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rotateZ</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token operator">=</span><span class="token function">global2screen</span><span class="token punctuation">(</span><span class="token function">local2global</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;The screen coordinate of the rectangle is:\n (&quot;</span> <span class="token operator">..</span> x <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> y <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> z <span class="token operator">..</span> <span class="token string">&quot;).&quot;</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="screen2global">screen2global</h2>
 <p><code>screen2global(x,y,z)</code> converts a screen point to a global point. Returns 3 doubles. </p>
 <blockquote>
 <p>The result is affected by perspective mode. </p>
 </blockquote>
+<p><img src="funcex/ex0018.png" alt="result_of_below"></p>
+<div><p class="code-filename">screen2global.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token operator">=</span><span class="token function">screen2global</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;The global coordinate of the camera is:\n (&quot;</span> <span class="token operator">..</span> x <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> y <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> z <span class="token operator">..</span> <span class="token string">&quot;).&quot;</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="gettransformmatrix">getTransformMatrix</h2>
 <p><code>getTransformMatrix()</code> returns a column major 4x4 transform matrix. </p>
 <blockquote>
 <p><code>mat[i][j]</code> returns the entry in <code>i</code>th column <code>j</code>th row. (<code>i</code>,<code>j</code>range: 1~4)</p>
 </blockquote>
+<p><img src="funcex/ex0019.png" alt="result_of_below"></p>
 <div><p class="code-filename">matrix.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token function">twirl</span><span class="token punctuation">(</span>QPI<span class="token operator">*</span>time<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">twirl</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 cubetransform <span class="token operator">=</span> <span class="token function">getTransformMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token function">beginGroup</span><span class="token punctuation">(</span>cubetransform<span class="token punctuation">)</span>
-<span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="tri">tri</h2>
@@ -1033,11 +1164,14 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li><code>tri</code> is an abbreviation of <code>triangle</code></li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0020.png" alt="result_of_below"></p>
 <div><p class="code-filename">tri1.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
 </code></pre>
+<hr>
+<p><img src="funcex/ex0021.png" alt="result_of_below"></p>
 <div><p class="code-filename">tri5.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1054,6 +1188,12 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li>Draws 2 triangles with order: <code>p1,p2,p3</code>,then <code>p1,p3,p4</code>.</li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0022.png" alt="result_of_below"></p>
+<div><p class="code-filename">quad.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">quad</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="rect">rect</h2>
 <ol>
 <li><code>rect(size)</code> draws a square with <code>size</code>. </li>
@@ -1066,6 +1206,12 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li><code>rect</code> is an abbreviation of <code>rectangle</code>. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0023.png" alt="result_of_below"></p>
+<div><p class="code-filename">rect.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="circle">circle</h2>
 <ol>
 <li><code>circle(radius)</code> draws a circle with radius <code>radius</code>. </li>
@@ -1075,6 +1221,22 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <blockquote>
 <p>Default subdivision: 128</p>
 </blockquote>
+<p><img src="funcex/ex0024.png" alt="result_of_below"></p>
+<div><p class="code-filename">circle.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">circle</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">circle</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">circle</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="ellipse">ellipse</h2>
 <ol>
 <li><code>ellipse(radiusx,radiusy)</code>draws an ellipse with x radius<code>radiusx</code>, y radius <code>radiusy</code>. </li>
@@ -1084,6 +1246,22 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <blockquote>
 <p>Default subdivision: 128</p>
 </blockquote>
+<p><img src="funcex/ex0025.png" alt="result_of_below"></p>
+<div><p class="code-filename">ellipse.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">ellipse</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">ellipse</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">ellipse</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="line">line</h2>
 <ol>
 <li><code>line(p1x,p1y,p2x,p2y)</code> draws a line. </li>
@@ -1097,6 +1275,39 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li>Use <code>noStroke()</code> to turn off line render, <code>stroke()</code> to turn on line render. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0026.png" alt="result_of_below"></p>
+<div><p class="code-filename">line.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">line</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">line</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">line</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><img src="funcex/ex0027.png" alt="result_of_below"></p>
+<div><p class="code-filename">line_circle.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+math<span class="token punctuation">.</span><span class="token function">randomseed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+num <span class="token operator">=</span> <span class="token number">32</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>num <span class="token keyword">do</span>
+    <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">rotateZ</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">360</span><span class="token operator">/</span>num<span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">strokeWidth</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token function">line</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="par">par</h2>
 <ol>
 <li><code>par(x)</code> draws a point at<code>(x,0,0)</code>.</li>
@@ -1112,6 +1323,20 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li><code>dotGlobal()</code> makes point be avoid to be squeezed by <code>scale</code>. By default, points are rendered with <code>dotLocal()</code>.</li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0028.png" alt="result_of_below"></p>
+<div><p class="code-filename">par.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">par</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">par</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="cube">cube</h2>
 <ol>
 <li><code>cube(size)</code> draws a cube with size <code>size</code></li>
@@ -1122,6 +1347,16 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <blockquote>
 <p>Negative inputs or negative <code>scale()</code> would cause wrong normals. </p>
 </blockquote>
+<p><img src="funcex/ex0029.png" alt="result_of_below"></p>
+<div><p class="code-filename">cube.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="tet">tet</h2>
 <ol>
 <li><code>tet(radius)</code> draws a regular tetrahedron with radius <code>radius</code>. </li>
@@ -1134,6 +1369,18 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 <li><code>tet</code> is an abbreviation of <code>tetrahedron</code>. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0030.png" alt="result_of_below"></p>
+<div><p class="code-filename">tet.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">tet</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>
+<span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>
+<span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>
+<span class="token number">30</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span>
+<span class="token punctuation">)</span>
+</code></pre>
 <h2 id="cone">cone</h2>
 <ol>
 <li><code>cone(size)</code> draws a cone with base circle radius <code>size</code> and height <code>2*size</code>.  </li>
@@ -1148,6 +1395,33 @@ cubetransform <span class="token operator">=</span> <span class="token function"
 Negative inputs or negative <code>scale()</code> would cause wrong normals. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0031.png" alt="result_of_below"></p>
+<div><p class="code-filename">cone.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">cone</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">noStroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">cone</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">cone</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="ball">ball</h2>
 <ol>
 <li><code>ball(radius)</code> draws a sphere with radius <code>radius</code>.</li>
@@ -1163,6 +1437,26 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 Negative inputs or negative <code>scale()</code> would cause wrong normals. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0032.png" alt="result_of_below"></p>
+<div><p class="code-filename">ball.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">ball</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.25</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">ball</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="tube">tube</h2>
 <ol>
 <li><code>tube(size)</code> draws a tube with base circle radius <code>size</code> and height <code>2*size</code>.</li>
@@ -1181,6 +1475,26 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 Negative inputs or negative <code>scale()</code> would cause wrong normals. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0033.png" alt="result_of_below"></p>
+<div><p class="code-filename">tube.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">tube</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0.25</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token function">tube</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="image">image</h2>
 <ol>
 <li><code>image(id,width,height)</code> draws an image with width <code>width</code> and height <code>height</code>. </li>
@@ -1193,16 +1507,17 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 </ul>
 </blockquote>
 <p>Example: </p>
+<p><img src="funcex/ex0034.png" alt="result_of_below"></p>
 <div><p class="code-filename">render_image.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">twirl</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token function">image</span><span class="token punctuation">(</span>INPUT<span class="token punctuation">,</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">rotateX</span><span class="token punctuation">(</span>QPI <span class="token operator">*</span> time<span class="token punctuation">)</span>
-<span class="token function">rotateY</span><span class="token punctuation">(</span>QPI <span class="token operator">*</span> time<span class="token punctuation">)</span>
+<span class="token function">twirl</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="imagealign">imageAlign</h2>
@@ -1218,10 +1533,52 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <blockquote>
 <p>New in <code>v3.3.0</code></p>
 </blockquote>
+<p><img src="funcex/ex0035.png" alt="result_of_below"></p>
+<div><p class="code-filename">imageAlign.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">image</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">imageAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+x-y&quot;</span><span class="token punctuation">)</span>
+<span class="token function">image</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">imageAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+z-y&quot;</span><span class="token punctuation">)</span>
+<span class="token function">image</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="coord">coord</h2>
 <p><code>coord()</code> draws the current Paintbrush coordinate. </p>
+<p><img src="funcex/ex0036.png" alt="result_of_below"></p>
+<div><p class="code-filename">coord.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="grid">grid</h2>
 <p><code>grid()</code> draws a grid with many 100x100px squares. </p>
+<p><img src="funcex/ex0037.png" alt="result_of_below"></p>
+<div><p class="code-filename">grid.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">rotate</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="setpoly">setPoly</h2>
 <p><code>setPoly(obj)</code> analyzes obj only, use <code>poly()</code> to draw the previous set obj to scene. </p>
 <blockquote>
@@ -1237,6 +1594,12 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <li>Notes: This function overrides all shapes you drew before. </li>
 </ul>
 </blockquote>
+<p><img src="funcex/ex0038.png" alt="result_of_below"></p>
+<div><p class="code-filename">background.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">background</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="in2out">in2out</h2>
 <ol>
 <li><code>in2out(id)</code> set the <code>id</code> texture to the scene. </li>
@@ -1262,6 +1625,33 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 </blockquote>
 <h2 id="noperspective">noPerspective</h2>
 <p><code>noPerspective()</code> set the scene to orthogonal mode. </p>
+<p><img src="funcex/ex0039.png" alt="result_of_below"></p>
+<div><p class="code-filename">noPerspective.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+n <span class="token operator">=</span> <span class="token number">20</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">85</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>n <span class="token keyword">do</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">noPerspective</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">85</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>n <span class="token keyword">do</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="fill">fill</h2>
 <ol>
 <li><code>fill()</code> turns on fill mode. </li>
@@ -1274,6 +1664,22 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 </blockquote>
 <h2 id="nofill">noFill</h2>
 <p><code>noFill()</code> turns off the fill mode.</p>
+<p><img src="funcex/ex0040.png" alt="result_of_below"></p>
+<div><p class="code-filename">fill.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">noFill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="stroke">stroke</h2>
 <ol>
 <li><code>stroke()</code> turns on the stroke mode. </li>
@@ -1281,6 +1687,23 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 </ol>
 <h2 id="nostroke">noStroke</h2>
 <p><code>noStroke()</code> turns off stroke mode. </p>
+<p><img src="funcex/ex0041.png" alt="result_of_below"></p>
+<div><p class="code-filename">stroke.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">noStroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="dot">dot</h2>
 <ol>
 <li><code>dot()</code> turns on the dot mode. </li>
@@ -1288,18 +1711,82 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 </ol>
 <h2 id="nodot">noDot</h2>
 <p><code>noDot()</code> turns off the dot mode. </p>
+<p><img src="funcex/ex0042.png" alt="result_of_below"></p>
+<div><p class="code-filename">dot.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">noDot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="wireframe">wireframe</h2>
 <p><code>wireframe()</code> turns on the wireframe mode.</p>
 <h2 id="nowireframe">noWireframe</h2>
 <p><code>noWireframe()</code> turns off the wireframe mode.</p>
+<p><img src="funcex/ex0043.png" alt="result_of_below"></p>
+<div><p class="code-filename">wireframe.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+n<span class="token operator">=</span><span class="token number">8</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>n <span class="token keyword">do</span>
+    <span class="token keyword">if</span> i<span class="token operator">&gt;</span>n<span class="token operator">//</span><span class="token number">2</span> <span class="token keyword">then</span> <span class="token function">wireframe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token function">noWireframe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">end</span>
+    <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">rotateZ</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span>i<span class="token operator">*</span><span class="token number">360</span><span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">ball</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="blendalpha">blendAlpha</h2>
 <p><code>blendAlpha()</code> turns on the alpha blending. </p>
 <h2 id="noblendalpha">noBlendAlpha</h2>
 <p><code>noBlendAlpha</code> turns off the alpha blending. </p>
+<p><img src="funcex/ex0044.png" alt="result_of_below"></p>
+<div><p class="code-filename">blendAlpha.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>INPUT<span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">noBlendAlpha</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+<span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="back">back</h2>
 <p><code>back()</code> If the fill alpha is smaller than 1, back mode shows the backside of an obj. Off by default. </p>
 <h2 id="noback">noBack</h2>
 <p><code>noBack()</code> turn off back mode. </p>
+<p><img src="funcex/ex0045.png" alt="result_of_below"></p>
+<div><p class="code-filename">back.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+
+<span class="token function">rotateX</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">rotateY</span><span class="token punctuation">(</span><span class="token function">d2r</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">180</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="pure">pure</h2>
 <p><code>pure()</code> use pure color to render. On by default. </p>
 <blockquote>
@@ -1743,7 +2230,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"関数一覧表","level":"4.1.5","depth":2,"next":{"title":"テクスチャシステム","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"グローバル変数","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-03-04T04:36:19.401Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-29T06:02:55.540Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"関数一覧表","level":"4.1.5","depth":2,"next":{"title":"テクスチャシステム","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"グローバル変数","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-01T08:47:42.877Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T08:52:02.688Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

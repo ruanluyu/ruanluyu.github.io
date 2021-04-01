@@ -210,6 +210,8 @@ pw3.println("Hello PixelsWorld! ")
 
 `print(str)`,`print(str,brightness)`,`print(str,r,g,b)`,`print(str,r,g,b,a)` prints message to the left top corner of your scene. 
 
+![result_of_below](funcex/ex0001.png)
+
 ```lua:print.lua
 version3()
 print("Hello PixelsWorld! ")
@@ -224,6 +226,8 @@ end
 ## println
 
 `println(str)`,`println(str,brightness)`,`println(str,r,g,b)`,`println(str,r,g,b,a)` prints message to the left top corner of your scene, this function adds `\n` in the end of input string. 
+
+![result_of_below](funcex/ex0002.png)
 
 ```lua:println.lua
 version3()
@@ -241,6 +245,8 @@ end
 
 `alert(str)` prints **caution** message, equals to `println(str,1,1,0,1)`
 
+![result_of_below](funcex/ex0003.png)
+
 ```lua:alert.lua
 version3()
 alert("Warning: Write your message here! ")
@@ -253,6 +259,9 @@ alert("Warning: Write your message here! ")
 > All transforms are done basing on the Paintbrush coordinate. 
 
 Example: 
+
+![result_of_below](funcex/ex0004.png)
+![result_of_below](funcex/ex0005.png)
 
 ```lua:move.md
 version3()
@@ -271,6 +280,25 @@ Finally, the Paintbrush is located at `(100,100,0)`.
 > All transforms are done basing on the Paintbrush coordinate. 
 
 
+![result_of_below](funcex/ex0006.png)
+
+```lua:scale.lua
+version3()
+move(100,100)
+scale(2)
+rect(50,25)
+```
+--- 
+
+![result_of_below](funcex/ex0007.png)
+
+```lua:no_scale.lua
+version3()
+move(100,100)
+--scale(2)
+rect(50,25)
+```
+
 ## rotate
 ## rotateX
 ## rotateY
@@ -280,11 +308,85 @@ Finally, the Paintbrush is located at `(100,100,0)`.
 > All transforms are done basing on the Paintbrush coordinate. 
 > - If you are not familiar with radians, use `d2r(degree)` to convert a degree to a radian. For example：`rotate(d2r(90))` means rotate 90 degrees. 
 
+
+![result_of_below](funcex/ex0008.png)
+
+```lua:rotate_degree.lua
+version3()
+move(100,100)
+rotate(d2r(45))
+rect(50,25)
+```
+---
+![result_of_below](funcex/ex0008.png)
+
+```lua:rotate_radian.lua
+version3()
+move(100,100)
+rotate(PI/4)
+rect(50,25)
+```
+---
+![result_of_below](funcex/ex0009.png)
+
+```lua:rotateX.lua
+version3()
+dim3()
+move(100,100)
+grid()
+coord()
+rotateX(d2r(45))
+cube(50,25,10)
+```
+---
+
+![result_of_below](funcex/ex0010.png)
+
+```lua:rotateY.lua
+version3()
+dim3()
+move(100,100)
+grid()
+coord()
+rotateY(d2r(45))
+cube(50,25,10)
+```
+
+---
+
+![result_of_below](funcex/ex0011.png)
+
+```lua:rotateZ.lua
+version3()
+dim3()
+move(100,100)
+grid()
+coord()
+rotateZ(d2r(45))
+cube(50,25,10)
+```
+
+
 ## twirl
 `twirl(theta,x,y,z)` rotates Paintbrush along `(x,y,z)` axis with `theta` radians. For example, above-mentioned `rotateX(theta)` equals to `twirl(theta,1,0,0)`.
 > All transforms are done basing on the Paintbrush coordinate. 
 > - `twirl` is an matrix implementation of quaternion rotation. 
 
+
+![result_of_below](funcex/ex0012.png)
+
+```lua:twirl.lua
+version3()
+dim3()
+move(100,100)
+grid()
+coord()
+stroke(1,1,0)
+line(-50,-50,-50,50,50,50)
+stroke(0,0,0)
+twirl(d2r(90),1,1,1)
+cube(50,25,10)
+```
 
 ## beginGroup
 ## endGroup
@@ -294,31 +396,40 @@ Finally, the Paintbrush is located at `(100,100,0)`.
 > It equals to `pushMatrix()` and `popMatrix()` in Processing. 
 
 Example: The following two code are equivalent. 
+
+
+![result_of_below](funcex/ex0013.png)
+
 ```lua:group.lua
 version3()
-for i = 1,10 do
+for i = 1,6 do
 beginGroup()
-move(i*100,i*100)
-rotate(d2r(45*i))
-rect(50)
+move(i*25,i*25)
+rotate(d2r(15*i))
+rect(25)
 endGroup()
 end
 ```
 
+---
+![result_of_below](funcex/ex0013.png)
+
 ```lua:without_group.lua
 version3()
-for i = 1,10 do
-move(i*100,i*100)
-rotate(d2r(45*i))
-rect(50)
-rotate(d2r(-45*i))
-move(-i*100,-i*100)
+for i = 1,6 do
+move(i*25,i*25)
+rotate(d2r(15*i))
+rect(25)
+rotate(d2r(-15*i))
+move(-i*25,-i*25)
 end
 ```
 
 ## beginGlobal
 ## endGlobal
 Draw functions between `beginGlobal` and `endGlobal` will draw shapes in global coordinates. 
+
+![result_of_below](funcex/ex0014.png)
 
 ```lua:beginGlobal.lua
 version3()
@@ -338,15 +449,61 @@ rect(50) -- Draw on (200,200,0)
 
 `global2local(x,y,z)` converts a global point to a local point. Returns 3 doubles. 
 
+
+![result_of_below](funcex/ex0015.png)
+
+```lua:global2local.lua
+version3()
+move(100,100)
+rect(25)
+move(0,50)
+rotate(d2r(30))
+coord()
+x,y,z=global2local(100,100,0)
+println("The local coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ", " .. z .. ").")
+```
+
 ## local2global
 
 `local2global(x,y,z)` converts a local point to a global point. Returns 3 doubles. 
+
+
+![result_of_below](funcex/ex0016.png)
+
+```lua:local2global.lua
+version3()
+move(100,100)
+move(0,50)
+rotate(d2r(30))
+coord()
+move(25,50)
+rect(25)
+x,y,z=local2global(0,0,0)
+println("The global coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ", " .. z .. ").")
+```
 
 ## global2screen
 
 `global2screen(x,y,z)` converts a global point to a screen point. Returns 3 doubles. 
 
 > The result is affected by perspective mode. 
+
+
+![result_of_below](funcex/ex0017.png)
+
+```lua:global2screen.lua
+version3()
+dim3()
+move(100,100,0)
+move(0,50,0)
+rotateZ(d2r(30))
+coord()
+move(25,50,0)
+cube(25)
+x,y,z=global2screen(local2global(0,0,0))
+println("The screen coordinate of the rectangle is:\n (" .. x .. ", " .. y .. ", " .. z .. ").")
+```
+
 
 ## screen2global
 
@@ -355,25 +512,40 @@ rect(50) -- Draw on (200,200,0)
 > The result is affected by perspective mode. 
 
 
+![result_of_below](funcex/ex0018.png)
+
+```lua:screen2global.lua
+version3()
+dim3()
+
+x,y,z=screen2global(0,0,0)
+println("The global coordinate of the camera is:\n (" .. x .. ", " .. y .. ", " .. z .. ").")
+```
+
 ## getTransformMatrix
 
 `getTransformMatrix()` returns a column major 4x4 transform matrix. 
 
 > `mat[i][j]` returns the entry in `i`th column `j`th row. (`i`,`j`range: 1~4)
 
+
+![result_of_below](funcex/ex0019.png)
+
 ```lua:matrix.lua
 version3()
 dim3()
+
 beginGroup()
 move(width/3,height/3)
-twirl(QPI*time,1,1,1)
+twirl(d2r(30),1,1,1)
 cubetransform = getTransformMatrix()
 endGroup()
 
 beginGroup(cubetransform)
-cube()
+cube(50)
 endGroup()
 ```
+
 
 
 
@@ -388,11 +560,18 @@ endGroup()
 > - The first 3 functions set normals to (0,0,-1) basing on the current Paintbrush coordinate. The last 2 functions calculate normals with formula: `cross(p1-p2,p3-p2)`.
 > - `tri` is an abbreviation of `triangle`
 
+
+![result_of_below](funcex/ex0020.png)
+
 ```lua:tri1.lua
 version3()
 move(width/2,height/2)
 tri(100)
 ```
+---
+
+![result_of_below](funcex/ex0021.png)
+
 ```lua:tri5.lua
 version3()
 dim3()
@@ -407,6 +586,14 @@ tri(0,0,100,50,0,0,0,50,0)
 > - Draws 2 triangles with order: `p1,p2,p3`,then `p1,p3,p4`.
 
 
+![result_of_below](funcex/ex0022.png)
+
+```lua:quad.lua
+version3()
+move(200,100)
+quad(0,0,75,0,50,40,0,15)
+```
+
 ## rect
 
 1. `rect(size)` draws a square with `size`. 
@@ -416,6 +603,15 @@ tri(0,0,100,50,0,0,0,50,0)
 > - The intersection point of the rectangle is at the origin of the Paintbrush coordinate.  
 > - `rect` is an abbreviation of `rectangle`. 
 
+
+![result_of_below](funcex/ex0023.png)
+
+```lua:rect.lua
+version3()
+move(200,100)
+rect(100,75)
+```
+
 ## circle
 
 1. `circle(radius)` draws a circle with radius `radius`. 
@@ -424,12 +620,50 @@ tri(0,0,100,50,0,0,0,50,0)
 
 > Default subdivision: 128
 
+
+![result_of_below](funcex/ex0024.png)
+
+```lua:circle.lua
+version3()
+
+move(100,100)
+fill(1,0,0)
+circle(25)
+
+move(100,0)
+fill(0,1,0)
+circle(25,10)
+
+move(100,0)
+fill(0,0,1)
+circle(25,3)
+```
+
 ## ellipse
 1. `ellipse(radiusx,radiusy)`draws an ellipse with x radius`radiusx`, y radius `radiusy`. 
 2. `ellipse()` equals to `ellipse(100,100)`
 3. `ellipse(radiusx,radiusy,div)` draws an ellipse with x radius`radiusx`, y radius `radiusy` and subdivision `div`.
 
 > Default subdivision: 128
+
+
+![result_of_below](funcex/ex0025.png)
+
+```lua:ellipse.lua
+version3()
+
+move(100,100)
+fill(1,0,0)
+ellipse(25,15)
+
+move(100,0)
+fill(0,1,0)
+ellipse(25,15,10)
+
+move(100,0)
+fill(0,0,1)
+ellipse(25,15,4)
+```
 
 ## line
 
@@ -440,6 +674,43 @@ tri(0,0,100,50,0,0,0,50,0)
 > - Use `stroke(r,g,b)` to change the color. 
 > - Use`strokeWidth(width)` to change the width. 
 > - Use `noStroke()` to turn off line render, `stroke()` to turn on line render. 
+
+
+![result_of_below](funcex/ex0026.png)
+
+```lua:line.lua
+version3()
+
+move(200,100,0)
+stroke(1,0,0)
+line(0,0,0,50)
+
+move(100,0,0)
+stroke(0,1,0)
+line(0,0,0,50)
+
+move(100,0,0)
+stroke(0,0,1)
+line(0,0,0,50)
+```
+---
+![result_of_below](funcex/ex0027.png)
+
+```lua:line_circle.lua
+version3()
+math.randomseed(1)
+num = 32
+
+move(width/2,height/2)
+
+for i=1,num do
+    beginGroup()
+    rotateZ(d2r(360/num*i))
+    strokeWidth(math.random()*3)
+    line(0,0,100,0)
+    endGroup()
+end
+```
 
 ## par
 
@@ -453,6 +724,24 @@ tri(0,0,100,50,0,0,0,50,0)
 > - `dot(r,g,b)` controls point color. 
 > - `dotGlobal()` makes point be avoid to be squeezed by `scale`. By default, points are rendered with `dotLocal()`.
 
+
+![result_of_below](funcex/ex0028.png)
+
+```lua:par.lua
+version3()
+
+dot()
+dotRadius(3)
+move(200,100)
+par()
+
+dot(1,0,0)
+dotRadius(7)
+move(100,0)
+par()
+```
+
+
 ## cube
 
 1. `cube(size)` draws a cube with size `size`
@@ -462,6 +751,19 @@ tri(0,0,100,50,0,0,0,50,0)
 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
+
+![result_of_below](funcex/ex0029.png)
+
+```lua:cube.lua
+version3()
+dim3()
+
+move(200,100,0)
+rotateY(d2r(30))
+rotateX(d2r(30))
+cube(40,25,10)
+```
+
 ## tet 
 
 1. `tet(radius)` draws a regular tetrahedron with radius `radius`. 
@@ -470,6 +772,21 @@ tri(0,0,100,50,0,0,0,50,0)
 
 > - The 3rd function generates normals basing on `tri` function and calls it with the following points order: `p1,p2,p3; p2,p1,p4; p3,p2,p4; p1,p3,p4.`. See also: [`tri`](#tri). 
 > - `tet` is an abbreviation of `tetrahedron`. 
+
+
+![result_of_below](funcex/ex0030.png)
+
+```lua:tet.lua
+version3()
+dim3()
+
+move(200,100,0)
+tet(0,0,0,
+100,0,0,
+0,100,0,
+30,20,-50
+)
+```
 
 ## cone
 
@@ -482,6 +799,37 @@ tri(0,0,100,50,0,0,0,50,0)
 > - If `sub` is greater than 16, the sidestroke and base point will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
+
+![result_of_below](funcex/ex0031.png)
+
+```lua:cone.lua
+version3()
+dim3()
+move(100,100,0)
+
+beginGroup()
+rotateY(d2r(60))
+cone(25)
+endGroup()
+
+move(100,0,0)
+beginGroup()
+rotateY(d2r(60))
+noStroke()
+cone(25)
+endGroup()
+
+move(100,0,0)
+beginGroup()
+rotateY(d2r(60))
+stroke(1,0,0)
+dot(1,1,0)
+dotRadius(3)
+cone(30,100,12)
+endGroup()
+```
+
+
 ## ball
 
 1. `ball(radius)` draws a sphere with radius `radius`.
@@ -493,6 +841,29 @@ tri(0,0,100,50,0,0,0,50,0)
 > - `level` 0 generates a regular octahedron. 
 > - If `level` is greater than 2, the strokes and points will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
+
+![result_of_below](funcex/ex0032.png)
+
+```lua:ball.lua
+version3()
+dim3()
+move(200,100,0)
+
+beginGroup()
+rotateY(d2r(60))
+ball(25)
+endGroup()
+
+move(100,0,0)
+beginGroup()
+rotateY(d2r(60))
+stroke(0,0.25,0.5)
+dot(0,0.5,1)
+dotRadius(3)
+ball(30,2)
+endGroup()
+```
+
 
 
 ## tube
@@ -510,6 +881,27 @@ tri(0,0,100,50,0,0,0,50,0)
 > - If `div` is greater than 16, the side strokes and the base points will be hidden. 
 > Negative inputs or negative `scale()` would cause wrong normals. 
 
+![result_of_below](funcex/ex0033.png)
+
+```lua:tube.lua
+version3()
+dim3()
+move(200,100,0)
+
+beginGroup()
+rotateY(d2r(60))
+tube(25)
+endGroup()
+
+move(100,0,0)
+beginGroup()
+rotateY(d2r(60))
+stroke(1,0.25,0.5)
+dot(0,0,1)
+dotRadius(3)
+tube(30,25,50,8)
+endGroup()
+```
 
 ## image
 
@@ -521,16 +913,18 @@ tri(0,0,100,50,0,0,0,50,0)
 
 Example: 
 
+![result_of_below](funcex/ex0034.png)
+
 ```lua:render_image.lua
 version3()
 dim3()
 move(width/2,height/2)
+twirl(d2r(45),-1,1,0)
 beginGroup()
-rotateX(PI)
+rotateX(d2r(180))
 image(INPUT,width,height)
 endGroup()
-rotateX(QPI * time)
-rotateY(QPI * time)
+twirl(d2r(60),1,1,1)
 cube()
 ```
 
@@ -547,14 +941,61 @@ cube()
 
 > New in `v3.3.0`
 
+![result_of_below](funcex/ex0035.png)
+
+```lua:imageAlign.lua
+version3()
+dim3()
+
+move(100,100,0)
+coord()
+image(PARAM0,128,128)
+
+move(150,0,0)
+coord()
+imageAlign("+x-y")
+image(PARAM0,128,128)
+
+move(150,0,0)
+coord()
+imageAlign("+z-y")
+image(PARAM0,128,128)
+```
+
 ## coord
 
 `coord()` draws the current Paintbrush coordinate. 
 
+![result_of_below](funcex/ex0036.png)
+
+```lua:coord.lua
+version3()
+
+move(100,100)
+coord()
+
+move(150,0)
+coord()
+
+rotate(d2r(30))
+move(50,0)
+scale(2,1)
+coord()
+```
 
 ## grid 
 
 `grid()` draws a grid with many 100x100px squares. 
+
+![result_of_below](funcex/ex0037.png)
+
+```lua:grid.lua
+version3()
+
+move(width/2,height/2)
+rotate(d2r(30))
+grid()
+```
 
 ## setPoly
 
@@ -569,6 +1010,13 @@ cube()
 
 > - Notes: This function overrides all shapes you drew before. 
 
+![result_of_below](funcex/ex0038.png)
+
+```lua:background.lua
+version3()
+
+background(1,1,0)
+```
 
 ## in2out
 
@@ -600,6 +1048,35 @@ cube()
 
 `noPerspective()` set the scene to orthogonal mode. 
 
+![result_of_below](funcex/ex0039.png)
+
+```lua:noPerspective.lua
+version3()
+
+dim3()
+n = 20
+move(100,100,0)
+beginGroup()
+rotateX(d2r(85))
+for i=1,n do
+    move(0,300,0)
+    fill(i/n,1-i/n,1)
+    cube(50)
+end
+endGroup()
+
+move(300,0,0)
+noPerspective()
+beginGroup()
+rotateX(d2r(85))
+for i=1,n do
+    move(0,300,0)
+    fill(i/n,1-i/n,1)
+    cube(50)
+end
+endGroup()
+```
+
 ## fill
 
 1. `fill()` turns on fill mode. 
@@ -611,6 +1088,24 @@ cube()
 
 `noFill()` turns off the fill mode.
 
+![result_of_below](funcex/ex0040.png)
+
+```lua:fill.lua
+version3()
+
+move(200,100,0)
+fill(1,0,0)
+rect(50)
+
+move(100,0,0)
+fill(1,1,0)
+rect(50)
+
+move(100,0,0)
+noFill()
+rect(50)
+```
+
 ## stroke
 
 1. `stroke()` turns on the stroke mode. 
@@ -619,6 +1114,26 @@ cube()
 ## noStroke
 
 `noStroke()` turns off stroke mode. 
+
+![result_of_below](funcex/ex0041.png)
+
+```lua:stroke.lua
+version3()
+
+fill(0)
+move(200,100,0)
+stroke(1,0,0)
+rect(50)
+
+move(100,0,0)
+stroke(1,1,0)
+rect(50)
+
+move(100,0,0)
+noStroke()
+rect(50)
+```
+
 
 ## dot
 
@@ -629,6 +1144,25 @@ cube()
 
 `noDot()` turns off the dot mode. 
 
+![result_of_below](funcex/ex0042.png)
+
+```lua:dot.lua
+version3()
+
+fill(1)
+move(200,100,0)
+stroke(1,0,0)
+rect(50)
+
+move(100,0,0)
+dot(1,1,0)
+rect(50)
+
+move(100,0,0)
+noDot()
+rect(50)
+```
+
 ## wireframe
 
 `wireframe()` turns on the wireframe mode.
@@ -636,6 +1170,26 @@ cube()
 ## noWireframe
 
 `noWireframe()` turns off the wireframe mode.
+
+![result_of_below](funcex/ex0043.png)
+
+```lua:wireframe.lua
+version3()
+n=8
+dim3()
+
+move(width/2, height/2)
+for i=1,n do
+    if i>n//2 then wireframe()
+    else noWireframe() end
+    beginGroup()
+    rotateZ(d2r(i*360/n))
+    move(100,0,0)
+    fill(i/n,1-i/n,1)
+    ball(30,1)
+    endGroup()
+end
+```
 
 ## blendAlpha
 
@@ -645,6 +1199,22 @@ cube()
 
 `noBlendAlpha` turns off the alpha blending. 
 
+![result_of_below](funcex/ex0044.png)
+
+```lua:blendAlpha.lua
+version3()
+castTex(OUTPUT,INPUT)
+
+move(200,100,0)
+fill(1,0,0,0.2)
+rect(80)
+
+move(100,0,0)
+noBlendAlpha()
+fill(1,0,0,0.2)
+rect(80)
+```
+
 ## back
 
 `back()` If the fill alpha is smaller than 1, back mode shows the backside of an obj. Off by default. 
@@ -653,6 +1223,22 @@ cube()
 
 `noBack()` turn off back mode. 
 
+![result_of_below](funcex/ex0045.png)
+
+```lua:back.lua
+version3()
+dim3()
+fill(1,0,0,0.2)
+
+rotateX(d2r(30))
+rotateY(d2r(-15))
+move(200,180,0)
+cube(80)
+
+move(150,0,0)
+back()
+cube(80)
+```
 
 ## pure
 
