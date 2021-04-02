@@ -1509,6 +1509,8 @@ end
 
 ## pointLight
 
+![result_of_below](funcex/output_00055.png)
+
 1. `pointLight(r,g,b,intensity,radius,smoothWidth)`
 1. `pointLight()` equals to `pointLight(1,1,1,1,1000,1000)`
 1. `pointLight(brightness,intensity)` equals to `pointLight(brightness,brightness,brightness,intensity,1000,1000)`
@@ -1681,6 +1683,8 @@ end
 
 ## viewSpace
 
+![result_of_below](funcex/output_00056.png)
+
 1. `viewSpace(width,height,distanceToPlane,farLevel)`
 1. `viewSpace(width,height,distanceToPlane)` equals to `viewSpace(width,height,distanceToPlane,4)`
 
@@ -1713,21 +1717,94 @@ end
 `dotRadius(radius)`
 > - Default: 2
 
+![result_of_below](funcex/output_00061.png)
+
+```lua:dotRadius.lua
+version3()
+background(1)
+fill(0,1,1)
+dot(1,0,0)
+move(100,100)
+for i=1,7 do
+    dotRadius(i/2)
+    rect(40)
+    move(50,0)
+end
+```
+
 ## dotDivision
 
 `dotDivision(level)`
 > - Default: 3
 > - Maximum: 7
 
+![result_of_below](funcex/output_00062.png)
+
+```lua:dotDivision.lua
+version3()
+background(1)
+fill(0,1,1)
+dot(1,0,0)
+dotRadius(10)
+move(100,100)
+for i=0,4 do
+    dotDivision(i)
+    rect(40)
+    move(70,0)
+end
+```
+
 ## dotGlobal
 
 `dotGlobal()` Draw points globally. Points will no longer be squeezed by `scale` function. 
 > - Default: local
 
+![result_of_below](funcex/output_00063.png)
+
+```lua:dotGlobal.lua
+version3()
+
+dot(1,0,0)
+dotGlobal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
+
 ## dotLocal
 
 `dotLocal()` Draw points locally. Points will be squeezed by `scale` function. 
 > - Default: local
+
+![result_of_below](funcex/output_00064.png)
+
+```lua:dotLocal.lua
+version3()
+
+dot(1,0,0)
+dotLocal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
 
 ## smooth
 
@@ -1814,6 +1891,28 @@ All conversions are done in the range `0~1`.
 
 > - New in `v3.2.0`
 
+![result_of_below](funcex/output_00065.png)
+
+```lua:color_convert.lua
+version3()
+
+dim3()
+strokeWidth(0.5)
+stroke(0)
+
+move(width/2,height/2,0)
+for x = -5,5 do
+    for y =-5,5 do
+        for z=-5,5 do
+            beginGroup()
+            move(x*15,y*15,z*15)
+            fill(cmy2rgb(x/10+.5,y/10+.5,z/10+.5))
+            cube(12)
+            endGroup()
+        end
+    end
+end
+```
 
 
 ## utf8ToLocal
@@ -1848,12 +1947,15 @@ println(getDrawRecord());
 1. `getStatus(needStringFormat)`gets the current Paintbrush status. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
 1. `getStatus()` equals to `getStatus(true)`
 
-```lua:getStatus.lua
+![result_of_below](funcex/output_00066.png)
+
+```lua:printDrawRecord.lua
 version3()
+dot(1,0,0)
 move(width/2,height/2)
 dim3()
 cube()
-println(getStatus());
+println(getDrawRecord())
 ```
 
 ## getAudio
@@ -1871,7 +1973,7 @@ println(getStatus());
 
 ```lua:waveInfo.lua
 version3()
-in2out()
+castTex(OUTPUT,INPUT)
 
 local wl,wr,ftl,ftr,specl,specr = getAudio()
 

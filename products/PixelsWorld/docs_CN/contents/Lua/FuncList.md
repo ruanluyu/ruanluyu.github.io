@@ -1495,6 +1495,8 @@ end
 
 ## pointLight
 
+![result_of_below](funcex/output_00055.png)
+
 1. `pointLight(r,g,b,intensity,radius,smoothWidth)`
 1. `pointLight()`等价于`pointLight(1,1,1,1,1000,1000)`
 1. `pointLight(brightness,intensity)`等价于`pointLight(brightness,brightness,brightness,intensity,1000,1000)`
@@ -1657,6 +1659,8 @@ end
 
 ## lookAt
 
+
+
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,upVecX,upVecY,upVecZ)`用来设置摄像机位置和朝向
 1. `lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ)`等价于`lookAt(eyePosX,eyePosY,eyePosZ,objPosX,objPosY,objPosZ,0,-1,0)`
 
@@ -1667,6 +1671,8 @@ end
 > - `upVec`长度不能太小。
 
 ## viewSpace
+
+![result_of_below](funcex/output_00056.png)
 
 1. `viewSpace(width,height,distanceToPlane,farLevel)`
 1. `viewSpace(width,height,distanceToPlane)`等价于`viewSpace(width,height,distanceToPlane,4)`
@@ -1681,40 +1687,183 @@ end
 `strokeWidth(width)`来设置描边粗细
 > 默认值：2
 
+![result_of_below](funcex/output_00057.png)
+
+```lua:strokeWidth.lua
+version3()
+background(1)
+move(100,100)
+for i=1,30 do
+    move(10,0)
+    strokeWidth(i/8)
+    line(0,0,0,100)
+end
+```
+
 ## strokeDivision
 
 `strokeDivision(level)`来设置描边细分等级
 > 默认值：3
+
+![result_of_below](funcex/output_00058.png)
+
+```lua:strokeDivision.lua
+version3()
+background(1)
+strokeWidth(30)
+move(100,100)
+for i=0,3 do
+    strokeDivision(i)
+    line(0,0,0,100)
+    move(75,0)
+end
+```
 
 ## strokeGlobal
 
 `strokeGlobal()`以全局模式绘制线，线的粗细不受scale影响。
 > - 默认值是局部模式
 
+![result_of_below](funcex/output_00059.png)
+
+```lua:strokeGlobal.lua
+version3()
+
+strokeWidth(4)
+strokeGlobal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
+
 ## strokeLocal
 
 `strokeLocal()`以局部模式绘制线，线的粗细将受scale影响。
 > - 默认值是局部模式
+
+![result_of_below](funcex/output_00060.png)
+
+```lua:strokeLocal.lua
+version3()
+
+strokeWidth(4)
+strokeLocal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
+
 
 ## dotRadius
 
 `dotRadius(radius)`来设置点粗细
 > - 默认值：2
 
+![result_of_below](funcex/output_00061.png)
+
+```lua:dotRadius.lua
+version3()
+background(1)
+fill(0,1,1)
+dot(1,0,0)
+move(100,100)
+for i=1,7 do
+    dotRadius(i/2)
+    rect(40)
+    move(50,0)
+end
+```
+
 ## dotDivision
 
 `dotDivision(level)`来设置点的细分等级。（非负整数，最大为7）
 > - 默认值：3
+
+![result_of_below](funcex/output_00062.png)
+
+```lua:dotDivision.lua
+version3()
+background(1)
+fill(0,1,1)
+dot(1,0,0)
+dotRadius(10)
+move(100,100)
+for i=0,4 do
+    dotDivision(i)
+    rect(40)
+    move(70,0)
+end
+```
 
 ## dotGlobal
 
 `dotGlobal()`以全局模式绘制点，点的半径不受scale影响。
 > - 默认值是局部模式
 
+![result_of_below](funcex/output_00063.png)
+
+```lua:dotGlobal.lua
+version3()
+
+dot(1,0,0)
+dotGlobal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
+
 ## dotLocal
 
 `dotLocal()`以局部模式绘制点，点的半径将受scale影响。
 > - 默认值是局部模式
+
+![result_of_below](funcex/output_00064.png)
+
+```lua:dotLocal.lua
+version3()
+
+dot(1,0,0)
+dotLocal()
+
+move(50,100)
+
+beginGroup()
+for i=1,13 do
+    beginGroup()
+    scale(1/i)
+    rect(50)
+    endGroup()
+    move(50/i+20,0)
+end
+endGroup()
+```
 
 ## smooth
 
@@ -1800,6 +1949,30 @@ $$
 
 > - `v3.2.0`新函数
 
+![result_of_below](funcex/output_00065.png)
+
+```lua:color_convert.lua
+version3()
+
+dim3()
+strokeWidth(0.5)
+stroke(0)
+
+move(width/2,height/2,0)
+for x = -5,5 do
+    for y =-5,5 do
+        for z=-5,5 do
+            beginGroup()
+            move(x*15,y*15,z*15)
+            fill(cmy2rgb(x/10+.5,y/10+.5,z/10+.5))
+            cube(12)
+            endGroup()
+        end
+    end
+end
+```
+
+
 ## utf8ToLocal
 
 `utf8ToLocal(str)`把unicode字符串转为本地字符串，返回本地编码的字符串
@@ -1819,12 +1992,15 @@ $$
 1. `getDrawRecord(needStringFormat)`将输出当前场景的绘制记录信息。`needStringFormat`是一个布尔值，true时输出字符串，false输出一个Lua表。
 1. `getDrawRecord()`等价于`getDrawRecord(true)`
 
+![result_of_below](funcex/output_00066.png)
+
 ```lua:printDrawRecord.lua
 version3()
+dot(1,0,0)
 move(width/2,height/2)
 dim3()
 cube()
-println(getDrawRecord());
+println(getDrawRecord())
 ```
 
 ## getStatus
@@ -1837,7 +2013,7 @@ version3()
 move(width/2,height/2)
 dim3()
 cube()
-println(getStatus());
+println(getStatus())
 ```
 
 ## getAudio
@@ -1857,7 +2033,7 @@ println(getStatus());
 
 ```lua:waveInfo.lua
 version3()
-in2out()
+castTex(OUTPUT,INPUT)
 
 local wl,wr,ftl,ftr,specl,specr = getAudio()
 

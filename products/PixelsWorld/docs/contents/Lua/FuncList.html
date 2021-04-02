@@ -2053,6 +2053,7 @@ n<span class="token operator">=</span><span class="token number">4</span>
 <span class="token keyword">end</span>
 </code></pre>
 <h2 id="pointlight">pointLight</h2>
+<p><img src="funcex/output_00055.png" alt="result_of_below"></p>
 <ol>
 <li><code>pointLight(r,g,b,intensity,radius,smoothWidth)</code></li>
 <li><code>pointLight()</code> equals to <code>pointLight(1,1,1,1,1000,1000)</code></li>
@@ -2225,6 +2226,7 @@ n<span class="token operator">=</span><span class="token number">5</span>
 </ul>
 </blockquote>
 <h2 id="viewspace">viewSpace</h2>
+<p><img src="funcex/output_00056.png" alt="result_of_below"></p>
 <ol>
 <li><code>viewSpace(width,height,distanceToPlane,farLevel)</code></li>
 <li><code>viewSpace(width,height,distanceToPlane)</code> equals to <code>viewSpace(width,height,distanceToPlane,4)</code></li>
@@ -2267,6 +2269,19 @@ n<span class="token operator">=</span><span class="token number">5</span>
 <li>Default: 2</li>
 </ul>
 </blockquote>
+<p><img src="funcex/output_00061.png" alt="result_of_below"></p>
+<div><p class="code-filename">dotRadius.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">background</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span> <span class="token keyword">do</span>
+    <span class="token function">dotRadius</span><span class="token punctuation">(</span>i<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="dotdivision">dotDivision</h2>
 <p><code>dotDivision(level)</code></p>
 <blockquote>
@@ -2275,6 +2290,20 @@ n<span class="token operator">=</span><span class="token number">5</span>
 <li>Maximum: 7</li>
 </ul>
 </blockquote>
+<p><img src="funcex/output_00062.png" alt="result_of_below"></p>
+<div><p class="code-filename">dotDivision.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">background</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span> <span class="token keyword">do</span>
+    <span class="token function">dotDivision</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">70</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="dotglobal">dotGlobal</h2>
 <p><code>dotGlobal()</code> Draw points globally. Points will no longer be squeezed by <code>scale</code> function. </p>
 <blockquote>
@@ -2282,6 +2311,25 @@ n<span class="token operator">=</span><span class="token number">5</span>
 <li>Default: local</li>
 </ul>
 </blockquote>
+<p><img src="funcex/output_00063.png" alt="result_of_below"></p>
+<div><p class="code-filename">dotGlobal.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dotGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">13</span> <span class="token keyword">do</span>
+    <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>i<span class="token punctuation">)</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+    <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token operator">/</span>i<span class="token operator">+</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="dotlocal">dotLocal</h2>
 <p><code>dotLocal()</code> Draw points locally. Points will be squeezed by <code>scale</code> function. </p>
 <blockquote>
@@ -2289,6 +2337,25 @@ n<span class="token operator">=</span><span class="token number">5</span>
 <li>Default: local</li>
 </ul>
 </blockquote>
+<p><img src="funcex/output_00064.png" alt="result_of_below"></p>
+<div><p class="code-filename">dotLocal.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token function">dotLocal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+<span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">13</span> <span class="token keyword">do</span>
+    <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>i<span class="token punctuation">)</span>
+    <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+    <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token operator">/</span>i<span class="token operator">+</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+<span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="smooth">smooth</h2>
 <p><code>smooth()</code> Smooth render mode. </p>
 <blockquote>
@@ -2363,6 +2430,27 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <li>New in <code>v3.2.0</code></li>
 </ul>
 </blockquote>
+<p><img src="funcex/output_00065.png" alt="result_of_below"></p>
+<div><p class="code-filename">color_convert.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">strokeWidth</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token function">stroke</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> x <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span> <span class="token keyword">do</span>
+    <span class="token keyword">for</span> y <span class="token operator">=</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span> <span class="token keyword">do</span>
+        <span class="token keyword">for</span> z<span class="token operator">=</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span> <span class="token keyword">do</span>
+            <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token function">move</span><span class="token punctuation">(</span>x<span class="token operator">*</span><span class="token number">15</span><span class="token punctuation">,</span>y<span class="token operator">*</span><span class="token number">15</span><span class="token punctuation">,</span>z<span class="token operator">*</span><span class="token number">15</span><span class="token punctuation">)</span>
+            <span class="token function">fill</span><span class="token punctuation">(</span><span class="token function">cmy2rgb</span><span class="token punctuation">(</span>x<span class="token operator">/</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">.5</span><span class="token punctuation">,</span>y<span class="token operator">/</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">.5</span><span class="token punctuation">,</span>z<span class="token operator">/</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+            <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">end</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="utf8tolocal">utf8ToLocal</h2>
 <p><code>utf8ToLocal(str)</code> unicode string to local string. </p>
 <blockquote>
@@ -2389,12 +2477,14 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 <li><code>getStatus(needStringFormat)</code>gets the current Paintbrush status. <code>needStringFormat</code> is a boolean, when <code>true</code>, returns a string, otherwise, returns a Lua table.</li>
 <li><code>getStatus()</code> equals to <code>getStatus(true)</code></li>
 </ol>
-<div><p class="code-filename">getStatus.lua</p></div>
+<p><img src="funcex/output_00066.png" alt="result_of_below"></p>
+<div><p class="code-filename">printDrawRecord.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">dot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getDrawRecord</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="getaudio">getAudio</h2>
 <blockquote>
@@ -2415,7 +2505,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
 </blockquote>
 <div><p class="code-filename">waveInfo.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">in2out</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>INPUT<span class="token punctuation">)</span>
 
 <span class="token keyword">local</span> wl<span class="token punctuation">,</span>wr<span class="token punctuation">,</span>ftl<span class="token punctuation">,</span>ftr<span class="token punctuation">,</span>specl<span class="token punctuation">,</span>specr <span class="token operator">=</span> <span class="token function">getAudio</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -2523,7 +2613,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-01T16:16:21.200Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T16:16:44.253Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-02T09:34:41.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-02T09:35:24.560Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
