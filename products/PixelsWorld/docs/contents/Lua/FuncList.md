@@ -64,7 +64,17 @@ This page covers all functions provided in Lua render mode.
 [tube](#tube)
 
 [image](#image),
-[imageAlign](#imagealign)
+[imageAlign](#imagealign),
+[imageAnchor](#imageanchor)
+
+[text](#text),
+[textSize](#textsize),
+[textFont](#textfont),
+[textAlign](#textalign),
+[textAnchor](#textanchor),
+[textAlignOuter](#textalignouter),
+[textInterval](#textinterval),
+[textAdvanceScale](#textadvancescale)
 
 [coord](#coord),
 [grid](#grid)
@@ -930,16 +940,18 @@ cube()
 
 ## imageAlign
 
-`imageAlign(rule)` changes the image orientation rendered by `image` function. The rule of `rule`
-- `rule` is 4 length string. 
+> New in `v3.3.0`
+
+`imageAlign(rule)` changes the image orientation rendered by `image` function. The syntax of `rule` is as follows
+- `rule` is a 4-length-string. 
 - 1st char should be `+` or `-`
 - 2nd char should be one of `x,y,z`
 - 3rd char should be `+` or `-`
 - 4th char should be one of `x,y,z`
 
+
 `rule` represents which painter coordinates the texture UV coordinate (the origin is left bottom corner) should align with. By default, the `rule` is `"+x+y"`, it represents u aligns with positive x, v aligns with positive y. 
 
-> New in `v3.3.0`
 
 ![result_of_below](funcex/output_00035.png)
 
@@ -961,6 +973,74 @@ coord()
 imageAlign("+z-y")
 image(PARAM0,128,128)
 ```
+
+## imageAnchor
+
+> New in `v3.5.0`. 
+
+- `imageAnchor(u,v)` specifies the uv position of the anchor point of the image. 
+- `imageAnchor(a)` is a shortcut of `imageAnchor(a,a)`
+
+
+
+![result_of_below](funcex/output_00067.png)
+
+## text
+
+> New in `v3.5.0`
+
+`text(str)` renders text onto the screen. 
+
+## textSize
+
+> New in `v3.5.0`
+
+- `textSize(size,resolution)` set the text size to be rendered. `size` controls the size of the text, `resolution` controls the resolution of the text. 
+- `textSize(size)` equals to `textSize(size,size)`
+
+## textFont
+
+> New in `v3.5.0`
+
+- `textFont(fontFileName)` set the font of the text to be rendered. `fontFileName` is the font-file's name located in `C:\Windows\Fonts`. (Right click the file, click Properties, you would see the font-file's name. E.g.: `textFont("arial.ttf")`)。
+
+> You can also use the full path of a font. Yes, you can load font files in everywhere. (`textFont([[D:\MyFolder\arial.ttf]])`)
+
+## textAlign 
+
+> New in `v3.5.0`
+
+`textAlign(rule)` sets the alignment rule of the text. 
+
+[See also imageAlign>>>](#imagealign)
+
+
+## textAnchor 
+
+> New in `v3.5.0`
+
+`textAnchor(x,y)` sets the anchor point of the text. 
+
+[See also imageAnchor>>>](#imageanchor)
+
+## textAlignOuter
+
+> New in `v3.5.0`
+
+`textAlignOuter(flag)` set if we align text with outer boundary of the text.  `flag` is a bool. 
+
+## textInterval
+
+> New in `v3.5.0`
+
+`textInterval(x,y)` set the intervals of the text texture. Default: `x:0, y:0`
+
+## textAdvanceScale
+
+> New in `v3.5.0`
+
+`textAdvanceScale(rx,ry)` set the scale of advances. `rx:1, ry:1`
+
 
 ## coord
 

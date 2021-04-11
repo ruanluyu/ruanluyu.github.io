@@ -64,7 +64,17 @@
 [tube](#tube)
 
 [image](#image),
-[imageAlign](#imagealign)
+[imageAlign](#imagealign),
+[imageAnchor](#imageanchor)
+
+[text](#text),
+[textSize](#textsize),
+[textFont](#textfont),
+[textAlign](#textalign),
+[textAnchor](#textanchor),
+[textAlignOuter](#textalignouter),
+[textInterval](#textinterval),
+[textAdvanceScale](#textadvancescale)
 
 [coord](#coord),
 [grid](#grid)
@@ -914,16 +924,18 @@ cube()
 
 ## imageAlign
 
+> `v3.3.0`新函数。 
+
 `imageAlign(rule)`来更改`image`函数的图片朝向。`rule`遵循以下规则：
-- rule为4个字符
+- rule是长度为4的字符串
 - 第1个字符为`+`或`-`
 - 第2个字符为`x,y,z`中任意一个
 - 第3个字符为`+`或`-`
 - 第4个字符为`x,y,z`中任意一个
 
+
 `rule`代表图片的UV坐标（左下角为原点）与绘笔坐标的什么轴向对齐，默认`rule`为`"+x+y"`，代表u轴与正x对齐，v轴与正y对齐。
 
-> `v3.3.0`新函数
 
 ![result_of_below](funcex/output_00035.png)
 
@@ -945,6 +957,73 @@ coord()
 imageAlign("+z-y")
 image(PARAM0,128,128)
 ```
+
+
+## imageAnchor
+
+> `v3.5.0`新函数。 
+
+- `imageAnchor(u,v)` 用来指定图片锚点的位置。
+- `imageAnchor(a)`是`imageAnchor(a,a)`的简写版本。
+
+
+![result_of_below](funcex/output_00067.png)
+
+## text
+
+> `v3.5.0`新函数
+
+`text(str)`用来在屏幕上渲染文字。
+
+## textSize
+
+> `v3.5.0`新函数
+
+- `textSize(size,resolution)`用来设置接下来绘制文字的大小，`size`控制文字大小，`resolution`控制文字分辨率。
+- `textSize(size)`等价于`textSize(size,size)`
+
+## textFont
+
+> `v3.5.0`新函数
+
+- `textFont(fontFileName)`用来设置接下来要绘制的文字的字体。`fontFileName`为`C:\Windows\Fonts`文件夹中字体文件的文件名（右键、属性，可查看字体文件的文件名，例如`textFont("arial.ttf")`）。
+
+> 你也可以输入字体文件的完整路径。这意味着你可以读取任意位置的字体。（例如`textFont([[D:\MyFolder\arial.ttf]])`）
+
+## textAlign 
+
+> `v3.5.0`新函数
+
+`textAlign(rule)`可以用来设置字体的渲染朝向，`rule`同`imageAlign(rule)`中的`rule`。
+
+[详见imageAlign>>>](#imagealign)
+
+
+## textAnchor 
+
+> `v3.5.0`新函数
+
+`textAnchor(x,y)`可以用来设置字体锚点位置。
+
+[详见imageAnchor>>>](#imageanchor)
+
+## textAlignOuter
+
+> `v3.5.0`新函数
+
+`textAlignOuter(flag)`用来设置是否使用外轮廓来对齐文字。`flag`为布尔值。
+
+## textInterval
+
+> `v3.5.0`新函数
+
+`textInterval(x,y)`用来设置文字贴图间距。默认`x:0, y:0`
+
+## textAdvanceScale
+
+> `v3.5.0`新函数
+
+`textAdvanceScale(rx,ry)`用来控制文字贴图的前进倍率。默认`rx:1, ry:1`
 
 ## coord
 

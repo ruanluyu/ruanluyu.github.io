@@ -247,11 +247,12 @@ obj={
 poly(obj)
 ```
 
-## Use UV texture
+## Use texture
 
-> - Here is an example of how to use uv texture. 
+> - Here is an example of how to use texture. 
 > - The integer that its key name ends up with `_tex` is treated as a texture id. 
 > - Using an extra shader in a prim can handle more than one texture. 
+> - [More information about texture...](./Texture.md)
 
 
 ```lua:UVTex.lua

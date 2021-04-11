@@ -777,7 +777,16 @@
 <a href="#ball">ball</a>,
 <a href="#tube">tube</a></p>
 <p><a href="#image">image</a>,
-<a href="#imagealign">imageAlign</a></p>
+<a href="#imagealign">imageAlign</a>,
+<a href="#imageanchor">imageAnchor</a></p>
+<p><a href="#text">text</a>,
+<a href="#textsize">textSize</a>,
+<a href="#textfont">textFont</a>,
+<a href="#textalign">textAlign</a>,
+<a href="#textanchor">textAnchor</a>,
+<a href="#textalignouter">textAlignOuter</a>,
+<a href="#textinterval">textInterval</a>,
+<a href="#textadvancescale">textAdvanceScale</a></p>
 <p><a href="#coord">coord</a>,
 <a href="#grid">grid</a></p>
 <p><a href="Poly.html">poly</a>,
@@ -1538,18 +1547,18 @@ num <span class="token operator">=</span> <span class="token number">32</span>
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="imagealign">imageAlign</h2>
+<blockquote>
+<p><code>v3.3.0</code>&#x65B0;&#x51FD;&#x6570;&#x3002; </p>
+</blockquote>
 <p><code>imageAlign(rule)</code>&#x6765;&#x66F4;&#x6539;<code>image</code>&#x51FD;&#x6570;&#x7684;&#x56FE;&#x7247;&#x671D;&#x5411;&#x3002;<code>rule</code>&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x89C4;&#x5219;&#xFF1A;</p>
 <ul>
-<li>rule&#x4E3A;4&#x4E2A;&#x5B57;&#x7B26;</li>
+<li>rule&#x662F;&#x957F;&#x5EA6;&#x4E3A;4&#x7684;&#x5B57;&#x7B26;&#x4E32;</li>
 <li>&#x7B2C;1&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>+</code>&#x6216;<code>-</code></li>
 <li>&#x7B2C;2&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>x,y,z</code>&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;</li>
 <li>&#x7B2C;3&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>+</code>&#x6216;<code>-</code></li>
 <li>&#x7B2C;4&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;<code>x,y,z</code>&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;</li>
 </ul>
 <p><code>rule</code>&#x4EE3;&#x8868;&#x56FE;&#x7247;&#x7684;UV&#x5750;&#x6807;&#xFF08;&#x5DE6;&#x4E0B;&#x89D2;&#x4E3A;&#x539F;&#x70B9;&#xFF09;&#x4E0E;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x7684;&#x4EC0;&#x4E48;&#x8F74;&#x5411;&#x5BF9;&#x9F50;&#xFF0C;&#x9ED8;&#x8BA4;<code>rule</code>&#x4E3A;<code>&quot;+x+y&quot;</code>&#xFF0C;&#x4EE3;&#x8868;u&#x8F74;&#x4E0E;&#x6B63;x&#x5BF9;&#x9F50;&#xFF0C;v&#x8F74;&#x4E0E;&#x6B63;y&#x5BF9;&#x9F50;&#x3002;</p>
-<blockquote>
-<p><code>v3.3.0</code>&#x65B0;&#x51FD;&#x6570;</p>
-</blockquote>
 <p><img src="funcex/output_00035.png" alt="result_of_below"></p>
 <div><p class="code-filename">imageAlign.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1569,6 +1578,65 @@ num <span class="token operator">=</span> <span class="token number">32</span>
 <span class="token function">imageAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+z-y&quot;</span><span class="token punctuation">)</span>
 <span class="token function">image</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="imageanchor">imageAnchor</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;&#x3002; </p>
+</blockquote>
+<ul>
+<li><code>imageAnchor(u,v)</code> &#x7528;&#x6765;&#x6307;&#x5B9A;&#x56FE;&#x7247;&#x951A;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li><code>imageAnchor(a)</code>&#x662F;<code>imageAnchor(a,a)</code>&#x7684;&#x7B80;&#x5199;&#x7248;&#x672C;&#x3002;</li>
+</ul>
+<p><img src="funcex/output_00067.png" alt="result_of_below"></p>
+<h2 id="text">text</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>text(str)</code>&#x7528;&#x6765;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6E32;&#x67D3;&#x6587;&#x5B57;&#x3002;</p>
+<h2 id="textsize">textSize</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<ul>
+<li><code>textSize(size,resolution)</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x63A5;&#x4E0B;&#x6765;&#x7ED8;&#x5236;&#x6587;&#x5B57;&#x7684;&#x5927;&#x5C0F;&#xFF0C;<code>size</code>&#x63A7;&#x5236;&#x6587;&#x5B57;&#x5927;&#x5C0F;&#xFF0C;<code>resolution</code>&#x63A7;&#x5236;&#x6587;&#x5B57;&#x5206;&#x8FA8;&#x7387;&#x3002;</li>
+<li><code>textSize(size)</code>&#x7B49;&#x4EF7;&#x4E8E;<code>textSize(size,size)</code></li>
+</ul>
+<h2 id="textfont">textFont</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<ul>
+<li><code>textFont(fontFileName)</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x7ED8;&#x5236;&#x7684;&#x6587;&#x5B57;&#x7684;&#x5B57;&#x4F53;&#x3002;<code>fontFileName</code>&#x4E3A;<code>C:\Windows\Fonts</code>&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x53F3;&#x952E;&#x3001;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x67E5;&#x770B;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4F8B;&#x5982;<code>textFont(&quot;arial.ttf&quot;)</code>&#xFF09;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x4F53;&#x3002;&#xFF08;&#x4F8B;&#x5982;<code>textFont([[D:\MyFolder\arial.ttf]])</code>&#xFF09;</p>
+</blockquote>
+<h2 id="textalign">textAlign</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>textAlign(rule)</code>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x5B57;&#x4F53;&#x7684;&#x6E32;&#x67D3;&#x671D;&#x5411;&#xFF0C;<code>rule</code>&#x540C;<code>imageAlign(rule)</code>&#x4E2D;&#x7684;<code>rule</code>&#x3002;</p>
+<p><a href="#imagealign">&#x8BE6;&#x89C1;imageAlign&gt;&gt;&gt;</a></p>
+<h2 id="textanchor">textAnchor</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>textAnchor(x,y)</code>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x5B57;&#x4F53;&#x951A;&#x70B9;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p><a href="#imageanchor">&#x8BE6;&#x89C1;imageAnchor&gt;&gt;&gt;</a></p>
+<h2 id="textalignouter">textAlignOuter</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>textAlignOuter(flag)</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x5916;&#x8F6E;&#x5ED3;&#x6765;&#x5BF9;&#x9F50;&#x6587;&#x5B57;&#x3002;<code>flag</code>&#x4E3A;&#x5E03;&#x5C14;&#x503C;&#x3002;</p>
+<h2 id="textinterval">textInterval</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>textInterval(x,y)</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6587;&#x5B57;&#x8D34;&#x56FE;&#x95F4;&#x8DDD;&#x3002;&#x9ED8;&#x8BA4;<code>x:0, y:0</code></p>
+<h2 id="textadvancescale">textAdvanceScale</h2>
+<blockquote>
+<p><code>v3.5.0</code>&#x65B0;&#x51FD;&#x6570;</p>
+</blockquote>
+<p><code>textAdvanceScale(rx,ry)</code>&#x7528;&#x6765;&#x63A7;&#x5236;&#x6587;&#x5B57;&#x8D34;&#x56FE;&#x7684;&#x524D;&#x8FDB;&#x500D;&#x7387;&#x3002;&#x9ED8;&#x8BA4;<code>rx:1, ry:1</code></p>
 <h2 id="coord">coord</h2>
 <p><code>coord()</code>&#x5C06;&#x628A;&#x5F53;&#x524D;&#x7ED8;&#x7B14;&#x5750;&#x6807;&#x53EF;&#x89C6;&#x5316;&#x51FA;&#x6765;&#x3002;</p>
 <p><img src="funcex/output_00036.png" alt="result_of_below"></p>
@@ -2691,7 +2759,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"4.1.5","depth":2,"next":{"title":"贴图系统","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"全局参数","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-02T09:30:41.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-02T09:50:34.678Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"函数列表","level":"4.1.5","depth":2,"next":{"title":"贴图系统","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"全局参数","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-11T17:56:58.232Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-11T17:57:18.623Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

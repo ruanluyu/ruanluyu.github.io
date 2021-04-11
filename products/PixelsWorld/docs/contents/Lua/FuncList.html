@@ -762,7 +762,16 @@
 <a href="#ball">ball</a>,
 <a href="#tube">tube</a></p>
 <p><a href="#image">image</a>,
-<a href="#imagealign">imageAlign</a></p>
+<a href="#imagealign">imageAlign</a>,
+<a href="#imageanchor">imageAnchor</a></p>
+<p><a href="#text">text</a>,
+<a href="#textsize">textSize</a>,
+<a href="#textfont">textFont</a>,
+<a href="#textalign">textAlign</a>,
+<a href="#textanchor">textAnchor</a>,
+<a href="#textalignouter">textAlignOuter</a>,
+<a href="#textinterval">textInterval</a>,
+<a href="#textadvancescale">textAdvanceScale</a></p>
 <p><a href="#coord">coord</a>,
 <a href="#grid">grid</a></p>
 <p><a href="Poly.html">poly</a>,
@@ -1521,18 +1530,18 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="imagealign">imageAlign</h2>
-<p><code>imageAlign(rule)</code> changes the image orientation rendered by <code>image</code> function. The rule of <code>rule</code></p>
+<blockquote>
+<p>New in <code>v3.3.0</code></p>
+</blockquote>
+<p><code>imageAlign(rule)</code> changes the image orientation rendered by <code>image</code> function. The syntax of <code>rule</code> is as follows</p>
 <ul>
-<li><code>rule</code> is 4 length string. </li>
+<li><code>rule</code> is a 4-length-string. </li>
 <li>1st char should be <code>+</code> or <code>-</code></li>
 <li>2nd char should be one of <code>x,y,z</code></li>
 <li>3rd char should be <code>+</code> or <code>-</code></li>
 <li>4th char should be one of <code>x,y,z</code></li>
 </ul>
 <p><code>rule</code> represents which painter coordinates the texture UV coordinate (the origin is left bottom corner) should align with. By default, the <code>rule</code> is <code>&quot;+x+y&quot;</code>, it represents u aligns with positive x, v aligns with positive y. </p>
-<blockquote>
-<p>New in <code>v3.3.0</code></p>
-</blockquote>
 <p><img src="funcex/output_00035.png" alt="result_of_below"></p>
 <div><p class="code-filename">imageAlign.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1552,6 +1561,65 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <span class="token function">imageAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+z-y&quot;</span><span class="token punctuation">)</span>
 <span class="token function">image</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="imageanchor">imageAnchor</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code>. </p>
+</blockquote>
+<ul>
+<li><code>imageAnchor(u,v)</code> specifies the uv position of the anchor point of the image. </li>
+<li><code>imageAnchor(a)</code> is a shortcut of <code>imageAnchor(a,a)</code></li>
+</ul>
+<p><img src="funcex/output_00067.png" alt="result_of_below"></p>
+<h2 id="text">text</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>text(str)</code> renders text onto the screen. </p>
+<h2 id="textsize">textSize</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<ul>
+<li><code>textSize(size,resolution)</code> set the text size to be rendered. <code>size</code> controls the size of the text, <code>resolution</code> controls the resolution of the text. </li>
+<li><code>textSize(size)</code> equals to <code>textSize(size,size)</code></li>
+</ul>
+<h2 id="textfont">textFont</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<ul>
+<li><code>textFont(fontFileName)</code> set the font of the text to be rendered. <code>fontFileName</code> is the font-file&apos;s name located in <code>C:\Windows\Fonts</code>. (Right click the file, click Properties, you would see the font-file&apos;s name. E.g.: <code>textFont(&quot;arial.ttf&quot;)</code>)&#x3002;</li>
+</ul>
+<blockquote>
+<p>You can also use the full path of a font. Yes, you can load font files in everywhere. (<code>textFont([[D:\MyFolder\arial.ttf]])</code>)</p>
+</blockquote>
+<h2 id="textalign">textAlign</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>textAlign(rule)</code> sets the alignment rule of the text. </p>
+<p><a href="#imagealign">See also imageAlign&gt;&gt;&gt;</a></p>
+<h2 id="textanchor">textAnchor</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>textAnchor(x,y)</code> sets the anchor point of the text. </p>
+<p><a href="#imageanchor">See also imageAnchor&gt;&gt;&gt;</a></p>
+<h2 id="textalignouter">textAlignOuter</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>textAlignOuter(flag)</code> set if we align text with outer boundary of the text.  <code>flag</code> is a bool. </p>
+<h2 id="textinterval">textInterval</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>textInterval(x,y)</code> set the intervals of the text texture. Default: <code>x:0, y:0</code></p>
+<h2 id="textadvancescale">textAdvanceScale</h2>
+<blockquote>
+<p>New in <code>v3.5.0</code></p>
+</blockquote>
+<p><code>textAdvanceScale(rx,ry)</code> set the scale of advances. <code>rx:1, ry:1</code></p>
 <h2 id="coord">coord</h2>
 <p><code>coord()</code> draws the current Paintbrush coordinate. </p>
 <p><img src="funcex/output_00036.png" alt="result_of_below"></p>
@@ -2613,7 +2681,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-02T09:34:41.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-02T09:50:45.305Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-11T17:57:03.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-11T17:57:18.623Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
