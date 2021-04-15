@@ -1000,6 +1000,18 @@ textAlign("+x-y")
 text("Hello PixelsWorld!")
 ```
 
+By the way, the following functions can control the style of the text. 
+
+- Fill color: [fill(r,g,b)](#fill)
+- Stroke color: [stroke(r,g,b)](#stroke)
+- Fill off: [noFill()](#nofill)
+- Stroke off[noStroke()](#nostroke)
+- Stroke width: [strokeWidth(width)](#strokewidth)
+- Font: [textFont(fontFileName)](#textfont)
+- Size of text: [textSize(size)](#textsize)
+- Intervals of text: [textInterval(dx,dy)](#textinterval)
+- Advance scaling: [textAdvanceScale(rx,ry)](#textadvancescale)
+
 ## textSize
 
 > New in `v3.5.0`

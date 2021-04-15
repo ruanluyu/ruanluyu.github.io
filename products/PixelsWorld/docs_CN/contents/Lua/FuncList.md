@@ -975,7 +975,6 @@ image(PARAM0,128,128)
 
 `text(str)`用来在屏幕上渲染文字。
 
-
 ![result_of_below](funcex/output_00068.png)
 
 ```lua:text.lua
@@ -984,6 +983,18 @@ move(width/2,height/2)
 textAlign("+x-y")
 text("Hello PixelsWorld!")
 ```
+
+另外可以使用下面的函数来改变文字样式
+
+- 文字填充颜色：[fill(r,g,b)](#fill)
+- 文字描边颜色：[stroke(r,g,b)](#stroke)
+- 关闭填充：[noFill()](#nofill)
+- 关闭描边：[noStroke()](#nostroke)
+- 描边粗细：[strokeWidth(width)](#strokewidth)
+- 字体：[textFont(fontFileName)](#textfont)
+- 字体尺寸：[textSize(size)](#textsize)
+- 字体间距：[textInterval(dx,dy)](#textinterval)
+- 字宽等比缩放：[textAdvanceScale(rx,ry)](#textadvancescale)
 
 ## textSize
 
