@@ -991,12 +991,35 @@ image(PARAM0,128,128)
 
 `text(str)` renders text onto the screen. 
 
+![result_of_below](funcex/output_00068.png)
+
+```lua:text.lua
+version3()
+move(width/2,height/2)
+textAlign("+x-y")
+text("Hello PixelsWorld!")
+```
+
 ## textSize
 
 > New in `v3.5.0`
 
 - `textSize(size,resolution)` set the text size to be rendered. `size` controls the size of the text, `resolution` controls the resolution of the text. 
 - `textSize(size)` equals to `textSize(size,size)`
+
+![result_of_below](funcex/output_00069.png)
+
+```lua:textSize.lua
+version3()
+textAlign("+x-y")
+textAnchor(0,1)
+for i=1,13 do
+    local sz = i  + 8
+    textSize(sz)
+    text("~MiLai visual performance group~")
+    move(0,sz + 4)
+end
+```
 
 ## textFont
 
@@ -1005,6 +1028,34 @@ image(PARAM0,128,128)
 - `textFont(fontFileName)` set the font of the text to be rendered. `fontFileName` is the font-file's name located in `C:\Windows\Fonts`. (Right click the file, click Properties, you would see the font-file's name. E.g.: `textFont("arial.ttf")`)。
 
 > You can also use the full path of a font. Yes, you can load font files in everywhere. (`textFont([[D:\MyFolder\arial.ttf]])`)
+
+![result_of_below](funcex/output_00070.png)
+
+```lua:textFont.lua
+version3()
+
+textAlign("+x-y")
+textAnchor(0,1)
+textSize(20)
+
+font_list={
+{"arial.ttf","The quick brown fox jumps over the lazy dog. "},
+{"MATURASC.TTF","The quick brown fox jumps over the lazy dog. "},
+{"KUNSTLER.TTF","The quick brown fox jumps over the lazy dog. "},
+{"msmincho.ttc","色は匂へど　散りぬるを"},
+{"UDDigiKyokashoN-R.ttc","我が世誰ぞ　常ならむ"},
+{"STXINGKA.TTF","人生得意须尽欢 莫使金樽空对月"},
+{"msjh.ttc","山氣日夕佳 飛鳥相與還"},
+{"simsun.ttc","吥葽 莣記莪、伱知道 莪 拿起伱 就 倣吥丅。"},
+{"STZHONGS.TTF","○●対沵倾注ㄋ珴所侑旳温柔︶ㄣ"},
+}
+
+for i=1,#font_list do
+textFont(font_list[i][1])
+text(font_list[i][2])
+move(0,28)
+end
+```
 
 ## textAlign 
 
@@ -1035,12 +1086,14 @@ image(PARAM0,128,128)
 
 `textInterval(x,y)` set the intervals of the text texture. Default: `x:0, y:0`
 
+
 ## textAdvanceScale
 
 > New in `v3.5.0`
 
-`textAdvanceScale(rx,ry)` set the scale of advances. `rx:1, ry:1`
+`textAdvanceScale(rx,ry)` set the scale of advances. Default: `rx:1, ry:1`
 
+![result_of_below](funcex/output_00071.png)
 
 ## coord
 

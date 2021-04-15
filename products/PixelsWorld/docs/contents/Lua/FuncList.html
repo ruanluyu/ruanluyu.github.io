@@ -1575,6 +1575,13 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <p>New in <code>v3.5.0</code></p>
 </blockquote>
 <p><code>text(str)</code> renders text onto the screen. </p>
+<p><img src="funcex/output_00068.png" alt="result_of_below"></p>
+<div><p class="code-filename">text.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">textAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+x-y&quot;</span><span class="token punctuation">)</span>
+<span class="token function">text</span><span class="token punctuation">(</span><span class="token string">&quot;Hello PixelsWorld!&quot;</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="textsize">textSize</h2>
 <blockquote>
 <p>New in <code>v3.5.0</code></p>
@@ -1583,6 +1590,18 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <li><code>textSize(size,resolution)</code> set the text size to be rendered. <code>size</code> controls the size of the text, <code>resolution</code> controls the resolution of the text. </li>
 <li><code>textSize(size)</code> equals to <code>textSize(size,size)</code></li>
 </ul>
+<p><img src="funcex/output_00069.png" alt="result_of_below"></p>
+<div><p class="code-filename">textSize.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">textAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+x-y&quot;</span><span class="token punctuation">)</span>
+<span class="token function">textAnchor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">13</span> <span class="token keyword">do</span>
+    <span class="token keyword">local</span> sz <span class="token operator">=</span> i  <span class="token operator">+</span> <span class="token number">8</span>
+    <span class="token function">textSize</span><span class="token punctuation">(</span>sz<span class="token punctuation">)</span>
+    <span class="token function">text</span><span class="token punctuation">(</span><span class="token string">&quot;~MiLai visual performance group~&quot;</span><span class="token punctuation">)</span>
+    <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>sz <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="textfont">textFont</h2>
 <blockquote>
 <p>New in <code>v3.5.0</code></p>
@@ -1593,6 +1612,32 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <blockquote>
 <p>You can also use the full path of a font. Yes, you can load font files in everywhere. (<code>textFont([[D:\MyFolder\arial.ttf]])</code>)</p>
 </blockquote>
+<p><img src="funcex/output_00070.png" alt="result_of_below"></p>
+<div><p class="code-filename">textFont.lua</p></div>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token function">textAlign</span><span class="token punctuation">(</span><span class="token string">&quot;+x-y&quot;</span><span class="token punctuation">)</span>
+<span class="token function">textAnchor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token function">textSize</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+
+font_list<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token punctuation">{</span><span class="token string">&quot;arial.ttf&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;The quick brown fox jumps over the lazy dog. &quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;MATURASC.TTF&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;The quick brown fox jumps over the lazy dog. &quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;KUNSTLER.TTF&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;The quick brown fox jumps over the lazy dog. &quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;msmincho.ttc&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x8272;&#x306F;&#x5302;&#x3078;&#x3069;&#x3000;&#x6563;&#x308A;&#x306C;&#x308B;&#x3092;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;UDDigiKyokashoN-R.ttc&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x6211;&#x304C;&#x4E16;&#x8AB0;&#x305E;&#x3000;&#x5E38;&#x306A;&#x3089;&#x3080;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;STXINGKA.TTF&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x4EBA;&#x751F;&#x5F97;&#x610F;&#x987B;&#x5C3D;&#x6B22; &#x83AB;&#x4F7F;&#x91D1;&#x6A3D;&#x7A7A;&#x5BF9;&#x6708;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;msjh.ttc&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x5C71;&#x6C23;&#x65E5;&#x5915;&#x4F73; &#x98DB;&#x9CE5;&#x76F8;&#x8207;&#x9084;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;simsun.ttc&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x5425;&#x847D; &#x83A3;&#x8A18;&#x83AA;&#x3001;&#x4F31;&#x77E5;&#x9053; &#x83AA; &#x62FF;&#x8D77;&#x4F31; &#x5C31; &#x5023;&#x5425;&#x4E05;&#x3002;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span><span class="token string">&quot;STZHONGS.TTF&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;&#x25CB;&#x25CF;&#x5BFE;&#x6CB5;&#x503E;&#x6CE8;&#x310B;&#x73F4;&#x6240;&#x4F91;&#x65F3;&#x6E29;&#x67D4;&#xFE36;&#x3123;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">#</span>font_list <span class="token keyword">do</span>
+<span class="token function">textFont</span><span class="token punctuation">(</span>font_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token function">text</span><span class="token punctuation">(</span>font_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">28</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
 <h2 id="textalign">textAlign</h2>
 <blockquote>
 <p>New in <code>v3.5.0</code></p>
@@ -1619,7 +1664,8 @@ Negative inputs or negative <code>scale()</code> would cause wrong normals. </li
 <blockquote>
 <p>New in <code>v3.5.0</code></p>
 </blockquote>
-<p><code>textAdvanceScale(rx,ry)</code> set the scale of advances. <code>rx:1, ry:1</code></p>
+<p><code>textAdvanceScale(rx,ry)</code> set the scale of advances. Default: <code>rx:1, ry:1</code></p>
+<p><img src="funcex/output_00071.png" alt="result_of_below"></p>
 <h2 id="coord">coord</h2>
 <p><code>coord()</code> draws the current Paintbrush coordinate. </p>
 <p><img src="funcex/output_00036.png" alt="result_of_below"></p>
@@ -2681,7 +2727,7 @@ C_n^k:=\frac{n!}{(n-k)!k!}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-11T17:57:03.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-11T17:57:18.623Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Function list","level":"4.1.5","depth":2,"next":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"previous":{"title":"Globals","level":"4.1.4","depth":2,"path":"contents/Lua/globals.md","ref":"contents/Lua/globals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/FuncList.md","mtime":"2021-04-15T17:40:48.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-15T17:43:02.321Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

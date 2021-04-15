@@ -975,12 +975,36 @@ image(PARAM0,128,128)
 
 `text(str)`用来在屏幕上渲染文字。
 
+
+![result_of_below](funcex/output_00068.png)
+
+```lua:text.lua
+version3()
+move(width/2,height/2)
+textAlign("+x-y")
+text("Hello PixelsWorld!")
+```
+
 ## textSize
 
 > `v3.5.0`新函数
 
 - `textSize(size,resolution)`用来设置接下来绘制文字的大小，`size`控制文字大小，`resolution`控制文字分辨率。
 - `textSize(size)`等价于`textSize(size,size)`
+
+![result_of_below](funcex/output_00069.png)
+
+```lua:textSize.lua
+version3()
+textAlign("+x-y")
+textAnchor(0,1)
+for i=1,13 do
+    local sz = i  + 8
+    textSize(sz)
+    text("~MiLai visual performance group~")
+    move(0,sz + 4)
+end
+```
 
 ## textFont
 
@@ -989,6 +1013,34 @@ image(PARAM0,128,128)
 - `textFont(fontFileName)`用来设置接下来要绘制的文字的字体。`fontFileName`为`C:\Windows\Fonts`文件夹中字体文件的文件名（右键、属性，可查看字体文件的文件名，例如`textFont("arial.ttf")`）。
 
 > 你也可以输入字体文件的完整路径。这意味着你可以读取任意位置的字体。（例如`textFont([[D:\MyFolder\arial.ttf]])`）
+
+![result_of_below](funcex/output_00070.png)
+
+```lua:textFont.lua
+version3()
+
+textAlign("+x-y")
+textAnchor(0,1)
+textSize(20)
+
+font_list={
+{"arial.ttf","The quick brown fox jumps over the lazy dog. "},
+{"MATURASC.TTF","The quick brown fox jumps over the lazy dog. "},
+{"KUNSTLER.TTF","The quick brown fox jumps over the lazy dog. "},
+{"msmincho.ttc","色は匂へど　散りぬるを"},
+{"UDDigiKyokashoN-R.ttc","我が世誰ぞ　常ならむ"},
+{"STXINGKA.TTF","人生得意须尽欢 莫使金樽空对月"},
+{"msjh.ttc","山氣日夕佳 飛鳥相與還"},
+{"simsun.ttc","吥葽 莣記莪、伱知道 莪 拿起伱 就 倣吥丅。"},
+{"STZHONGS.TTF","○●対沵倾注ㄋ珴所侑旳温柔︶ㄣ"},
+}
+
+for i=1,#font_list do
+textFont(font_list[i][1])
+text(font_list[i][2])
+move(0,28)
+end
+```
 
 ## textAlign 
 
@@ -1024,6 +1076,8 @@ image(PARAM0,128,128)
 > `v3.5.0`新函数
 
 `textAdvanceScale(rx,ry)`用来控制文字贴图的前进倍率。默认`rx:1, ry:1`
+
+![result_of_below](funcex/output_00071.png)
 
 ## coord
 
