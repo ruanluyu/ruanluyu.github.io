@@ -1,18 +1,18 @@
 
 
 
-## What it feels like to develop effects with PixelsWorld? 
-PixelsWorld is just like *Microsoft Excel*. You write function, it will handle the data in the form for you. 
+## Shader code? 
+Shader is like *The Function of Microsoft Excel*. You write a function, it will handle the form-data for you. 
 
-If we treat the data in form as input pixels, the calculated form as output pixels, **Codes in PixelsWorld is the function in Microsoft Excel**
+If we treat the data in the form as input pixels, the calculated form as output pixels, **Codes in PixelsWorld is the function in Microsoft Excel**
 
 ## E.g. Make picture brighter
 
-To make a picture brighter, the simplest approach is just add the R,G,B by a number. If in Excel, we need to do something like this: 
+To make a picture brighter, the simplest approach is just to add the R, G, B by a number. If in Excel, we need to do something like this: 
 
 ![Calculate the form](ExcelCalculate.png)
 
-Then we have made all pixels data "brighter" ! 
+Then we have made all pixels data "brighter"! 
 
 Here is what we need to write in PixelsWorld: 
 
@@ -33,7 +33,7 @@ void main(){
 
 ![How to input codes](OperateTip.png)
 
-### Input picture (Right click to save)
+### Input picture (Right-click to save)
 
 ![Input picture](FlowerRing.png)
 
@@ -46,7 +46,7 @@ void main(){
 
 ### Add more controls! 
 
-Mostly we don't just add 0.2 to the picture. We want it to be more controllable. So we can replace the `0.2` to `slider[0]`. In this way, we can change the value in Parameters panel to change the brightness of your picture. 
+Mostly we don't just add 0.2 to the picture. We want it to be more controllable. So we can replace the `0.2` with `slider[0]`. In this way, we can change the value in the Parameters panel to change the brightness of your picture. 
 
 ```glsl:bright_control.shader
 void main(){
@@ -56,7 +56,7 @@ void main(){
 
 ![brightness](ControlBright.gif)
 
-But you can find that, if the value is negative, the picture will be transparent, we don't want this happened. Namely we need to avoid modifying the Alpha channel of the picture. 
+But you can find that, if the value is negative, the picture will be transparent, we don't want this to happen. Namely, we need to avoid modifying the Alpha channel of the picture. 
 
 ```glsl:bright_control.shader
 void main(){
@@ -72,19 +72,19 @@ void main(){
 
 ### Add label to the parameter
 
-![Add lable to the parameter](ControlBright3.gif)
+![Add label to the parameter](ControlBright3.gif)
 
 
 ### Save to preset
 
-Finally, we can save the code as a preset for next using. Go to the [Preset management](../Editor/SavePresets.md) to learn more details. 
+Finally, we can save the code as a preset for the next use. Go to the [Preset management](../Editor/SavePresets.md) to learn more details. 
 
 
 ## Congratulations! 
 
-You have already mastered the most part of PixelsWorld! 
+You have already mastered most of PixelsWorld! 
 
-In addition to writing codes by yourself, you can go to the [shadertoy](https://www.shadertoy.com/), find some interesting code and run it in PixelsWorld. See [this](contents/GLSL/shadertoy.md) to learn how to use code from shadertoy. 
+In addition to writing codes by yourself, you can go to the [shadertoy](https://www.shadertoy.com/), find some interesting code, and run it in PixelsWorld. See [this](contents/GLSL/shadertoy.md) to learn how to use code from shadertoy. 
 
 
 

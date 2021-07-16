@@ -1,8 +1,8 @@
 
 
 
-## What it feels like to develop effects with PixelsWorld? 
-PixelsWorld is just like *Microsoft Excel*. You write a function, it will handle the data in the form for you. 
+## Shader code? 
+Shader is like *The Function of Microsoft Excel*. You write a function, it will handle the form-data for you. 
 
 If we treat the data in the form as input pixels, the calculated form as output pixels, **Codes in PixelsWorld is the function in Microsoft Excel**
 

@@ -711,13 +711,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="what-it-feels-like-to-develop-effects-with-pixelsworld">What it feels like to develop effects with PixelsWorld?</h2>
-<p>PixelsWorld is just like <em>Microsoft Excel</em>. You write function, it will handle the data in the form for you. </p>
-<p>If we treat the data in form as input pixels, the calculated form as output pixels, <strong>Codes in PixelsWorld is the function in Microsoft Excel</strong></p>
+                                <h2 id="shader-code">Shader code?</h2>
+<p>Shader is like <em>The Function of Microsoft Excel</em>. You write a function, it will handle the form-data for you. </p>
+<p>If we treat the data in the form as input pixels, the calculated form as output pixels, <strong>Codes in PixelsWorld is the function in Microsoft Excel</strong></p>
 <h2 id="eg-make-picture-brighter">E.g. Make picture brighter</h2>
-<p>To make a picture brighter, the simplest approach is just add the R,G,B by a number. If in Excel, we need to do something like this: </p>
+<p>To make a picture brighter, the simplest approach is just to add the R, G, B by a number. If in Excel, we need to do something like this: </p>
 <p><img src="ExcelCalculate.png" alt="Calculate the form"></p>
-<p>Then we have made all pixels data &quot;brighter&quot; ! </p>
+<p>Then we have made all pixels data &quot;brighter&quot;! </p>
 <p>Here is what we need to write in PixelsWorld: </p>
 <div><p class="code-filename">bright_describe.shader</p></div>
 <pre class="language-"><code class="lang-glsl">outColor<span class="token operator">=</span><span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">vec4</span><span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -731,20 +731,20 @@
 </code></pre>
 <h3 id="how-to-input-codes">How to input codes</h3>
 <p><img src="OperateTip.png" alt="How to input codes"></p>
-<h3 id="input-picture-right-click-to-save">Input picture (Right click to save)</h3>
+<h3 id="input-picture-right-click-to-save">Input picture (Right-click to save)</h3>
 <p><img src="FlowerRing.png" alt="Input picture"></p>
 <p>(<a href="https://www.pixiv.net/artworks/75891619" target="_blank">Source artist</a>)</p>
 <h3 id="result">Result</h3>
 <p><img src="EffectDemo1.png" alt="Result"></p>
 <h3 id="add-more-controls">Add more controls!</h3>
-<p>Mostly we don&apos;t just add 0.2 to the picture. We want it to be more controllable. So we can replace the <code>0.2</code> to <code>slider[0]</code>. In this way, we can change the value in Parameters panel to change the brightness of your picture. </p>
+<p>Mostly we don&apos;t just add 0.2 to the picture. We want it to be more controllable. So we can replace the <code>0.2</code> with <code>slider[0]</code>. In this way, we can change the value in the Parameters panel to change the brightness of your picture. </p>
 <div><p class="code-filename">bright_control.shader</p></div>
 <pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     outColor<span class="token operator">=</span><span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span><span class="token operator">+</span><span class="token keyword">vec4</span><span class="token punctuation">(</span>slider<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p><img src="ControlBright.gif" alt="brightness"></p>
-<p>But you can find that, if the value is negative, the picture will be transparent, we don&apos;t want this happened. Namely we need to avoid modifying the Alpha channel of the picture. </p>
+<p>But you can find that, if the value is negative, the picture will be transparent, we don&apos;t want this to happen. Namely, we need to avoid modifying the Alpha channel of the picture. </p>
 <div><p class="code-filename">bright_control.shader</p></div>
 <pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">vec4</span> inColor <span class="token operator">=</span> <span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -757,12 +757,12 @@
 </blockquote>
 <p><img src="ControlBright2.gif" alt="Advanced brightness"></p>
 <h3 id="add-label-to-the-parameter">Add label to the parameter</h3>
-<p><img src="ControlBright3.gif" alt="Add lable to the parameter"></p>
+<p><img src="ControlBright3.gif" alt="Add label to the parameter"></p>
 <h3 id="save-to-preset">Save to preset</h3>
-<p>Finally, we can save the code as a preset for next using. Go to the <a href="../Editor/SavePresets.html">Preset management</a> to learn more details. </p>
+<p>Finally, we can save the code as a preset for the next use. Go to the <a href="../Editor/SavePresets.html">Preset management</a> to learn more details. </p>
 <h2 id="congratulations">Congratulations!</h2>
-<p>You have already mastered the most part of PixelsWorld! </p>
-<p>In addition to writing codes by yourself, you can go to the <a href="https://www.shadertoy.com/" target="_blank">shadertoy</a>, find some interesting code and run it in PixelsWorld. See <a href="contents/GLSL/shadertoy.md">this</a> to learn how to use code from shadertoy. </p>
+<p>You have already mastered most of PixelsWorld! </p>
+<p>In addition to writing codes by yourself, you can go to the <a href="https://www.shadertoy.com/" target="_blank">shadertoy</a>, find some interesting code, and run it in PixelsWorld. See <a href="contents/GLSL/shadertoy.md">this</a> to learn how to use code from shadertoy. </p>
 <p><br>
 <br>
 <br>
@@ -804,7 +804,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"クイックスタート","level":"4.2.2","depth":2,"next":{"title":"内装関数","level":"4.2.3","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"4.2.3.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"previous":{"title":"GLSLの実装","level":"4.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/GetStart.md","mtime":"2020-09-06T12:49:15.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-15T17:57:57.219Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"クイックスタート","level":"4.2.2","depth":2,"next":{"title":"内装関数","level":"4.2.3","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"4.2.3.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"previous":{"title":"GLSLの実装","level":"4.2.1","depth":2,"path":"contents/GLSL/RunGLSL.md","ref":"contents/GLSL/RunGLSL.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/GetStart.md","mtime":"2021-07-16T01:14:40.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-16T01:15:54.933Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -2,11 +2,10 @@
 
 我们为像素世界建立了一个官方论坛，您可以
 
-[官方公告论坛](http://pw.yuelili.com)
+前往[官方公告论坛](http://pw.yuelili.com)
 
-[答疑论坛](https://www.yuelili.com/questions/)
+前往[答疑论坛](https://www.yuelili.com/questions/categories/pw/)
 
-前往论坛。
 
 
 # 论坛内容
