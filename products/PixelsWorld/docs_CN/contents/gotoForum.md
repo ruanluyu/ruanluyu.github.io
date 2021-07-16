@@ -2,7 +2,9 @@
 
 我们为像素世界建立了一个官方论坛，您可以
 
-[点击这里](http://pw.yuelili.com)
+[官方公告论坛](http://pw.yuelili.com)
+
+[答疑论坛](https://www.yuelili.com/questions/)
 
 前往论坛。
 
