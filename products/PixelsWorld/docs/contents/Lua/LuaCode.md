@@ -36,7 +36,7 @@ If you want to run code from [shadertoy](shadertoy.md), just type:
 
 ```lua:RunShadertoy.lua
 version3()
-pw.shadertoy([==[
+shadertoy([==[
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord/iResolution.xy;

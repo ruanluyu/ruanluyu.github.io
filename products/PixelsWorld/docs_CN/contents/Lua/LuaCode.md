@@ -39,7 +39,7 @@ void main(){
 如果您想执行[shadertoy](shadertoy.md)的代码，只需要输入
 ```lua:RunShadertoy.lua
 version3()
-pw.shadertoy([==[
+shadertoy([==[
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord/iResolution.xy;
