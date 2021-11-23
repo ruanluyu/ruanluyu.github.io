@@ -2079,6 +2079,10 @@ end
 1. `getDrawRecord(needStringFormat)` gets current draw records. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
 1. `getDrawRecord()` equals to `getDrawRecord(true)`
 
+
+![result_of_below](funcex/output_00066.png)
+
+
 ```lua:printDrawRecord.lua
 version3()
 move(width/2,height/2)
@@ -2087,21 +2091,14 @@ cube()
 println(getDrawRecord());
 ```
 
+
+
 ## getStatus
 
 1. `getStatus(needStringFormat)`gets the current Paintbrush status. `needStringFormat` is a boolean, when `true`, returns a string, otherwise, returns a Lua table.
 1. `getStatus()` equals to `getStatus(true)`
 
-![result_of_below](funcex/output_00066.png)
 
-```lua:printDrawRecord.lua
-version3()
-dot(1,0,0)
-move(width/2,height/2)
-dim3()
-cube()
-println(getDrawRecord())
-```
 
 ## getAudio
 
