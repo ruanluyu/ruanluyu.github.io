@@ -1,0 +1,50 @@
+body {
+    background: rgb(84, 49, 38);
+    font-family: Consolas, Inconsolata, "Courier New", "Microsoft Yahei", monospace;
+    color: #f7d7ad;
+    font-size: 16px;
+    text-align: center;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.container {
+    padding: 32px;
+}
+
+.page-title {
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+article {
+    color: rgb(77, 29, 29);
+    background-color: #f7d7ad;
+    min-width: 20em;
+    max-width: 50em;
+    padding: 15px;
+    border-radius: 10px;
+    margin: auto;
+    font-family: "Microsoft Yahei", Consolas, Inconsolata, "Courier New", monospace;
+}
+
+div.row {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    padding: 40px 50px 40px 50px;
+    background: rgb(30, 30, 30);
+    border-radius: 10px;
+    border: solid 2px rgb(20, 20, 20);
+    height: 280px;
+    width: 250px;
+}
+
+a:hover {
+    color: rgb(183, 224, 115);
+}
