@@ -46,5 +46,13 @@ div.row {
 }
 
 a:hover {
-    color: rgb(183, 224, 115);
+    color: rgb(255, 248, 233);
+}
+
+.bg {
+    background-image: url("bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
