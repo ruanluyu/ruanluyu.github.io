@@ -1,0 +1,64 @@
+body {
+    background: rgb(95, 76, 76);
+    font-family: Consolas, Inconsolata, "Courier New", "Microsoft Yahei", monospace;
+    color: #f7d7ad;
+    font-size: 16px;
+    text-align: center;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.bg {
+    background-image: url("/qono-bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    padding: 32px;
+}
+
+.page-title {
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: rgb(255, 248, 233);
+}
+
+div.song-container {
+    background-color: #443229;
+    margin: auto;
+    margin-top: 2em;
+    width: 800px;
+    height: 150px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+div.song-cover-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+}
+
+div.song-cover-container img {
+    width: 150px;
+    height: 150px;
+}
+
+div.song-text-container {
+    width: 630px;
+    height: 130px;
+    background-color: #d8cec8;
+    float: left;
+    color: rgb(68, 10, 10);
+    text-align: left;
+    padding: 10px;
+}

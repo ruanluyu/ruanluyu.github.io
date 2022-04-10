@@ -3,5 +3,6 @@
     "files.associations": {
         "xiosbase": "cpp",
         "fstream": "cpp"
-    }
+    },
+    "liveServer.settings.port": 5501
 }
