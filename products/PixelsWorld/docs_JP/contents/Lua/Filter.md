@@ -1,4 +1,4 @@
-# 滤镜系统
+# フィルターシステム
 ---
 
 > `v3.6.0+`以上のバージョンのPixelsWorldが必要です．
@@ -211,6 +211,8 @@ filter.del()
 
 - `slider 0`：ぼかし度合い
 - `layer 0`：ぼかしマスクレイヤー
+
+![channel blur preview](channel-blur-preview.png)
 
 ```lua:iterateFilter.lua
 

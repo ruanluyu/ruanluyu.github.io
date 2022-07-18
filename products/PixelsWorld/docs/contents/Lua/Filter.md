@@ -210,6 +210,8 @@ Here is a example of the famous channel blur effect.
 - `slider 0`: Blur intensity. 
 - `layer 0`: Blur mask layer. 
 
+![channel blur preview](channel-blur-preview.png)
+
 ```lua:iterateFilter.lua
 
 version3()

@@ -208,6 +208,8 @@ filter.del()
 - `slider 0`：模糊力度
 - `layer 0`：模糊遮罩
 
+![channel blur preview](channel-blur-preview.png)
+
 ```lua:iterateFilter.lua
 
 version3()
