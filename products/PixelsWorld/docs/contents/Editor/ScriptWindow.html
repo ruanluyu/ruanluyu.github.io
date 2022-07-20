@@ -745,22 +745,25 @@
 </blockquote>
 <h2 id="&#x25C6;preset-list"><span style="color:rgb(153,204,0)">&#x25C6;</span>Preset list</h2>
 <p>The pop-up menu contains all preset files in your local disc. </p>
-<p>Here is the same definition:</p>
+<p>Some definitions about presets:</p>
 <ul>
-<li>A file with <code>.pwp</code> postfix, <strong>JSON</strong> format and located beside plugin is a <strong>Preset column</strong>. The name of the Preset column is the file name. </li>
+<li>A preset is a file with <code>.pwp</code> postfix, <strong>JSON</strong> format and located beside plugin. It is represented as a <strong>Preset column</strong> in PixelsWorld. Preset&apos;s file name is equal to the column name. </li>
 <li>One <strong>Preset column</strong> contains several <strong>Presets</strong></li>
-<li>All <strong>Presets</strong> are listed below the pop-up menu. </li>
+<li><strong>Presets</strong> contained in a <strong>Preset column</strong> are listed below the pop-up menu. </li>
 </ul>
 <h2 id="&#x25C6;formula-preview"><span style="color:rgb(128,0,0)">&#x25C6;</span>Formula preview</h2>
-<p>The selected <strong>Preset</strong>&apos;s code can be previewed here. Click the <code>Replace</code> button to send preset code to the left code area (This will override the previous code). </p>
+<p>Formula preview is where you can preview the code in the preset you selected. </p>
+<p>Click <code>Replace</code> button to apply preset code. </p>
 <blockquote>
-<p>If you only want to replace the text and don&apos;t want the parameter settings change. Uncheck <code>Apply when replace</code> in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. </p>
+<p>NOTE: Code in Code area will be overwritten. 
+By default, click <code>Replace</code> button will also apply parameter settings. If this is not expected, uncheck <code>Apply when replace</code> in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. </p>
 </blockquote>
-<p>If you want the preset code to be combined in the front of your code, click <code>&lt;&lt;Top</code> button; <code>Bottom&gt;&gt;</code> means to combine preset code behind your current code.  </p>
+<p>If you want to joint the preset code in front of your current code, click <code>&lt;&lt;Top</code> button. </p>
+<p>If you want to joint the preset code behind your current code, click <code>Bottom&gt;&gt;</code> button.  </p>
 <h2 id="&#x25C6;parameter-settings-preview"><span style="color:rgb(247,136,58)">&#x25C6;</span>Parameter settings preview</h2>
-<p>The selected <strong>Preset</strong>&apos;s parameter settings can be previewed here. If you want to apply it, click the <code>Apply</code> button to override the current settings. </p>
+<p>Parameter settings preview is where you can preview the parameter settings of the selected <strong>Preset</strong>. Click <code>Apply</code> button to override the current parameter settings. </p>
 <blockquote>
-<p><code>Apply when replace</code> means weather applies parameter settings when you click the <code>Apply</code> button in the Formula preview area. </p>
+<p><code>Apply when replace</code> means weather or not applies parameter settings when you click the <code>Replace</code> button in the Formula preview area. </p>
 </blockquote>
 <p><br>
 <br>
@@ -802,7 +805,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"World formula editor","level":"3.1","depth":1,"next":{"title":"Parameter manager","level":"3.2","depth":1,"path":"contents/Editor/ParameterWindow.md","ref":"contents/Editor/ParameterWindow.md","articles":[]},"previous":{"title":"The book of shaders","level":"2.3","depth":1,"url":"https://thebookofshaders.com/","ref":"https://thebookofshaders.com/","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ScriptWindow.md","mtime":"2021-03-05T14:46:59.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-18T14:31:58.906Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"World formula editor","level":"3.1","depth":1,"next":{"title":"Parameter manager","level":"3.2","depth":1,"path":"contents/Editor/ParameterWindow.md","ref":"contents/Editor/ParameterWindow.md","articles":[]},"previous":{"title":"The book of shaders","level":"2.3","depth":1,"url":"https://thebookofshaders.com/","ref":"https://thebookofshaders.com/","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ScriptWindow.md","mtime":"2022-07-20T11:16:31.123Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-20T11:44:33.042Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

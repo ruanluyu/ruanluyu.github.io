@@ -33,24 +33,28 @@ Here you can see the labels, the default value of parameters, and the language s
 
 The pop-up menu contains all preset files in your local disc. 
 
-Here is the same definition:
+Some definitions about presets:
 
-- A file with `.pwp` postfix, **JSON** format and located beside plugin is a **Preset column**. The name of the Preset column is the file name. 
+- A preset is a file with `.pwp` postfix, **JSON** format and located beside plugin. It is represented as a **Preset column** in PixelsWorld. Preset's file name is equal to the column name. 
 - One **Preset column** contains several **Presets**
-- All **Presets** are listed below the pop-up menu. 
+- **Presets** contained in a **Preset column** are listed below the pop-up menu. 
 
 ## <span style="color:rgb(128,0,0)">◆</span>Formula preview
 
-The selected **Preset**'s code can be previewed here. Click the `Replace` button to send preset code to the left code area (This will override the previous code). 
+Formula preview is where you can preview the code in the preset you selected. 
 
-> If you only want to replace the text and don't want the parameter settings change. Uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
+Click `Replace` button to apply preset code. 
+> NOTE: Code in Code area will be overwritten. 
+> By default, click `Replace` button will also apply parameter settings. If this is not expected, uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
 
-If you want the preset code to be combined in the front of your code, click `<<Top` button; `Bottom>>` means to combine preset code behind your current code.  
+If you want to joint the preset code in front of your current code, click `<<Top` button. 
+
+If you want to joint the preset code behind your current code, click `Bottom>>` button.  
 
 ## <span style="color:rgb(247,136,58)">◆</span>Parameter settings preview
 
-The selected **Preset**'s parameter settings can be previewed here. If you want to apply it, click the `Apply` button to override the current settings. 
-> `Apply when replace` means weather applies parameter settings when you click the `Apply` button in the Formula preview area. 
+Parameter settings preview is where you can preview the parameter settings of the selected **Preset**. Click `Apply` button to override the current parameter settings. 
+> `Apply when replace` means weather or not applies parameter settings when you click the `Replace` button in the Formula preview area. 
 
 
 <br>

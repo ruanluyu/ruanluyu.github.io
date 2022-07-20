@@ -743,43 +743,40 @@ History<br>
 <p><a href="https://milai.tech/products/PixelsWorld/docs_CN.zip" target="_blank">Download docs(&#x4E2D;&#x6587;)</a></p>
 <p><a href="https://milai.tech/products/PixelsWorld/docs_JP.zip" target="_blank">Download docs(&#x65E5;&#x672C;&#x8A9E;)</a></p>
 <h2 id="welcome-to-pixelsworld">Welcome to PixelsWorld!</h2>
-<p>We have compressed all essence of how to use PixelsWorld into this section. If you master it, you will be a new creator of PixelsWorld! </p>
+<p>We have compressed all essence of how to use PixelsWorld in this section. If you master it, you will be a new creator of PixelsWorld! </p>
 <h2 id="simply-speaking">Simply speaking</h2>
-<p><strong>PixelsWorld draws graphics basing on your code</strong></p>
+<p><strong>PixelsWorld renders graphics basing on your code</strong></p>
+<p>Here are some key points you have to know. </p>
 <ul>
-<li>You can apply presets written by others. </li>
-<li>By learning code&apos;s grammar, you can write code to draw the scene by yourself. </li>
-<li>By learning GLSL, you can create an advanced visual effect by yourself.</li>
+<li>PixelsWorld is like a simple Game Engine. </li>
+<li>All code provided by you will run in a Lua engine. </li>
+<li>Writing code in PixelsWorld is like writing a powerful Expression. PixelsWorld supports: <ul>
+<li><a href="contents/Lua/FuncList.html">Maths operations</a></li>
+<li><a href="contents/Lua/Texture.html">texture operations</a></li>
+<li><a href="contents/Lua/Filter.html">customer filters</a></li>
+<li><a href="contents/GLSL/RunGLSL.html">GLSL</a></li>
+<li><a href="contents/GLSL/shadertoy.html">Code from shadertoy.com</a></li>
 </ul>
-<h2 id="how-to-do-it">How to do it?</h2>
-<p>Let&apos;s begin with regarding PixelsWorld as a Painting robot. If you tell it what/where to draw step-by-step, it will draw graphics into the current layer for you. </p>
-<p>For instance, consider the case you want to draw a house to the center of the layer, but the painter is your friend Andrew (and Andrew doesn&apos;t know what you want to draw). How to make the instructions so that Andrew can draw them for you? </p>
-<p>We might say: </p>
-<div><p class="code-filename">DrawHouse.myBro</p></div>
-<pre class="language-"><code>Draw a house to the center of the layer
-</code></pre><p>This is OK, but what if you cannot directly tell Andrew the answer, but 1. where to draw, 2. what to draw, 3. the color instead, maybe we can say: </p>
-<div><p class="code-filename">DrawHouse2.myBro</p></div>
-<pre class="language-"><code>move the paintbrush to the center
-use yellow pigment
-draw a 10x10cm square
-move the paintbrush 5cm upward
-use red pigment
-draw a 15cm base length, 10cm height isosceles triangle.
-</code></pre><p>You and Andrew will complete the masterpiece of a house! </p>
-<p>Indeed, the instructions above is exactly what we need to code in PixelsWorld. It finally looks like this: </p>
+</li>
+<li>PixelsWorld is almost the &quot;Wrangle Node&quot; if you are familiar with Houdini. </li>
+<li>PixelsWorld can draw simple 2D/3D geometries. <a href="contents/Lua/FuncList.html">Details &gt;&gt;&gt;</a></li>
+</ul>
+<h2 id="video-tutorials">Video tutorials</h2>
+<p>We highly recommend starting with watching our basic tutorial. </p>
+<p><a href="https://www.youtube.com/playlist?list=PLWk8cR3Ry_sz03uuC4dFQcSg6j0JtINZZ" target="_blank">Basic &gt;&gt;&gt;</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLWk8cR3Ry_sxuumdOe8IF3RL_3cZq4ndi" target="_blank">2D Transform &gt;&gt;&gt;</a></p>
+<h2 id="lua-example-drawing-a-house">Lua Example: Drawing a house</h2>
+<p>Here we give a code example of drawing a house in Lua mode. </p>
 <div><p class="code-filename">DrawHouse3.lua</p></div>
-<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, this is what you always have to call in the first line. </span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate to the center</span>
+<pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Use version 3, always call this in the first line. </span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush to the center of your screen</span>
 <span class="token function">rotateX</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span> <span class="token comment">-- Rotate Paintbrush Coordinate along X axis 180 degrees</span>
-<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Use yellow pigment (Red=1,Green=1,Blue=0)</span>
+<span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Apply yellow pigment (Red=1,Green=1,Blue=0)</span>
 <span class="token function">rect</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a 100x100px square</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">-- Use red pigment(Red=1,Green=0,Blue=0)</span>
 <span class="token function">move</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">-- Move the Paintbrush Coordinate 50px upwards</span>
 <span class="token function">tri</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment">-- Draw a isoceles triangle in 150px of base, 100px of height.</span>
 </code></pre>
-<blockquote>
-<p>There is a function <code>rotateX(PI)</code> not mentioned above. Because the default orientation of the Y-axis of Paintbrush Coordinate is downward, we need to rotate it along with the X-axis 180 degrees (PI radians) to make it upward. Otherwise, the following <code>move(0,50)</code> function would move it 50cm downward. </p>
-</blockquote>
 <p><img src="contents/PutPW_GetStart.png" alt="GetStart"></p>
 <p><img src="contents/HouseRes.png" alt="Res"></p>
 <p>Here we want to add some extra controls to the scene like color combination controllers of our house. </p>
@@ -888,7 +885,7 @@ draw a 15cm base length, 10cm height isosceles triangle.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2022-07-18T08:50:33.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-18T14:31:58.906Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Be the Creator of your World","level":"1.1","depth":1,"next":{"title":"Get/Try/Purchase","level":"1.2","depth":1,"path":"contents/HowTo.md","ref":"contents/HowTo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2022-07-20T11:43:15.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-20T11:44:33.042Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
