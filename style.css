@@ -38,3 +38,13 @@ div.row {
 a:hover {
     color: rgb(183, 224, 115);
 }
+
+.row-container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
