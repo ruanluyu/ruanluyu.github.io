@@ -148,6 +148,7 @@ void main(){
     vec4 C = A;
     C=A+B // Your blend rule is combined here. 
     ;
+    outColor = C;
 }
 ```
 
