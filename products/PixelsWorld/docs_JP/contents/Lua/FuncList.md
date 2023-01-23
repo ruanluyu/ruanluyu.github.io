@@ -400,7 +400,8 @@ cube(50,25,10)
 
 ## beginGroup
 ## endGroup
-1. `beginGroup()`,`endGroup()` creates a children transformation group. Transformations(`move,scale,rotate,twirl`) between `beginGroup()` and `endGroup()` will be canceled after calling `endGroup()`.
+
+1. `beginGroup()`,`endGroup()` pushes/pops a child transformation matrix to the world transformation stack. Transformations(`move,scale,rotate,twirl`) between `beginGroup()` and `endGroup()` will be canceled after `endGroup()`.
 2. `beginGroup(mat)` pushes mat as a children transformation group (Use [getTransformMatrix](#gettransformmatrix) to get the transform matrix). 
 
 > It equals to `pushMatrix()` and `popMatrix()` in Processing. 
@@ -413,11 +414,11 @@ Example: The following two code are equivalent.
 ```lua:group.lua
 version3()
 for i = 1,6 do
-beginGroup()
-move(i*25,i*25)
-rotate(d2r(15*i))
-rect(25)
-endGroup()
+    beginGroup()
+    move(i*25,i*25)
+    rotate(d2r(15*i))
+    rect(25)
+    endGroup()
 end
 ```
 
@@ -427,11 +428,11 @@ end
 ```lua:without_group.lua
 version3()
 for i = 1,6 do
-move(i*25,i*25)
-rotate(d2r(15*i))
-rect(25)
-rotate(d2r(-15*i))
-move(-i*25,-i*25)
+    move(i*25,i*25)
+    rotate(d2r(15*i))
+    rect(25)
+    rotate(d2r(-15*i))
+    move(-i*25,-i*25)
 end
 ```
 

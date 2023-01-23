@@ -11,13 +11,15 @@ You will learn how to cache data to a local disc in this section.
 
 > - Make sure you have updated PixelsWorld to `v3.3.3+`
 > - This section is written in a style that assumed the readers are familiar with Ae and PixelsWorld. 
+> - It is highly recommended to turn off the "multi-thread rendering" feature if you are using Ae 2022 or above. 
 
 <!-- no toc --> 
-- [Cache data](#cache-data)
-- [Cache textures](#cache-textures)
-- [Cache data example: The three body problem](#cache-data-example-the-three-body-problem)
-- [Cache textures example: Conway's Game of Life](#cache-textures-example-conways-game-of-life)
-- [Cache textures example: Fluid simulation](#cache-textures-example-fluid-simulation)
+- [Physics simulation](#physics-simulation)
+  - [Cache data](#cache-data)
+  - [Cache textures](#cache-textures)
+  - [Cache data example: The three-body problem](#cache-data-example-the-three-body-problem)
+  - [Cache textures example: Conway's Game of Life](#cache-textures-example-conways-game-of-life)
+  - [Cache textures example: Fluid simulation](#cache-textures-example-fluid-simulation)
 
 
 ## Cache data
