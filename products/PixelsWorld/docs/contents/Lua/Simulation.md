@@ -384,9 +384,11 @@ if(lastFrameId < 0) then
     background(0,0,0,1)
     drawTo(OUTPUT)
 else
-    if(file_exists(cachepath .. "C.raw") and file_exists(cachepath .. "D.raw") ) then
-        lastTexC = loadRAW(cachepath .. "C.raw")
-        lastTexD = loadRAW(cachepath .. "D.raw")
+    path_c = cachepath .. "C_" .. tostring(lastFrameId) ..".raw"
+    path_d = cachepath .. "D_" .. tostring(lastFrameId) ..".raw"
+    if(file_exists(path_c) and file_exists(path_d) ) then
+        lastTexC = loadRAW(path_c)
+        lastTexD = loadRAW(path_d)
     else 
         error("Please go back to frame 0 to cache your comp")
     end
@@ -611,13 +613,13 @@ swapTex(PARAM0,texB)
 shadertoy(commonCode .. bufferCCode)
 swapTex(PARAM0,texB)
 castTex(texC,OUTPUT)
-saveRAW(cachepath .. "C.raw",texC)
+saveRAW(cachepath .. "C_" .. tostring(frameId) ..".raw",texC)
 
 swapTex(PARAM0,texA)
 swapTex(PARAM1,lastTexD)
 shadertoy(commonCode .. bufferDCode)
 swapTex(PARAM0,texA)
 swapTex(PARAM1,lastTexD)
-saveRAW(cachepath .. "D.raw",OUTPUT)
+saveRAW(cachepath .. "D_" .. tostring(frameId) ..".raw",OUTPUT)
 
 ```

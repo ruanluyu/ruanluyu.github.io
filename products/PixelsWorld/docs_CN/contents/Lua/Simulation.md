@@ -381,9 +381,11 @@ if(lastFrameId < 0) then
     background(0,0,0,1)
     drawTo(OUTPUT)
 else
-    if(file_exists(cachepath .. "C.raw") and file_exists(cachepath .. "D.raw") ) then
-        lastTexC = loadRAW(cachepath .. "C.raw")
-        lastTexD = loadRAW(cachepath .. "D.raw")
+    path_c = cachepath .. "C_" .. tostring(lastFrameId) ..".raw"
+    path_d = cachepath .. "D_" .. tostring(lastFrameId) ..".raw"
+    if(file_exists(path_c) and file_exists(path_d) ) then
+        lastTexC = loadRAW(path_c)
+        lastTexD = loadRAW(path_d)
     else 
         error("Please go back to frame 0 to cache your comp")
     end
@@ -395,20 +397,20 @@ local commonCode = [==[
 //by nimitz 2018 (twitter: @stormoid)
 
 /*
-	The main interest here is the addition of vorticity confinement with the curl stored in
-	the alpha channel of the simulation texture (which was not used in the paper)
-	this in turns allows for believable simulation of much lower viscosity fluids.
-	Without vorticity confinement, the fluids that can be simulated are much more akin to
-	thick oil.
-	
-	Base Simulation based on the 2011 paper: "Simple and fast fluids"
-	(Martin Guay, Fabrice Colin, Richard Egli)
-	(https://hal.inria.fr/inria-00596050/document)
+    The main interest here is the addition of vorticity confinement with the curl stored in
+    the alpha channel of the simulation texture (which was not used in the paper)
+    this in turns allows for believable simulation of much lower viscosity fluids.
+    Without vorticity confinement, the fluids that can be simulated are much more akin to
+    thick oil.
+    
+    Base Simulation based on the 2011 paper: "Simple and fast fluids"
+    (Martin Guay, Fabrice Colin, Richard Egli)
+    (https://hal.inria.fr/inria-00596050/document)
 
-	The actual simulation only requires one pass, Buffer A, B and C	are just copies 
-	of each other to increase the simulation speed (3 simulation passes per frame)
-	and Buffer D is drawing colors on the simulated fluid 
-	(could be using particles instead in a real scenario)
+    The actual simulation only requires one pass, Buffer A, B and C are just copies 
+    of each other to increase the simulation speed (3 simulation passes per frame)
+    and Buffer D is drawing colors on the simulated fluid 
+    (could be using particles instead in a real scenario)
 */
 
 #define dt 0.15
@@ -431,8 +433,8 @@ vec2 point2(float t) {
 
 vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
 {
-	const float K = 0.2;
-	const float v = 0.55;
+    const float K = 0.2;
+    const float v = 0.55;
     
     vec4 data = textureLod(smp, uv, 0.0);
     vec4 tr = textureLod(smp, uv + vec2(w.x , 0), 0.0);
@@ -459,7 +461,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     data.xy = max(vec2(0), abs(data.xy)-1e-4)*sign(data.xy); //linear velocity decay
     
     #ifdef USE_VORTICITY_CONFINEMENT
-   	data.w = (tr.y - tl.y - tu.x + td.x);
+    data.w = (tr.y - tl.y - tu.x + td.x);
     vec2 vort = vec2(abs(tu.w) - abs(td.w), abs(tl.w) - abs(tr.w));
     vort *= VORTICITY_AMOUNT/length(vort + 1e-9)*data.w;
     data.xy += vort;
@@ -608,13 +610,13 @@ swapTex(PARAM0,texB)
 shadertoy(commonCode .. bufferCCode)
 swapTex(PARAM0,texB)
 castTex(texC,OUTPUT)
-saveRAW(cachepath .. "C.raw",texC)
+saveRAW(cachepath .. "C_" .. tostring(frameId) ..".raw",texC)
 
 swapTex(PARAM0,texA)
 swapTex(PARAM1,lastTexD)
 shadertoy(commonCode .. bufferDCode)
 swapTex(PARAM0,texA)
 swapTex(PARAM1,lastTexD)
-saveRAW(cachepath .. "D.raw",OUTPUT)
+saveRAW(cachepath .. "D_" .. tostring(frameId) ..".raw",OUTPUT)
 
 ```
