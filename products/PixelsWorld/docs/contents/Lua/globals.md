@@ -36,13 +36,15 @@ host -- Ae == 0, no other hosts.
 
 Here are some global variables in PixelsWorld: 
 
+> Variables marked with `[cached]` means re-render will not be triggered unless you purge the memory. 
+
 ```lua:globalvars.lua
 depth -- Dpc: 8,16,32
 width -- Width input image
 height -- Height input image
 time -- Current time(s)
-duration -- Duration of current layer(s)
-inpoint -- Inpoint of current layer(s)
+duration -- Duration of current layer(s) [cached]
+inpoint -- Inpoint of current layer(s) [cached]
 compTime -- Comp current time(s)
 pluginFolder -- The plugin folder(utf8)
 projectName -- Project name(utf8)
@@ -52,6 +54,9 @@ ds_width -- Width of downsampled input image
 ds_height -- Height of downsampled input image
 origin_x -- The X coordinate of left top corner of input image in the layer coordinate. 
 origin_y -- The Y coordinate of left top corner of input image in the layer coordinate. 
+layerName -- Name of current layer, empty if layer name is not set yet. (v3.6.4+) [cached]
+layerSourceName -- Source name of current layer. This should always not be empty. (v3.6.4+) [cached]
+compName -- Name of current comp. (v3.6.4+) [cached]
 ```
 
 ## Print the globals 

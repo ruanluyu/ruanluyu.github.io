@@ -37,13 +37,15 @@ host -- 宿主程序：Ae: 0，目前不支持其它宿主
 
 PixelsWorld提供以下几个Ae中获取的变量供用户使用：
 
+> `[cached]`标记了不会触发重渲染的全局量，除非清空内存。
+
 ```lua:globalvars.lua
 depth -- 颜色深度，8，16，32
 width -- 输入层宽度
 height -- 输入层高度
 time -- 当前时间(s)
-duration -- 所在图层持续时间(s)
-inpoint -- 所在图层入点时间(s)
+duration -- 所在图层持续时间(s) [cached]
+inpoint -- 所在图层入点时间(s) [cached]
 compTime -- 合成时间(s)
 pluginFolder -- 插件所在目录(utf8)
 projectName -- 工程名(utf8)
@@ -53,6 +55,9 @@ ds_width -- 降采样后合成宽度
 ds_height -- 降采样后合成高度
 origin_x -- 输入层左上角在图层坐标系的X坐标
 origin_y -- 输入层左上角在图层坐标系的Y坐标
+layerName -- 当前图层的图层名，若图层名未设置过为则为空 (v3.6.4+) [cached]
+layerSourceName -- 当前图层的源名称，通常不为空 (v3.6.4+) [cached]
+compName -- 当前合成名 (v3.6.4+) [cached]
 ```
 
 ## 打印全局变量
