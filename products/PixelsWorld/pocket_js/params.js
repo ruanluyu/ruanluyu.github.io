@@ -5,7 +5,7 @@
 
 	textures: [
 		{ 
-			url: "MiLai.png", 
+			url: "rsz_milai.png", 
 			wrap: "repeat", // repeat (default), clamp
 			name: "milai",
 		},

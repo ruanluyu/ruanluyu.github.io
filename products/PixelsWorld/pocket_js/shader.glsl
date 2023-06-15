@@ -96,9 +96,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     if(mc.a>.0){
         if(mc.r>.0){
-            fragColor.rgb += mc.rgb;
+            fragColor.rgb += mc.rgb * mc.a;
         }else{
-            fragColor.rgb += vec3(0.24);
+            fragColor.rgb += vec3(0.24) * mc.a;
         }
     }
 }
