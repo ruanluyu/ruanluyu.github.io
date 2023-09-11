@@ -58,6 +58,7 @@ origin_y -- 输入层左上角在图层坐标系的Y坐标
 layerName -- 当前图层的图层名，若图层名未设置过为则为空 (v3.6.4+) [cached]
 layerSourceName -- 当前图层的源名称，通常不为空 (v3.6.4+) [cached]
 compName -- 当前合成名 (v3.6.4+) [cached]
+fps -- 帧率
 ```
 
 ## 打印全局变量

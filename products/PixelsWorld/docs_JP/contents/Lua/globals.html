@@ -778,23 +778,24 @@ host <span class="token comment">-- Ae == 0, &#x307B;&#x304B;&#x306E;&#x30DB;&#x
 </blockquote>
 <div><p class="code-filename">globalvars.lua</p></div>
 <pre class="language-"><code class="lang-lua">depth <span class="token comment">-- Dpc: 8,16,32</span>
-width <span class="token comment">-- Width input image</span>
-height <span class="token comment">-- Height input image</span>
-time <span class="token comment">-- Current time(s)</span>
-duration <span class="token comment">-- Duration of current layer(s) [cached]</span>
-inpoint <span class="token comment">-- Inpoint of current layer(s) [cached]</span>
-compTime <span class="token comment">-- Comp current time(s)</span>
-pluginFolder <span class="token comment">-- The plugin folder(utf8)</span>
-projectName <span class="token comment">-- Project name(utf8)</span>
-projectPath <span class="token comment">-- Project path(utf8)</span>
-projectFolder <span class="token comment">-- Project folder(utf8)</span>
-ds_width <span class="token comment">-- Width of downsampled input image</span>
-ds_height <span class="token comment">-- Height of downsampled input image</span>
-origin_x <span class="token comment">-- The X coordinate of left top corner of input image in the layer coordinate. </span>
-origin_y <span class="token comment">-- The Y coordinate of left top corner of input image in the layer coordinate. </span>
-layerName <span class="token comment">-- Name of current layer, empty if layer name is not set yet. (v3.6.4+) [cached]</span>
-layerSourceName <span class="token comment">-- Source name of current layer. This should always not be empty. (v3.6.4+) [cached]</span>
-compName <span class="token comment">-- Name of current comp. (v3.6.4+) [cached]</span>
+width <span class="token comment">-- &#x753B;&#x50CF;&#x306E;&#x5E45;</span>
+height <span class="token comment">-- &#x753B;&#x50CF;&#x306E;&#x7E26;</span>
+time <span class="token comment">-- &#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x6642;&#x9593;</span>
+duration <span class="token comment">-- &#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x9577;&#x3055; [cached]</span>
+inpoint <span class="token comment">-- &#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30A4;&#x30F3;&#x30C8; [cached]</span>
+compTime <span class="token comment">-- Comp&#x306E;&#x6642;&#x9593;(s)</span>
+pluginFolder <span class="token comment">-- &#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x306E;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x30FC;(utf8)</span>
+projectName <span class="token comment">-- &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x540D;&#x524D;(utf8)</span>
+projectPath <span class="token comment">-- &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D1;&#x30B9;(utf8)</span>
+projectFolder <span class="token comment">-- &#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x30FC;&#x4F4D;&#x7F6E;(utf8)</span>
+ds_width <span class="token comment">-- &#x30C0;&#x30A6;&#x30F3;&#x30B5;&#x30F3;&#x30D7;&#x30EA;&#x30F3;&#x30B0;&#x6642;&#x306E;&#x753B;&#x50CF;&#x306E;&#x5E45;</span>
+ds_height <span class="token comment">-- &#x30C0;&#x30A6;&#x30F3;&#x30B5;&#x30F3;&#x30D7;&#x30EA;&#x30F3;&#x30B0;&#x6642;&#x306E;&#x753B;&#x50CF;&#x306E;&#x7E26;</span>
+origin_x <span class="token comment">-- &#x5165;&#x529B;&#x753B;&#x50CF;&#x306E;&#x5DE6;&#x4E0A;&#x306E;&#x539F;&#x70B9;&#x306E;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x5EA7;&#x6A19;&#x7CFB;&#x306B;&#x304A;&#x3051;&#x308B;&#x76F8;&#x5BFE;X&#x5EA7;&#x6A19;&#xFF0E;</span>
+origin_y <span class="token comment">-- &#x5165;&#x529B;&#x753B;&#x50CF;&#x306E;&#x5DE6;&#x4E0A;&#x306E;&#x539F;&#x70B9;&#x306E;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x5EA7;&#x6A19;&#x7CFB;&#x306B;&#x304A;&#x3051;&#x308B;&#x76F8;&#x5BFE;Y&#x5EA7;&#x6A19;&#xFF0E;</span>
+layerName <span class="token comment">-- &#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x540D;&#x524D; (v3.6.4+) [cached]</span>
+layerSourceName <span class="token comment">-- &#x30BD;&#x30FC;&#x30B9;&#x306E;&#x540D;&#x524D; (v3.6.4+) [cached]</span>
+compName <span class="token comment">-- Comp&#x306E;&#x540D;&#x524D; (v3.6.4+) [cached]</span>
+fps <span class="token comment">-- &#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EC;&#x30FC;&#x30C8;</span>
 </code></pre>
 <h2 id="&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x3092;&#x5168;&#x90E8;&#x30D7;&#x30EA;&#x30F3;&#x30C8;">&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x3092;&#x5168;&#x90E8;&#x30D7;&#x30EA;&#x30F3;&#x30C8;</h2>
 <p>&#x6B21;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x7528;&#x3044;&#x3066;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x5909;&#x6570;&#x3092;&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x30D7;&#x30EA;&#x30F3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;</p>
@@ -842,7 +843,7 @@ compName <span class="token comment">-- Name of current comp. (v3.6.4+) [cached]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"グローバル変数","level":"4.1.4","depth":2,"next":{"title":"関数一覧表","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"previous":{"title":"パラメータリンク","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/globals.md","mtime":"2023-03-22T19:13:09.028Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-07T15:28:02.108Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"グローバル変数","level":"4.1.4","depth":2,"next":{"title":"関数一覧表","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"previous":{"title":"パラメータリンク","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/globals.md","mtime":"2023-09-11T19:06:24.445Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-11T19:20:11.519Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

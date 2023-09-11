@@ -40,23 +40,24 @@ host -- Ae == 0, ほかのホストはまだ無し
 
 ```lua:globalvars.lua
 depth -- Dpc: 8,16,32
-width -- Width input image
-height -- Height input image
-time -- Current time(s)
-duration -- Duration of current layer(s) [cached]
-inpoint -- Inpoint of current layer(s) [cached]
-compTime -- Comp current time(s)
-pluginFolder -- The plugin folder(utf8)
-projectName -- Project name(utf8)
-projectPath -- Project path(utf8)
-projectFolder -- Project folder(utf8)
-ds_width -- Width of downsampled input image
-ds_height -- Height of downsampled input image
-origin_x -- The X coordinate of left top corner of input image in the layer coordinate. 
-origin_y -- The Y coordinate of left top corner of input image in the layer coordinate. 
-layerName -- Name of current layer, empty if layer name is not set yet. (v3.6.4+) [cached]
-layerSourceName -- Source name of current layer. This should always not be empty. (v3.6.4+) [cached]
-compName -- Name of current comp. (v3.6.4+) [cached]
+width -- 画像の幅
+height -- 画像の縦
+time -- レイヤーの時間
+duration -- レイヤーの長さ [cached]
+inpoint -- レイヤーのインポイント [cached]
+compTime -- Compの時間(s)
+pluginFolder -- プラグインのフォルダー(utf8)
+projectName -- プロジェクトの名前(utf8)
+projectPath -- プロジェクトファイルのパス(utf8)
+projectFolder -- プロジェクトファイルのフォルダー位置(utf8)
+ds_width -- ダウンサンプリング時の画像の幅
+ds_height -- ダウンサンプリング時の画像の縦
+origin_x -- 入力画像の左上の原点のレイヤー座標系における相対X座標．
+origin_y -- 入力画像の左上の原点のレイヤー座標系における相対Y座標．
+layerName -- レイヤーの名前 (v3.6.4+) [cached]
+layerSourceName -- ソースの名前 (v3.6.4+) [cached]
+compName -- Compの名前 (v3.6.4+) [cached]
+fps -- フレームレート
 ```
 
 ## グローバル変数を全部プリント

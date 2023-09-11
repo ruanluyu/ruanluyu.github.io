@@ -57,6 +57,7 @@ origin_y -- The Y coordinate of left top corner of input image in the layer coor
 layerName -- Name of current layer, empty if layer name is not set yet. (v3.6.4+) [cached]
 layerSourceName -- Source name of current layer. This should always not be empty. (v3.6.4+) [cached]
 compName -- Name of current comp. (v3.6.4+) [cached]
+fps -- Frame rate
 ```
 
 ## Print the globals 
