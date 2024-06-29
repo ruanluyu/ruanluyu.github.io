@@ -7,7 +7,7 @@
 
 **版本 : [Lua5.3（点击查看中文完全技术文档）](https://cloudwu.github.io/lua53doc/contents.html)**
 
-> 注意：`PixelsWorld v3.2.0`起使用`Lua5.4`
+> 注意：`PixelsWorld v3.2.0`起使用[`Lua5.4`](https://www.lua.org/manual/5.4/manual.html)
 
 Lua是一种十份类似表达式和Ae脚本的语言，是像素世界的中心，连接了所有模块。基本上你只要记住几个操作的英文单词，就可以让像素世界按部就班的为您绘制图形。
 

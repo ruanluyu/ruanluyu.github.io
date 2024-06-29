@@ -7,7 +7,7 @@ The instructions that we wrote in chapter 1 is called **Lua**
 
 **Version : [Lua5.3](https://www.lua.org/manual/5.3/)**
 
-> Note: Beginning `PixelsWorld v3.2.0`, using `Lua5.4`
+> Note: Beginning `PixelsWorld v3.2.0`, using [`Lua5.4`](https://www.lua.org/manual/5.4/manual.html)
 
 So Lua plays the role that manages the communication between Ae and Users. It is quite similar to Ae script and expression language. Basically, you can draw highly variant scenes by remembering just a few words. For instance, if you want to draw a cube that can interact with Ae camera, just type: 
 

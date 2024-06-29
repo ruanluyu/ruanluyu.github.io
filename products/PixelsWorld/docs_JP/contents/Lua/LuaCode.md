@@ -5,9 +5,9 @@
 
 >*Luaは手続き型・プロトタイプベースのオブジェクト指向・関数型・データ駆動型のスクリプト言語である。* [--Wiki](https://ja.wikipedia.org/wiki/Lua)
 
-**Luaバージョン：[Lua5.3](http://milkpot.sakura.ne.jp/lua/lua53_manual_ja.html)**
+**Luaバージョン：[Lua5.3](https://www.lua.org/manual/5.3/)**
 
-> 注意：`PixelsWorld v3.2.0`より、Lua5.4に変更しました。
+> 注意：`PixelsWorld v3.2.0`より、[Lua5.4](https://www.lua.org/manual/5.4/)に変更しました。
 
 
 簡単に言えば、Luaは、Aeとユーザーの間の架け橋であり、コミュニケーション通路の役を果たしています。LuaはAeスクリプト言語に似ているため、プログラミング経験ゼロの人でもPixelsWorldを楽しめます。また、小行数のスクリプトでもバラエティー満ちたシーンを構築可能です。例えば、Aeカメラでキューブをレンダーするには、次のコードを書けば十分です：
