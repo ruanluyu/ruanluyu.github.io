@@ -1,46 +1,45 @@
-# Preset management
+# Preset Management
 -------
-## Save preset
-In [World formula editor](ScriptWindow.md), you can click the `Save as preset` button to save your code as a preset. 
-> Note: Identical name incurs overriding. 
+## Saving Presets
+In the [World Law Editor](ScriptWindow.md), you can save a preset by clicking the `Save as preset` button and entering a name.
+> Note: If you use a preset name that already exists in the list, it will be overwritten.
 
-## Override save
+## Overwriting Presets
+In the [World Law Editor](ScriptWindow.md), you can overwrite an existing preset by clicking the `Save as preset` button and entering the name of a **preset that already exists** in the list.
+> Note:
+> - This action is irreversible, please make sure to back up.
+> - Preset names in **different preset categories** do not interfere with each other.
 
-In [World formula editor](ScriptWindow.md), click the `Save as preset` button, and type the existing name to override the previous preset. 
+## Renaming Presets
 
-> Note
-> - All operation in the editor is not undoable. 
+Double-click on the preset in the list that you want to rename, and enter a name **other than** `REMOVE` or `SORT` in the input field.
 
-## Rename presets
+## Sorting the Preset List
 
-Double click the preset to rename a preset. Use name **EXCEPT**`REMOVE` and `SORT`.
+Double-click on any preset in the list and enter `SORT` in the input field.
 
-## Sort presets
+## Deleting Presets
 
-Double click one preset and type in `SORT`. 
+Double-click the preset you wish to delete in the list and enter `REMOVE` in the input field.
 
-## Remove presets
+## Adding Preset Categories
 
-Double click the preset you want to remove and type in `REMOVE`. 
+Click the `Add` button next to the drop-down list in the `Preset list` panel to add a new preset category.
+> Note:
+> - You cannot use an existing category name for a new category.
+> - Adding a category is equivalent to creating a preset file alongside the plugin. *If creation fails or the preset file disappears the second time you open After Effects, please enable administrator mode for After Effects to allow Pixel World to read/write on your disk.*
 
+## Preset Format/Preset File
 
-## Add preset column
+- Presets are stored in JSON format with UTF-8 (little-endian) encoding.
+- Preset files are stored in plain text; we do not encrypt presets in any way.
+- Preset files can be modified using third-party JSON editing tools, but there is a risk of damaging the preset structure, which is not recommended.
 
-Click `Add` button in the `Preset list`
+## Preset Submission
 
-> Note: 
-> - Name must be unique. 
-> - **If failed, you might need to re-open Ae with administrator mode.**
+If you are willing to publicly share your presets through official channels, you are welcome to submit your presets to the email: `ZzStarSound@gmail.com`.
 
-
-## Format
-
-- Format: utf-8, JSON
-- Not encrypted. 
-
-## Contribute presets
-
-Send your preset to `ZzStarSound@gmail.com` with your name and detailed description. 
+We will periodically compile received presets and publicly list submitters' names in the plugin's `About` section.
 
 <br>
 <br>

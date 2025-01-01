@@ -1,38 +1,33 @@
-#パラメーター　リンク
+# リンクパラメータ
 ---
+外部パラメータを使用することで、アニメーション設定が可能です。
+<br>
+![パラメータ](parameters.png)
 
+現在、アニメーションに使用できる7種類のパラメータがあります。
+- スライダー
+- 角度
+- ポイント
+- 3D ポイント
+- チェックボックス
+- カラー
+- レイヤー
 
-`Parameters`の中のパラメーターを生かしてアニメを作ることができます。
+そして、各パラメータセットには10個のコントローラが利用可能です。
 
-![Parameters](parameters.png)
-
-上の図に示すように、七種のパラメーターがあります。
-
-- Sliders
-- Angles
-- Points
-- 3D Points
-- Checkboxes
-- Colors
-- Layers
-
-各種にまた10個のパラメーターが入っています。
-
-**使用例 :**
+**例 :**
 
 ```glsl:link_slider.shader
  void main(){
     outColor = vec4(uv,slider[0],1.0);
 }
 ```
- 
+ 例えば、スライダー0を変更すると、プレビュー画面の色が変わります。
+<br>
 ![uvslider](uvslider.gif)
- 
-
 
 ## 詳細
-
-パラメーター変数は次のように定義されています。
+PixelsWorldでのパラメータの宣言方法は以下の通りです：
 
 ```glsl:parameters.shader
 uniform float slider[10];
@@ -44,7 +39,7 @@ uniform vec4 color[10];
 uniform sampler2D layer[10];
 uniform sampler2D inLayer;
 ```
-> **注意: **
-> - **"inLayer"** は入力テクスチャです。
-> - **sampler2D**　の使い方について、 ["getColor"](getColor.md)セクションをご覧ください。
-> - **"uniform"** はグローバル変数であることを宣言する修飾子です。
+> 注目
+> - **"inLayer"** は入力レイヤーを表します。
+> - **sampler2D** はGLSLで提供されている変数タイプで、その変数タイプを理解する必要はありません。レイヤーパラメータについて知りたい場合は、["getColor"](getColor.md)を参照してください。
+> - **"uniform"** はグローバル変数を表します。

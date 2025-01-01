@@ -741,71 +741,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="globals">Globals</h1>
-<h2 id="global-constants">Global constants</h2>
-<p>Here are some global constants in PixelsWorld: </p>
+                                <h1 id="global-variables">Global Variables</h1>
+<h2 id="global-constants">Global Constants</h2>
+<p>PixelsWorld provides the following global constants for users to utilize:</p>
 <div><p class="code-filename">const.lua</p></div>
-<pre class="language-"><code class="lang-lua">PI  <span class="token comment">-- the Circular constant pi</span>
-TPI <span class="token comment">-- two pi</span>
-HPI <span class="token comment">-- half pi</span>
-QPI <span class="token comment">-- quarter pi</span>
-E   <span class="token comment">-- the Natural number e</span>
-PHI <span class="token comment">-- the Golden ratio phi</span>
-R2  <span class="token comment">-- square root 2</span>
-R3  <span class="token comment">-- square root 3</span>
-R5  <span class="token comment">-- square root 5</span>
-R7  <span class="token comment">-- square root 7</span>
-INPUT <span class="token comment">-- Index of input image -1</span>
-TEMP <span class="token comment">-- Index of temp image -2</span>
-OUTPUT <span class="token comment">-- Index of output image -3</span>
-PARAM0 <span class="token comment">-- Index of the #0 layer parameter 0</span>
-PARAM1 <span class="token comment">-- Index of the #1 layer parameter 1</span>
-PARAM2 <span class="token comment">-- Index of the #2 layer parameter 2</span>
-PARAM3 <span class="token comment">-- Index of the #3 layer parameter 3</span>
-PARAM4 <span class="token comment">-- Index of the #4 layer parameter 4</span>
-PARAM5 <span class="token comment">-- Index of the #5 layer parameter 5</span>
-PARAM6 <span class="token comment">-- Index of the #6 layer parameter 6</span>
-PARAM7 <span class="token comment">-- Index of the #7 layer parameter 7</span>
-PARAM8 <span class="token comment">-- Index of the #8 layer parameter 8</span>
-PARAM9 <span class="token comment">-- Index of the #9 layer parameter 9</span>
-platform <span class="token comment">-- Windows == 0, no other platforms. </span>
-host <span class="token comment">-- Ae == 0, no other hosts.</span>
+<pre class="language-"><code class="lang-lua">PI  <span class="token comment">-- The value of pi</span>
+TPI <span class="token comment">-- Two times pi</span>
+HPI <span class="token comment">-- Half of pi</span>
+QPI <span class="token comment">-- Quarter of pi</span>
+E   <span class="token comment">-- The natural number e</span>
+PHI <span class="token comment">-- The golden ratio phi</span>
+R2  <span class="token comment">-- Square root of 2</span>
+R3  <span class="token comment">-- Square root of 3</span>
+R5  <span class="token comment">-- Square root of 5</span>
+R7  <span class="token comment">-- Square root of 7</span>
+INPUT <span class="token comment">-- Input texture index -1</span>
+TEMP <span class="token comment">-- Cache texture index -2</span>
+OUTPUT <span class="token comment">-- Output texture index -3</span>
+PARAM0 <span class="token comment">-- Texture of layer 0</span>
+PARAM1 <span class="token comment">-- Texture of layer 1</span>
+PARAM2 <span class="token comment">-- Texture of layer 2</span>
+PARAM3 <span class="token comment">-- Texture of layer 3</span>
+PARAM4 <span class="token comment">-- Texture of layer 4</span>
+PARAM5 <span class="token comment">-- Texture of layer 5</span>
+PARAM6 <span class="token comment">-- Texture of layer 6</span>
+PARAM7 <span class="token comment">-- Texture of layer 7</span>
+PARAM8 <span class="token comment">-- Texture of layer 8</span>
+PARAM9 <span class="token comment">-- Texture of layer 9</span>
+platform <span class="token comment">-- Platform: Windows10: 0, no other platforms currently supported</span>
+host <span class="token comment">-- Host application: Ae: 0, no other hosts currently supported</span>
 </code></pre>
-<h2 id="global-variables">Global variables</h2>
-<p>Here are some global variables in PixelsWorld: </p>
+<h2 id="global-variables">Global Variables</h2>
+<p>PixelsWorld provides the following variables derived from Ae for users to utilize:</p>
 <blockquote>
-<p>Variables marked with <code>[cached]</code> means re-render will not be triggered unless you purge the memory. </p>
+<p><code>[cached]</code> indicates a global variable that does not trigger a re-render unless memory is cleared.</p>
 </blockquote>
 <div><p class="code-filename">globalvars.lua</p></div>
-<pre class="language-"><code class="lang-lua">depth <span class="token comment">-- Dpc: 8,16,32</span>
-width <span class="token comment">-- Width input image</span>
-height <span class="token comment">-- Height input image</span>
-time <span class="token comment">-- Current time(s)</span>
-duration <span class="token comment">-- Duration of current layer(s) [cached]</span>
-inpoint <span class="token comment">-- Inpoint of current layer(s) [cached]</span>
-compTime <span class="token comment">-- Comp current time(s)</span>
-pluginFolder <span class="token comment">-- The plugin folder(utf8)</span>
-projectName <span class="token comment">-- Project name(utf8)</span>
-projectPath <span class="token comment">-- Project path(utf8)</span>
-projectFolder <span class="token comment">-- Project folder(utf8)</span>
-ds_width <span class="token comment">-- Width of downsampled input image</span>
-ds_height <span class="token comment">-- Height of downsampled input image</span>
-origin_x <span class="token comment">-- The X coordinate of left top corner of input image in the layer coordinate. </span>
-origin_y <span class="token comment">-- The Y coordinate of left top corner of input image in the layer coordinate. </span>
-layerName <span class="token comment">-- Name of current layer, empty if layer name is not set yet. (v3.6.4+) [cached]</span>
-layerSourceName <span class="token comment">-- Source name of current layer. This should always not be empty. (v3.6.4+) [cached]</span>
-compName <span class="token comment">-- Name of current comp. (v3.6.4+) [cached]</span>
-fps <span class="token comment">-- Frame rate</span>
+<pre class="language-"><code class="lang-lua">depth <span class="token comment">-- Color depth, can be 8, 16, 32</span>
+width <span class="token comment">-- Width of the input layer</span>
+height <span class="token comment">-- Height of the input layer</span>
+time <span class="token comment">-- Current time (in seconds)</span>
+duration <span class="token comment">-- Duration of the current layer (in seconds) [cached]</span>
+inpoint <span class="token comment">-- In point time of the current layer (in seconds) [cached]</span>
+compTime <span class="token comment">-- Composition time (in seconds)</span>
+pluginFolder <span class="token comment">-- Plugin directory (UTF-8)</span>
+projectName <span class="token comment">-- Project name (UTF-8)</span>
+projectPath <span class="token comment">-- Project path (UTF-8)</span>
+projectFolder <span class="token comment">-- Path to the project folder (UTF-8)</span>
+ds_width <span class="token comment">-- Downsampled composition width</span>
+ds_height <span class="token comment">-- Downsampled composition height</span>
+origin_x <span class="token comment">-- X-coordinate of the top-left corner of the input layer in the layer coordinate system</span>
+origin_y <span class="token comment">-- Y-coordinate of the top-left corner of the input layer in the layer coordinate system</span>
+layerName <span class="token comment">-- Name of the current layer; if not set, it is empty (v3.6.4+) [cached]</span>
+layerSourceName <span class="token comment">-- Source name of the current layer; usually not empty (v3.6.4+) [cached]</span>
+compName <span class="token comment">-- Current composition name (v3.6.4+) [cached]</span>
+fps <span class="token comment">-- Frames per second</span>
 </code></pre>
-<h2 id="print-the-globals">Print the globals</h2>
-<p>Globals can be printed by using following code: </p>
+<h2 id="printing-global-variables">Printing Global Variables</h2>
+<p>Run the following code in Lua mode to print global variables (including global functions):</p>
 <div><p class="code-filename">printGlobals.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">in2out</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token function">pairs</span><span class="token punctuation">(</span>_G<span class="token punctuation">)</span> <span class="token keyword">do</span>
     <span class="token function">print</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span> <span class="token operator">..</span> <span class="token function">type</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">,</span><span class="token number">.5</span><span class="token punctuation">)</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>_G<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span> <span class="token operator">..</span> <span class="token function">type</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>_G<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
     <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 </code></pre>
@@ -843,7 +843,7 @@ fps <span class="token comment">-- Frame rate</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Globals","level":"4.1.4","depth":2,"next":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"previous":{"title":"Link parameters","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/globals.md","mtime":"2023-09-11T19:00:55.487Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Globals","level":"4.1.4","depth":2,"next":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"previous":{"title":"Link parameters","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/globals.md","mtime":"2025-01-01T07:46:20.685Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

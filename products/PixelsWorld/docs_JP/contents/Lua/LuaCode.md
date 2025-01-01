@@ -1,16 +1,17 @@
-#Lua コード
+# 世界の中心Lua
 ---
 
-最初の第一章で紹介した言語の名前は**Lua**でした。
+第1章で紹介するのは、**Lua**という言語です。
 
->*Luaは手続き型・プロトタイプベースのオブジェクト指向・関数型・データ駆動型のスクリプト言語である。* [--Wiki](https://ja.wikipedia.org/wiki/Lua)
+>** Luaは軽量で、高級、多パラダイムのプログラミング言語で、主に組込みアプリケーションで使用されます。* [——Wiki](https://en.wikipedia.org/wiki/Lua_(programming_language))
 
-**Luaバージョン：[Lua5.3](https://www.lua.org/manual/5.3/)**
+**バージョン : [Lua5.3（完全な技術ドキュメントはこちら）](https://cloudwu.github.io/lua53doc/contents.html)**
 
-> 注意：`PixelsWorld v3.2.0`より、[Lua5.4](https://www.lua.org/manual/5.4/)に変更しました。
+> 注意：`PixelsWorld v3.2.0`より[`Lua5.4`](https://www.lua.org/manual/5.4/manual.html)を使用しています。
 
+Luaは、式やAeスクリプトに非常に似た言語で、ピクセルワールドの中心としてすべてのモジュールをつなぐ役割を果たします。基本的な命令を数個覚えるだけで、ピクセルワールドが順番に図形を描画するように指示できます。
 
-簡単に言えば、Luaは、Aeとユーザーの間の架け橋であり、コミュニケーション通路の役を果たしています。LuaはAeスクリプト言語に似ているため、プログラミング経験ゼロの人でもPixelsWorldを楽しめます。また、小行数のスクリプトでもバラエティー満ちたシーンを構築可能です。例えば、Aeカメラでキューブをレンダーするには、次のコードを書けば十分です：
+ピクセルワールドにおけるすべてのレンダリング命令は、この中枢であるLuaを通じて発行できます。例えば、Aeカメラとインタラクティブな立方体を描画したい場合、次のように入力します。
 
 ```lua:DrawCube.lua
 version3()
@@ -19,9 +20,9 @@ dim3()
 cube(300)
 ```
 
-> `dim3()`は三次元モードでレンダーするという意味です。
+> `dim3()`は3次元モードで描画を行うための関数です。
 
-GLSLコードをレンダーするには、次のように書きます：
+GLSLコードをレンダリングしたい場合、次のように入力します。
 
 ```lua:RunGlsl.lua
 version3()
@@ -33,8 +34,9 @@ void main(){
     ]==])
 ```
 
-[shadertoy](shadertoy.md)のコードをレンダーするには、次のように書きます：
+間にGLSLコードを記述するだけで実行可能です。
 
+shadertoyのコードを実行したい場合、次のように入力します。
 ```lua:RunShadertoy.lua
 version3()
 shadertoy([==[
@@ -46,17 +48,30 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 }
     ]==])
 ```
+間にshadertoyのコードを記述するだけで実行可能です。
 
-Luaでは、次のことができます： 
-- ピクセルデータの読み取り
-- ピクセルデータの書き込み
+ここではLuaの能力範囲を示します：
+- ピクセルデータの取得
+- ピクセルデータの記述
 - JavaScriptの実行
 - GLSLの実行
-- パラメーターの読み取り
-- 外部Cライブラリの実行 **(COOL!)**
-- 外部Luaモデルの読み取り
+- パラメータデータの取得
+- 外部C言語ライブラリの実行
+- Luaモジュールのロード
 
-## PixelsWorld構成図
+また、LuaはJavaScriptに非常に似ており、JavaScriptは学びやすい言語であるため、プログラミングの基礎がなくても短時間で習得できます。
+
+
+## PixelsWorldの構造
 
 ![PW_Structure](../PW_Structure.png)
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

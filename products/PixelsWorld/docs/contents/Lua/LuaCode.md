@@ -1,15 +1,17 @@
-#Lua Code
+# The Center of the World: Lua
 ---
 
-The instructions that we wrote in chapter 1 is called **Lua**
+In Chapter 1, we introduced a language called **Lua**
 
->*Lua is a lightweight, high-level, multi-paradigm programming language designed primarily for embedded use in applications.* [——Wiki](https://en.wikipedia.org/wiki/Lua_(programming_language))
+>** Lua is a lightweight, high-level, multi-paradigm programming language, mainly used for embedded applications.* [——Wiki](https://en.wikipedia.org/wiki/Lua_(programming_language))
 
-**Version : [Lua5.3](https://www.lua.org/manual/5.3/)**
+**Version: [Lua5.3 (Click to view the complete technical documentation in Chinese)](https://cloudwu.github.io/lua53doc/contents.html)**
 
-> Note: Beginning `PixelsWorld v3.2.0`, using [`Lua5.4`](https://www.lua.org/manual/5.4/manual.html)
+> Note: From `PixelsWorld v3.2.0`, [`Lua5.4`](https://www.lua.org/manual/5.4/manual.html) is used.
 
-So Lua plays the role that manages the communication between Ae and Users. It is quite similar to Ae script and expression language. Basically, you can draw highly variant scenes by remembering just a few words. For instance, if you want to draw a cube that can interact with Ae camera, just type: 
+Lua is a language very similar to expressions and Ae scripts, and it is the center of PixelsWorld, connecting all modules. Basically, you just have to remember a few English words for operations, and PixelsWorld will systematically render graphics for you.
+
+All rendering commands in PixelsWorld can be issued through this central hub, Lua. For example, if you want to draw a cube that can interact with Ae's camera, you just need to input:
 
 ```lua:DrawCube.lua
 version3()
@@ -18,9 +20,9 @@ dim3()
 cube(300)
 ```
 
-> `dim3()` means draw shapes in 3 **dim**ension. 
+> `dim3()` is a function used for drawing in 3D mode.
 
-If you want to run GLSL code, just type: 
+If you want to render GLSL code, you only need to input:
 
 ```lua:RunGlsl.lua
 version3()
@@ -32,7 +34,9 @@ void main(){
     ]==])
 ```
 
-If you want to run code from [shadertoy](shadertoy.md), just type: 
+And input the GLSL code in between;
+
+If you want to execute [shadertoy](shadertoy.md) code, you just need to input:
 
 ```lua:RunShadertoy.lua
 version3()
@@ -45,21 +49,29 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 }
     ]==])
 ```
+And input the code from shadertoy in between.
 
-In Lua, you can : 
-- Get pixels data
-- Write pixels data
-- Run JavaScript
-- Run GLSL
-- Get parameters data
-- Run outer C library **(COOL!)**
-- Load outer lua module
+Here we list the capabilities of Lua:
+- Access pixel data
+- Write pixel data
+- Execute JavaScript
+- Execute GLSL
+- Access parameter data
+- Execute external C language libraries
+- Load Lua modules
 
-Because of the advanced features, the users who using Lua render mode should have basic programming abilities and have a primary understanding of the Lua language. If you have no idea about Lua, don't worry about it, it is pretty easy to learn. 
+Additionally, Lua is very similar to JavaScript. Since JavaScript is an easy-to-learn language, you will be able to master it quickly even if you have no programming background.
 
-
-## PixelsWorld structure
+## PixelsWorld Structure
 
 ![PW_Structure](../PW_Structure.png)
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,4 +1,4 @@
-# Run GLSL in Lua
+# Running GLSL in Lua
 ---
 
 ## Usage
@@ -8,7 +8,7 @@ version3()
 glsl(Your_code_string_here)
 ```
 
-Note: We recommend using `[==[Your_code_string_here]==]` to quote your string on account of avoiding escape characters. Namely, your code should be like: 
+Note that we recommend using `[==[Your_code_string_here]==]` to enclose the string to avoid any escaping issues. For example, your code should generally be written in the following form:
 
 ```lua:glsl2.lua
 version3()
@@ -19,9 +19,10 @@ void main(){
 ]==])
 ```
 
-The following function can run the code from `shadertoy.com`. 
+The following code can be used to render code from `shadertoy.com`:
 
 ```lua:shadertoy.lua
 version3()
 shadertoy(Your_shadertoy_code_here)
 ```
+<br><br><br><br><br><br>

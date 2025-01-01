@@ -1,29 +1,36 @@
-#uv2xy,xy2uv
+# uv2xy, xy2uv
 ---
-This two functions can translate a vec2 between **UV Coordinate** and **XY Coordinate**.
-It just do some multiplication and division for you. 
-##uv2xy(vec2)
-**Description : **
- - Calculate the xy position for a given uv position. 
+これらの2つの関数は**UV座標**と**XY座標**の間の変換に使用されます。
+単に掛け算と割り算を行います。
 
-**Parameters : **
-- vec2 : uv position.
+## uv2xy(vec2)
+**説明：**
 
-**Return : **
-- vec2 : xy position.
+- 指定されたuv値からxy値を計算します。
 
-> **NOTE : **
->  If your layer size is 1280 x 720. The ```uv2xy(vec2(0.1,0.5));``` will return ```vec2(128.0,360.0);```
+**パラメータ：**
 
-##xy2uv(vec2)
-**Description : **
- - Calculate the uv position for a given xy position. 
+- vec2 : uv位置値。
 
-**Parameters : **
-- vec2 : xy position.
+**戻り値：**
 
-**Return : **
-- vec2 : uv position.
+- vec2 : xy位置値。
 
-> **NOTE : **
->  If your layer size is 1920 x 1080. The ```xy2uv(vec2(192,108));``` will return ```vec2(0.1,0.1);```
+> **注意：**
+> レイヤーサイズが1280 x 720の場合、```uv2xy(vec2(0.1,0.5));``` は ```vec2(128.0,360.0);``` を返します。
+
+## xy2uv(vec2)
+**説明：**
+
+- 指定されたxy値からuv値を計算します。
+
+**パラメータ：**
+
+- vec2 : xy位置値。
+
+**戻り値：**
+
+- vec2 : uv位置値。
+
+> **注意：**
+> レイヤーサイズが1920 x 1080の場合、```xy2uv(vec2(192,108));``` は ```vec2(0.1,0.1);``` を返します。

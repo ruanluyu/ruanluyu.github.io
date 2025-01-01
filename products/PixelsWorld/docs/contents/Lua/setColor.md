@@ -1,25 +1,27 @@
-#pw.setColor(x,y,A,R,G,B)
+# pw.setColor(x,y,A,R,G,B)
 ---
 
-**Description :**
+**Description:**
 
-- Set the pixel data in a specific position
+- Sets the pixel data at a specified position.
 
-**Parameters :**
+**Parameters:**
 
 - pw.setColor(x,y,A,R,G,B)
-- x,y : integer
-- A,R,G,B : floats in range 0-1 (No clamp in 32 bpc)        
+- x, y: Integers.
+- A, R, G, B: Floating-point numbers in the range 0~1 (in 32-bit excluding endpoints)
 
-**Return :**
-- No return
+**Returns:**
 
-**Sample code :**
-- Here is a sample code that renders a beautiful time-dependent uv color pattern. 
+- None.
+
+**Example:**
+
+- The following code will render a beautiful uv color pattern based on time
 ```lua:setColor.lua
 for y=0,height do
-    for x=0,width do
-        pw.setColor(x,y,1,x/width,y/height,math.sin(time*10)/2+.5)
-    end
+	for x=0,width do
+		pw.setColor(x,y,1,x/width,y/height,math.sin(time*10)/2+.5)
+	end
 end
 ```

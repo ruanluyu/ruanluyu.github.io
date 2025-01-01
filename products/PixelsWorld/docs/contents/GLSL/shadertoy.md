@@ -1,43 +1,39 @@
-# Template Zone Shadertoy
+# ShaderToy Sanctuary Template
 ---
 ## Usage
-On the Shadertoy mode, you can run codes from [shadertoy.com](https://shadertoy.com). 
+In this mode, you can directly use code from [shadertoy.com](https://shadertoy.com).
 
 ![shadertoyMode](shadertoyMode.png)
 
-> **Note** <br/> It doesn't mean all code from the Shadertoy can be seamlessly transferred into PixelsWorld. Some like "VR", "Loop buffer reference" are not supported. 
+> **Note** <br/> Not all code from shadertoy.com can perfectly run in PixelsWorld (e.g., code with audio input, requiring VR support, and containing loop buffer references).
 
 ![loopRef](loopbuffer.png)
 
-##Details
+## Details
+If you would like to use custom parameter panels in shadertoy mode, simply add the **`_PixelsWorld_`** prefix to all variables in GLSL mode to enable them.
 
-Add **`_PixelsWorld_`** prefix to use variables that exist in GLSL mode. 
+> For instance, `slider[0]` in GLSL mode will become `_PixelsWorld_slider[0]`.
 
+Refer to [here](./predefined.md#shadertoy-mode) to understand the definitions of all global variables.
 
-> E.g. `slider[0]` on GLSL mode =  `_PixelsWorld_slider[0]` on shadertoy mode. 
+Of course, in shadertoy mode, it's not recommended to define variables with the **`_PixelsWorld_`** prefix on your own.
 
-Refer to [this page](./predefined.md#shadertoy-mode) to learn more global definitions in the Shadertoy mode. 
+## Using Buffers
 
-It is not recommended to define your own **`_PixelsWorld_`** prefixed variables. 
+Shadertoy inherently offers 4 buffers, and you can also implement buffers in PixelsWorld.
+### Non-Cyclic Buffers
 
+![luaMode](../Lua/LuaMode.png)
 
+If the effects you are using do not involve cyclic calls between Buffers (as shown in the lower half of the previous diagram), then the buffers in your effect are non-cyclic. You can call them using the code template below (note: you need to switch to Lua mode).
 
-## Use Buffers
+For instance, for the code from: https://www.shadertoy.com/view/4dVGRW:
 
-Shadertoy has 4 Buffers (or iChannels), which can be also applied into PixelsWorld. 
-
-### No-loop-ref Buffers
-
-If the effect you want to apply doesn't involve loop references (like the bottom part of the figure above). Then the effect is "no-loop-ref". You can apply the effect via the code template below. (Also need the Lua render mode)
-
-
-E.g.: An effect from https://www.shadertoy.com/view/4dVGRW 
-
-1. This effect uses the `BufferA`, so `A` is set to `true` at the 4th line of the code below. 
-2. `BufferA` is bound to the `iChannel0` of the `Main` image. So `AtoMain` is set to `0` at the 15th line. 
-3. Then, copy-paste the code of `BufferA` and `Main` to the corresponding variables. 
-4. Finally, to make sure the result is right, set `Advanced->Internal texture format` to `Floating point 32 bit x RGBA (HDR)` to prevent PixelsWorld to clamp the value of the Alpha color channel. 
-5. Also don't forget to check if the PixelsWorld is on the Lua render mode. 
+1. This effect uses `BufferA`, so the code sets `A` to `true` in the fourth line below.
+2. `BufferA` is ultimately bound to `iChannel0` on the `Main` image, so the code sets `AtoMain` to `0` on line 15 below.
+3. Next, copy the `BufferA` and `Main` codes into their respective variables.
+4. Finally, to ensure correct results, set the plugin panel's `Advanced->Internal texture format` to `Floating point 32 bit x RGBA (HDR)` to prevent PixelsWorld from flattening the Alpha channel internally.
+5. Make sure you are in Lua rendering mode.
 
 ```lua:rotatingCubes.lua
 version3()
@@ -152,12 +148,12 @@ mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
 ]==];
 
 commonCode = [==[
-// Paste the common code here. 
+// Paste the common code here
 
 ]==]
 
 bufferACode = [==[
-// Paste the Buffer A code here. 
+// Paste the Buffer A code here
 float sdBox( vec3 p, vec3 b ) {
     vec3 d = abs(p) - b;
     return min(max(d.x,max(d.y,d.z)),0.0) +
@@ -259,17 +255,17 @@ float sdBox( vec3 p, vec3 b ) {
 ]==];
 
 bufferBCode = [==[
-// Paste the Buffer B code here. 
+// Paste the Buffer B code here
 
 ]==];
 
 bufferCCode = [==[
-// Paste the Buffer C code here. 
+// Paste the Buffer C code here
 
 ]==];
 
 bufferDCode = [==[
-// Paste the Buffer D code here. 
+// Paste the Buffer D code here
 
 ]==];
 
@@ -336,8 +332,6 @@ swapTexDet(enable.BtoMain,texB)
 swapTexDet(enable.CtoMain,texC)
 swapTexDet(enable.DtoMain,texD)
 ```
+### Cyclic Buffers
 
-### Loop-ref Buffer
-
-Um...We really don't recommend applying the Loop-ref Buffer. (But there still a way to do it. You should get ready to fight with Ae and PixelsWorld for a long night. [I'm ready to go>>>](./../Lua/Simulation.md))
-
+Hmm... if you want to use effects involving cyclic buffers, we highly discourage using them in PixelsWorld. (However, it is still achievable, but be prepared for a night of struggle with AE and PixelsWorld. [I am ready >>>](./../Lua/Simulation.md))

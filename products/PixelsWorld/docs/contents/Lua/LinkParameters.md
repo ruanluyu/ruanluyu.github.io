@@ -1,24 +1,25 @@
-#Link parameters
+# Link Parameters
 ---
 
+Use the following functions to call parameters on the plugin panel.
 
 ```lua:parameters.lua
-slider(id)  -- return 1 double
-angle(id)  -- return 1 double
-point(id)  -- return 2 double
-point3d(id) -- return 3 double
-checkbox(id) -- return 1 boolean
-color(id) -- return 3 double
-layer(id,x,y) -- return 4 double
+slider(id)  -- Returns 1 double
+angle(id)  -- Returns 1 double
+point(id)  -- Returns 2 doubles
+point3d(id) -- Returns 3 doubles
+checkbox(id) -- Returns 1 boolean
+color(id) -- Returns 3 doubles
+layer(id, x, y) -- Returns 4 doubles
 ```
 
-If there are more than one values returned, the corresponding number of variables need be declared to catch the values. For instance, the `point()` function: 
+When multiple variables are returned, you need to declare multiple variables to catch the return values, for example with the `point()` function.
 
 ```lua:point.lua
 version3()
-x,y = point(0) -- Declear two variables x and y
+x, y = point(0)
 println('x is ' .. x)
 println('y is ' .. y)
 ```
 
-![Result](linkPoint.png)
+![Execution Result](linkPoint.png)

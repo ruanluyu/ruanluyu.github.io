@@ -741,26 +741,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="parameter-manager">Parameter manager</h1>
+                                <h1 id="parameter-editor">Parameter Editor</h1>
 <hr>
-<p>Click the <code>Parameter manager</code> button on the <a href="ScriptWindow.html">World rule editor</a> to start Parameter manager. This is the Parameter manager window: 
-<img src="PM_Review.png" alt="Parameter manager"></p>
-<h2 id="rule">Rule</h2>
-<p>Type the labels into the first input area, the default values into the following input area. (Decimal number 0~1)</p>
-<p><code>Clear names</code> button clears label names.
-<code>Clear all names</code> button clears all label names. </p>
-<p><code>Reset names</code> button resets label names to default.
-<code>Reset all names</code> button resets all label names to default.</p>
-<p><code>Reset values</code> button resets values.
-<code>Reset all value</code> button resets all values.</p>
+<p>Launch the parameter editor by clicking the <code>Parameter manager</code> button on the <a href="ScriptWindow.html">World Rule Editor</a>. Once opened, it appears as shown below:
+<img src="PM_Review.png" alt="Parameter Editor"></p>
+<h2 id="rules">Rules</h2>
+<p>Enter the name in the long box and the default value (decimal) in the short box.</p>
+<p>The <code>Clear names</code> button clears the names in each area. The <code>Clear all names</code> button at the bottom clears the names in all areas.</p>
+<p>The <code>Reset names</code> button resets each area&apos;s name to its default name, while the <code>Reset all names</code> button at the bottom resets the names in all areas to their default.</p>
+<p>The <code>Reset value</code> button resets each area&apos;s values, and the <code>Reset all names</code> button at the bottom also resets all areas&apos; values.</p>
 <blockquote>
-<p>Notice: The ranges of the points and the 3d points are <code>0~1</code>. If the size of the layer is <code>1280x720</code>, <code>0.5, 0.5</code> of default point value means <code>640x360</code> in the plugin panel. </p>
+<p>Note: The range for point and 3dpoint should be <code>0~1</code>. For example, on a <code>1280x720</code> layer, when using <code>0.5, 0.5</code> as the default value for point, PixelsWorld will automatically convert it to <code>640x360</code> on the plugin panel UI&apos;s point control.</p>
 </blockquote>
-<h2 id="encoding">Encoding</h2>
-<p>PixelsWorld supports utf-8. Some not supported characters are converted to <code>?</code> in the plugin panel. </p>
+<h2 id="parameter-name-encoding-language">Parameter Name Encoding Language</h2>
+<p>PixelsWorld supports UTF-8 and local encoding, meaning parameter names theoretically support most Unicode characters. However, due to encoding support issues in After Effects, the name data in presets might display unsupported characters as <code>?</code> (question marks) on different system regions (this is not a glitch).</p>
 <blockquote>
 <ul>
-<li>If you work with international authors. We recommand using <span style="color:rgb(255,0,0)"><a href="https://en.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a></span> characters for all labels. </li>
+<li>If you are an individual artist, you can name parameters in any language.</li>
+<li>If you are part of a team, <strong>especially one involved in international art exchanges</strong>, we recommend using parameter names composed of visible characters from <span style="color:rgb(255,0,0)"><a href="https://en.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a> (generally consisting of English letters, numbers, and underscores)</span>.</li>
 </ul>
 </blockquote>
 <p><br>
@@ -803,7 +801,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parameter manager","level":"3.2","depth":1,"next":{"title":"Preset management","level":"3.3","depth":1,"path":"contents/Editor/SavePresets.md","ref":"contents/Editor/SavePresets.md","articles":[]},"previous":{"title":"World formula editor","level":"3.1","depth":1,"path":"contents/Editor/ScriptWindow.md","ref":"contents/Editor/ScriptWindow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ParameterWindow.md","mtime":"2021-03-06T03:43:36.457Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Parameter manager","level":"3.2","depth":1,"next":{"title":"Preset management","level":"3.3","depth":1,"path":"contents/Editor/SavePresets.md","ref":"contents/Editor/SavePresets.md","articles":[]},"previous":{"title":"World formula editor","level":"3.1","depth":1,"path":"contents/Editor/ScriptWindow.md","ref":"contents/Editor/ScriptWindow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ParameterWindow.md","mtime":"2025-01-01T08:15:40.218Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

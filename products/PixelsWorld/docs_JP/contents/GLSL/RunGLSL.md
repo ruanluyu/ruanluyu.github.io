@@ -1,25 +1,24 @@
-#GLSLの実装
+# GLSLコードの実行
 ---
-- **GLSL(GPU)** モードになっていることをまず確認しましょう。
-
-
-![GLSL Mode](GLSLMode.png)
-
-次のコードを入力してください。
-
+- GLSLコードは**GLSL(GPU)**モードで実行してください。
+<br>
+![GLSLモード](GLSLMode.png)
+- "**World rule**"で"**Edit**"をクリックします。
+- この時、一部のコードがパネルに表示されます。
 ```glsl:default.shader
 void main(){
 	outColor = getColor(uv);
 }
 ```
->このコードはただ入力された画像をそのまま出力するコードです。
+> このコードは入力ピクセルを出力ピクセルに送信します。
 
-- ``` getColor(uv) ``` を ```vec4(uv,0.0,1.0)```　に変えてきれいなUVパターンをレンダーすることができます。
-
+- ```getColor(uv)```を```vec4(uv,0.0,1.0)```に変更することで、きれいなuvカラーパターンを得ることができます。
 ```glsl:uvcolor.shader
 void main(){
 	outColor = vec4(uv,0.0,1.0);
 }
 ```
-
-![UV color pattern](UVColor.png)
+- 次に、**"Ok"**をクリックすれば完了です。
+- 通常、次のような結果が得られるはずです：
+<br>
+![UVカラーパターン](UVColor.png)

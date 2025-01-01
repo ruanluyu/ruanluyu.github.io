@@ -741,14 +741,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="creation-origin-poly-function">Creation origin: Poly function</h1>
-<p><code>poly(obj)</code> analyzes the inputted <code>obj</code>, then draws it to the scene. </p>
-<h2 id="usage">Usage</h2>
+                                <h1 id="&#x5275;&#x4E16;&#x795E;&#x5553;&#x793A;&#x9332;&#x2014;&#x2014;poly&#x95A2;&#x6570;">&#x5275;&#x4E16;&#x795E;&#x5553;&#x793A;&#x9332;&#x2014;&#x2014;Poly&#x95A2;&#x6570;</h1>
+<p><code>poly(obj)</code>&#x95A2;&#x6570;&#x306F;&#x3001;obj&#x3092;&#x89E3;&#x6790;&#x3057;&#x3066;&#x7269;&#x4F53;&#x3092;&#x63CF;&#x753B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;&#x4F8B;">&#x4F7F;&#x7528;&#x4F8B;</h2>
 <blockquote>
-<p>If you are familiar with <code>Houdini</code>, constructing an <code>obj</code> is basically to fill a SpreadSheet. </p>
+<p>Houdini&#x3092;&#x3054;&#x4F7F;&#x7528;&#x306E;&#x65B9;&#x306F;&#x3001;<code>obj</code>&#x306E;&#x69CB;&#x9020;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x304C;Houdini&#x306E;&#x30B9;&#x30D7;&#x30EC;&#x30C3;&#x30C9;&#x30B7;&#x30FC;&#x30C8;&#x3092;&#x57CB;&#x3081;&#x308B;&#x306E;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
-<p>Here is an example of constructing an <code>obj</code> of an unusual colorful triangle. </p>
-<p><img src="poly_test1.png" alt="Res"></p>
+<p>&#x4EE5;&#x4E0B;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x7279;&#x7570;&#x306A;&#x4E09;&#x89D2;&#x5F62;&#x306E;<code>obj</code>&#x3092;&#x69CB;&#x7BC9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><img src="poly_test1.png" alt="&#x7D50;&#x679C;"></p>
 <div><p class="code-filename">PolyTest1.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
@@ -770,149 +770,149 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="supporting-primitives">Supporting primitives</h2>
-<p>Assume<code>pref={1,2,3,4,5,6}</code>. </p>
+<h2 id="&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x3068;&#x540D;&#x524D;">&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x3068;&#x540D;&#x524D;</h2>
+<p>&#x4EE5;&#x4E0B;&#x306B;<code>pref={1,2,3,4,5,6}</code>&#x3092;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <blockquote>
 <ul>
-<li><code>pref</code> means <code>point reference</code>. </li>
-<li>The semicolon (<code>;</code>) is the end mark of one primitive drawing. </li>
+<li><code>pref</code>&#x306F;<code>point reference</code>&#x306E;&#x610F;&#x5473;&#x3067;&#x3001;&#x53C2;&#x7167;&#x70B9;&#x306E;&#x756A;&#x53F7;&#x3092;&#x6307;&#x3057;&#x3001;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306F;&#x9001;&#x3089;&#x308C;&#x305F;&#x756A;&#x53F7;&#x306E;&#x9806;&#x306B;&#x63CF;&#x753B;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x30BB;&#x30DF;&#x30B3;&#x30ED;&#x30F3;&#xFF08;<code>;</code>&#xFF09;&#x306F;1&#x56DE;&#x306E;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x63CF;&#x753B;&#x306E;&#x7D42;&#x308F;&#x308A;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
 </ul>
 </blockquote>
 <table>
 <thead>
 <tr>
-<th>type name</th>
-<th>Corresponding primitive</th>
-<th>Drawing order</th>
-<th>full type name</th>
+<th>&#x6A19;&#x6E96;&#x540D;&#x79F0;(type name)</th>
+<th>&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;</th>
+<th>&#x63CF;&#x753B;&#x9806;&#x5E8F;</th>
+<th>&#x5168;&#x79F0;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>points</td>
-<td>Points</td>
+<td>&#x70B9;</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>points</td>
 </tr>
 <tr>
 <td>pointd</td>
-<td>2d point</td>
+<td>&#x5E73;&#x9762;&#x70B9;</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>point disc</td>
 </tr>
 <tr>
 <td>pointb</td>
-<td>3d point</td>
+<td>&#x7403;&#x70B9;</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>point ball</td>
 </tr>
 <tr>
 <td>line</td>
-<td>Single line</td>
+<td>1&#x672C;&#x306E;&#x7DDA;</td>
 <td><code>123456;</code></td>
 <td>single line</td>
 </tr>
 <tr>
 <td>linef</td>
-<td>Single 2d line</td>
+<td>&#x5E73;&#x9762;&#x7DDA;</td>
 <td><code>123456;</code></td>
 <td>line flat</td>
 </tr>
 <tr>
 <td>linec</td>
-<td>Single 3d line</td>
+<td>&#x7ACB;&#x4F53;&#x7DDA;</td>
 <td><code>123456;</code></td>
 <td>line capsule</td>
 </tr>
 <tr>
 <td>linel</td>
-<td>Loop line</td>
+<td>&#x30EB;&#x30FC;&#x30D7;&#x7DDA;</td>
 <td><code>1234561;</code></td>
 <td>line loop</td>
 </tr>
 <tr>
 <td>linelf</td>
-<td>Loop 2d line</td>
+<td>&#x30EB;&#x30FC;&#x30D7;&#x5E73;&#x9762;&#x7DDA;</td>
 <td><code>1234561;</code></td>
 <td>line loop flat</td>
 </tr>
 <tr>
 <td>linelc</td>
-<td>Loop 3d line</td>
+<td>&#x30EB;&#x30FC;&#x30D7;&#x7ACB;&#x4F53;&#x7DDA;</td>
 <td><code>1234561;</code></td>
 <td>line loop capsule</td>
 </tr>
 <tr>
 <td>lines</td>
-<td>Lines</td>
+<td>&#x8907;&#x6570;&#x672C;&#x306E;&#x7DDA;</td>
 <td><code>12;34;56;</code></td>
 <td>lines</td>
 </tr>
 <tr>
 <td>linesf</td>
-<td>2d lines</td>
+<td>&#x8907;&#x6570;&#x672C;&#x306E;&#x5E73;&#x9762;&#x7DDA;</td>
 <td><code>12;34;56;</code></td>
 <td>lines flat</td>
 </tr>
 <tr>
 <td>linesc</td>
-<td>3d lines</td>
+<td>&#x8907;&#x6570;&#x672C;&#x306E;&#x7ACB;&#x4F53;&#x7DDA;</td>
 <td><code>12;34;56;</code></td>
 <td>lines capsule</td>
 </tr>
 <tr>
 <td>triangles</td>
-<td>Triangle meshes</td>
+<td>&#x4E09;&#x89D2;&#x9762;</td>
 <td><code>123;456;</code></td>
 <td>triangles</td>
 </tr>
 <tr>
 <td>triangleb</td>
-<td>Bridge structure triangle meshes</td>
+<td>&#x6A4B;&#x72B6;&#x4E09;&#x89D2;&#x9762;</td>
 <td><code>123;324;345;546;</code></td>
 <td>triangle bridge</td>
 </tr>
 <tr>
 <td>triangler</td>
-<td>Radial structure triangle meshes</td>
+<td>&#x653E;&#x5C04;&#x72B6;&#x4E09;&#x89D2;&#x9762;</td>
 <td><code>123;134;145;156;</code></td>
 <td>triangle radial</td>
 </tr>
 </tbody>
 </table>
-<h2 id="the-structure-of-obj">The structure of obj</h2>
-<p>The obj structure is defined by the following steps: </p>
+<h2 id="obj&#x306E;&#x69CB;&#x7BC9;">obj&#x306E;&#x69CB;&#x7BC9;</h2>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x9806;&#x5E8F;&#x3067;obj&#x306E;&#x8A73;&#x7D30;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <ul>
-<li><code>obj</code> is a table. </li>
-<li><code>obj</code> contains 4 keys: <code>point</code>,<code>vertex</code>,<code>prim</code>,<code>detail</code>. </li>
-<li>The 4 keys in <code>obj</code> have their value called <code>pointArray</code>, <code>vertexArray</code>, <code>primArray</code>, <code>detailList</code>. </li>
-<li><code>pointArray</code> is required. </li>
-<li><code>vertexArray</code> is optional. </li>
-<li><code>primArray</code> is required. </li>
-<li><code>detailList</code> is optional. </li>
-<li>The above-mentioned value names that are <code>Array</code> suffixed holds N sub-tables, where N can be defined by users. </li>
-<li>The kth sub-table of <code>pointArray</code> is called <code>point[k]</code> or <code>&quot;The kth point&quot;</code>. </li>
-<li>The kth sub-table of <code>vertexArray</code> is called <code>vertex[k]</code> or <code>&quot;The kth child-point&quot;</code>.</li>
-<li>The kth sub-table of <code>primArray</code> is called <code>prim[k]</code> or <code>&quot;The kth primitive&quot;</code>. </li>
-<li>The <code>detailList</code> and <code>Points, child-points, primitives</code>, have some non-subdividable units&#xFF1A;the Key-value pairs. We call these keys <code>K</code>, and values <code>V</code>.</li>
-<li><code>K</code> should only contain alphabets, numbers, and underlines. And <code>K</code> shouldn&apos;t be all numbers. </li>
-<li><code>V</code> has 7 types: <code>1D</code>, <code>2D</code>, <code>3D</code>, <code>4D</code>, string, <code>texture id</code> and <code>index serial</code>. </li>
-<li>For all double floating numbers <code>x,y,z,w</code></li>
-<li><code>x</code> or <code>{x}</code> is <code>1D V</code>.</li>
-<li><code>{x,y}</code> is <code>2D V</code>.</li>
-<li><code>{x,y,z}</code> is <code>3D V</code>.</li>
-<li><code>{x,y,z,w}</code> is <code>4D V</code>.</li>
-<li><code>&quot;Hello! PixelsWorld!&quot;</code> is <code>string V</code>.</li>
-<li>When (<code>K</code> ends up with <code>&quot;_tex&quot;</code>) and (<code>V</code> is an integer and the corresponding texture exists), it is <code>texture id V</code>.</li>
-<li>For integer serial <code>a1,...,an</code>,<code>{a1,a2,a3,...,an}</code> is <code>index serial V</code>.</li>
-<li>For all <code>point[k]</code>, there must be a <code>K</code> named <code>&quot;p&quot;</code> to represents the location, or it is an invalid point.</li>
-<li>For all <code>vertex[k]</code>, there must be a <code>K</code> named <code>&quot;pref&quot;</code> and its <code>V</code> is an integer to represent the reference point id, or it is an invalid child-point.</li>
-<li>For all <code>prim[k]</code>, there must be a <code>K</code> named <code>&quot;type&quot;</code> and its <code>V</code> is <code>string</code> to represents the type of the primitive. And there also must be a <code>K</code> named <code>&quot;vref&quot;</code>or <code>&quot;pref&quot;</code> and its <code>V</code> is <code>index serial</code> to represent the order of points drawing.</li>
+<li><code>obj</code>&#x306F;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3067;&#x3059;&#x3002;</li>
+<li><code>obj</code>&#x306F;4&#x3064;&#x306E;&#x30AD;&#x30FC;&#xFF1A;<code>point</code>&#x3001;<code>vertex</code>&#x3001;<code>prim</code>&#x3001;<code>detail</code>&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+<li><code>obj</code>&#x306E;4&#x3064;&#x306E;&#x30AD;&#x30FC;&#x306B;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x5024;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#xFF14;&#x3064;&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;<code>pointArray</code>&#x3001;<code>vertexArray</code>&#x3001;<code>primArray</code>&#x3001;<code>detailList</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>pointArray</code>&#x306F;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>vertexArray</code>&#x306F;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</li>
+<li><code>primArray</code>&#x306F;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>detailList</code>&#x306F;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3059;&#x3002;</li>
+<li>&#x4E0A;&#x8FF0;&#x3057;&#x305F;<code>Array</code>&#x306E;&#x30B5;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x304C;&#x4ED8;&#x304F;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306F;N&#x500B;&#x306E;&#x30B5;&#x30D6;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3092;&#x542B;&#x3080;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3001;N&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x306F;&#x81EA;&#x7531;&#x306B;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+<li><code>pointArray</code>&#x306E;&#x7B2C;k&#x500B;&#x306E;&#x30B5;&#x30D6;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306F;<code>point[k]</code>&#x3042;&#x308B;&#x3044;&#x306F;&#x201C;&#x7B2C;k&#x306E;&#x70B9;&#x201D;&#x3068;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
+<li><code>vertexArray</code>&#x306E;&#x7B2C;k&#x500B;&#x306E;&#x30B5;&#x30D6;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306F;<code>vertex[k]</code>&#x3042;&#x308B;&#x3044;&#x306F;&#x201C;&#x7B2C;k&#x306E;&#x30B5;&#x30D6;&#x70B9;&#x201D;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>primArray</code>&#x306E;&#x7B2C;k&#x500B;&#x306E;&#x30B5;&#x30D6;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306F;<code>prim[k]</code>&#x3042;&#x308B;&#x3044;&#x306F;&#x201C;&#x7B2C;k&#x306E;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x201D;&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>detailList</code>&#x53CA;&#x3073;&#x3001;&#x4E0A;&#x8FF0;&#x306E;&#x70B9;&#x3001;&#x30B5;&#x30D6;&#x70B9;&#x3001;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306B;&#x306F;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x4E0A;&#x7D30;&#x5206;&#x53EF;&#x80FD;&#x3067;&#x306A;&#x3044;&#x30E6;&#x30CB;&#x30C3;&#x30C8;&#x3001;&#x3059;&#x306A;&#x308F;&#x3061;&#x30AD;&#x30FC;&#x3068;&#x5024;&#x306E;&#x30DA;&#x30A2;&#x304C;&#x542B;&#x307E;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x306E;&#x30AD;&#x30FC;&#x3092;&#x4E00;&#x6642;&#x7684;&#x306B;<code>K</code>&#x3001;&#x5024;&#x3092;<code>V</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>K</code>&#x306F;&#x82F1;&#x6570;&#x5B57;&#x3068;&#x30A2;&#x30F3;&#x30C0;&#x30FC;&#x30B9;&#x30B3;&#x30A2;&#x306E;&#x307F;&#x3092;&#x542B;&#x3080;&#x3053;&#x3068;&#x3092;&#x304A;&#x52E7;&#x3081;&#x3057;&#x3001;&#x7D14;&#x6570;&#x5B57;&#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x304A;&#x52E7;&#x3081;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>V</code>&#x306B;&#x306F;&#x4E00;&#x6B21;&#x5143;&#x3001;&#x4E8C;&#x6B21;&#x5143;&#x3001;&#x4E09;&#x6B21;&#x5143;&#x3001;&#x56DB;&#x6B21;&#x5143;&#x3001;&#x6587;&#x5B57;&#x5217;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;ID&#x3001;&#x53CA;&#x3073;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x96C6;&#x5408;&#x306E;7&#x7A2E;&#x985E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x4EFB;&#x610F;&#x306E;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x6570;<code>x,y,z,w</code>&#x306B;&#x3064;&#x3044;&#x3066;</li>
+<li><code>x</code>&#x307E;&#x305F;&#x306F;<code>{x}</code>&#x306F;&#x4E00;&#x6B21;&#x5143;<code>V</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>{x,y}</code>&#x306F;&#x4E8C;&#x6B21;&#x5143;<code>V</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>{x,y,z}</code>&#x306F;&#x4E09;&#x6B21;&#x5143;<code>V</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>{x,y,z,w}</code>&#x306F;&#x56DB;&#x6B21;&#x5143;<code>V</code>&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li><code>&quot;Hello! PixelsWorld!&quot;</code>&#x306F;&#x6587;&#x5B57;&#x5217;<code>V</code>&#x3068;&#x3057;&#x3066;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li>(<code>K</code>&#x306E;&#x672B;&#x5C3E;4&#x6587;&#x5B57;<code>&quot;_tex&quot;</code>)&#x304B;&#x3064;(<code>V</code>&#x304C;&#x6574;&#x6570;&#x3067;&#x5BFE;&#x5FDC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;)&#x5834;&#x5408;&#x3001;&#x3053;&#x308C;&#x306F;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;ID<code>V</code>&#x3068;&#x3057;&#x3066;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x6574;&#x6570;&#x5217;<code>a1,...,an</code>&#x306E;&#x5834;&#x5408;&#x3001;<code>{a1,a2,a3,...,an}</code>&#x3092;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x96C6;&#x5408;<code>V</code>&#x3068;&#x3057;&#x3066;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x5404;&#x70B9;<code>point[k]</code>&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x70B9;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x8868;&#x3059;<code>K</code>&#x3068;&#x3057;&#x3066;<code>&quot;p&quot;</code>&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3046;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x7121;&#x52B9;&#x306A;&#x70B9;&#x3068;&#x898B;&#x306A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x5404;&#x30B5;&#x30D6;&#x70B9;<code>vertex[k]</code>&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x53C2;&#x7167;&#x70B9;ID&#x3092;&#x8868;&#x3059;<code>K</code>&#x3068;&#x3057;&#x3066;<code>&quot;pref&quot;</code>&#x304C;&#x5B58;&#x5728;&#x3057;&#x3001;&#x4E00;&#x6B21;&#x5143;<code>V</code>&#x3092;&#x6301;&#x3064;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3046;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x7121;&#x52B9;&#x306A;&#x30B5;&#x30D6;&#x70B9;&#x3068;&#x898B;&#x306A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x5404;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;<code>prim[k]</code>&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306E;&#x7A2E;&#x985E;&#x3092;&#x8868;&#x3059;&#x305F;&#x3081;&#x306B;<code>&quot;type&quot;</code>&#x3068;&#x3044;&#x3046;<code>K</code>&#x3068;&#x6587;&#x5B57;&#x5217;<code>V</code>&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x3001;&#x540C;&#x6642;&#x306B;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306E;&#x63CF;&#x753B;&#x70B9;&#x9806;&#x5E8F;&#x3092;&#x8868;&#x3059;&#x305F;&#x3081;&#x306B;<code>&quot;vref&quot;</code>&#x307E;&#x305F;&#x306F;<code>&quot;pref&quot;</code>&#x306E;<code>K</code>&#x3068;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x96C6;&#x5408;<code>V</code>&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</li>
 </ul>
-<h2 id="override-priority">Override priority</h2>
-<p>For same <code>K</code>, the following override priority is defined: </p>
+<h2 id="&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x512A;&#x5148;&#x9806;&#x4F4D;">&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x512A;&#x5148;&#x9806;&#x4F4D;</h2>
+<p>&#x540C;&#x3058;&#x540D;&#x524D;&#x306E;<code>K</code>&#x306B;&#x5BFE;&#x3057;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30E9;&#x30A4;&#x30C9;&#x512A;&#x5148;&#x9806;&#x4F4D;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
 <blockquote>
-<p>Same with <code>Houdini</code>. </p>
+<p><code>Houdini</code>&#x3068;&#x540C;&#x69D8;</p>
 </blockquote>
 <ol>
 <li>vertex</li>
@@ -920,8 +920,8 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <li>prim</li>
 <li>detail</li>
 </ol>
-<p>Example: </p>
-<p>The following <code>obj</code>&apos;s <code>prim</code> contains a color attribute (Red), So we will get a red triangle. </p>
+<p>&#x4F7F;&#x7528;&#x4F8B;&#xFF1A;</p>
+<p>&#x4EE5;&#x4E0B;&#x306E;<code>obj</code>&#x306E;<code>prim</code>&#x306B;&#x306F;&#x8272;&#x60C5;&#x5831;&#xFF08;&#x8D64;&#x8272;&#xFF09;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306B;&#x8D64;&#x8272;&#x306E;&#x307F;&#x306E;&#x4E09;&#x89D2;&#x5F62;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p><img src="polyPrimColor.png" alt="PrimColor"></p>
 <div><p class="code-filename">PrimColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -941,7 +941,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
 <hr>
-<p>This time, both <code>prim</code> and <code>point</code> contain <code>color</code>, and because the priority of <code>point</code> is higher, so the color attribute in <code>point</code> will be used, then we will get a colorful triangle. </p>
+<p>&#x4E00;&#x65B9;&#x3001;&#x3053;&#x3061;&#x3089;&#x306E;<code>obj</code>&#x3067;&#x306F;<code>prim</code>&#x3068;<code>point</code>&#x306E;&#x4E21;&#x65B9;&#x306B;<code>color</code>&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;<code>point</code>&#x304C;&#x3088;&#x308A;&#x9AD8;&#x3044;&#x512A;&#x5148;&#x9806;&#x4F4D;&#x3092;&#x6301;&#x3061;&#x3001;&#x6700;&#x7D42;&#x7684;&#x306B;&#x30AB;&#x30E9;&#x30D5;&#x30EB;&#x306A;&#x4E09;&#x89D2;&#x5F62;&#x304C;&#x63CF;&#x753B;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 <p><img src="polyPointColor.png" alt="PointColor"></p>
 <div><p class="code-filename">PointColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -960,8 +960,8 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="usage-of-vertex">Usage of vertex</h2>
-<p>Vertex (child-point) inherits all attributes from <code>point</code>.</p>
+<h2 id="vertex&#x306E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">Vertex&#x306E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h2>
+<p>Vertex&#xFF08;&#x30B5;&#x30D6;&#x70B9;&#xFF09;&#x306F;Point&#xFF08;&#x70B9;&#xFF09;&#x306E;&#x60C5;&#x5831;&#x3092;&#x7D99;&#x627F;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <p><img src="polyVertexTest.png" alt="Vertex"></p>
 <div><p class="code-filename">VertexColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -991,13 +991,13 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 </code></pre>
 <blockquote>
 <ul>
-<li><code>pref</code> is used to define which point to be referenced, the full name of <code>pref</code> is <code>Point reference</code>.</li>
-<li>So the <code>vref</code> means <code>Vertex reference</code>.</li>
-<li>Note: The index in Lua starts from 1, not 0. </li>
+<li><code>pref</code>&#x306F;&#x73FE;&#x5728;&#x306E;vertex&#x304C;&#x3069;&#x306E;point&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x6307;&#x3057;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;<code>pref</code>&#x306F;<code>Point reference</code>&#x306E;&#x7701;&#x7565;&#x5F62;&#x3067;&#x3059;&#x3002;</li>
+<li><code>prim</code>&#x5185;&#x306E;<code>vref</code>&#x306F;<code>Vertex reference</code>&#x306E;&#x7701;&#x7565;&#x5F62;&#x3067;&#x3059;&#x3002;</li>
+<li>&#x6CE8;&#x610F;&#xFF1A;Lua&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3067;&#x306F;&#x3001;&#x6700;&#x521D;&#x306E;&#x8981;&#x7D20;&#x306E;&#x756A;&#x53F7;&#x306F;0&#x3067;&#x306F;&#x306A;&#x304F;1&#x3067;&#x3059;&#x3002;</li>
 </ul>
 </blockquote>
 <hr>
-<p>Without vertex, the triangle looks like this: </p>
+<p>Vertex&#x3092;&#x4F7F;&#x7528;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF1A;</p>
 <p><img src="polyNoVertexTest.png" alt="NoVertexRes"></p>
 <div><p class="code-filename">NoVertex.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1017,8 +1017,8 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="extra-shader">Extra shader</h2>
-<p>Yes! You can even write a shader to an obj. </p>
+<h2 id="&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x4ED8;&#x5C5E;">&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x4ED8;&#x5C5E;</h2>
+<p>Poly&#x306E;&#x4E2D;&#x3067;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x8A00;&#x8A9E;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
 <p><img src="polyVertexFragTest.png" alt="FragColorRes"></p>
 <div><p class="code-filename">FragColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1048,13 +1048,13 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="use-texture">Use texture</h2>
+<h2 id="&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;&#x4F7F;&#x7528;">&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;&#x4F7F;&#x7528;</h2>
 <blockquote>
 <ul>
-<li>Here is an example of how to use texture. </li>
-<li>The integer that its key name ends up with <code>_tex</code> is treated as a texture id. </li>
-<li>Using an extra shader in a prim can handle more than one texture. </li>
-<li><a href="Texture.html">More information about texture...</a></li>
+<li>&#x4E0B;&#x8A18;&#x306E;obj&#x306F;&#x3001;&#x5165;&#x529B;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x3092;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x7528;&#x3057;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x3042;&#x308B;&#x6574;&#x6570;&#x5C5E;&#x6027;&#x5024;&#x306E;&#x30AD;&#x30FC;&#x540D;&#x306B;<code>_tex</code>&#x304C;&#x4ED8;&#x3044;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x305D;&#x306E;&#x5C5E;&#x6027;&#x306F;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;ID&#x3068;&#x3057;&#x3066;&#x6271;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;1&#x3064;&#x306E;prim&#x3067;&#x8907;&#x6570;&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</li>
+<li><a href="Texture.html">&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306B;&#x95A2;&#x3059;&#x308B;&#x8A73;&#x7D30;&#x60C5;&#x5831;</a></li>
 </ul>
 </blockquote>
 <div><p class="code-filename">UVTex.lua</p></div>
@@ -1113,7 +1113,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Poly関数","level":"4.1.9","depth":2,"next":{"title":"透明オブジェレンダー法","level":"4.1.10","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"物理シミュレーション","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2021-04-05T12:37:27.145Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:41.102Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Poly関数","level":"4.1.9","depth":2,"next":{"title":"透明オブジェレンダー法","level":"4.1.10","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"物理シミュレーション","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2025-01-01T09:12:35.937Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:52.177Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

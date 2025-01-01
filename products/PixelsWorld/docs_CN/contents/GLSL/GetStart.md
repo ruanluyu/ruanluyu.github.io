@@ -78,7 +78,7 @@ void main(){
 
 您已经掌握了像素世界的大体使用流程！
 
-像素世界除了可以自己写入代码外，您还可以去[shadertoy](https://www.shadertoy.com/)网站上找一些好玩的效果放入像素世界。关于如何渲染来自shadertoy的代码，请参阅[这里](contents/GLSL/shadertoy.md)。
+像素世界除了可以自己写入代码外，您还可以去[shadertoy](https://www.shadertoy.com/)网站上找一些好玩的效果放入像素世界。关于如何渲染来自shadertoy的代码，请参阅[这里](shadertoy.md)。
 
 
 

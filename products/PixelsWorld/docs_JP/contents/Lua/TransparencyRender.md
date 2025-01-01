@@ -1,7 +1,6 @@
-# 透明オブジェレンダー法
+# 透明な形状のレンダリング
 ---
-普通、**透明な**キューブ列をレンダーしようとしたら次の結果を得ます。
-
+半透明の立方体を一列にレンダリングすると、次のような結果になります。
 
 ![TenCubes](TenCubes.png)
 
@@ -16,14 +15,14 @@ fill(1,.5)
 move(width/2, height/2)
 
 for i = 1,10 do
-move(20,0,200)
-cube()
+    move(20,0,200)
+    cube()
 end
 ```
 
-実際この結果は正しくありません。なぜなら、透明なオブジェなのに、我々の望むようにスケスケのキューブに見えないからです。
+しかし、この結果は正しくありません。透明な立方体の後ろの部分が見えません。
 
-正しい結果を得るために、透明な物体をカメラから遠い順でレンダーしなければならない。（すべての物体が透明でない場合はこれを拘りません）。よって、レンダーする前に物体の並び替えが必要です。
+カメラから遠い順にこれらの立方体をレンダリングすることで、正しい重ね合わせを行う必要があります：
 
 ![TenCubesSorted](TenCubesSorted.png)
 
@@ -40,21 +39,20 @@ beginGroup()
 move(width/2, height/2)
 for i = 1,10 do
     move(20,0,200)
-    local x,y,z = global2screen(local2global(0,0,0)) -- カメラから見る物体の位置を入手する
-    sortarr[i] = {z,getTransformMatrix()} -- {distance, transform status} pairs
+    local x,y,z = global2screen(local2global(0,0,0)) -- カメラの距離を取得
+    sortarr[i] = {z,getTransformMatrix()} -- {距離, 変換状態} のペア
 end
 endGroup()
 
 table.sort(
     sortarr,
-    function(a,b) return a[1] > b[1] end -- ｚの値を用いて並び替えする
+    function(a,b) return a[1] > b[1] end -- z距離でソート
 )
 
 for i = 1,10 do
-    beginGroup(sortarr[i][2]) -- Apply transform status
+    beginGroup(sortarr[i][2]) -- 変換状態を適用
     cube()
     endGroup()
 end
 
 ```
-

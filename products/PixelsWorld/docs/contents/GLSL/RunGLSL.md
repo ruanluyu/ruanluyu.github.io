@@ -1,24 +1,24 @@
-#Run GLSL Code
+# Running GLSL Code
 ---
-- Make sure you are in **GLSL(GPU)** mode; 
+- GLSL code should be executed in **GLSL(GPU)** mode;
 <br>
 ![GLSL Mode](GLSLMode.png)
-- Then edit the **World rule**; 
-- You will see there is already some code in the showed up panel; 
+- Click "**Edit**" in the "**World rule**" section;
+- At this point, some code will be displayed on the panel.
 ```glsl:default.shader
 void main(){
-    outColor = getColor(uv);
+	outColor = getColor(uv);
 }
 ```
->This code means that send the input pixels to the output. 
+>This code will send the input pixel to the output pixel.
 
-- You can change the ``` getColor(uv) ``` to ```vec4(uv,0.0,1.0)``` for geting a beautiful uv color pattern; 
+- You can change ```getColor(uv)``` to ```vec4(uv,0.0,1.0)``` to create a visually appealing UV color pattern;
 ```glsl:uvcolor.shader
 void main(){
-    outColor = vec4(uv,0.0,1.0);
+	outColor = vec4(uv,0.0,1.0);
 }
 ```
-- Then, press the **"Ok"** button. 
-- If everything is right, you will get something in the scene like this:
+- Then, simply click **"Ok"**.
+- Normally, you should see the following effect:
 <br>
 ![UV color pattern](UVColor.png)

@@ -1,128 +1,112 @@
 # 物理シミュレーション
 ---
 
-> 次の動画は[nimitzさんが作った作品Chimera's Breath](https://www.shadertoy.com/view/4tGfDW)のPixelsWorldにおいて実装した結果です。[フルサイズ動画](https://youtu.be/OvohYJbnOvE)
+> 以下の画像は、[nimitzによって制作されたChimera's Breath](https://www.shadertoy.com/view/4tGfDW)がPixelsWorldで実行された結果です。[完全なビデオを見る](https://www.bilibili.com/video/BV1854y1p7Rv/)
 
 ![fluidSingleFrame](./FluidSimSingleFrame.png)
 
-この章では、PixelsWorldを用いてキャッシュの扱い方を紹介します。
+この章では、PixelsWorldでデータをキャッシュする方法を紹介します。
 
-<span style="color:red">注意：正しいシミュレーション結果を得るために、本マニュアルにきちんと読んだ上でコードを実装してください。</span>
+<span style="color:red">注意：Aeの機能が制限されているため、このマニュアルに定められた規範に厳密に従ってキャッシュを行ってください。</span>
 
-> - `v3.3.3+`以上のPixelsWorldが必要です。
-> - この章は、読者が既にAe及びPixelsWorldを深く理解したと仮定して書いたものです。
-> - 「マルチスレッドレンダリング」をオフにすることを勧めます．
+> - PixelsWorldの`v3.3.3+`バージョンをお持ちであることを確認してください
+> - この文章は、読者がある程度のAe操作とPixelsWorldコードの熟練度を有していることを前提としています。PixelsWorldの使用法に不慣れな場合は、前の章を学習してください。
+> - Aeのマルチコアレンダリング機能をオフにすることをお勧めします。
 
 <!-- no toc --> 
 - [物理シミュレーション](#物理シミュレーション)
-  - [キャッシュデータ](#キャッシュデータ)
-  - [キャッシュテクスチャ](#キャッシュテクスチャ)
-  - [キャッシュデータ使用例：三体問題](#キャッシュデータ使用例三体問題)
-  - [キャッシュテクスチャ使用例：ライフゲーム](#キャッシュテクスチャ使用例ライフゲーム)
-  - [キャッシュテクスチャ使用例：流体シミュレーション](#キャッシュテクスチャ使用例流体シミュレーション)
+  - [データキャッシュ](#データキャッシュ)
+  - [テクスチャキャッシュ](#テクスチャキャッシュ)
+  - [データキャッシュ実践――三体問題シミュレーション](#データキャッシュ実践――三体問題シミュレーション)
+  - [テクスチャキャッシュ実践――コンウェイのライフゲーム](#テクスチャキャッシュ実践――コンウェイのライフゲーム)
+  - [テクスチャキャッシュ実践――流体シミュレーション](#テクスチャキャッシュ実践――流体シミュレーション)
 
+## データキャッシュ
 
-## キャッシュデータ
+PixelsWorldでデータをキャッシュするには、以下のステップに従います：
 
-データをキャッシュするために、次の手順に従ってください。
+コードロジック：
+1. キャッシュ位置とキャッシュファイル名を設定
+2. `frameId=time*fps`を計算
+3. `lastFrameId=frameId-1`を計算
+4. `lastFrameId`が0未満の場合は5へ、そうでない場合は6へ
+5. データを初期化し、7へ
+6. ローカルに保存された前フレームのシミュレーションデータファイルを読み取り、ファイルが存在しない場合はエラーを報告、そうでない場合は7へ
+7. 今回のフレームのシミュレーションデータを計算
+8. 今回のフレームのシミュレーションデータをローカルに保存
 
-コード：
-1. キャッシュの保存する場所とキャッシュファイルの名前を決める
-2. `frameId=time*fps`を計算する
-3. `lastFrameId=frameId-1`を計算する
-4. `lastFrameId` < 0　ならば5へ、そうでなければ、6へ。
-5. データを初期化する。7へ
-6. 前のフレームで保存したデータファイルを読み取る。ファイルがない場合エラーを出力する。他の場合、7へ
-7. 今のフレームのデータを計算する。
-8. データをローカルに保存する。
+操作ロジック：
+1. 上記ロジックに従うコードをPixelsWorldに書き込む
+2. 時間インジケータを現在のレイヤーの最初の位置に移動する
+3. Aeのすべてのキャッシュをクリアする（`Edit->Purge->All Memory & Disk Cache...` 下図）
+4. `Ctrl+Alt`を押し、プラグインパネルのLOGOをクリックする（このステップはオプション）
+5. スペースキーを押してレンダリングを開始する（**飛ばしてレンダリングしないでください**）
 
-操作：
-1. 上の手順に満たすコードを実装する。
-2. Aeの時間カーソルを最初のフレームに移動させる。
-3. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 下の図に示すように)
-4.  `Ctrl+Alt`を押しながら、LOGO画像をクリックする。（このステップはオプショナル）
-5. スペースキーを押してレンダリングする。(**フレームをスキップしないこと**)
-
-> 注意：何か不具合があったら (エラー、画像キャッシュの不具合など)、2～5をやり直してください。
+> 注意：不安を感じる場合（エラー、画面がフラッシュするなど）は、必ず2〜5のステップを再実行してください
 
 ![Purge](purge.png)
 
+## テクスチャキャッシュ
 
+コードロジック：
+1. ダウンサンプリング（1/2、1/4モード）の場合、エラーを報告
+2. キャッシュ位置とキャッシュファイル名を設定
+3. `frameId=time*fps`を計算
+4. `lastFrameId=frameId-1`を計算
+5. `lastFrameId`が0未満の場合は5へ、そうでない場合は6へ
+6. データを初期化し、7へ
+7. ローカルに保存された前フレームのテクスチャファイルを読み取り、ファイルが存在しない場合はエラーを報告、そうでない場合は7へ
+8. 今回のフレームのテクスチャファイルを計算
+9. 今回のフレームのテクスチャファイルをローカルに保存
 
-## キャッシュテクスチャ
+> テクスチャの操作については、[テクスチャ](./Texture.md)の章をご覧ください
 
+操作ロジック：
+1. 上記ロジックに従うコードをPixelsWorldに書き込む
+2. プラグインパネルの設立`Advanced->Internal texture format`を`Floating point 32bit x RGBA (HDR)`に設定する
+3. 時間インジケータを現在のレイヤーの最初の位置に移動する
+4. Aeのすべてのキャッシュをクリアする（`Edit->Purge->All Memory & Disk Cache...`）
+5. `Ctrl+Alt`を押し、プラグインパネルのLOGOをクリックする（このステップはオプション）
+6. スペースキーを押してレンダリングを開始する（**飛ばしてレンダリングしないでください**）
 
-コード：
-1. 画像の質が下がったら(例えば：1/2, 1/4 プレビューモード), エラーを出す。
-2. `frameId=time*fps`を計算する
-3. `lastFrameId=frameId-1`を計算する
-4. `lastFrameId` < 0　ならば5へ、そうでなければ、6へ。
-5. データを初期化する。7へ
-6. 前のフレームで保存したデータファイルを読み取る。ファイルがない場合エラーを出力する。他の場合、7へ
-7. 今のフレームのデータを計算する。
-8. データをローカルに保存する。 
-
-> テクスチャの操作方法に関しては、[こちら](./Texture.md)をご覧ください。
-
-操作：
-1. 上の手順に満たすコードを実装する。
-2. PixelsWorldパネルの設定の`Advanced->Internal texture format`を`Floating point 32bit x RGBA (HDR)`にする。
-3. Aeの時間カーソルを最初のフレームに移動させる。
-4. Aeのキャッシュを削除する(`Edit->Purge->All Memory & Disk Cache...` 上の図に示すように)
-5.  `Ctrl+Alt`を押しながら、LOGO画像をクリックする。（このステップはオプショナル）
-6. スペースキーを押してレンダリングする。(**フレームをスキップしないこと**)
-
-
-## キャッシュデータ使用例：三体問題
-
+## データキャッシュ実践――三体問題シミュレーション
 
 ![TheThreeBodyProblemResult](TheThreeBody.gif)
 
 ```lua:the_three_body_problem.lua
 version3()
 
-
--- Include vector library
+-- ベクトルライブラリをインポート
 require("veclib") 
 
-
--- Set cache file name
+-- キャッシュファイル名を設定
 local cacheFileName = "A" 
 
-
--- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) 
+-- ファイルが存在するか確認する関数を宣言（関数はhttps://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-luaより）
 function file_exists(name)
     local f=io.open(name,"r")
     if f~=nil then io.close(f) return true else return false end
 end
 
-
--- Calculate current frame index then round it to integer. 
+-- 現在のフレーム番号を計算し四捨五入
 local frameId = math.floor(time * fps + .5)
 
-
--- Calculate last frame index 
+-- 前のフレーム番号を計算
 local lastFrameId = frameId -1
 
-
-
--- Frame id should not be negative. 
+-- 現在のフレーム番号が非負であることを確認し、負の場合はエラーを報告
 assert(frameId >= 0, "FrameId not support")
--- Print it out. (This line can be removed)
+-- 現在のフレーム番号を表示（この行は削除可能）
 println("Frame ID: " .. frameId)
 
-
-
--- Set cache folder. (Here I used the aep project folder, don't forget to save your project before use projectFolder)
+-- キャッシュフォルダを設定（ここではaepプロジェクトの隣にあるcacheフォルダをディレクトリとして使用、projectFolderを使用する前にプロジェクトを保存する必要があります）
 local cachePath = projectFolder .. "cache\\"
--- Print it out. (This line can be removed)
+-- 現在の出力フォルダを表示（この行は削除可能）
 println("Cache path: " .. cachePath)
 
-
-
--- If frameId == 0 (Namely lastFrameId < 0)
+-- 本フレーム番号が0の場合（つまり前のフレームが0未満）
 if(lastFrameId < 0) then
-    -- Initialze the position and velocity of 3 planets
+    -- 3つの物体の位置と速度を初期化
     p1 = vec3(100,0,0)
     v1 = vec3(-0.1,-0.1,-0.5)
     p2 = vec3(0,-100,0)
@@ -130,17 +114,17 @@ if(lastFrameId < 0) then
     p3 = vec3(-100,0,-95)
     v3 = vec3(0.1,0,0.5)
 else
-    -- Check if last frame data exists. 
+    -- 前のフレームのキャッシュファイルが存在するか確認
     if(file_exists(cachePath .. cacheFileName .. "_" .. tostring(lastFrameId) .. ".txt")) then
-        -- Read last frame data. 
+        -- ローカルに保存された前フレームのデータを読み取る
         lua(loadString(cachePath .. cacheFileName .. "_" .. tostring(lastFrameId) .. ".txt"))
     else 
-        -- Throw error when not exists
+        -- 存在しない場合はエラーを報告
         error("Please go back to frame 0 to re-cache your comp")
     end
 end
 
--- Start calculation (simulation)
+-- 物理シミュレーションを開始
 center = vec3(width/2,height/2,0)
 
 f1,f2,f3 = vec3(0),vec3(0),vec3(0)
@@ -161,7 +145,6 @@ f3 = f3 + m1*m3/math.max(dot(dp13,dp13),1e-1) * (dp13)
 f2 = f2 + m3*m2/math.max(dot(dp23,dp23),1e-1) * (-dp23)
 f3 = f3 + m3*m2/math.max(dot(dp23,dp23),1e-1) * (dp23)
 
-
 v1 = v1 + f1*(1/m1)
 p1 = p1 + v1
 
@@ -171,10 +154,9 @@ p2 = p2 + v2
 v3 = v3 + f3*(1/m3)
 p3 = p3 + v3
 
--- End simulation
+-- 物理シミュレーション終了
 
-
--- Save position and velocity to local
+-- 3つの物体の位置と速度データをローカルに保存
 saveString(
     cachePath .. cacheFileName .. "_" .. tostring(frameId) .. ".txt",
     string.format([==[
@@ -188,100 +170,86 @@ saveString(
     )
 )
 
-
--- Draw three planets with simulation data. 
+-- 現在のフレームシミュレーションデータを使用して3つの惑星を描画
 dim3()
 
 move(center.x,center.y,center.z)
 
--- Draw coordinate and grid. 
+-- 座標系とグリッドを描画
 coord()
 grid()
 
--- 1st planet
+-- 第一の惑星
 beginGroup()
 move(p1.x,p1.y,p1.z)
 fill(1,0,1)
 ball(r)
 endGroup()
 
--- 2nd planet
+-- 第二の惑星
 beginGroup()
 fill(1,1,0)
 move(p2.x,p2.y,p2.z)
 ball(r)
 endGroup()
 
--- 3rd planet
+-- 第三の惑星
 beginGroup()
 fill(0,1,1)
 move(p3.x,p3.y,p3.z)
 ball(r)
 endGroup()
 ```
-
-
-## キャッシュテクスチャ使用例：ライフゲーム
+## テクスチャキャッシュ実践――コンウェイのライフゲーム
 
 ![GameOfLifeResult](GameOfLife.gif)
 
 ```lua:game_of_life.lua
 version3()
 
--- Check downsample settings. 
+-- ダウンサンプリングをチェック
 assert(width == ds_width and height == ds_height , "Downsample not support" )
 
-
--- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) 
+-- ファイルが存在するか確認する関数を宣言（関数はhttps://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-luaより）
 function file_exists(name)
     local f=io.open(name,"r")
     if f~=nil then io.close(f) return true else return false end
  end
 
-
--- Calculate current frame index then round it to integer. 
+-- 現在のフレーム番号を計算し四捨五入
 local frameId = math.floor(time * fps + .5)
 
-
--- Calculate last frame index 
+-- 前のフレーム番号を計算
 local lastFrameId = frameId -1
 
-
-
--- Frame id should not be negative. 
+-- 現在のフレーム番号が非負であることを確認し、負の場合はエラーを報告
 assert(frameId >= 0, "FrameId not support")
--- Print it out. (This line can be removed)
+-- 現在のフレーム番号を表示（この行は削除可能）
 println("Frame ID: " .. frameId)
 
-
-
--- Set cache folder.
+-- キャッシュパスを設定
 local cachePath = projectFolder .. "cache\\"
--- Print it out. (This line can be removed)
 println("Cache path: " .. cachePath)
 
-
-
--- Check if it is frame 0
+-- 最初のフレームかどうかを確認
 if(lastFrameId < 0) then
-    -- Initialize texture
+    -- テクスチャを初期化
     lastTexA = newTex(width,height)
 else
-    -- Check if last frame texture exists
+    -- 前のフレームが存在するか確認
     if(file_exists(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")) then
-        -- Load last frame texture
+        -- 前のフレームのテクスチャをインポート
         lastTexA = loadRAW(cachePath .. "A_" .. tostring(lastFrameId) .. ".raw")
     else 
         error("Please go back to frame 0 to cache your comp")
     end
 end
 
-
--- Set render code
+-- レンダリングコードを設定
 local fragCode = [==[
-// Definition from: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-// MIT license (Free for study and business purpose)
-// Code by ZzStarSound
+// 定義：https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+// MITライセンス（学習とビジネス目的のために無料）
+// コード: ZzStarSound
 
 const int dx[8] = int[](-1,0,1,1,1,0,-1,-1);
 const int dy[8] = int[](1,1,1,0,-1,-1,-1,0);
@@ -294,7 +262,7 @@ bool fetchStatus(int ox, int oy)
     return texelFetch(layer[0],iuv,0).x>.5;
 }
 
-// From https://thebookofshaders.com/10/
+// 出典 https://thebookofshaders.com/10/
 float random (vec2 st) {
     return fract(sin(dot(st.xy, vec2(12.9898,78.233)))* 43758.5453123);
 }
@@ -323,35 +291,26 @@ void main(){
 }
 ]==]
 
-
--- Put the last frame texture to PARAM0, so that you can read last frame texture via layer[0]
+-- 前のフレーム画像をPARAM0位置に配置し、glslがlayer[0]で前のフレームのテクスチャを読み取れるようにする
 swapTex(PARAM0,lastTexA)
 
-
--- Render texture
+--レンダリングコード
 glsl(fragCode)
 
-
--- Put the last frame texture back to its original position. 
+-- 前のフレーム画像を自分の位置に戻す
 swapTex(PARAM0,lastTexA)
 
-
-
--- Save texture to local
+-- 今回のフレームのテクスチャをローカルに保存
 saveRAW(cachePath .. "A_" .. tostring(frameId) .. ".raw",OUTPUT)
-
-
 ```
-
-
-## キャッシュテクスチャ使用例：流体シミュレーション
+## テクスチャキャッシュ実践――流体シミュレーション
 
 ![fluidDual](fluidDual.gif)
 
-> - 注意：[元作者](https://www.shadertoy.com/view/4tGfDW)のコードライセンスより、次のコードを学習目的のみに使用してください。商業目的はお控えください。
-> - プラグインパネルの設定`Internal texture format`を`Floating point 32 bit x RGBA (HDR)`にするのを忘れないで下さい。
-> - <span style="color:red">シミュレーションの実行に着手する前に、マニュアルを読んだことを確認してください</span> [マニュアル>>>](#キャッシュテクスチャ)
-> - `Mipmap filter`を`NONE`にすることでスピードアップ
+> - 注意：[原作者](https://www.shadertoy.com/view/4tGfDW)のコードライセンスにより、以下のコードは学習交流のみに使用し、商用利用しないでください。
+> - プラグインパネルの`Internal texture format`を`Floating point 32 bit x RGBA (HDR)`に変更することを忘れないでください。
+> - <span style="color:red">シミュレーションを始める前に、必ず前提の操作説明をお読みください！</span> [読みに行く>>>](#データキャッシュ)
+> - `Mipmap filter`を`NONE`に設定すると速度が向上します。
 
 ```lua:fluid_simulation.lua
 version3()
@@ -370,8 +329,6 @@ assert(frameId >= 0, "FrameId not support")
 println("Frame ID: " .. frameId)
 local cachepath = projectFolder .. "cache\\"
 println("Cache path: " .. cachepath)
-
-
 
 if(lastFrameId < 0) then
     lastTexC = newTex(width,height)
@@ -392,34 +349,33 @@ else
     end
 end
 
-
 local commonCode = [==[
 //Chimera's Breath
 //by nimitz 2018 (twitter: @stormoid)
-
 /*
-    The main interest here is the addition of vorticity confinement with the curl stored in
-    the alpha channel of the simulation texture (which was not used in the paper)
-    this in turns allows for believable simulation of much lower viscosity fluids.
-    Without vorticity confinement, the fluids that can be simulated are much more akin to
-    thick oil.
+    ここでの主な関心は、渦度の閉じ込めをシミュレーションテクスチャの
+    アルファチャンネルに保存することで、その結果、信じられるほどの
+    低粘度の流体のシミュレーションが可能になることです。
+    渦度の閉じ込めなしでは、シミュレーション可能な流体は、
+    より厚いオイルに似たものになります。
     
-    Base Simulation based on the 2011 paper: "Simple and fast fluids"
-    (Martin Guay, Fabrice Colin, Richard Egli)
-    (https://hal.inria.fr/inria-00596050/document)
+    基本的なシミュレーションは2011年の論文「Simple and fast fluids」に基づいています。
+    （Martin Guay, Fabrice Colin, Richard Egli）
+    （https://hal.inria.fr/inria-00596050/document）
 
-    The actual simulation only requires one pass, Buffer A, B and C are just copies 
-    of each other to increase the simulation speed (3 simulation passes per frame)
-    and Buffer D is drawing colors on the simulated fluid 
-    (could be using particles instead in a real scenario)
+    実際のシミュレーションには1つのパスしか必要ありません。Buffer A, B, C は
+    互いのコピーで、シミュレーション速度を上げています（1フレームに3つの
+    シミュレーションパス）。
+    Buffer D はシミュレーションされた流体に色を描画しています。
+    （実際のシナリオでは粒子を使うことができます）
 */
 
 #define dt 0.15
 #define USE_VORTICITY_CONFINEMENT
 //#define MOUSE_ONLY
 
-//Recommended values between 0.03 and 0.2
-//higher values simulate lower viscosity fluids (think billowing smoke)
+//お薦め値は0.03～0.2間
+//高い値は低粘度の流体をシミュレートします（煙のような動きを想像してください）
 #define VORTICITY_AMOUNT 0.11
 
 float mag2(vec2 p){return dot(p,p);}
@@ -528,11 +484,11 @@ local bufferDCode = [==[
     //Chimera's Breath
     //by nimitz 2018 (twitter: @stormoid)
     
-    //see "Common" tab for fluid simulation code
+    //液体シミュレーションコードについては「Common」タブを参照
     
     mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
     
-    //shader incoming relating to this palette
+    //このパレットに関連するシェーダーが来る
     vec3 getPalette(float x, vec3 c1, vec3 c2, vec3 p1, vec3 p2)
     {
         float x2 = fract(x/2.0);
@@ -565,10 +521,8 @@ local bufferDCode = [==[
         vec2 velo = textureLod(iChannel0, uv, 0.).xy;
         vec4 col = textureLod(iChannel1, uv - dt*velo*w*3., 0.); //advection
     
-    
         col += .0025/(0.0005+pow(length(uv - point1(iTime)),1.75))*dt*0.12*pal(iTime*0.05 - .0);
         col += .0025/(0.0005+pow(length(uv - point2(iTime)),1.75))*dt*0.12*pal2(iTime*0.05 + 0.675);
-        
         
         if (iFrame < 20)
         {
@@ -577,7 +531,6 @@ local bufferDCode = [==[
         
         col = clamp(col, 0.,5.);
         col = max(col - (0.0001 + col*0.004)*.5, 0.); //decay
-        
     
         fragColor = col;
         
@@ -593,14 +546,12 @@ local mainCode = [==[
     }
 ]==]
 
-
 local texA,texB,texC=newTex(width,height),newTex(width,height),newTex(width,height)
 
 swapTex(PARAM0,lastTexC)
 shadertoy(commonCode .. bufferACode)
 swapTex(PARAM0,lastTexC)
 castTex(texA,OUTPUT)
-
 
 swapTex(PARAM0,texA)
 shadertoy(commonCode .. bufferBCode)
@@ -619,5 +570,4 @@ shadertoy(commonCode .. bufferDCode)
 swapTex(PARAM0,texA)
 swapTex(PARAM1,lastTexD)
 saveRAW(cachepath .. "D_" .. tostring(frameId) ..".raw",OUTPUT)
-
 ```

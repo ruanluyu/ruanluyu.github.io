@@ -1,7 +1,5 @@
-#Debug
+# Debug
 ---
-Check the debug checkbox in the plugin panel. 
+Check the debug checkbox in the plugin panel.
 
-If your program contains errors, it will be printed into the left top corner of your screen when this is checked. 
-
-<br>
+When there are error messages, they will be printed on the screen in red font.

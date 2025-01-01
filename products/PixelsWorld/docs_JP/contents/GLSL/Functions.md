@@ -1,4 +1,3 @@
-#Functions
+# 関数
 ---
-This section will give a brief introduction of the functions created by us. 
-The functions mentioned in this section could be immediately used **without any declaration**. 
+このセクションでは、組み込み関数を簡単に紹介します。これらの関数は**宣言なしで**使用できます。

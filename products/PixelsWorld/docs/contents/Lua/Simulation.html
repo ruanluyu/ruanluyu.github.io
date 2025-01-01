@@ -741,129 +741,118 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="physics-simulation">Physics simulation</h1>
+                                <h1 id="physics-simulation">Physics Simulation</h1>
 <hr>
 <blockquote>
-<p>The following gif is a result of  <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">Chimera&apos;s Breath -by nimitz</a> running in PixelsWorld. <a href="https://youtu.be/OvohYJbnOvE" target="_blank">See full-resolution video</a></p>
+<p>Below is the result of <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">Chimera&apos;s Breath by nimitz</a> running in PixelsWorld. <a href="https://www.bilibili.com/video/BV1854y1p7Rv/" target="_blank">View the full video</a>.</p>
 </blockquote>
 <p><img src="FluidSimSingleFrame.png" alt="fluidSingleFrame"></p>
-<p>You will learn how to cache data to a local disc in this section. </p>
-<p><span style="color:red">Note: This manual should be strictly followed for caching data in a right way</span></p>
+<p>This chapter will introduce how to cache data in PixelsWorld.</p>
+<p><span style="color:red">Note: Due to limited Ae functionality, please strictly follow the cache specifications outlined in this manual.</span></p>
 <blockquote>
 <ul>
-<li>Make sure you have updated PixelsWorld to <code>v3.3.3+</code></li>
-<li>This section is written in a style that assumed the readers are familiar with Ae and PixelsWorld. </li>
-<li>It is highly recommended to turn off the &quot;multi-thread rendering&quot; feature if you are using Ae 2022 or above. </li>
+<li>Please ensure you have <code>v3.3.3+</code> version of PixelsWorld.</li>
+<li>This article assumes the reader has a certain proficiency in Ae operations and PixelsWorld coding. If you are not yet familiar with using PixelsWorld, please refer to previous chapters.</li>
+<li>We recommend turning off Ae&apos;s multi-core rendering functionality.</li>
 </ul>
 </blockquote>
 <!-- no toc --> 
 <ul>
-<li><a href="#physics-simulation">Physics simulation</a><ul>
-<li><a href="#cache-data">Cache data</a></li>
-<li><a href="#cache-textures">Cache textures</a></li>
-<li><a href="#cache-data-example-the-three-body-problem">Cache data example: The three-body problem</a></li>
-<li><a href="#cache-textures-example-conways-game-of-life">Cache textures example: Conway&apos;s Game of Life</a></li>
-<li><a href="#cache-textures-example-fluid-simulation">Cache textures example: Fluid simulation</a></li>
+<li><a href="#physics-simulation">Physics Simulation</a><ul>
+<li><a href="#caching-data">Caching Data</a></li>
+<li><a href="#caching-textures">Caching Textures</a></li>
+<li><a href="#practicing-data-caching---the-three-body-problem-simulation">Practicing Data Caching - The Three-Body Problem Simulation</a></li>
+<li><a href="#practicing-texture-caching---conways-game-of-life">Practicing Texture Caching - Conway&apos;s Game of Life</a></li>
+<li><a href="#practicing-texture-caching---fluid-simulation">Practicing Texture Caching - Fluid Simulation</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="cache-data">Cache data</h2>
-<p>To cache data, the following steps should be followed: </p>
-<p>Code logic: </p>
+<h2 id="caching-data">Caching Data</h2>
+<p>To cache data in PixelsWorld, follow these steps:</p>
+<p>Code logic:</p>
 <ol>
-<li>Set cache path and cache name</li>
-<li>Caculate <code>frameId=time*fps</code></li>
-<li>Caculate <code>lastFrameId=frameId-1</code></li>
-<li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
-<li>Initialize data, go to 7</li>
-<li>Read the data file saved by the last frame, throw an error if the file not exists, go to 7 otherwise. </li>
-<li>Calculate data</li>
-<li>Save current data file to local. </li>
+<li>Set the cache location and cache file name.</li>
+<li>Calculate <code>frameId=time*fps</code>.</li>
+<li>Calculate <code>lastFrameId=frameId-1</code>.</li>
+<li>If <code>lastFrameId</code> is less than 0, go to step 5; otherwise, go to step 6.</li>
+<li>Initialize data, then go to step 7.</li>
+<li>Read the previously stored simulation data file for the previous frame, throw an error if the file does not exist, then go to step 7.</li>
+<li>Compute the simulation data for the current frame.</li>
+<li>Store the current frame&apos;s simulation data locally.</li>
 </ol>
-<p>Operating logic: </p>
+<p>Operational logic:</p>
 <ol>
-<li>Put code that satisfies the above logic to PixelsWorld. </li>
-<li>Put the Time indicator to the first frame of the current layer. </li>
-<li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot below)</li>
-<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in the plugin panel. (This step is optional)</li>
-<li>Press the Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
+<li>Insert code satisfying the above logic into PixelsWorld.</li>
+<li>Move the time indicator to the beginning of the current layer.</li>
+<li>Clear all Ae caches (<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> as shown below).</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO on the plugin panel (optional step).</li>
+<li>Press the spacebar to start rendering (<strong>do not render sporadically</strong>).</li>
 </ol>
 <blockquote>
-<p>Note: If something goes wrong (errors, flickers, etc.), redo steps 2~5. </p>
+<p>Note: If you encounter any undesired situations (errors, flickering images, etc.), repeat steps 2-5.</p>
 </blockquote>
 <p><img src="purge.png" alt="Purge"></p>
-<h2 id="cache-textures">Cache textures</h2>
-<p>Code logic: </p>
+<h2 id="caching-textures">Caching Textures</h2>
+<p>Code logic:</p>
 <ol>
-<li>If downsampled(1/2, 1/4 render mode), throw an error. </li>
-<li>Set cache path and cache name</li>
-<li>Caculate <code>frameId=time*fps</code></li>
-<li>Caculate <code>lastFrameId=frameId-1</code></li>
-<li>If <code>lastFrameId</code> &lt; 0, go to 5, otherwise, go to 6</li>
-<li>Initialize texture, go to 7</li>
-<li>Read texture file saved by the last frame, throw an error if file not exists, go to 7 otherwise. </li>
-<li>Render texture file</li>
-<li>Save the current texture file to local. </li>
+<li>An error occurs if downsampling (half, quarter mode) is active.</li>
+<li>Set the cache location and cache file name.</li>
+<li>Calculate <code>frameId=time*fps</code>.</li>
+<li>Calculate <code>lastFrameId=frameId-1</code>.</li>
+<li>If <code>lastFrameId</code> is less than 0, go to step 5; otherwise, go to step 6.</li>
+<li>Initialize data, then go to step 7.</li>
+<li>Read the previously stored texture file for the previous frame, throw an error if the file does not exist, then go to step 7.</li>
+<li>Compute the texture file for the current frame.</li>
+<li>Store the current frame&apos;s texture file locally.</li>
 </ol>
 <blockquote>
-<p>See <a href="Texture.html">Texture</a> section to learn how to work with texture. </p>
+<p>For texture operations, refer to the <a href="Texture.html">Textures</a> chapter.</p>
 </blockquote>
-<p>Operating logic: </p>
+<p>Operational logic:</p>
 <ol>
-<li>Put code that satisfies the above logic to PixelsWorld. </li>
-<li>Change PixelsWorld settings <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32bit x RGBA (HDR)</code></li>
-<li>Put the Time indicator to the first frame of the current layer. </li>
-<li>Purge Ae cache(<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code> see the screenshot above)</li>
-<li>Hold <code>Ctrl+Alt</code> and click the LOGO image in the plugin panel. (This step is optional)</li>
-<li>Press Space key to render(<strong>DON&apos;T skip frames while rendering</strong>)</li>
+<li>Insert code satisfying the above logic into PixelsWorld.</li>
+<li>Set <code>Advanced-&gt;Internal texture format</code> in the plugin panel to <code>Floating point 32bit x RGBA (HDR)</code>.</li>
+<li>Move the time indicator to the beginning of the current layer.</li>
+<li>Clear all Ae caches (<code>Edit-&gt;Purge-&gt;All Memory &amp; Disk Cache...</code>).</li>
+<li>Hold <code>Ctrl+Alt</code> and click the LOGO on the plugin panel (optional step).</li>
+<li>Press the spacebar to start rendering (<strong>do not render sporadically</strong>).</li>
 </ol>
-<h2 id="cache-data-example-the-three-body-problem">Cache data example: The three-body problem</h2>
+<h2 id="practicing-data-caching---the-three-body-problem-simulation">Practicing Data Caching - The Three-Body Problem Simulation</h2>
 <p><img src="TheThreeBody.gif" alt="TheThreeBodyProblemResult"></p>
 <div><p class="code-filename">the_three_body_problem.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Include vector library</span>
+<span class="token comment">-- Import vector library</span>
 <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;veclib&quot;</span><span class="token punctuation">)</span> 
-
 
 <span class="token comment">-- Set cache file name</span>
 <span class="token keyword">local</span> cacheFileName <span class="token operator">=</span> <span class="token string">&quot;A&quot;</span> 
 
-
-<span class="token comment">-- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) </span>
+<span class="token comment">-- Declare function to check if a file exists (function source: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua)</span>
 <span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
     <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> f<span class="token operator">~=</span><span class="token keyword">nil</span> <span class="token keyword">then</span> io<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">true</span> <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">false</span> <span class="token keyword">end</span>
 <span class="token keyword">end</span>
 
-
-<span class="token comment">-- Calculate current frame index then round it to integer. </span>
+<span class="token comment">-- Calculate the current frame number and round to the nearest integer</span>
 <span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Calculate last frame index </span>
+<span class="token comment">-- Calculate the previous frame number</span>
 <span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
 
-
-
-<span class="token comment">-- Frame id should not be negative. </span>
+<span class="token comment">-- Check if the current frame number is non-negative, throw an error if it&apos;s negative.</span>
 <span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
-<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token comment">-- Print the current frame number (this line can be deleted)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
 
-
-
-<span class="token comment">-- Set cache folder. (Here I used the aep project folder, don&apos;t forget to save your project before use projectFolder)</span>
+<span class="token comment">-- Set cache folder (here I&apos;m using the cache folder next to the aep project folder as the directory, save the project before using projectFolder)</span>
 <span class="token keyword">local</span> cachePath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
-<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token comment">-- Print the current output folder (this line can be deleted)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachePath<span class="token punctuation">)</span>
 
-
-
-<span class="token comment">-- If frameId == 0 (Namely lastFrameId &lt; 0)</span>
+<span class="token comment">-- If the current frame number is 0 (i.e., the previous frame is less than 0)</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
-    <span class="token comment">-- Initialze the position and velocity of 3 planets</span>
+    <span class="token comment">-- Initialize the positions and velocities of the three objects</span>
     p1 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
     v1 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span>
     p2 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
@@ -871,17 +860,17 @@
     p3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">95</span><span class="token punctuation">)</span>
     v3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span>
 <span class="token keyword">else</span>
-    <span class="token comment">-- Check if last frame data exists. </span>
+    <span class="token comment">-- Check if the previous frame&apos;s cache file exists</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
-        <span class="token comment">-- Read last frame data. </span>
+        <span class="token comment">-- Read the locally stored data from the previous frame</span>
         <span class="token function">lua</span><span class="token punctuation">(</span><span class="token function">loadString</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span> 
-        <span class="token comment">-- Throw error when not exists</span>
+        <span class="token comment">-- Throw an error if it doesn&apos;t exist</span>
         <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Please go back to frame 0 to re-cache your comp&quot;</span><span class="token punctuation">)</span>
     <span class="token keyword">end</span>
 <span class="token keyword">end</span>
 
-<span class="token comment">-- Start calculation (simulation)</span>
+<span class="token comment">-- Start physical simulation</span>
 center <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 
 f1<span class="token punctuation">,</span>f2<span class="token punctuation">,</span>f3 <span class="token operator">=</span> <span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">vec3</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
@@ -902,7 +891,6 @@ f3 <span class="token operator">=</span> f3 <span class="token operator">+</span
 f2 <span class="token operator">=</span> f2 <span class="token operator">+</span> m3<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp23<span class="token punctuation">,</span>dp23<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span>dp23<span class="token punctuation">)</span>
 f3 <span class="token operator">=</span> f3 <span class="token operator">+</span> m3<span class="token operator">*</span>m2<span class="token operator">/</span>math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span>dp23<span class="token punctuation">,</span>dp23<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1e-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>dp23<span class="token punctuation">)</span>
 
-
 v1 <span class="token operator">=</span> v1 <span class="token operator">+</span> f1<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>m1<span class="token punctuation">)</span>
 p1 <span class="token operator">=</span> p1 <span class="token operator">+</span> v1
 
@@ -912,10 +900,9 @@ p2 <span class="token operator">=</span> p2 <span class="token operator">+</span
 v3 <span class="token operator">=</span> v3 <span class="token operator">+</span> f3<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">/</span>m3<span class="token punctuation">)</span>
 p3 <span class="token operator">=</span> p3 <span class="token operator">+</span> v3
 
-<span class="token comment">-- End simulation</span>
+<span class="token comment">-- Physical simulation ends</span>
 
-
-<span class="token comment">-- Save position and velocity to local</span>
+<span class="token comment">-- Store the positions and velocities of the three objects locally</span>
 <span class="token function">saveString</span><span class="token punctuation">(</span>
     cachePath <span class="token operator">..</span> cacheFileName <span class="token operator">..</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.txt&quot;</span><span class="token punctuation">,</span>
     string<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">[==[
@@ -929,92 +916,80 @@ p3 <span class="token operator">=</span> p3 <span class="token operator">+</span
     <span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Draw three planets with simulation data. </span>
+<span class="token comment">-- Render the three spheres using the current frame&apos;s simulation data</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token function">move</span><span class="token punctuation">(</span>center<span class="token punctuation">.</span>x<span class="token punctuation">,</span>center<span class="token punctuation">.</span>y<span class="token punctuation">,</span>center<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 
-<span class="token comment">-- Draw coordinate and grid. </span>
+<span class="token comment">-- Draw axes and grid</span>
 <span class="token function">coord</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">grid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 1st planet</span>
+<span class="token comment">-- First sphere</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p1<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 2nd planet</span>
+<span class="token comment">-- Second sphere</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p2<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- 3rd planet</span>
+<span class="token comment">-- Third sphere</span>
 <span class="token function">beginGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>p3<span class="token punctuation">.</span>x<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>y<span class="token punctuation">,</span>p3<span class="token punctuation">.</span>z<span class="token punctuation">)</span>
 <span class="token function">ball</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
 <span class="token function">endGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="cache-textures-example-conways-game-of-life">Cache textures example: Conway&apos;s Game of Life</h2>
+<h2 id="practicing-texture-caching---conways-game-of-life">Practicing Texture Caching - Conway&apos;s Game of Life</h2>
 <p><img src="GameOfLife.gif" alt="GameOfLifeResult"></p>
 <div><p class="code-filename">game_of_life.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- Check downsample settings. </span>
-<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not support&quot;</span> <span class="token punctuation">)</span>
+<span class="token comment">-- Check for downsampling</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not supported&quot;</span> <span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Add checking if file exists function(Refer: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua) </span>
+<span class="token comment">-- Declare function to check if a file exists (function source: https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua)</span>
 <span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
     <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> f<span class="token operator">~=</span><span class="token keyword">nil</span> <span class="token keyword">then</span> io<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">true</span> <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">false</span> <span class="token keyword">end</span>
  <span class="token keyword">end</span>
 
-
-<span class="token comment">-- Calculate current frame index then round it to integer. </span>
+<span class="token comment">-- Calculate the current frame number and round to the nearest integer</span>
 <span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Calculate last frame index </span>
+<span class="token comment">-- Calculate the previous frame number</span>
 <span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
 
-
-
-<span class="token comment">-- Frame id should not be negative. </span>
-<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
-<span class="token comment">-- Print it out. (This line can be removed)</span>
+<span class="token comment">-- Check if the current frame number is non-negative, throw an error if it&apos;s negative.</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not supported&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">-- Print the current frame number (this line can be deleted)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
 
-
-
-<span class="token comment">-- Set cache folder.</span>
+<span class="token comment">-- Set cache path</span>
 <span class="token keyword">local</span> cachePath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
-<span class="token comment">-- Print it out. (This line can be removed)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachePath<span class="token punctuation">)</span>
 
-
-
-<span class="token comment">-- Check if it is frame 0</span>
+<span class="token comment">-- Check if it is the first frame</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
     <span class="token comment">-- Initialize texture</span>
     lastTexA <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
 <span class="token keyword">else</span>
-    <span class="token comment">-- Check if last frame texture exists</span>
+    <span class="token comment">-- Check if the previous frame exists</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.raw&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
-        <span class="token comment">-- Load last frame texture</span>
+        <span class="token comment">-- Import the previous frame&apos;s texture</span>
         lastTexA <span class="token operator">=</span> <span class="token function">loadRAW</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>lastFrameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.raw&quot;</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span> 
         <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Please go back to frame 0 to cache your comp&quot;</span><span class="token punctuation">)</span>
     <span class="token keyword">end</span>
 <span class="token keyword">end</span>
 
-
-<span class="token comment">-- Set render code</span>
+<span class="token comment">-- Set rendering code</span>
 <span class="token keyword">local</span> fragCode <span class="token operator">=</span> <span class="token string">[==[
 // Definition from: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 // MIT license (Free for study and business purpose)
@@ -1060,37 +1035,32 @@ void main(){
 }
 ]==]</span>
 
-
-<span class="token comment">-- Put the last frame texture to PARAM0, so that you can read the last frame texture via layer[0]</span>
+<span class="token comment">-- Place the previous frame image at PARAM0 so that glsl can read the previous frame&apos;s texture from layer[0]</span>
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexA<span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Render texture</span>
+<span class="token comment">-- Render code</span>
 <span class="token function">glsl</span><span class="token punctuation">(</span>fragCode<span class="token punctuation">)</span>
 
-
-<span class="token comment">-- Put the last frame texture back to its original position. </span>
+<span class="token comment">-- Place the previous frame image back to its original position</span>
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexA<span class="token punctuation">)</span>
 
-
-
-<span class="token comment">-- Save texture to local</span>
+<span class="token comment">-- Save the current frame&apos;s texture locally</span>
 <span class="token function">saveRAW</span><span class="token punctuation">(</span>cachePath <span class="token operator">..</span> <span class="token string">&quot;A_&quot;</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>frameId<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">&quot;.raw&quot;</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="cache-textures-example-fluid-simulation">Cache textures example: Fluid simulation</h2>
+<h2 id="practicing-texture-caching---fluid-simulation">Practicing Texture Caching - Fluid Simulation</h2>
 <p><img src="fluidDual.gif" alt="fluidDual"></p>
 <blockquote>
 <ul>
-<li>Note: According to the code license declared by <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">original author</a>, the following code should only be used for study purpose. </li>
-<li>Don&apos;t forget to set the <code>Internal texture format</code> to <code>Floating point 32 bit x RGBA (HDR)</code> in plugin panel. </li>
-<li><span style="color:red">Please make sure you have read the simulation manual before doing it. </span> <a href="#cache-textures">Go to manual&gt;&gt;&gt;</a></li>
-<li>Setting <code>Mipmap filter</code> to <code>NONE</code> could speed up render. </li>
+<li>Note: According to the code license requirements of the <a href="https://www.shadertoy.com/view/4tGfDW" target="_blank">original author</a>, the following code is for educational and non-commercial use only.</li>
+<li>Don&apos;t forget to change the <code>Internal texture format</code> setting on the plugin panel to <code>Floating point 32 bit x RGBA (HDR)</code>.</li>
+<li><span style="color:red">Please ensure you have read the previous operational instructions before starting the simulation!</span> <a href="#Caching-Texture">Read More&gt;&gt;&gt;</a></li>
+<li>Setting <code>Mipmap filter</code> to <code>NONE</code> can speed up the process.</li>
 </ul>
 </blockquote>
 <div><p class="code-filename">fluid_simulation.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not support&quot;</span> <span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>width <span class="token operator">==</span> ds_width <span class="token keyword">and</span> height <span class="token operator">==</span> ds_height <span class="token punctuation">,</span> <span class="token string">&quot;Downsample not supported&quot;</span> <span class="token punctuation">)</span>
 
 <span class="token keyword">function</span> <span class="token function">file_exists</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
     <span class="token keyword">local</span> f<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">)</span>
@@ -1100,12 +1070,10 @@ void main(){
 <span class="token keyword">local</span> frameId <span class="token operator">=</span> math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>time <span class="token operator">*</span> fps <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">)</span>
 <span class="token keyword">local</span> lastFrameId <span class="token operator">=</span> frameId <span class="token operator">-</span><span class="token number">1</span>
 
-<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not support&quot;</span><span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>frameId <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;FrameId not supported&quot;</span><span class="token punctuation">)</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Frame ID: &quot;</span> <span class="token operator">..</span> frameId<span class="token punctuation">)</span>
 <span class="token keyword">local</span> cachepath <span class="token operator">=</span> projectFolder <span class="token operator">..</span> <span class="token string">&quot;cache\\&quot;</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Cache path: &quot;</span> <span class="token operator">..</span> cachepath<span class="token punctuation">)</span>
-
-
 
 <span class="token keyword">if</span><span class="token punctuation">(</span>lastFrameId <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">then</span>
     lastTexC <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
@@ -1126,26 +1094,25 @@ void main(){
     <span class="token keyword">end</span>
 <span class="token keyword">end</span>
 
-
 <span class="token keyword">local</span> commonCode <span class="token operator">=</span> <span class="token string">[==[
 //Chimera&apos;s Breath
 //by nimitz 2018 (twitter: @stormoid)
 
 /*
     The main interest here is the addition of vorticity confinement with the curl stored in
-    the alpha channel of the simulation texture (which was not used in the paper)
-    this in turns allows for believable simulation of much lower viscosity fluids.
-    Without vorticity confinement, the fluids that can be simulated are much more akin to
+    the alpha channel of the simulation texture (which was not used in the paper).
+    This in turn allows for believable simulation of much lower viscosity fluids.
+    Without vorticity confinement, the fluids that can be simulated are more akin to
     thick oil.
 
     Base Simulation based on the 2011 paper: &quot;Simple and fast fluids&quot;
     (Martin Guay, Fabrice Colin, Richard Egli)
     (https://hal.inria.fr/inria-00596050/document)
 
-    The actual simulation only requires one pass, Buffer A, B and C are just copies 
-    of each other to increase the simulation speed (3 simulation passes per frame)
+    The actual simulation only requires one pass, Buffer A, B, and C are just copies 
+    of each other to increase the simulation speed (3 simulation passes per frame),
     and Buffer D is drawing colors on the simulated fluid 
-    (could be using particles instead in a real scenario)
+    (could be using particles instead in a real scenario).
 */
 
 #define dt 0.15
@@ -1153,7 +1120,7 @@ void main(){
 //#define MOUSE_ONLY
 
 //Recommended values between 0.03 and 0.2
-//higher values simulate lower viscosity fluids (think billowing smoke)
+//Higher values simulate lower viscosity fluids (think billowing smoke)
 #define VORTICITY_AMOUNT 0.11
 
 float mag2(vec2 p){return dot(p,p);}
@@ -1262,11 +1229,11 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     //Chimera&apos;s Breath
     //by nimitz 2018 (twitter: @stormoid)
 
-    //see &quot;Common&quot; tab for fluid simulation code
+    //See &quot;Common&quot; tab for fluid simulation code
 
     mat2 mm2(in float a){float c = cos(a), s = sin(a);return mat2(c,s,-s,c);}
 
-    //shader incoming relating to this palette
+    //Shader incoming relating to this palette
     vec3 getPalette(float x, vec3 c1, vec3 c2, vec3 p1, vec3 p2)
     {
         float x2 = fract(x/2.0);
@@ -1297,12 +1264,10 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
         vec2 w = 1.0/iResolution.xy;
 
         vec2 velo = textureLod(iChannel0, uv, 0.).xy;
-        vec4 col = textureLod(iChannel1, uv - dt*velo*w*3., 0.); //advection
-
+        vec4 col = textureLod(iChannel1, uv - dt*velo*w*3., 0.); //Advection
 
         col += .0025/(0.0005+pow(length(uv - point1(iTime)),1.75))*dt*0.12*pal(iTime*0.05 - .0);
         col += .0025/(0.0005+pow(length(uv - point2(iTime)),1.75))*dt*0.12*pal2(iTime*0.05 + 0.675);
-
 
         if (iFrame &lt; 20)
         {
@@ -1310,8 +1275,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
         }
 
         col = clamp(col, 0.,5.);
-        col = max(col - (0.0001 + col*0.004)*.5, 0.); //decay
-
+        col = max(col - (0.0001 + col*0.004)*.5, 0.); //Decay
 
         fragColor = col;
 
@@ -1327,14 +1291,12 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     }
 ]==]</span>
 
-
 <span class="token keyword">local</span> texA<span class="token punctuation">,</span>texB<span class="token punctuation">,</span>texC<span class="token operator">=</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
 
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexC<span class="token punctuation">)</span>
 <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferACode<span class="token punctuation">)</span>
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>lastTexC<span class="token punctuation">)</span>
 <span class="token function">castTex</span><span class="token punctuation">(</span>texA<span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span>
-
 
 <span class="token function">swapTex</span><span class="token punctuation">(</span>PARAM0<span class="token punctuation">,</span>texA<span class="token punctuation">)</span>
 <span class="token function">shadertoy</span><span class="token punctuation">(</span>commonCode <span class="token operator">..</span> bufferBCode<span class="token punctuation">)</span>
@@ -1388,7 +1350,7 @@ vec4 solveFluid(sampler2D smp, vec2 uv, vec2 w, float time)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.8","depth":2,"next":{"title":"Poly function","level":"4.1.9","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Filter system","level":"4.1.7","depth":2,"path":"contents/Lua/Filter.md","ref":"contents/Lua/Filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2023-01-27T12:26:43.228Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Physics simulation","level":"4.1.8","depth":2,"next":{"title":"Poly function","level":"4.1.9","depth":2,"path":"contents/Lua/Poly.md","ref":"contents/Lua/Poly.md","articles":[]},"previous":{"title":"Filter system","level":"4.1.7","depth":2,"path":"contents/Lua/Filter.md","ref":"contents/Lua/Filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Simulation.md","mtime":"2025-01-01T08:35:48.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

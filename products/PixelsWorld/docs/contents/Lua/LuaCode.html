@@ -741,17 +741,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="lua-code">Lua Code</h1>
+                                <h1 id="the-center-of-the-world-lua">The Center of the World: Lua</h1>
 <hr>
-<p>The instructions that we wrote in chapter 1 is called <strong>Lua</strong></p>
+<p>In Chapter 1, we introduced a language called <strong>Lua</strong></p>
 <blockquote>
-<p><em>Lua is a lightweight, high-level, multi-paradigm programming language designed primarily for embedded use in applications.</em> <a href="https://en.wikipedia.org/wiki/Lua_(programming_language" target="_blank">&#x2014;&#x2014;Wiki</a>)</p>
+<p><em>* Lua is a lightweight, high-level, multi-paradigm programming language, mainly used for embedded applications.</em> <a href="https://en.wikipedia.org/wiki/Lua_(programming_language" target="_blank">&#x2014;&#x2014;Wiki</a>)</p>
 </blockquote>
-<p><strong>Version : <a href="https://www.lua.org/manual/5.3/" target="_blank">Lua5.3</a></strong></p>
+<p><strong>Version: <a href="https://cloudwu.github.io/lua53doc/contents.html" target="_blank">Lua5.3 (Click to view the complete technical documentation in Chinese)</a></strong></p>
 <blockquote>
-<p>Note: Beginning <code>PixelsWorld v3.2.0</code>, using <a href="https://www.lua.org/manual/5.4/manual.html" target="_blank"><code>Lua5.4</code></a></p>
+<p>Note: From <code>PixelsWorld v3.2.0</code>, <a href="https://www.lua.org/manual/5.4/manual.html" target="_blank"><code>Lua5.4</code></a> is used.</p>
 </blockquote>
-<p>So Lua plays the role that manages the communication between Ae and Users. It is quite similar to Ae script and expression language. Basically, you can draw highly variant scenes by remembering just a few words. For instance, if you want to draw a cube that can interact with Ae camera, just type: </p>
+<p>Lua is a language very similar to expressions and Ae scripts, and it is the center of PixelsWorld, connecting all modules. Basically, you just have to remember a few English words for operations, and PixelsWorld will systematically render graphics for you.</p>
+<p>All rendering commands in PixelsWorld can be issued through this central hub, Lua. For example, if you want to draw a cube that can interact with Ae&apos;s camera, you just need to input:</p>
 <div><p class="code-filename">DrawCube.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
@@ -759,9 +760,9 @@
 <span class="token function">cube</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span>
 </code></pre>
 <blockquote>
-<p><code>dim3()</code> means draw shapes in 3 <strong>dim</strong>ension. </p>
+<p><code>dim3()</code> is a function used for drawing in 3D mode.</p>
 </blockquote>
-<p>If you want to run GLSL code, just type: </p>
+<p>If you want to render GLSL code, you only need to input:</p>
 <div><p class="code-filename">RunGlsl.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">glsl</span><span class="token punctuation">(</span><span class="token string">[==[
@@ -771,7 +772,8 @@ void main(){
 }
     ]==]</span><span class="token punctuation">)</span>
 </code></pre>
-<p>If you want to run code from <a href="shadertoy.md">shadertoy</a>, just type: </p>
+<p>And input the GLSL code in between;</p>
+<p>If you want to execute <a href="shadertoy.md">shadertoy</a> code, you just need to input:</p>
 <div><p class="code-filename">RunShadertoy.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">shadertoy</span><span class="token punctuation">(</span><span class="token string">[==[
@@ -783,19 +785,29 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 }
     ]==]</span><span class="token punctuation">)</span>
 </code></pre>
-<p>In Lua, you can : </p>
+<p>And input the code from shadertoy in between.</p>
+<p>Here we list the capabilities of Lua:</p>
 <ul>
-<li>Get pixels data</li>
-<li>Write pixels data</li>
-<li>Run JavaScript</li>
-<li>Run GLSL</li>
-<li>Get parameters data</li>
-<li>Run outer C library <strong>(COOL!)</strong></li>
-<li>Load outer lua module</li>
+<li>Access pixel data</li>
+<li>Write pixel data</li>
+<li>Execute JavaScript</li>
+<li>Execute GLSL</li>
+<li>Access parameter data</li>
+<li>Execute external C language libraries</li>
+<li>Load Lua modules</li>
 </ul>
-<p>Because of the advanced features, the users who using Lua render mode should have basic programming abilities and have a primary understanding of the Lua language. If you have no idea about Lua, don&apos;t worry about it, it is pretty easy to learn. </p>
-<h2 id="pixelsworld-structure">PixelsWorld structure</h2>
+<p>Additionally, Lua is very similar to JavaScript. Since JavaScript is an easy-to-learn language, you will be able to master it quickly even if you have no programming background.</p>
+<h2 id="pixelsworld-structure">PixelsWorld Structure</h2>
 <p><img src="../PW_Structure.png" alt="PW_Structure"></p>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -830,7 +842,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"World Center Lua","level":"4.1","depth":1,"next":{"title":"Run Lua","level":"4.1.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},"previous":{"title":"Preset management","level":"3.3","depth":1,"path":"contents/Editor/SavePresets.md","ref":"contents/Editor/SavePresets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/LuaCode.md","mtime":"2024-06-29T07:05:52.364Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"World Center Lua","level":"4.1","depth":1,"next":{"title":"Run Lua","level":"4.1.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},"previous":{"title":"Preset management","level":"3.3","depth":1,"path":"contents/Editor/SavePresets.md","ref":"contents/Editor/SavePresets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/LuaCode.md","mtime":"2025-01-01T07:46:29.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

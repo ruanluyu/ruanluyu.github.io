@@ -741,28 +741,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="filter-system">Filter system</h1>
+                                <h1 id="filter-system">Filter System</h1>
 <hr>
 <blockquote>
-<p>Before reading, please make sure you update PixelsWorld to <code>v3.6.0+</code></p>
+<p>Please ensure you have PixelsWorld <code>v3.6.0+</code></p>
 </blockquote>
-<p>Filter system is a kind of encapsulation of quad shader, it allows you to build post-processing shader fast. </p>
-<p>By reading this section, you will learn how to use Filter system in PixelsWorld. </p>
+<p>The filter system is an encapsulation of rectangle shaders, allowing you to quickly develop post-processing shaders for overall image effects.</p>
+<p>Through this chapter, you can quickly understand and learn how to use the filter system of <code>PixelsWorld</code>.</p>
 <ul>
-<li><a href="#create-a-filter">newFilter</a></li>
-<li><a href="#run-a-filter">runFilter</a></li>
-<li><a href="#delete-a-filter">delFilter</a></li>
-<li><a href="#set-uniforms-of-filter">setFilterUniform</a></li>
-<li><a href="#set-output-texture">setFilterDrawto</a></li>
-<li><a href="#create-a-filter-module">newFilterModule</a></li>
-<li><a href="#advanced-application">Advanced application</a></li>
+<li><a href="#create-filter">newFilter Create Filter</a></li>
+<li><a href="#run-filter">runFilter Run Filter</a></li>
+<li><a href="#delete-filter">delFilter Delete Filter</a></li>
+<li><a href="#set-filter-uniforms">setFilterUniform Set Filter Uniforms</a></li>
+<li><a href="#set-output-image">setFilterDrawto Set Output Image</a></li>
+<li><a href="#create-filter-module">newFilterModule Create Filter Module</a></li>
+<li><a href="#advanced-application">Advanced Application</a></li>
 </ul>
-<h2 id="create-a-filter">Create a filter</h2>
-<p>Call <code>newFilter(glslCode)</code> to create a filter program. </p>
+<h2 id="create-filter">Create Filter</h2>
+<p>Use <code>newFilter(glslCode)</code> to create a filter program.</p>
 <ul>
-<li>Return: a random integer that represents the filter. (filterID)</li>
+<li>Return: A random integer representing the filter program (Filter ID)</li>
 </ul>
-<p><code>glslCode</code> will be inserted into the following context: </p>
+<p><code>glslCode</code> will be inserted into the following context:</p>
 <div><p class="code-filename">glslcode_context.glsl</p></div>
 <pre class="language-"><code class="lang-c">
 <span class="token macro property">#version 330 core</span>
@@ -773,7 +773,7 @@ out vec4 outColor<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="example">Example</h3>
 <blockquote>
-<p>Note: In lua, we use <code>[[...]]</code> to quote a multiple-line-string. </p>
+<p>Note: In Lua, we use double square brackets <code>[[...]]</code> to denote multiline strings</p>
 </blockquote>
 <div><p class="code-filename">newFilter.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -783,8 +783,8 @@ filterID <span class="token operator">=</span> <span class="token function">newF
     }
 ]]</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="run-a-filter">Run a filter</h2>
-<p>Call <code>runFilter(filterID)</code> to run a filter program. </p>
+<h2 id="run-filter">Run Filter</h2>
+<p>Use <code>runFilter(filterID)</code> to run a filter program.</p>
 <h3 id="example">Example</h3>
 <div><p class="code-filename">runFilter.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -797,10 +797,10 @@ filterID <span class="token operator">=</span> <span class="token function">newF
 
 <span class="token function">runFilter</span><span class="token punctuation">(</span>filterID<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="delete-a-filter">Delete a filter</h2>
-<p>Call <code>delFilter(filterID)</code> to delete a filter. </p>
+<h2 id="delete-filter">Delete Filter</h2>
+<p>Use <code>delFilter(filterID)</code> to delete a filter.</p>
 <blockquote>
-<p>Normally, you don&apos;t have to delete filters. PixelsWorld deletes all filters at the end of every frame automatically. However, it&apos;s still a nice habit to delete filters by hand when it&apos;s not in used. </p>
+<p>Usually, you don&apos;t need to delete filters, as PixelsWorld automatically deletes all filters at the end of each frame. However, it&apos;s still a good practice to delete a filter when it&apos;s no longer needed.</p>
 </blockquote>
 <h3 id="example">Example</h3>
 <div><p class="code-filename">delFilter.lua</p></div>
@@ -812,13 +812,13 @@ filterID <span class="token operator">=</span> <span class="token function">newF
 ]]</span><span class="token punctuation">)</span>
 <span class="token function">delFilter</span><span class="token punctuation">(</span>filterID<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="set-uniforms-of-filter">Set uniforms of filter</h2>
-<p>Call <code>setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)</code> to set the value of <code>uniform</code> data. </p>
+<h2 id="set-filter-uniforms">Set Filter Uniforms</h2>
+<p>Use <code>setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)</code> to set the <code>uniform</code> properties you defined in a filter.</p>
 <ul>
-<li><code>filterID</code>: Id of the filter. </li>
-<li><code>uniformType</code>: A string that represents the data type. It can be 1d-data (<code>&quot;int&quot;,&quot;float&quot;,&quot;bool&quot;</code>), vectors (<code>&quot;vec2&quot;,&quot;vec3&quot;,&quot;vec4&quot;,&quot;ivec2&quot;...</code>), matrices (<code>&quot;mat2, mat4x3, ...&quot;</code>), or texture (<code>&quot;sampler2D&quot;</code>)</li>
-<li><code>uniformName</code>: Name of the data you want to set. </li>
-<li><code>data0,data1,...</code>: Float data. (See example)</li>
+<li><code>filterID</code>: Filter ID, integer.</li>
+<li><code>uniformType</code>: String representing the variable type. Supports one-dimensional data (<code>&quot;int&quot;,&quot;float&quot;,&quot;bool&quot;</code>), vectors (<code>&quot;vec2&quot;,&quot;vec3&quot;,&quot;vec4&quot;,&quot;ivec2&quot;...</code>), matrices (<code>&quot;mat2, mat4x3, ...&quot;</code>), textures (<code>&quot;sampler2D&quot;</code>)</li>
+<li><code>uniformName</code>: Variable name string.</li>
+<li><code>data0,data1,...</code>: Floating point data. (See example for details)</li>
 </ul>
 <h3 id="example">Example</h3>
 <div><p class="code-filename">setFilterUniform.lua</p></div>
@@ -855,20 +855,20 @@ filterID <span class="token operator">=</span> <span class="token function">newF
 
 <span class="token function">runFilter</span><span class="token punctuation">(</span>filterID<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="set-output-texture">Set output texture</h2>
-<p>Call <code>setFilterDrawto(filterID, texID)</code> to specify the output texture the result will be written. About <code>texID</code>, see also: <a href="Texture.html">Texture system</a></p>
+<h2 id="set-output-image">Set Output Image</h2>
+<p>Use <code>setFilterDrawto(filterID, texID)</code> to specify which texture the result of the filter should be placed on. For <code>texID</code>, refer to the <a href="Texture.html">Texture System</a>.</p>
 <blockquote>
-<p>The default Drawto is <code>OUTPUT</code></p>
+<p>The default output texture is <code>OUTPUT</code>.</p>
 </blockquote>
-<p>You can even apply a filter iteratively to a texture. </p>
-<p>See also: <a href="#advanced-application">Advanced application</a></p>
-<h2 id="create-a-filter-module">Create a filter module</h2>
-<p>Call <code>newFilterModule(glslCode)</code> to create a filter module. </p>
+<p>You can even perform iterative shading on an image.</p>
+<p>See <a href="#advanced-application">Advanced Application</a> for details.</p>
+<h2 id="create-filter-module">Create Filter Module</h2>
+<p>Use <code>newFilterModule(glslCode)</code> to create a filter module.</p>
 <ul>
-<li>Return: A table contains filterID and some utility functions. </li>
+<li>Return: A table containing the filter ID and some utility functions.</li>
 </ul>
-<p>The main usage of the filter module is to simplify your code. </p>
-<p>Normally, if you don&apos;t use the filter module, you should create and apply a filter in this way: </p>
+<p>The purpose of a filter module is to simplify your code.</p>
+<p>If you do not use a filter module, normally you need to write a filter like this:</p>
 <div><p class="code-filename">no_module.lua</p></div>
 <pre class="language-"><code class="lang-lua">
 <span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -891,7 +891,7 @@ filterID <span class="token operator">=</span> <span class="token function">newF
 
 <span class="token function">delFilter</span><span class="token punctuation">(</span>filterID<span class="token punctuation">)</span>
 </code></pre>
-<p>Things will be easier if you use the filter module. </p>
+<p>With a filter module, you can write it like this:</p>
 <div><p class="code-filename">no_module.lua</p></div>
 <pre class="language-"><code class="lang-lua">
 <span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -914,23 +914,22 @@ filter<span class="token punctuation">.</span><span class="token function">run</
 
 filter<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="advanced-application">Advanced application</h2>
-<p>Here is a example of the famous channel blur effect. </p>
+<h2 id="advanced-application">Advanced Application</h2>
+<p>Below is a code example for channel blur:</p>
 <ul>
-<li><code>slider 0</code>: Blur intensity. </li>
-<li><code>layer 0</code>: Blur mask layer. </li>
+<li><code>slider 0</code>: Blur intensity</li>
+<li><code>layer 0</code>: Blur mask</li>
 </ul>
 <p><img src="channel-blur-preview.png" alt="channel blur preview"></p>
 <div><p class="code-filename">iterateFilter.lua</p></div>
 <pre class="language-"><code class="lang-lua">
 <span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">-- Create a temp texture</span>
-tempTexID <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+<span class="token comment">-- Create a temporary texture</span>
+tempTexID <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
 
 <span class="token comment">-- Copy input to temp texture</span>
 <span class="token function">castTex</span><span class="token punctuation">(</span>tempTexID<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span>
-
 
 <span class="token comment">-- Blur code</span>
 blurGLSLCode <span class="token operator">=</span> <span class="token string">[[
@@ -952,7 +951,6 @@ blurGLSLCode <span class="token operator">=</span> <span class="token string">[[
         outColor = res;
     }
 ]]</span>
-
 
 <span class="token comment">-- Combine code</span>
 combineGLSLCode <span class="token operator">=</span> <span class="token string">[[
@@ -977,7 +975,7 @@ combineGLSLCode <span class="token operator">=</span> <span class="token string"
 
 blurFilter <span class="token operator">=</span> <span class="token function">newFilterModule</span><span class="token punctuation">(</span>blurGLSLCode<span class="token punctuation">)</span>
 
-<span class="token comment">-- Set the kernel data of 3x3 gaussian blur </span>
+<span class="token comment">-- Set the kernel data of 3x3 Gaussian blur </span>
 <span class="token comment">-- The data can be found at https://en.wikipedia.org/wiki/Kernel_(image_processing)</span>
 blurFilter<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&quot;mat3&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;kernel&quot;</span><span class="token punctuation">,</span> 
     <span class="token number">1.0</span><span class="token operator">/</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token operator">/</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token operator">/</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token comment">-- kernel[0][0], kernel[0][1], kernel[0][2]</span>
@@ -992,24 +990,21 @@ blurFilter<span class="token punctuation">.</span><span class="token function">s
 <span class="token comment">-- Set the temp texture as the Drawto</span>
 blurFilter<span class="token punctuation">.</span><span class="token function">drawto</span><span class="token punctuation">(</span>tempTexID<span class="token punctuation">)</span>
 
-
 middleResultTex <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span> <span class="token keyword">do</span>
-    middleResultTex<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span>
+    middleResultTex<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
 <span class="token keyword">end</span>
 
-
-<span class="token comment">-- blur power</span>
+<span class="token comment">-- Blur power</span>
 substep <span class="token operator">=</span> <span class="token function">slider</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 
 <span class="token comment">-- Iterate filter 3*substep times</span>
-<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token operator">*</span>substep <span class="token keyword">do</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">*</span>substep <span class="token keyword">do</span>
     blurFilter<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> i <span class="token operator">%</span> substep <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">then</span>
         <span class="token function">castTex</span><span class="token punctuation">(</span>middleResultTex<span class="token punctuation">[</span>i<span class="token operator">//</span>substep<span class="token punctuation">]</span><span class="token punctuation">,</span> tempTexID<span class="token punctuation">)</span>
     <span class="token keyword">end</span>
 <span class="token keyword">end</span>
-
 
 combineFilter <span class="token operator">=</span> <span class="token function">newFilterModule</span><span class="token punctuation">(</span>combineGLSLCode<span class="token punctuation">)</span>
 
@@ -1020,7 +1015,7 @@ combineFilter<span class="token punctuation">.</span><span class="token function
     middleResultTex<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
     <span class="token punctuation">)</span>
 
-combineFilter<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&quot;sampler2D&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;masktex&quot;</span><span class="token punctuation">,</span>  PARAM0<span class="token punctuation">)</span>
+combineFilter<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&quot;sampler2D&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;masktex&quot;</span><span class="token punctuation">,</span> PARAM0<span class="token punctuation">)</span>
 
 combineFilter<span class="token punctuation">.</span><span class="token function">drawto</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">)</span>
 
@@ -1060,7 +1055,7 @@ combineFilter<span class="token punctuation">.</span><span class="token function
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Filter system","level":"4.1.7","depth":2,"next":{"title":"Physics simulation","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Filter.md","mtime":"2022-07-18T14:31:11.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Filter system","level":"4.1.7","depth":2,"next":{"title":"Physics simulation","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"previous":{"title":"Texture system","level":"4.1.6","depth":2,"path":"contents/Lua/Texture.md","ref":"contents/Lua/Texture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Filter.md","mtime":"2025-01-01T07:46:13.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

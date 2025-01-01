@@ -1,15 +1,11 @@
-#JavaScript Code
+# JavaScript Code
 ---
-Javascript can be executed by function ```js("Your code")``` on **Lua (CPU & GPU)** language mode. 
-
-
+In **Lua (CPU & GPU)** mode, the pixel world can execute JavaScript code using ```js```.
 
 ![LuaMode](LuaMode.png)
-
 
 ```lua:executeJS.lua
 version3()
 js("alert('Hello PixelsWorld!')");
 ```
-
-> Note: Due to the structure of Ae, running js code inside PixelsWorld is not recommended. You are supposed to use js to do some simple calculations based on local variables. 
+> Note: Due to the structure of the Ae program, we do not recommend using js code in the pixel world (especially for retrieving UI control parameter information). You can use js code for simple computations between local variables.

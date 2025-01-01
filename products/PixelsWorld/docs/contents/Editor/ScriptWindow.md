@@ -1,61 +1,53 @@
-# World formula editor
+# World Formula Editor
 -------
 
-## Open the formula editor
-Click the "Edit" button in the plugin panel. 
+## How to Open
+Click the "Edit" button next to "World formula" to open the World Formula Editor. Below is how it looks when opened.
 
-![World formula editor](formulaEditor.png)
+> Note: The actual appearance may slightly differ with version updates.
 
-For demonstrating purpose, we highlight different areas with colored rectangles. 
+![World Formula Editor](formulaEditor.png)
 
-![World formula editor(colored)](FE_AreaInfo.png)
+For clarification, we have outlined different functional areas in different colors, as shown below:
 
-## <span style="color:rgb(255,0,0)">◆</span>Code area
+![World Formula Editor (with labeled boxes)](FE_AreaInfo.png)
 
-Input your creative code here. 
+## <span style="color:rgb(255,0,0)">◆</span> Code Area
 
-> `Language` in this panel overrides the Language setting in your plugin panel. `(default)` selection means current language. 
+You can write your creative rendering code in this area.
 
+> The option at `Language` will automatically change the language type on the plugin panel after you finish editing. This setting will be recorded in the preset file when saving a preset. The `(default)` option will not modify your language.
 
-## <span style="color:rgb(56,148,228)">◆</span>Reference list
+## <span style="color:rgb(56,148,228)">◆</span> Reference Table
 
-Reference code that would help you to remind some frequently-used functions are listed here, this list is read-only currently.
+This section provides some convenient code for you to copy and use. This document is currently in read-only mode and cannot be modified.
 
+## <span style="color:rgb(243,27,243)">◆</span> Parameter Settings
 
-## <span style="color:rgb(243,27,243)">◆</span>Parameter settings
+This area will display the parameter panel's name and default value, as well as language settings. If you want to modify the parameter name or default value, you can click `Parameter manager` below to enter the [Parameter Manager](ParameterWindow.md).
 
-Here you can see the labels, the default value of parameters, and the language settings. Click the `Parameter manager` button to manage them. See also [Parameter manager](ParameterWindow.md)
+> Parameter settings will be recorded in the preset file when saving a preset.
 
+## <span style="color:rgb(153,204,0)">◆</span> Preset List
 
-> Parameter settings are saved with code into preset. 
+The dropdown list above will show all preset categories. We define presets as follows:
 
-## <span style="color:rgb(153,204,0)">◆</span>Preset list
+- A **JSON** format file with the `.pwp` suffix, placed next to the plugin, will be regarded as a **preset category**. The category name is the file name.
+- A **preset category** contains several **preset data**.
+- All **preset data** within a category will be listed below the dropdown menu.
 
-The pop-up menu contains all preset files in your local disc. 
+## <span style="color:rgb(128,0,0)">◆</span> Preset Formula Preview
 
-Some definitions about presets:
+The code data of the **preset data** selected by the user in the list will be displayed here. If you are sure this preset is what you want, click the `Replace` button to replace the code in the Code Area.
 
-- A preset is a file with `.pwp` postfix, **JSON** format and located beside plugin. It is represented as a **Preset column** in PixelsWorld. Preset's file name is equal to the column name. 
-- One **Preset column** contains several **Presets**
-- **Presets** contained in a **Preset column** are listed below the pop-up menu. 
+> If you only want to replace the text part, you can deselect `Apply when replace` in the <span style="color:rgb(247,136,58)">Preset Parameter Setting Preview</span> area.
 
-## <span style="color:rgb(128,0,0)">◆</span>Formula preview
+If you want to add the preset code before the currently edited code, you can click the `<<Top` button; to add it after, click the `Bottom>>` button.
 
-Formula preview is where you can preview the code in the preset you selected. 
+## <span style="color:rgb(247,136,58)">◆</span> Preset Parameter Setting Preview
 
-Click `Replace` button to apply preset code. 
-> NOTE: Code in Code area will be overwritten. 
-> By default, click `Replace` button will also apply parameter settings. If this is not expected, uncheck `Apply when replace` in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. 
-
-If you want to joint the preset code in front of your current code, click `<<Top` button. 
-
-If you want to joint the preset code behind your current code, click `Bottom>>` button.  
-
-## <span style="color:rgb(247,136,58)">◆</span>Parameter settings preview
-
-Parameter settings preview is where you can preview the parameter settings of the selected **Preset**. Click `Apply` button to override the current parameter settings. 
-> `Apply when replace` means weather or not applies parameter settings when you click the `Replace` button in the Formula preview area. 
-
+The parameter setting data of the **preset data** selected by the user in the list will be displayed here. If you are sure to use the current parameters, click the `Apply` button.
+> The `Apply when replace` option box will determine whether to automatically apply the parameter settings on the current preset when you click the `Replace` button above.
 
 <br>
 <br>

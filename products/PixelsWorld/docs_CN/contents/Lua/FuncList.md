@@ -121,12 +121,23 @@
 
 > 灯光
 
-[ambientLight](#ambientlight),
-[pointLight](#pointlight),
-[parallelLight](#parallellight)
+[newLight](#newlight),
+[delLight](#dellight),
+[getLightInfo](#getlightinfo)
 
-[clearLight](#clearlight),
-[getLight](#getlight)  
+[activateLight](#activatelight),
+[deactivateLight](#deactivatelight),
+[getActivatedLight](#getactivatedlight),
+[setActivatedLight](#setactivatedlight)
+
+[fetchLight](#fetchlight)
+
+[ambientLight (legacy)](#ambientlight),
+[pointLight (legacy)](#pointlight),
+[parallelLight (legacy)](#parallellight)
+
+[clearLight (legacy)](#clearlight),
+[getLight (legacy)](#getlight)
 
 > 摄像机
 
@@ -1596,8 +1607,159 @@ end
 > - 请在使用前执行[dim3()](#dim3)
 > - 有效的id: `INPUT`,`PARAM0`~`PARAM9`
 
+## newLight
+
+> `3.7.0`新加入的函数。
+
+`newLight`负责创建一个灯光实例。目前有3种内置的灯光实例：`全局光`、`点光源`和`平行光`。
+
+1. 创建一个全局光：`newLight(AMBIENT_LIGHT, r, g, b, intensity)`
+1. 创建一个点光源：`newLight(POINT_LIGHT, r, g, b, intensity, x, y, z, radius, smoothWidth)`
+1. 创建一个平行光：`newLight(PARALLEL_LIGHT, r, g, b, intensity, tx, ty, tz)`
+
+> - `AMBIENT_LIGHT`, `POINT_LIGHT`和`PARALLEL_LIGHT`是常量。
+> - `r,g,b`是灯光颜色，范围为`0~1`
+> - `intensity`是灯光强度，范围为`>=0`
+> - `x,y,z`是点光源的坐标
+> - `tx,ty,tz`是平行光源的朝向向量
+> - `radius`是点光源的半径(见下图)
+> - `smoothWidth`是点光源的衰减距离(见下图)
+
+> - 返回值：代表灯光数据的一个正整数id
+
+> - 注意：这个函数仅创建灯光。你还需要调用[activateLight](#activatelight)来把灯光应用到场景里。
+
+![result_of_below](funcex/output_00055.png)
+
+
+## delLight
+
+> `3.7.0`新加入的函数。
+
+`delLight`被用来删除灯光实例。
+
+1. `delLight(id1)`
+1. `delLight(id1, id2)`
+1. `delLight(id1, id2, id3)`
+1. `...`(可以输入任意多id)
+
+> - `id`是代表灯光数据的正整数，通过[newLight](#newlight)函数的返回值得到。
+> - 通常你不需要手动删除灯光，PixelsWorld会在一帧结束时自动清理所有灯光。
+
+## getLightInfo
+
+> `3.7.0`新加入的函数。
+
+使用`getLightInfo(id)`来获取指定灯光的信息。
+
+> - 如果灯光为全局光时，使用`type,r,g,b,intensity=getLightInfo(id)`来承接灯光数据。
+> - 如果灯光为点光源时，使用`type,r,g,b,intensity,x,y,z,radius,smoothWidth=getLightInfo(id)`来承接灯光数据。
+> - 如果灯光为平行光时，使用`type,r,g,b,intensity,tx,ty,tz=getLightInfo(id)`来承接灯光数据。
+
+如果你不知道某个id是什么类型的光源时，可以通过下面的手法处理灯光信息。
+
+```lua:getLightInfo.lua
+version3()
+
+-- 新建三个测试用灯光
+local lightList = {
+    newLight(AMBIENT_LIGHT, 1,0,0,1),
+    newLight(POINT_LIGHT, 1,0,0,1,100,200,300,20,30),
+    newLight(PARALLEL_LIGHT, 1,0,0,1,100,200,300),
+}
+
+for i,v in ipairs(lightList) do
+
+    -- 将所有返回值先放到一个数组里
+    local returnList = {getLightInfo(v)}
+
+    -- 根据第一个返回值来判断灯光类型。（注意: Lua中数组下标从1开始，不是0）
+    if(returnList[1] == AMBIENT_LIGHT) then
+        println("Ambient light! Its intensity is: ".. returnList[5])
+    elseif(returnList[1] == POINT_LIGHT) then
+        println("Point light! Its radius is: " .. returnList[9])
+    elseif(returnList[1] == PARALLEL_LIGHT) then
+        println("Parallel light! Its x component of direction is: " .. returnList[6])
+    end
+end
+
+-- 删除光源是非必要的
+delLight(table.unpack(lightList))
+
+```
+
+
+## activateLight
+
+> `3.7.0`新加入的函数。
+
+激活光源。并使其影响此后绘制的所有三维物体的输出颜色。
+
+1. `activateLight(id1)`
+1. `activateLight(id1, id2)`
+1. `activateLight(id1, id2, id3)`
+1. `...`(可以输入任意多id)
+
+> - `id`是代表灯光数据的正整数，通过[newLight](#newlight)函数的返回值得到。
+
+
+## deactivateLight
+
+> `3.7.0`新加入的函数。
+
+
+反激活光源。使其不再影响此后绘制的所有三维物体的输出颜色。
+
+1. `deactivateLight(id1)`
+1. `deactivateLight(id1, id2)`
+1. `deactivateLight(id1, id2, id3)`
+1. `...`(可以输入任意多id)
+
+> - `id`是代表灯光数据的正整数，通过[newLight](#newlight)函数的返回值得到。
+
+
+## getActivatedLight
+
+> `3.7.0`新加入的函数。
+
+获取当前环境中所有激活的光源的id
+
+1. `getActivatedLight()`
+
+> - 返回：所有被[activateLight](#activatelight)激活的灯光id（返回值的数量大于等于0）
+> - 如果您希望所有返回值被打包到一个列表内返回，请使用`idList = {getActivatedLight()}`
+
+## setActivatedLight
+
+> `3.7.0`新加入的函数。
+
+清空环境中激活的灯光，并重新设置激活的灯光。
+1. `setActivatedLight()`仅清空环境中的所有灯光
+1. `setActivatedLight(id1)`清空环境中的所有灯光，并激活id1指示的灯光
+1. `setActivatedLight(id1, id2)`清空环境中的所有灯光，并激活id1和id2指示的灯光
+1. `...`(可以输入任意多id)
+
+> - 如果您仅希望追加灯光，不想在追加前清空已有灯光，请使用[activateLight](#activatelight)
+
+## fetchLight
+
+> `3.7.0`新加入的函数。
+
+从Ae场景中获取指定名称的灯光信息、根据获取的参数创建PixelsWorld内部的光源实例、并返回这些灯光实例的id。
+
+1. `fetchLight(matchName)`
+1. `fetchLight()`等价于`fetchLight("*")`
+
+> - matchName规则：当字符串末尾不含`"*"`时，会在Ae当前合成的图层中搜寻名字为matchName的灯光并加入场景中；当末尾含有`"*"`时，则会把所有开头为matchName的灯光全部加入场景中。
+> - 目前支持的Ae灯光类型：ambient,point,parallel
+
+> - 返回：一个或多个符合`matchName`的灯光数据的id（返回值的数量大于等于0）
+
+> - 注意：这个函数仅创建灯光实例，如果想让灯光实例作用到场景里，需要组合调用[activateLight](#activatelight)
 
 ## ambientLight
+
+> `v3.7.0`版本起，该函数不被推荐使用。请使用[newLight](#newlight)取而代之。
 
 1. `ambientLight(r,b,g,intensity)`
 1. `ambientLight()`等价于`ambientLight(1,1,1,1)`
@@ -1638,6 +1800,8 @@ end
 ```
 
 ## pointLight
+
+> `v3.7.0`版本起，该函数不被推荐使用。请使用[newLight](#newlight)取而代之。
 
 ![result_of_below](funcex/output_00055.png)
 
@@ -1687,6 +1851,8 @@ end
 ```
 
 ## parallelLight
+
+> `v3.7.0`版本起，该函数不被推荐使用。请使用[newLight](#newlight)取而代之。
 
 1. `parallelLight(r,g,b,intensity,tx,ty,tz)`
 
@@ -1786,9 +1952,13 @@ end
 
 ## clearLight
 
+> `v3.7.0`版本起，该函数不被推荐使用。请考虑使用[deactivateLight](#deactivateLight)、[delLight](#dellight)或者[setActivatedLight](#setactivatedlight)取而代之。
+
 `clearLight()`清除场景中的所有灯光。
 
 ## getLight
+
+> `v3.7.0`版本起，该函数不被推荐使用。请组合使用[fetchLight](#fetchlight)和[activateLight](#activatelight)取而代之。
 
 1. `getLight(matchName)`
 1. `getLight()`等价于`getLight("*")`

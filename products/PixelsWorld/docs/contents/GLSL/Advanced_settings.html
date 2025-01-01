@@ -741,36 +741,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="advanced-settings">Advanced settings</h1>
-<hr>
-<p>There are several advanced settings in the effect panel.</p>
-<h2 id="language">Language</h2>
-<p>It controls which compiler to be used. </p>
-<hr>
-<h2 id="wrap-uv-sampler">Wrap U/V sampler</h2>
-<p>This will affect the result of <code>getColor()</code> when sampler the pixels which are outside the boundary of the image.</p>
-<p><strong>Test code (Apply PixelsWorld to a footage.): </strong></p>
+                                <h1 id="advanced-settings">Advanced Settings</h1>
+<p>This section introduces the advanced options settings available in the effects panel.</p>
+<h2 id="wrap-uv-sampler">Wrap U/V Sampler</h2>
+<p>This parameter affects the result of <code>getColor()</code> when the sampled pixels exceed the image boundaries.</p>
+<p><strong>Test Code (Apply on material using PixelsWorld):</strong></p>
 <div><p class="code-filename">wrap_uv_sampler.shader</p></div>
-<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     outColor <span class="token operator">=</span> <span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <hr>
-<h2 id="magnifyminify-sampler">Magnify/Minify sampler</h2>
-<p>This will affect the behavior of <code>getColor()</code> when the sampler wants to do the interpolation of surrounding pixels.</p>
-<p><strong>Test code (Apply PixelsWorld to footage.): </strong></p>
+<h2 id="magnifyminify-sampler">Magnify/Minify Sampler</h2>
+<p>This parameter affects the behavior of <code>getColor()</code> when the sampler performs interpolated sampling around neighboring pixels.</p>
+<p><strong>Test Code (Apply on material using PixelsWorld):</strong></p>
 <div><p class="code-filename">wrap_uv_sampler.shader</p></div>
-<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     outColor <span class="token operator">=</span> <span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token operator">*</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <blockquote>
-<p>If you want to build the same pixel style effect. Switch this option to <strong>Nearest pixel</strong></p>
+<p>If you want to achieve a similar pixel style effect, set this option to <strong>Nearest pixel</strong>.</p>
 </blockquote>
 <h2 id="mipmap">Mipmap</h2>
-<p>Specify how the sampler sample color while the texture is scaled down. </p>
+<p>Allows you to specify the color-picking method when the texture is minimized.</p>
 <div><p class="code-filename">wrap_uv_sampler.shader</p></div>
-<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-glsl"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     outColor <span class="token operator">=</span> <span class="token function">getColor</span><span class="token punctuation">(</span>uv<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -808,7 +804,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Advanced settings","level":"4.2.6","depth":2,"next":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"previous":{"title":"Debug","level":"4.2.5","depth":2,"path":"contents/GLSL/debug.md","ref":"contents/GLSL/debug.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/Advanced_settings.md","mtime":"2021-03-05T14:38:17.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Advanced settings","level":"4.2.6","depth":2,"next":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"previous":{"title":"Debug","level":"4.2.5","depth":2,"path":"contents/GLSL/debug.md","ref":"contents/GLSL/debug.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/Advanced_settings.md","mtime":"2025-01-01T07:44:50.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -741,34 +741,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="load-local-lua-code">Load local Lua code</h1>
-<p>If you don&apos;t prefer to use PixelsWorld&apos;s editor, PixelsWorld can read <code>txt</code> file from the local disc. So you can write the file with the IDE you like. </p>
+                                <h1 id="writing-code-locally">Writing Code Locally</h1>
+<p>If you prefer not to use the built-in editor of Pixel World, you can create a <code>txt</code> document locally and import it into Pixel World using the following code.</p>
 <blockquote>
-<p>Don&apos;t put the file to system disc(<code>C:\</code> disc). </p>
+<p>Do not place the code file on the system drive (C:\ drive).</p>
 </blockquote>
 <div><p class="code-filename">loadTxt.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">runFile</span><span class="token punctuation">(</span><span class="token string">[[d:\mycode.txt]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace to your path</span>
+<span class="token function">runFile</span><span class="token punctuation">(</span><span class="token string">[[d:\mycode.txt]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace with your path</span>
 </code></pre>
 <blockquote>
 <ul>
-<li>The reason we use <code>[[d:\mycode.txt]]</code> but not <code>&quot;d:\mycode.txt&quot;</code> is that the latter&apos;s <code>\</code> will cause escape problem. </li>
-<li>You can use any postfix you want(<code>*.lua, *.code, *.magic</code>) as long as its contents are texts. </li>
+<li>The reason for using <code>[[d:\mycode.txt]]</code> instead of <code>&quot;d:\mycode.txt&quot;</code> is that the latter will cause the <code>\</code> to be escaped.</li>
+<li>You can use any file extension (<code>*.lua, *.code, *.magic</code>) as long as the file content is text.</li>
 </ul>
 </blockquote>
-<p>Use the following code to read the code file beside your Ae project file. </p>
+<p>If you want to place the code next to the project files, you can use the following code.</p>
 <div><p class="code-filename">loadTxt.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">runFile</span><span class="token punctuation">(</span> projectFolder <span class="token operator">..</span> <span class="token string">[[mycode.txt]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace to your file name</span>
+<span class="token function">runFile</span><span class="token punctuation">(</span>projectFolder <span class="token operator">..</span> <span class="token string">[[mycode.txt]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace with your file name</span>
 </code></pre>
 <blockquote>
-<p>Note: You should save your Ae project to a local disc or the <code>projectFolder</code> is just an empty string. </p>
+<p>Note that using <code>projectFolder</code> requires your project to be saved locally.</p>
 </blockquote>
-<h2 id="it-is-not-over-dont-forget-to-refresh-pixelsworld">It is not over! Don&apos;t forget to refresh PixelsWorld</h2>
+<h2 id="its-not-over-dont-forget-to-refresh-the-code">It&apos;s Not Over! Don&apos;t Forget to Refresh the Code</h2>
 <p><img src="RerenderLOGO.png" alt="RerenderClick"></p>
-<p>If you saved your code file, PixelsWorld cannot read it immediately. You should then hold <strong>Ctrl + Alt</strong>, click the logo image, this will trigger the rerender of PixelsWorld, then your new code will be read by PixelsWorld. </p>
+<p>After typing and saving your code locally, Pixel World will not immediately respond in the scene. You need to press <strong>Ctrl + Alt</strong> and click on the LOGO image on the plugin panel with your mouse. Pixel World will then read the new code you&apos;ve written.</p>
 <blockquote>
-<p>The logo images here appear with a constant probability distribution. We have designed lots of beautiful logo images putting here for those who like collecting them. </p>
+<p>The LOGO image here rotates randomly according to a certain probability distribution. To cater to artists who enjoy collecting, we have designed many exquisite LOGOs to display here.</p>
 </blockquote>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
@@ -804,7 +804,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Load local code","level":"4.1.2","depth":2,"next":{"title":"Link parameters","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"previous":{"title":"Run Lua","level":"4.1.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/WriteLocalCode.md","mtime":"2021-03-05T14:35:35.046Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Load local code","level":"4.1.2","depth":2,"next":{"title":"Link parameters","level":"4.1.3","depth":2,"path":"contents/Lua/LinkParameters.md","ref":"contents/Lua/LinkParameters.md","articles":[]},"previous":{"title":"Run Lua","level":"4.1.1","depth":2,"path":"contents/Lua/RunLua.md","ref":"contents/Lua/RunLua.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/WriteLocalCode.md","mtime":"2025-01-01T07:48:29.222Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

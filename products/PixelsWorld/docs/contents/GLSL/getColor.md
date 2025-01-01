@@ -1,28 +1,34 @@
 # getColor
 ---
-This function has two versions: **getColor(vec2)** and **getColor(int ,vec2)**.
+This function has two versions: **getColor(vec2)** and **getColor(int, vec2)**.
+
 ## getColor(vec2)
-**Description : **
- - Get the color of **inLayer** in specified position. 
+**Description:**
 
-**Parameters : **
-- vec2 : uv position.
+- Retrieves the color of the **input layer** at a specified position.
 
-**Return : **
-- vec4 : a RGBA color.
+**Parameters:**
+- vec2: UV position (range 0 to 1 in each dimension)
 
+**Returns:**
 
-##getColor(int,vec2)
-**Description : **
- - Get the color of **specified layer** in specified position. 
+- vec4: RGBA color (range 0 to 1 in each dimension)
 
-**Parameters : **
-- int: layer id, -1 (or AE_INPUT_LAYER) means inLayer, a number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (PW_TEMP_LAYER (which is -2) is provided in Lua render mode)
-- vec2 : uv coordinates.
+## getColor(int, vec2)
+**Description:**
 
-**Return : **
-- vec4 : a RGBA color. 
+- Retrieves the pixel of a **specific input layer** at a specified position.
 
->**NOTE : **
-> - So in other words, ```getColor(AE_INPUT_LAYER,uv);``` totally equals to ```getColor(uv);```
-> - ```getColor(n,uv);``` can return the pixels of layer[n]. 
+**Parameters:**
+
+- int: Layer index, -1 (or AE_INPUT_LAYER) refers to the input layer, numbers 0-9 refer to the corresponding layer parameters on the plugin panel (PW_TEMP_LAYER (Layer index-2) used in Lua rendering mode).
+- vec2: UV coordinates
+
+**Returns:**
+
+- vec4: RGBA color
+
+>**Note:**
+>
+>- In summary, ```getColor(AE_INPUT_LAYER, uv);``` and ```getColor(uv)``` are equivalent;
+>- ```getColor(n, uv);``` can return pixel information of `layer[n]`.

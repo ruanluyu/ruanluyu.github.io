@@ -1,11 +1,8 @@
-# 世界の基盤CMD
+# CMDコード
 ---
-
-**Lua (CPU & GPU)**モードで```cmd("Your code")```関数を用いて、cmdコマンドを実行します。
-
+**Lua (CPU & GPU)** モードで、ピクセルワールドは```cmd("Your cmd commands")```を使用してCMDコマンドを実行できます。
 
 ![LuaMode](LuaMode.png)
-
 
 ```lua:executeCMD.lua
 version3()

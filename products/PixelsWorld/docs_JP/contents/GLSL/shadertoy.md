@@ -1,43 +1,39 @@
 # テンプレート聖域shadertoy
 ---
-## 使い方
-
-shadertoyモードでは、[shadertoy.com](https://shadertoy.com)でのコードを直接PixelsWorldに実装することができます。
+## 使用方法
+このモードでは、[shadertoy.com](https://shadertoy.com) のコードを直接使用することができます。
 
 ![shadertoyMode](shadertoyMode.png)
 
-> **注意：** すべてのshadertoyのコードがサポートされているというわけではないです。VRの使ったコードやループの入ったBufferを使ったコードはサポートされていません。
+> **注意** <br/>shadertoy.comからのすべてのコードがPixelsWorldで完全に動作するわけではありません (例: オーディオ入力が必要なもの、VRサポートが必要なもの、ループバッファ参照を含むコードなど)
 
 ![loopRef](loopbuffer.png)
 
 ## 詳細
+shadertoyモードで独自にパラメータパネルを呼び出したい場合は、GLSLモード下のすべての変数に**`_PixelsWorld_`**プレフィックスを付けることで利用可能です。
 
-PixelsWorldの変数をこのモードで使いたいならば、**`_PixelsWorld_`**を変数名の前につけてください。
+> 例えば、GLSLモード下の`slider[0]`は`_PixelsWorld_slider[0]`になります。
 
+すべてのグローバル変数の定義については、[こちら](./predefined.md#shadertoy-mode)を参照してください。
 
-> 例えば、GLSLモードの`slider[0]`　は　`_PixelsWorld_slider[0]`　になります。
+もちろん、shadertoyモードで**`_PixelsWorld_`**プレフィックスを持つ変数を独自に定義することはお勧めしません。
 
-すべてのグローバル変数の定義は[このページ](./predefined.md#shadertoy-mode)に書かれているので、参考にしてください。
+## バッファーの使用
 
-**`_PixelsWorld_`**の付いた変数名の宣言はお勧めしません。
+Shadertoyには4つのバッファーがあり、PixelsWorldでもバッファーを実装することができます。
+### ループしないバッファー
 
+![luaMode](../Lua/LuaMode.png)
 
-## Buffersの使い方
+使用しているエフェクトに、バッファー間のループ呼び出しがない場合（上図の下半分のようなもの）は、エフェクト内のバッファーはループしないバッファーに属します。それらを呼び出すには、以下のコードテンプレートを使用します（注意：Luaモードに切り替える必要があります）。
 
-Shadertoyには四つのBuffersを生かして複雑なエフェクトを生成する機能が実装されています。BuffersはPixelsWorldにおいても実装可能です。
+例：https://www.shadertoy.com/view/4dVGRW からのコード
 
-### ループ参照なしBuffers
-
-実装するエフェクトにはBuffers同士の間ループ参照がなければ、ループ参照なしエフェクトと我々は呼びます。次のコードテンプレートを用いてループ参照なしエフェクトを実装することが可能です。
-
-
-例：エフェクト元： https://www.shadertoy.com/view/4dVGRW 
-
-1. このエフェクトは`BufferA`を使ったので、四行目の`A`を`true`にセットします。
-2. `BufferA`は`Main`の`iChannel0`にバインドされているので、`AtoMain`を`0`にセットします。
-3. 次に、`BufferA`・`Main`のコードを丸ごとコピペします。 
-4. 最後に`Advanced->Internal texture format`を`Floating point 32 bit x RGBA (HDR)`にセットします。
-5. PixelsWorldがLuaレンダリングモードにあるかどうかも忘れずにチェックすること。
+1. このエフェクトは`BufferA`を使用しているので、以下のコードの4行目で`A`を`true`に設定します。
+2. `BufferA`は最終的に`Main`画像の`iChannel0`にバインドされるので、以下のコードの15行目で`AtoMain`を`0`に設定します。
+3. その後、`BufferA`と`Main`のコードをそれぞれ対応する変数にコピーするだけです。
+4. 最後に、計算結果が正確になるように、プラグインパネルの`Advanced->Internal texture format`を`Floating point 32 bit x RGBA (HDR)`に設定して、PixelsWorldが内部でアルファチャンネルの値を削らないようにします。
+5. Luaレンダーモードであることを確認してください。
 
 ```lua:rotatingCubes.lua
 version3()
@@ -48,8 +44,8 @@ enable = {
     C=false,
     D=false,
 
-    -- '-1': disable
-    -- '0~3': which iChannel to set
+    -- '-1': 無効化
+    -- '0~3': どのiChannelに設定するか
     
     AtoB = -1,
     AtoC = -1,
@@ -67,7 +63,7 @@ enable = {
 }
 
 mainCode = [==[
-// Paste the main code here. 
+// ここにメインコードを貼り付けます。
 mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
     vec3 rr = vec3(sin(roll), cos(roll), 0.0);
     vec3 ww = normalize(target - origin);
@@ -152,12 +148,12 @@ mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
 ]==];
 
 commonCode = [==[
-// Paste the common code here. 
+// ここに共通コードを貼り付けます。
 
 ]==]
 
 bufferACode = [==[
-// Paste the Buffer A code here. 
+// ここにBuffer Aのコードを貼り付けます。
 float sdBox( vec3 p, vec3 b ) {
     vec3 d = abs(p) - b;
     return min(max(d.x,max(d.y,d.z)),0.0) +
@@ -259,27 +255,27 @@ float sdBox( vec3 p, vec3 b ) {
 ]==];
 
 bufferBCode = [==[
-// Paste the Buffer B code here. 
+// ここにBuffer Bのコードを貼り付けます。
 
 ]==];
 
 bufferCCode = [==[
-// Paste the Buffer C code here. 
+// ここにBuffer Cのコードを貼り付けます。
 
 ]==];
 
 bufferDCode = [==[
-// Paste the Buffer D code here. 
+// ここにBuffer Dのコードを貼り付けます。
 
 ]==];
 
 
--- == WARNING WARNING WARNING WARNING WARNING == --
--- == Code below this line should not be modified. == --
+-- == 警告 警告 警告 警告 警告 == --
+-- == この行より下のコードは修正しないでください。 == --
 
--- Code By ZzStarSound 
--- This preset code should only be used inside PixelsWorld. 
--- Any abusing of the code is not permitted. 
+-- コード By ZzStarSound 
+-- このプリセットコードはPixelsWorld内でのみ使用してください。 
+-- コードの乱用は禁止されています。 
 
 
 swapTexDet = function(sch,tch)
@@ -336,9 +332,6 @@ swapTexDet(enable.BtoMain,texB)
 swapTexDet(enable.CtoMain,texC)
 swapTexDet(enable.DtoMain,texD)
 ```
+### ループ バッファー
 
-### ループ参照ありBuffers
-
-実際、ループ参照ありエフェクトの実装はお勧めしません。（にもかかわらず、やるとすればできます。AeとPixelsWorldと一夜漬けで戦う準備を整えてからやりましょう。[準備万端です>>>](./../Lua/Simulation.md)）
-
-
+うーん...もしループバッファーを使用したい場合、PixelsWorldでそれらを使用することは強くお勧めしません。（しかし、実現することは可能です。AeとPixelsWorldとの長い夜の戦いに備える必要があります。[準備ができましたか>>>](./../Lua/Simulation.md)）

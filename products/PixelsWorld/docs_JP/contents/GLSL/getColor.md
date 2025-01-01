@@ -1,28 +1,34 @@
 # getColor
 ---
-This function has two versions: **getColor(vec2)** and **getColor(int ,vec2)**.
+この関数には2つのバージョンがあります。**getColor(vec2)** と **getColor(int, vec2)** です。
+
 ## getColor(vec2)
-**Description : **
- - Get the color of **inLayer** in specified position. 
+**説明 : **
 
-**Parameters : **
-- vec2 : uv position.
+ - 指定された位置で**入力レイヤー**の色を取得します。
 
-**Return : **
-- vec4 : a RGBA color.
+**パラメータ**:
+-  vec2：uv位置（各次元0〜1）
 
+**戻り値 : **
 
-##getColor(int,vec2)
-**Description : **
- - Get the color of **specified layer** in specified position. 
+- vec4 :  RGBAカラー（各次元0〜1）
 
-**Parameters : **
-- int : layer id, -1 (or AE_INPUT_LAYER) means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (PW_TEMP_LAYER (which is -2) is provided in Lua render mode)
-- vec2 : uv coordinates.
+## getColor(int, vec2)
+**説明 : **
 
-**Return : **
-- vec4 : a RGBA color. 
+ - **特定の入力レイヤー**の指定された位置のピクセルを取得します。
 
->**NOTE : **
-> - So in other words, ```getColor(AE_INPUT_LAYER,uv);``` totally equals to ```getColor(uv);```
-> - ```getColor(n,uv);``` can return the pixels of layer[n]. 
+**パラメータ : **
+
+- int : レイヤーインデックス, -1（または AE_INPUT_LAYER）は入力レイヤーを指し、0-9の数字はプラグインパネルの対応するレイヤーパラメータ0-9を指します（PW_TEMP_LAYER (レイヤーインデックス-2) Luaレンダリングモード時に使用）
+- vec2 : uv座標
+
+**戻り値 : **
+
+- vec4 : RGBAカラー
+
+>**注意 : **
+>
+>- つまり、```getColor(AE_INPUT_LAYER, uv);``` と```getColor(uv)``` は同じ効果を持ちます。
+>- ```getColor(n, uv);``` は`layer[n]`のピクセル情報を返すことができます。

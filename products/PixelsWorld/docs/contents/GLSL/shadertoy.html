@@ -741,33 +741,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="template-zone-shadertoy">Template Zone Shadertoy</h1>
+                                <h1 id="shadertoy-sanctuary-template">ShaderToy Sanctuary Template</h1>
 <hr>
 <h2 id="usage">Usage</h2>
-<p>On the Shadertoy mode, you can run codes from <a href="https://shadertoy.com" target="_blank">shadertoy.com</a>. </p>
+<p>In this mode, you can directly use code from <a href="https://shadertoy.com" target="_blank">shadertoy.com</a>.</p>
 <p><img src="shadertoyMode.png" alt="shadertoyMode"></p>
 <blockquote>
-<p><strong>Note</strong> <br> It doesn&apos;t mean all code from the Shadertoy can be seamlessly transferred into PixelsWorld. Some like &quot;VR&quot;, &quot;Loop buffer reference&quot; are not supported. </p>
+<p><strong>Note</strong> <br> Not all code from shadertoy.com can perfectly run in PixelsWorld (e.g., code with audio input, requiring VR support, and containing loop buffer references).</p>
 </blockquote>
 <p><img src="loopbuffer.png" alt="loopRef"></p>
 <h2 id="details">Details</h2>
-<p>Add <strong><code>_PixelsWorld_</code></strong> prefix to use variables that exist in GLSL mode. </p>
+<p>If you would like to use custom parameter panels in shadertoy mode, simply add the <strong><code>_PixelsWorld_</code></strong> prefix to all variables in GLSL mode to enable them.</p>
 <blockquote>
-<p>E.g. <code>slider[0]</code> on GLSL mode =  <code>_PixelsWorld_slider[0]</code> on shadertoy mode. </p>
+<p>For instance, <code>slider[0]</code> in GLSL mode will become <code>_PixelsWorld_slider[0]</code>.</p>
 </blockquote>
-<p>Refer to <a href="predefined.html#shadertoy-mode">this page</a> to learn more global definitions in the Shadertoy mode. </p>
-<p>It is not recommended to define your own <strong><code>_PixelsWorld_</code></strong> prefixed variables. </p>
-<h2 id="use-buffers">Use Buffers</h2>
-<p>Shadertoy has 4 Buffers (or iChannels), which can be also applied into PixelsWorld. </p>
-<h3 id="no-loop-ref-buffers">No-loop-ref Buffers</h3>
-<p>If the effect you want to apply doesn&apos;t involve loop references (like the bottom part of the figure above). Then the effect is &quot;no-loop-ref&quot;. You can apply the effect via the code template below. (Also need the Lua render mode)</p>
-<p>E.g.: An effect from <a href="https://www.shadertoy.com/view/4dVGRW" target="_blank">https://www.shadertoy.com/view/4dVGRW</a> </p>
+<p>Refer to <a href="predefined.html#shadertoy-mode">here</a> to understand the definitions of all global variables.</p>
+<p>Of course, in shadertoy mode, it&apos;s not recommended to define variables with the <strong><code>_PixelsWorld_</code></strong> prefix on your own.</p>
+<h2 id="using-buffers">Using Buffers</h2>
+<p>Shadertoy inherently offers 4 buffers, and you can also implement buffers in PixelsWorld.</p>
+<h3 id="non-cyclic-buffers">Non-Cyclic Buffers</h3>
+<p><img src="../Lua/LuaMode.png" alt="luaMode"></p>
+<p>If the effects you are using do not involve cyclic calls between Buffers (as shown in the lower half of the previous diagram), then the buffers in your effect are non-cyclic. You can call them using the code template below (note: you need to switch to Lua mode).</p>
+<p>For instance, for the code from: <a href="https://www.shadertoy.com/view/4dVGRW" target="_blank">https://www.shadertoy.com/view/4dVGRW</a>:</p>
 <ol>
-<li>This effect uses the <code>BufferA</code>, so <code>A</code> is set to <code>true</code> at the 4th line of the code below. </li>
-<li><code>BufferA</code> is bound to the <code>iChannel0</code> of the <code>Main</code> image. So <code>AtoMain</code> is set to <code>0</code> at the 15th line. </li>
-<li>Then, copy-paste the code of <code>BufferA</code> and <code>Main</code> to the corresponding variables. </li>
-<li>Finally, to make sure the result is right, set <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32 bit x RGBA (HDR)</code> to prevent PixelsWorld to clamp the value of the Alpha color channel. </li>
-<li>Also don&apos;t forget to check if the PixelsWorld is on the Lua render mode. </li>
+<li>This effect uses <code>BufferA</code>, so the code sets <code>A</code> to <code>true</code> in the fourth line below.</li>
+<li><code>BufferA</code> is ultimately bound to <code>iChannel0</code> on the <code>Main</code> image, so the code sets <code>AtoMain</code> to <code>0</code> on line 15 below.</li>
+<li>Next, copy the <code>BufferA</code> and <code>Main</code> codes into their respective variables.</li>
+<li>Finally, to ensure correct results, set the plugin panel&apos;s <code>Advanced-&gt;Internal texture format</code> to <code>Floating point 32 bit x RGBA (HDR)</code> to prevent PixelsWorld from flattening the Alpha channel internally.</li>
+<li>Make sure you are in Lua rendering mode.</li>
 </ol>
 <div><p class="code-filename">rotatingCubes.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -882,12 +883,12 @@ mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
 ]==]</span><span class="token punctuation">;</span>
 
 commonCode <span class="token operator">=</span> <span class="token string">[==[
-// Paste the common code here. 
+// Paste the common code here
 
 ]==]</span>
 
 bufferACode <span class="token operator">=</span> <span class="token string">[==[
-// Paste the Buffer A code here. 
+// Paste the Buffer A code here
 float sdBox( vec3 p, vec3 b ) {
     vec3 d = abs(p) - b;
     return min(max(d.x,max(d.y,d.z)),0.0) +
@@ -989,17 +990,17 @@ float sdBox( vec3 p, vec3 b ) {
 ]==]</span><span class="token punctuation">;</span>
 
 bufferBCode <span class="token operator">=</span> <span class="token string">[==[
-// Paste the Buffer B code here. 
+// Paste the Buffer B code here
 
 ]==]</span><span class="token punctuation">;</span>
 
 bufferCCode <span class="token operator">=</span> <span class="token string">[==[
-// Paste the Buffer C code here. 
+// Paste the Buffer C code here
 
 ]==]</span><span class="token punctuation">;</span>
 
 bufferDCode <span class="token operator">=</span> <span class="token string">[==[
-// Paste the Buffer D code here. 
+// Paste the Buffer D code here
 
 ]==]</span><span class="token punctuation">;</span>
 
@@ -1066,8 +1067,8 @@ swapTexDet <span class="token operator">=</span> <span class="token keyword">fun
 <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>CtoMain<span class="token punctuation">,</span>texC<span class="token punctuation">)</span>
 <span class="token function">swapTexDet</span><span class="token punctuation">(</span>enable<span class="token punctuation">.</span>DtoMain<span class="token punctuation">,</span>texD<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="loop-ref-buffer">Loop-ref Buffer</h3>
-<p>Um...We really don&apos;t recommend applying the Loop-ref Buffer. (But there still a way to do it. You should get ready to fight with Ae and PixelsWorld for a long night. <a href="../Lua/Simulation.html">I&apos;m ready to go&gt;&gt;&gt;</a>)</p>
+<h3 id="cyclic-buffers">Cyclic Buffers</h3>
+<p>Hmm... if you want to use effects involving cyclic buffers, we highly discourage using them in PixelsWorld. (However, it is still achievable, but be prepared for a night of struggle with AE and PixelsWorld. <a href="../Lua/Simulation.html">I am ready &gt;&gt;&gt;</a>)</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1102,7 +1103,7 @@ swapTexDet <span class="token operator">=</span> <span class="token keyword">fun
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Template Zone shadertoy","level":"4.3","depth":1,"next":{"title":"World Outskirts JavaScript","level":"4.4","depth":1,"path":"contents/Lua/JavaScript.md","ref":"contents/Lua/JavaScript.md","articles":[]},"previous":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/shadertoy.md","mtime":"2021-03-10T10:41:24.639Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Template Zone shadertoy","level":"4.3","depth":1,"next":{"title":"World Outskirts JavaScript","level":"4.4","depth":1,"path":"contents/Lua/JavaScript.md","ref":"contents/Lua/JavaScript.md","articles":[]},"previous":{"title":"Pre-defined code","level":"4.2.7","depth":2,"path":"contents/GLSL/predefined.md","ref":"contents/GLSL/predefined.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/shadertoy.md","mtime":"2025-01-01T08:55:32.245Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

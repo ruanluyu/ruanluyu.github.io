@@ -1,24 +1,25 @@
-#パラメーター　リンク
+# リンクパラメータ
 ---
 
+以下の関数を使用して、プラグインパネルのパラメータを呼び出します。
 
 ```lua:parameters.lua
-slider(id)  -- 戻り値： 1 double
-angle(id)  -- 戻り値： 1 double
-point(id)  -- 戻り値： 2 double
-point3d(id) -- 戻り値： 3 double
-checkbox(id) -- 戻り値： 1 boolean
-color(id) -- 戻り値： 3 double
-layer(id,x,y) -- 戻り値： 4 double
+slider(id)  -- 1つのdoubleを返す
+angle(id)  -- 1つのdoubleを返す
+point(id)  -- 2つのdoubleを返す
+point3d(id) -- 3つのdoubleを返す
+checkbox(id) -- 1つのbooleanを返す
+color(id) -- 3つのdoubleを返す
+layer(id,x,y) -- 4つのdoubleを返す
 ```
 
-二つ以上の戻り値がある場合は、二つ以上の変数で受け取る必要があります。例えば、`point()`関数は次のように戻り値を処理します。
+複数の値を返す場合、複数の変数を宣言して受ける必要があります。例えば、`point()`関数です。
 
 ```lua:point.lua
 version3()
-x,y = point(0) -- Declear two variables x and y
+x,y = point(0)
 println('x is ' .. x)
 println('y is ' .. y)
 ```
 
-![Result](linkPoint.png)
+![実行結果](linkPoint.png)

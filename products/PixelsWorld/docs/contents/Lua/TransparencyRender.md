@@ -1,9 +1,10 @@
-# Render transparent objects
+# Rendering Transparent Shapes
+
 ---
-Normally, we get the following result when we are about to render a stack of transparent cubes. 
+
+When rendering a series of semi-transparent cubes, here's the result you might typically get:
 
 ![TenCubes](TenCubes.png)
-
 
 ```lua:normalCubes.lua
 version3()
@@ -20,9 +21,9 @@ for i = 1,10 do
 end
 ```
 
-The result was wrong because we cannot see the behind cubes. 
+However, this result is incorrect as we cannot see the parts of the transparent cubes behind.
 
-We should adjust the render order (farthest to nearest) basing on the camera distance to obtain the right blending color. 
+To achieve the correct blending of colors, we need to render these cubes from the farthest to the nearest relative to the camera:
 
 ![TenCubesSorted](TenCubesSorted.png)
 

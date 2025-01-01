@@ -1,32 +1,30 @@
-# Load local Lua code
+# Writing Code Locally
 
-If you don't prefer to use PixelsWorld's editor, PixelsWorld can read `txt` file from the local disc. So you can write the file with the IDE you like. 
+If you prefer not to use the built-in editor of Pixel World, you can create a `txt` document locally and import it into Pixel World using the following code.
 
-> Don't put the file to system disc(`C:\` disc). 
-
-
+> Do not place the code file on the system drive (C:\ drive).
 
 ```lua:loadTxt.lua
 version3()
-runFile([[d:\mycode.txt]]) -- Replace to your path
+runFile([[d:\mycode.txt]]) -- Replace with your path
 ```
 
-> - The reason we use `[[d:\mycode.txt]]` but not `"d:\mycode.txt"` is that the latter's `\` will cause escape problem. 
-> - You can use any postfix you want(`*.lua, *.code, *.magic`) as long as its contents are texts. 
+> - The reason for using `[[d:\mycode.txt]]` instead of `"d:\mycode.txt"` is that the latter will cause the `\` to be escaped.
+> - You can use any file extension (`*.lua, *.code, *.magic`) as long as the file content is text.
 
-Use the following code to read the code file beside your Ae project file. 
+If you want to place the code next to the project files, you can use the following code.
 
 ```lua:loadTxt.lua
 version3()
-runFile( projectFolder .. [[mycode.txt]]) -- Replace to your file name
+runFile(projectFolder .. [[mycode.txt]]) -- Replace with your file name
 ```
 
-> Note: You should save your Ae project to a local disc or the `projectFolder` is just an empty string. 
+> Note that using `projectFolder` requires your project to be saved locally.
 
-## It is not over! Don't forget to refresh PixelsWorld
+## It's Not Over! Don't Forget to Refresh the Code
 
 ![RerenderClick](RerenderLOGO.png)
 
-If you saved your code file, PixelsWorld cannot read it immediately. You should then hold **Ctrl + Alt**, click the logo image, this will trigger the rerender of PixelsWorld, then your new code will be read by PixelsWorld. 
+After typing and saving your code locally, Pixel World will not immediately respond in the scene. You need to press **Ctrl + Alt** and click on the LOGO image on the plugin panel with your mouse. Pixel World will then read the new code you've written.
 
-> The logo images here appear with a constant probability distribution. We have designed lots of beautiful logo images putting here for those who like collecting them. 
+> The LOGO image here rotates randomly according to a certain probability distribution. To cater to artists who enjoy collecting, we have designed many exquisite LOGOs to display here.

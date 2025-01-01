@@ -1,10 +1,10 @@
-#Link parameters
+# Link Parameters
 ---
-The outside parameters are provided for you to do some animation. 
+Using external parameters, animations can be set up.
 <br>
 ![Parameters](parameters.png)
 
-As you can see, there are 7 types of parameters are provided. 
+There are currently 7 types of parameters available for animations:
 - Sliders
 - Angles
 - Points
@@ -13,22 +13,22 @@ As you can see, there are 7 types of parameters are provided.
 - Colors
 - Layers
 
-Each of them has 10 controllers to use. 
+And each group of parameters has 10 controllers for manipulation.
 
-**Example :**
+**Example:**
+
 ```glsl:link_slider.shader
- void main(){
-    outColor = vec4(uv,slider[0],1.0);
+void main(){
+    outColor = vec4(uv, slider[0], 1.0);
 }
 ```
- If you change the slider 0, the color in your scene would change.
+For instance, changing slider 0 will alter the color in the preview window.
 <br>
 ![uvslider](uvslider.gif)
- 
-
 
 ## Details
-The  parameters decleared in PixelsWorld are as below : 
+In PixelsWorld, parameters are declared as follows:
+
 ```glsl:parameters.shader
 uniform float slider[10];
 uniform float angle[10];
@@ -39,7 +39,7 @@ uniform vec4 color[10];
 uniform sampler2D layer[10];
 uniform sampler2D inLayer;
 ```
-> **NOTE : **
-> - The **"inLayer"** means Input layer. 
-> - The **sampler2D** is a value type provided by GLSL, you don't need to understand this value type. If you want to use the layer parameter. Please see the ["getColor"](getColor.md) section
-> - **"uniform"** means global value. 
+> Note
+> - **"inLayer"** represents the input layer.
+> - **sampler2D** is a variable type provided by GLSL; you don't need to understand this type. If you want to know about layer parameters, please refer to ["getColor"](getColor.md).
+> - **"uniform"** denotes a global variable.

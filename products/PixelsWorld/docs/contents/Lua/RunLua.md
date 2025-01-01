@@ -1,13 +1,11 @@
-#Run Lua code
+# Running Lua Code
 ---
 
-Switch your language to **Lua ( CPU & GPU )**
-
+Switch the language to **Lua (CPU & GPU)**
 
 ![LuaMode](LuaMode.png)
 
-
-And input the code below : 
+Import the code:
 ```lua:hello.lua
 version3()
 a = 5+6
@@ -19,11 +17,11 @@ f = "5 + 6 = " .. a .. "\nMessage : " .. b .. " " .. c .. "\nCurrent time is : "
 print(f)
 ```
 
-> - ` a..b ` means combine variable a and b as string.
-> - [`print()`](FuncList.md#print) reports message to your screen. 
-> - [`slider()`](LinkParameters.md) fetches the value of a specified parameters.
-> - You are allowed to add `;` at the end of each line, but it is not indispensable. Lua regards the `\n`(line break) as the end mark of one section of code. 
+> - `a..b` concatenates variables `a` and `b` into a string.
+> - [`print()`](FuncList.md#print) renders the information on the screen.
+> - [`slider()`](LinkParameters.md) retrieves the value of the specified parameter.
+> - You can add `;` at the end of each line, although it's not necessary. Lua considers `\n` (newline character) as the end marker of a block of code.
 
-A message will show up in the left top corner of your screen. 
+Eventually, you will see the output information displayed at the top left corner of the screen.
 
 <br><br><br><br><br><br><br><br><br><br>

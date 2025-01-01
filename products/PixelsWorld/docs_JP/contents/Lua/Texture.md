@@ -1,65 +1,61 @@
-# Texture system
+# テクスチャシステム
 ---
 
-> Make sure your PixelsWorld version is `v3.3.0+`
+> `v3.3.0+`のPixelsWorldを持っていることを確認してください
 
-This section gives a detailed introduction of Texture system in PixelsWorld. 
+この章を通じて、`PixelsWorld`のテクスチャシステムの使い方をすばやく学ぶことができます。
 
- <!-- no toc -->
-- [newTex](#create-texture)
-- [delTex](#delete-texture)
-- [getSize](#size-of-texture)
-- [swapTex](#swap-textures)
-- [drawTo](#set-drawto)
-- [castTex](#cast-texture)
-- [blendTex](#blend-textures)
-- [copyTex](#copy-texture)
-- [fetchTex](#fetch-texture-at-any-time)
-- [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#texture-io)
-- [rotateTex,flipTex,resizeTex,trimTex](#edit-texture)
-
-## Texture id
-
-In PixelsWorld, every texture is represented as an integer. It is called `texId`. The basic texIds provided by PixelsWorld are as followed. 
+- [newTex](#テクスチャの作成)
+- [delTex](#テクスチャの削除)
+- [getSize](#サイズの取得)
+- [swapTex](#テクスチャの交換)
+- [drawTo](#描画先の設定)
+- [castTex](#テクスチャの投射)
+- [blendTex](#テクスチャの混合)
+- [copyTex](#テクスチャのコピー)
+- [fetchTex](#任意の時間におけるレイヤーピクセルの取得)
+- [savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW](#テクスチャの読み込みと保存)
+- [rotateTex,flipTex,resizeTex,trimTex](#テクスチャの修整)
 
 
-|texId|Globals in Lua|Globals in GLSL|Globals Shadertoy|Description|
+## テクスチャID
+
+`PixelsWorld`では、テクスチャは整数（テクスチャID）で表されます。`PixelsWorld`が提供する基本的なテクスチャIDは以下の通りです：
+
+|テクスチャID|Luaモードグローバル定数|GLSLモードグローバル定数|Shadertoyモードグローバル定数|説明|
 |--|--|--|--|--|
-|`-3`|`OUTPUT`|Inaccessible|Inaccessible|Output texture|
-|`-2`|`TEMP`|`PW_TEMP_LAYER`|`_PixelsWorld_PW_TEMP_LAYER`|Cache texture|
-|`-1`|`INPUT`|`AE_INPUT_LAYER`|`_PixelsWorld_AE_INPUT_LAYER`|Input texture|
-|`0`|`PARAM0`|`0`|`0`|Layer parameter 0 texture|
-|`1`|`PARAM1`|`1`|`1`|Layer parameter 1 texture|
+|`-3`|`OUTPUT`|アクセス不可|アクセス不可|出力テクスチャ|
+|`-2`|`TEMP`|`PW_TEMP_LAYER`|`_PixelsWorld_PW_TEMP_LAYER`|バッファテクスチャ|
+|`-1`|`INPUT`|`AE_INPUT_LAYER`|`_PixelsWorld_AE_INPUT_LAYER`|入力テクスチャ|
+|`0`|`PARAM0`|`0`|`0`|パラメーターレイヤー0|
+|`1`|`PARAM1`|`1`|`1`|パラメーターレイヤー1|
 |`...`|`PARAM...`|`...`|`...`|...|
-|`9`|`PARAM9`|`9`|`9`|Layer parameter 9 texture|
+|`9`|`PARAM9`|`9`|`9`|パラメーターレイヤー9|
 
-> You can also create your texId. The method will be covered below. 
+> テクスチャIDを自分で作成することもできます。方法は後述します。
 
-## How they work
+## 基本的な流れ
 
-Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the `INPUT` texId, writes the result to `OUTPUT` texId. Finally blits all pixels to Ae. 
+通常、`Ae`は1枚の画像を`PixelsWorld`に送信し、`PixelsWorld`はまずその画像を`INPUT`に配置します。そして、計算結果を`OUTPUT`テクスチャに置き、すべての命令が終了した後、`OUTPUT`テクスチャを`Ae`に結果として送信します。
 
+## TEMPの役割
 
-## What is TEMP texId
-
-Because `OpenGL` doesn't support read and write to the same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only makes sense in Lua mode and you called glsl function twice or more). You can use `getColor(PW_TEMP_LAYER,uv);` in glsl code to sample colors in TEMP texId. 
-
+`OpenGL`は同じテクスチャを同時に読み書きすることをサポートしていないため、`PixelsWorld`は`TEMP`を提供して、前回の[glsl](FuncList.md#glsl),[shadertoy](FuncList.md#shadertoy)などの関数での描画結果を保存します。シェーダー内で`getColor(PW_TEMP_LAYER,uv);`を使用して`TEMP`の色をサンプリングすることができます。
 
 ---
 
-## Create texture
+## テクスチャの作成
 
-Use `newTex(width,height)` to create a texture. Returns a texId. (a random integer)
+`newTex(width,height)`を使用してテクスチャを作成し、テクスチャID（ランダムな整数値）を返します。
 
-## Delete texture
+## テクスチャの削除
 
-Use `delTex(id)` to delete a texture. 
-> In most cases, you don't have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. 
+`delTex(id)`を使用して指定したテクスチャを削除します。
+> 通常、手動で削除する必要はありませんが、`PixelsWorld`は毎フレーム終了時にすべてのテクスチャを削除します。しかし、不要になったテクスチャを事前に解放し、そのメモリを開放することは良い習慣です。
 
+## サイズの取得
 
-## Size of texture
-
-Use `getSize(id)` to get the size of a texture. 
+`getSize(id)`を使用してテクスチャのサイズを取得します。
 
 ```lua:getSize.lua
 version3()
@@ -72,9 +68,9 @@ println("Height of mytex is: " .. h)
 ![getSizeRes](getSizeRes.png)
 
 
-## Swap textures
+## テクスチャの交換
 
-Use `swapTex(id1,id2)` to swap the pixels data of `id1` and `id2`. 
+`swapTex(id1,id2)`を使用して`id1`と`id2`が指すテクスチャを交換します。
 
 ```lua:swapTex.lua
 version3()
@@ -89,51 +85,48 @@ println("tex1 size after swapped: " .. w .. ", ".. h)
 
 ![swapTex](swapTexRes.png)
 
-## Set drawTo
+## 描画先の設定
 
-Use `drawTo(id)` to set the texture the objs would be drawn. The default drawTo texId is `OUTPUT`. Note that PixelsWorld only blits pixels in `OUTPUT` to Ae, no matter what the drawTo texId is. Here are 3 approaches you can send pixels in other texId to `OUTPUT`:  
-
+`drawTo(id)`を使用して描画先テクスチャを変更します。描画先テクスチャはデフォルトで`OUTPUT`です。PixelsWorldは最終的に`OUTPUT`を結果として`Ae`に送信することに注意してください。以下の3つの方法で他のテクスチャの結果を`OUTPUT`に渡すことができます：
 1. `drawTo(OUTPUT)`+[`image`](./FuncList.md#image)
-2. [`castTex`](#cast-texture)
-3. [`swapTex`](#swap-textures)
+2. [`castTex`](#テクスチャの投射)
+3. [`swapTex`](#テクスチャの交換)
 
-## Cast texture
+## テクスチャの投射
 
-Use `castTex(toTexId,fromTexId)` to cast pixels data from `fromTexId` to `toTexId`. E.g. You can cast pixels in `PARAM0` to `OUTPUT`. 
-
+`castTex(toTexId,fromTexId)`を使用して、`fromTexId`から`toTexId`にピクセルを投射します。たとえば、パラメーターレイヤー0 `PARAM0`を出力テクスチャ`OUTPUT`に投射できます：
 
 ```lua:castTex.lua
 version3()
 castTex(OUTPUT,PARAM0)
 ```
 
-You can also specify the cast range. (The origin is left top corner)
-
+また、投射するテクスチャの範囲を指定することができます（テクスチャの左上を原点とします）：
 - `castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y)`
 - `castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)`
 
-> Cast all pixels by default. 
+> 範囲を省略した場合はテクスチャ全体が使用されます。
 
 ![CastTexCoord](castTexCoord.png)
 
 
-## Blend textures
+## テクスチャの混合
 
-Use `blendTex(toTexId,fromTexId,blendRule)` to blend `fromTex` to `toTex` by rule `blendRule`
+`blendTex(toTexId,fromTexId,blendRule)`を使用して、混合ルール`blendRule`を使用してテクスチャ`fromTex`をテクスチャ`toTex`に貼り付けます。
 
-1. `blendRule` can be one of `NORMAL,ADD,SUBTRACT,MULTIPLY,DIVIDE,MAX,MIN`. 
-2. `blendRule` can be blend rule(string).
-   - `A` menas input pixels of `toTexId`
-   - `B` means input pixels of `fromTexId`
-   - `C` means output pixels of `toTexId`
-E.g. you can specify your rule to blend `PARAM0` and `INPUT`. 
+1. `blendRule`は`NORMAL,ADD,SUBTRACT,MULTIPLY,DIVIDE,MAX,MIN`のいずれかを指定できます。
+1. `blendRule`は文字列にもでき、以下のように指定します：
+   - `A`は`toTexId`の入力ピクセルを表します
+   - `B`は`fromTexId`の入力ピクセルを表します
+   - `C`は`toTexId`の出力ピクセルを表します
+たとえば、次のコードを使用して入力テクスチャとパラメーターレイヤー0の画像を加算混合することができます。
 
 ```lua:blendRule.lua
 version3()
-castTex(OUTPUT,INPUT) -- Cast INPUT texture to OUTPUT firstly. 
-blendTex(OUTPUT,PARAM0,"C=A+B") -- Blend PARAM0 to OUTPUT. 
+castTex(OUTPUT,INPUT) -- まずINPUTテクスチャをOUTPUTにキャスト。 
+blendTex(OUTPUT,PARAM0,"C=A+B") -- PARAM0をOUTPUTに混合。 
 ```
-Indeed, the `"C=A+B"` will be processed to the following code inside PixelsWorld. 
+実際には、ここでの文字列はGLSLコードに処理され、`"C=A+B"`は内部で以下のコードに変換されます：
 
 ```glsl:blendRuleGLSL.frag
 #version 330 core
@@ -146,83 +139,81 @@ void main(){
     vec4 A = texture(inLayerA,uv);
     vec4 B = texture(inLayerB,uv2);
     vec4 C = A;
-    C=A+B // Your blend rule is combined here. 
+    C=A+B // あなたの混合ルールはこちらに結合されます。 
     ;
     outColor = C;
 }
 ```
 
-Same with `castTex`, `blendTex` also supports range specifying: 
-
+`castTex`と同様に、`blendTex`もテクスチャ範囲の指定に対応しています：
 - `blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y)`
 - `blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)`
-
 
 ![CastTexCoord](castTexCoord.png)
 
 
-## Copy texture
+## テクスチャのコピー
 
-Use `copyTex(refTexId)` to copy texture. Returns new texId. 
+`copyTex(refTexId)`を使用してテクスチャをコピーし、コピーされた新しいテクスチャを返します。
 
-## Fetch texture at any time
+## 任意の時間におけるレイヤーピクセルの取得
 
-Use `fetchTex(layerId, time)` to obtain the specified layer pixels at the specified time. It returns a random texture ID. 
+`fetchTex(layerId, time)`を使用して、指定した時間の特定のレイヤーのテクスチャを取得し、取得したテクスチャIDを返します。
 
-- layerId: Only `PARAM0~PARAM9` are accepted. 
-- time: The double layer time in seconds. 
+- layerId: `PARAM0~PARAM9`のみが入力可能です。
+- time: レイヤーの時間（浮動小数点数、単位は秒）
 
-> - Note: Use of this function would cause wrong caching. Please purge the chache while you are using this function. 
-> - New in `v3.4.3+`. 
+> - 注意: この関数を使用すると、Aeのキャッシュにエラーが発生する可能性があります。定期的にキャッシュをクリアするようにしてください。
+> - `v3.4.3+`で新しく追加された関数です。
 
-## Texture IO
+## テクスチャの読み込みと保存
 
-Use `savePNG(utf8Path,texId)`,`loadPNG(utf8Path)` to save or load PNG image. 
+`savePNG(utf8Path,texId)`,`loadPNG(utf8Path)`を使用して、PNG画像を保存および読み込みます。
 
-Use `saveEXR(utf8Path,texId)`,`loadEXR(utf8Path)` to save or load EXR image. 
+`saveEXR(utf8Path,texId)`,`loadEXR(utf8Path)`を使用して、EXR画像を保存および読み込みます。
 
-Use `saveRAW(utf8Path,texId)`,`loadRAW(utf8Path)` to save or load MiLai original raw memory image. 
+`saveRAW(utf8Path,texId)`,`loadRAW(utf8Path)`を使用して、MiLaiの未圧縮のオリジナルメモリ画像を保存および読み込みます。
 
-Supported image specifications are listed below. 
+以下は、PixelsWorldがサポートする画像仕様の詳細です：
 
-|Format|Library|Supported compression algorithms|Color format|
+|形式|使用するライブラリ|サポートされる圧縮方法|画像カラー規格|
 |--|--|--|--|
-|PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE compliant decompressor zlib(RFC 1950)|RGBA,clamped 8bit unsigned integer per channel. |
-|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA,HDR 32bit floating point per channel. |
-|RAW|(None)|MiLai original format. (See figure below)|RGBA, HDR 32bit floating-point per channel. |
+|PNG|[cute_headers](https://github.com/RandyGaul/cute_headers)|DEFLATE準拠デコンプレッサzlib(RFC 1950)|RGBA、各チャネル毎に8ビットの符号なし整数。|
+|EXR|[tinyexr](https://github.com/syoyo/tinyexr)|NONE,RLE,ZIP,ZIPS,PIZ,ZFP|RGBA、各チャネル毎にHDR 32ビット浮動小数点。|
+|RAW|(なし)|MiLai独自形式。（以下の図参照）|RGBA、各チャネル毎にHDR 32ビット浮動小数点。|
 
 ![MiLaiRAWDef](./milaiBinaryDef.png)
 
-Load PNG image to scene: 
+シーンにPNG画像を読み込む：
 
 ```lua:loadPNG.lua
 version3()
-local mypng = loadPNG([[d:\test.png]]) -- Replace to your path. 
-castTex(OUTPUT,mypng) -- Cast pixels from mypng to OUTPUT. 
+local mypng = loadPNG([[d:\test.png]]) -- あなたのパスに置き換えてください。 
+castTex(OUTPUT,mypng) -- mypngからOUTPUTにピクセルをキャスト。 
 ```
 
-Save `OUTPUT` texId to local: 
+PNG画像をローカルに保存する：
 ```lua:savePNG.lua
 version3()
 
---Draw something to OUTPUT
+--OUTPUTに何かを描画
 move(width/2,height/2)
 rotate(time)
 triangle()
---End drawing. 
+--描画終了。 
 
-savePNG([[d:\test.png]],OUTPUT) -- Save OUTPUT as PNG to local disc. Replace to your path here. 
+savePNG([[d:\test.png]],OUTPUT) -- OUTPUTをPNGとしてローカルディスクに保存。ここで自分のパスに置き換えてください。 
 ```
 
-> - Change `PNG` to `EXR` to read/write EXR file. 
-> - Some local paths might need running Ae under the Administrator mode. 
+> - `PNG`を`EXR`に変えると、EXR画像の保存と読み込みが可能になります。
+> - 一部の場所に保存するには管理者権限が必要です。
 
-## Edit texture
+## テクスチャの修整
 
-Use `rotateTex(texId,times)` to rotate texture `90*times`degrees, `rotateTex(texId)` equals to `rotateTex(texId,1)`
+`rotateTex(texId,times)`を使用して`90*times`度テクスチャを回転させます。`rotateTex(texId)`は`rotateTex(texId,1)`と同等です。
 
-Use `flipTex(texId,flipV)` to mirror flip a image. `flipV` is a boolean. When `flipV` is `true`, flip the image vertically, and horizontally otherwise. 
+`flipTex(texId,flipV)`を使用してテクスチャを反転します。`flipV`はブール値で、`flipV`が`true`の場合は垂直反転、`false`の場合は水平反転です。
 
-Use `resizeTex(texId,width,height)` to resize texture. 
+`resizeTex(texId,width,height)`を使用してテクスチャを縮小します。
 
-Use `trimTex(texId,p1x,p1y,p2x,p2y)` to trim texture. The origin of `p1x,p1y,p2x,p2y` is left top corner. 
+`trimTex(texId,p1x,p1y,p2x,p2y)`を使用してテクスチャをトリミングします。`p1x,p1y,p2x,p2y`はテクスチャ左上を原点とした座標です。

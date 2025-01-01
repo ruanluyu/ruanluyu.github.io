@@ -1,11 +1,13 @@
-# Appointments
+# Serial Number Usage Agreement
 ------
 
-1. One serial number contains N **Register number** (N >= 1)
-2. One **Register number** registers one PC permanently. 
-3. One **Register number** can be shared in any version of Ae on a PC. 
-4. Registering costs one **Register number**, deactivating recovers one **Register number**
-5. Only **Registering and Deactivating** need internet. You can use PixelsWorld offline after registering is completed. 
-6. You don't have to deactivate before re-installing your OS, **UNLESS** you changed the hardware like CPU or mainboard. When you finished re-installing your OS, register PixelsWorld again, this kind of registration doesn't cost the **Register number**. [Contact us](mailto:zzstarsound@gmail.com) if you forget to deactivate your serial number and you have already changed your CPU and mainboard. 
-7. Serial number doesn't bind with any personal information. You can **BUT NOT RECOMMEND** sell it. MiLai visual performance group is not responsible for ANY trouble that happened in this kind of deal. 
-8. The default value of **Register number** is 1. If you have more than one PC and you also want to run PixelsWorld on your multiple machines at the same time. Please purchase the corresponding number of PixelsWorld, we will send you the Serial number with **Register number** specified by you. 
+> Note: These terms do not apply to customers who purchased on the aescripts.com platform.
+
+1. A serial number contains N "**registrations**" (N is greater than or equal to 1).
+2. One "**registration**" permanently registers one computer.
+3. One computer's "**registration**" can be used across multiple versions of Ae.
+4. Registering a computer will **decrease one "registration"**, while unbinding an already registered computer will **increase one "registration"**.
+5. Only **registering and unbinding** require an internet connection; after registering, the software can be used offline.
+6. Before replacing your motherboard or CPU, please unbind the serial number and re-bind it after the replacement. If you forget to unbind the serial number, please [contact us by email](mailto:zzstarsound@gmail.com).
+7. The serial number is not tied to any personal information. It is allowed but **not recommended** to share or resell among friends. If shared or resold, any issues or benefits resulting from this are not the responsibility of the Future Vision Animation Group.
+8. By default, only one "registration" is included with purchase. If you have multiple devices and wish to use Pixel World simultaneously on them, please purchase the appropriate number of Pixel World serial numbers, and we will send serial numbers with the corresponding number of "registrations".

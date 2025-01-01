@@ -1,21 +1,23 @@
-#pw.setColor(x,y,A,R,G,B)
+# pw.setColor(x,y,A,R,G,B)
 ---
 
-**Description :**
+**説明：**
 
-- Set the pixel data in specific position
+- 指定した位置にピクセルデータを設定します。
 
-**Parameters :**
+**パラメータ：**
 
 - pw.setColor(x,y,A,R,G,B)
-- x,y : integer
-- A,R,G,B : floats in range 0-1 (No clamp in 32 bpc)		
+- x, y : 整数。
+- A, R, G, B : 0~1の浮動小数点数 (32ビット時には前後を含まない)
 
-**Return :**
-- No return
+**戻り値：**
 
-**Sample code :**
-- Here is a sample code that renders a beautiful time-dependent uv color pattern. 
+- なし。
+
+**例：**
+
+- 次のコードは、時間に基づいて美しいuvカラーパターンをレンダリングします。
 ```lua:setColor.lua
 for y=0,height do
 	for x=0,width do

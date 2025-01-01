@@ -1,4 +1,3 @@
-#Functions
+# Functions
 ---
-This section will give a brief introduction to the functions created by us. 
-The functions mentioned in this section could be immediately used **without any declaration**. 
+This section briefly introduces the built-in functions. These functions can be used **without any declaration**.

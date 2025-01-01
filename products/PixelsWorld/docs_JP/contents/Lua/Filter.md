@@ -1,29 +1,27 @@
 # フィルターシステム
 ---
 
-> `v3.6.0+`以上のバージョンのPixelsWorldが必要です．
+> `v3.6.0+`のPixelsWorldをお持ちの方のみご利用いただけます
 
-フィルターシステムは四角形シェーダーのカプセル化です．
-このシステムを使うことで，画像処理シェーダーを素早く作れます．
+フィルターシステムは、矩形シェーダーのラッピングを行い、画面全体のエフェクトに対する後処理シェーダーを迅速に構築することを可能にします。
 
-この節を通じて，`PixelsWorld`のフィルターシステムをすばやく理解し，使用方法を学ぶことができます．
+この章を通じて、`PixelsWorld`のフィルターシステムを迅速に理解し、使用方法を学ぶことができます。
 
-
-- [newFilter フィルター新規](#フィルター新規)
-- [runFilter フィルター実行](#フィルター実行)
-- [delFilter フィルター削除](#フィルター削除)
-- [setFilterUniform フィルター設定](#フィルター設定)
-- [setFilterDrawto フィルター出力画像設定](#フィルター出力画像設定)
-- [newFilterModule フィルターモジュール新規](#フィルターモジュール新規)
-- [高級アプリケーション](#高級アプリケーション)
+- [newFilter フィルターを作成](#フィルターを作成)
+- [runFilter フィルターを実行](#フィルターを実行)
+- [delFilter フィルターを削除](#フィルターを削除)
+- [setFilterUniform フィルターを設定](#フィルターを設定)
+- [setFilterDrawto 出力画像を設定](#出力画像を設定)
+- [newFilterModule フィルターモジュールを作成](#フィルターモジュールを作成)
+- [高度な応用](#高度な応用)
 
 
-## フィルター新規
+## フィルターを作成
 
-`newFilter(glslCode)`でフィルターを新規作成します．
-- 戻り値：フィルタープログラムを代表する乱数整数値（フィルターＩＤ）
+`newFilter(glslCode)` を使用してフィルタープログラムを作成します
+- 戻り値：フィルタープログラムを表すランダム整数（フィルターID）
 
-`glslCode`は次のコンテキストに挿入されます：
+`glslCode` は以下のコンテキストに挿入されます：
 
 ```c:glslcode_context.glsl
 
@@ -34,8 +32,8 @@ out vec4 outColor;
 // Your glslCode here!
 ```
 
-### 例
-> ご注意：Lua言語で，二重大かっこう`[[...]]`で複数行文字列を引用します．
+### サンプル
+> 注意：Luaでは、二重中括弧`[[...]]`を使用して複数行の文字列を表します
 ```lua:newFilter.lua
 version3()
 filterID = newFilter([[
@@ -47,10 +45,10 @@ filterID = newFilter([[
 
 
 
-## フィルター実行
-`runFilter(filterID)`でフィルターを実行します．
+## フィルターを実行
+`runFilter(filterID)` を使用してフィルタープログラムを実行します
 
-### 例
+### サンプル
 
 ```lua:runFilter.lua
 version3()
@@ -64,13 +62,13 @@ filterID = newFilter([[
 runFilter(filterID)
 ```
 
-## フィルター削除
+## フィルターを削除
 
-`delFilter(filterID)`でフィルターを削除します．
+`delFilter(filterID)` を使用してフィルターを削除します。
 
-> 通常，ユーザーはフィルターを削除する必要はありません．なぜなら，フィルターは毎フレームの終了時に自動的に削除されるからです．ただし，使用済みのフィルターを手動で削除することをお勧めします．
+> 通常、フィルターを削除する必要はありませんが、PixelsWorldは各フレームの終了時にすべてのフィルターを自動的に削除します。ただし、必要がないフィルターは削除することをお勧めします。
 
-### 例
+### サンプル
 
 ```lua:delFilter.lua
 version3()
@@ -82,16 +80,16 @@ filterID = newFilter([[
 delFilter(filterID)
 ```
 
-## フィルター設定
+## フィルターを設定
 
-`setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)`でフィルターの中で定義されている`uniform`データの値を設置します．
+`setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)` を使用してフィルター内で定義した `uniform` 属性を設定します。
 
-- `filterID`: フィルターＩＤ．整数．
-- `uniformType`: データタイプを表す文字列．例えば，1次元データ（`"int","float","bool"`），ベクトル（`"vec2","vec3","vec4","ivec2"...`），行列（`"mat2, mat4x3, ..."`），テキスチャー（`"sampler2D"`）
-- `uniformName`：データのパラメータ名
-- `data0,data1,...`：浮動小数点データ（詳細は次の例へ）
+- `filterID`: フィルターID、整数。
+- `uniformType`: 変数タイプを表す文字列。一次元データ（`"int","float","bool"`）やベクトル（`"vec2","vec3","vec4","ivec2"...`）、行列（`"mat2, mat4x3, ..."`）、テクスチャ（`"sampler2D"`）をサポートします。
+- `uniformName`：変数名の文字列。
+- `data0,data1,...`：浮動小数データ。（サンプル参照）
 
-### 例
+### サンプル
 
 ```lua:setFilterUniform.lua
 version3()
@@ -115,13 +113,13 @@ setFilterUniform(filterID, "float", "myfloat", math.sin(time)*0.5 + 0.5)
 
 setFilterUniform(filterID, "vec2", "myvec", 1,2)
 
--- Column major, namely mymat[0][0]==1, mymat[0][1]==slider(0), mymat[0][2]==2, mymat[1][0]==3, ...
+-- 列単位で、例えば mymat[0][0]==1, mymat[0][1]==slider(0), mymat[0][2]==2, mymat[1][0]==3, ...
 setFilterUniform(filterID, "mat3x2", "mymat", 1, slider(0), 2, 3, 4, 5)
 
--- Use INPUT texture as mytex1
+-- INPUT テクスチャを mytex1 として使用
 setFilterUniform(filterID, "sampler2D", "mytex1", INPUT)
 
--- ** You can also set the texture you created as mytex1 **
+-- ** 生成したテクスチャを mytex1 として設定することも可能です **
 -- myInputTexID = newTex(512,256)
 -- setFilterUniform(filterID, "sampler2D", "mytex1", myInputTexID)
 
@@ -129,29 +127,27 @@ runFilter(filterID)
 
 ```
 
-## フィルター出力画像設定
+## 出力画像を設定
 
-`setFilterDrawto(filterID, texID)`でフィルターの出力画像を指定します．`texID`に関しては，[テキスチャーシステム](Texture.md)をご参照ください．
+`setFilterDrawto(filterID, texID)` を使用してフィルターの結果をどのテクスチャに出力するかを指定します。`texID` については[テクスチャシステム](Texture.md)をご参照ください。
 
-> 出力画像のデフォルトは`OUTPUT`
-
-
-
-画像を繰り返しシェーディングすることもできます．
-
-詳細は[高级アプリケーション](#高级アプリケーション)へ
+> デフォルトの出力テクスチャは `OUTPUT` です
 
 
+一枚の画像に対して反復着色を行うこともできます。
 
-## フィルターモジュール新規
-
-`newFilterModule(glslCode)`でフィルターモジュールを新規作成します．
-- 戻り値：フィルターID及び効用関数を持つテーブル．
+詳細は[高度な応用](#高度な応用)をご参照ください。
 
 
-フィルターモジュールの役割はコードを簡単化するだけです．
 
-フィルターモジュールを用いない場合は，フィルターを次のように作ります．
+## フィルターモジュールを作成
+
+`newFilterModule(glslCode)` を使用してフィルターモジュールを作成します。
+- 戻り値：フィルターIDといくつかのユーティリティ関数が含まれるテーブル。
+
+フィルターモジュールの役割はコードを簡素化することです。
+
+フィルターモジュールを使用しない場合、通常以下のようにフィルターを書かなければなりません：
 
 ```lua:no_module.lua
 
@@ -177,7 +173,7 @@ delFilter(filterID)
 
 ```
 
-フィルターモジュールを用いるとコードは次のようにになります．
+フィルターモジュールを使用すると、以下のように書くことができます：
 
 ```lua:no_module.lua
 
@@ -202,15 +198,12 @@ filter.run()
 filter.del()
 
 ```
+## 高度な応用
 
+以下はチャンネルぼかしのコードサンプルです：
 
-
-## 高級アプリケーション
-
-以下は，チャンネルぼかしエフェクトを実現する例です：
-
-- `slider 0`：ぼかし度合い
-- `layer 0`：ぼかしマスクレイヤー
+- `slider 0`：ぼかし強度
+- `layer 0`：ぼかしマスク
 
 ![channel blur preview](channel-blur-preview.png)
 
@@ -218,14 +211,14 @@ filter.del()
 
 version3()
 
--- Create a temp texture
-tempTexID = newTex(width,height)
+-- 一時テクスチャを作成
+tempTexID = newTex(width, height)
 
--- Copy input to temp texture
+-- 入力を一時テクスチャにコピー
 castTex(tempTexID, INPUT)
 
 
--- Blur code
+-- ぼかしコード
 blurGLSLCode = [[
     uniform sampler2D in_tex;
     uniform mat3 kernel;
@@ -247,7 +240,7 @@ blurGLSLCode = [[
 ]]
 
 
--- Combine code
+-- 合成コード
 combineGLSLCode = [[
     uniform sampler2D images[4];
     uniform sampler2D masktex;
@@ -270,8 +263,8 @@ combineGLSLCode = [[
 
 blurFilter = newFilterModule(blurGLSLCode)
 
--- Set the kernel data of 3x3 gaussian blur 
--- The data can be found at https://en.wikipedia.org/wiki/Kernel_(image_processing)
+-- 3x3ガウシアンぼかしのカーネルデータを設定
+-- データは https://en.wikipedia.org/wiki/Kernel_(image_processing) で参照可能
 blurFilter.set("mat3", "kernel", 
     1.0/16, 2.0/16, 1.0/16, -- kernel[0][0], kernel[0][1], kernel[0][2]
     2.0/16, 4.0/16, 2.0/16, -- kernel[1][0], kernel[1][1], kernel[1][2]
@@ -279,24 +272,24 @@ blurFilter.set("mat3", "kernel",
 
 blurFilter.set("vec2", "resolution", width, height)
 
--- Set temp texture as in_tex
+-- 一時テクスチャを in_tex として設定
 blurFilter.set("sampler2D", "in_tex", tempTexID)
 
--- Set the temp texture as the Drawto
+-- 一時テクスチャを Drawto として設定
 blurFilter.drawto(tempTexID)
 
 
 middleResultTex = {}
 for i=1,3 do
-    middleResultTex[i] = newTex(width,height)
+    middleResultTex[i] = newTex(width, height)
 end
 
 
--- blur power
+-- ぼかしの強さ
 substep = slider(0)
 
--- Iterate filter 3*substep times
-for i=1,3*substep do
+-- フィルターを3*substep 回反復
+for i=1, 3*substep do
     blurFilter.run()
     if i % substep == 0 then
         castTex(middleResultTex[i//substep], tempTexID)
@@ -313,7 +306,7 @@ combineFilter.set("sampler2D", "images",
     middleResultTex[3]
     )
 
-combineFilter.set("sampler2D", "masktex",  PARAM0)
+combineFilter.set("sampler2D", "masktex", PARAM0)
 
 combineFilter.drawto(OUTPUT)
 

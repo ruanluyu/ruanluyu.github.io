@@ -741,178 +741,180 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="creation-origin-poly-function">Creation origin: Poly function</h1>
-<p><code>poly(obj)</code> analyzes the inputted <code>obj</code>, then draws it to the scene. </p>
-<h2 id="usage">Usage</h2>
+                                <h1 id="the-genesis-revelation-&#x2014;-poly-function">The Genesis Revelation &#x2014; Poly Function</h1>
+<p>The <code>poly(obj)</code> function parses the <code>obj</code> and renders the object.</p>
+<h2 id="example-of-use">Example of Use</h2>
 <blockquote>
-<p>If you are familiar with <code>Houdini</code>, constructing an <code>obj</code> is basically to fill a SpreadSheet. </p>
+<p>If you have used Houdini, the construction process of <code>obj</code> is similar to filling out a spreadsheet in Houdini.</p>
 </blockquote>
-<p>Here is an example of constructing an <code>obj</code> of an unusual colorful triangle. </p>
-<p><img src="poly_test1.png" alt="Res"></p>
+<p>Below is an example of constructing an unusual triangle <code>obj</code>.</p>
+<p><img src="poly_test1.png" alt="Result"></p>
 <div><p class="code-filename">PolyTest1.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">dotRadius</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;line&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;point&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;line&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;point&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="supporting-primitives">Supporting primitives</h2>
-<p>Assume<code>pref={1,2,3,4,5,6}</code>. </p>
+<h2 id="supported-primitives-and-names">Supported Primitives and Names</h2>
+<p>Below, we explain using <code>pref={1,2,3,4,5,6}</code> as an example.</p>
 <blockquote>
 <ul>
-<li><code>pref</code> means <code>point reference</code>. </li>
-<li>The semicolon (<code>;</code>) is the end mark of one primitive drawing. </li>
+<li><code>pref</code> means <code>point reference</code>. It refers to the sequence of point indices that the primitive will draw in.</li>
+<li>A semicolon (<code>;</code>) indicates the end of drawing a primitive.</li>
 </ul>
 </blockquote>
 <table>
 <thead>
 <tr>
-<th>type name</th>
-<th>Corresponding primitive</th>
-<th>Drawing order</th>
-<th>full type name</th>
+<th>Standard Name (type name)</th>
+<th>Corresponding Primitive</th>
+<th>Drawing Sequence</th>
+<th>Full Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>points</td>
-<td>Points</td>
+<td>Point</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>points</td>
 </tr>
 <tr>
 <td>pointd</td>
-<td>2d point</td>
+<td>Plane Point</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>point disc</td>
 </tr>
 <tr>
 <td>pointb</td>
-<td>3d point</td>
+<td>Sphere Point</td>
 <td><code>1;2;3;4;5;6;</code></td>
 <td>point ball</td>
 </tr>
 <tr>
 <td>line</td>
-<td>Single line</td>
+<td>Single Line</td>
 <td><code>123456;</code></td>
 <td>single line</td>
 </tr>
 <tr>
 <td>linef</td>
-<td>Single 2d line</td>
+<td>Flat Line</td>
 <td><code>123456;</code></td>
 <td>line flat</td>
 </tr>
 <tr>
 <td>linec</td>
-<td>Single 3d line</td>
+<td>3D Line</td>
 <td><code>123456;</code></td>
 <td>line capsule</td>
 </tr>
 <tr>
 <td>linel</td>
-<td>Loop line</td>
+<td>Loop Line</td>
 <td><code>1234561;</code></td>
 <td>line loop</td>
 </tr>
 <tr>
 <td>linelf</td>
-<td>Loop 2d line</td>
+<td>Flat Loop Line</td>
 <td><code>1234561;</code></td>
 <td>line loop flat</td>
 </tr>
 <tr>
 <td>linelc</td>
-<td>Loop 3d line</td>
+<td>Capsule Loop Line</td>
 <td><code>1234561;</code></td>
 <td>line loop capsule</td>
 </tr>
 <tr>
 <td>lines</td>
-<td>Lines</td>
+<td>Multiple Lines</td>
 <td><code>12;34;56;</code></td>
 <td>lines</td>
 </tr>
 <tr>
 <td>linesf</td>
-<td>2d lines</td>
+<td>Multiple Flat Lines</td>
 <td><code>12;34;56;</code></td>
 <td>lines flat</td>
 </tr>
 <tr>
 <td>linesc</td>
-<td>3d lines</td>
+<td>Multiple Capsule Lines</td>
 <td><code>12;34;56;</code></td>
 <td>lines capsule</td>
 </tr>
 <tr>
 <td>triangles</td>
-<td>Triangle meshes</td>
+<td>Triangle Surface</td>
 <td><code>123;456;</code></td>
 <td>triangles</td>
 </tr>
 <tr>
 <td>triangleb</td>
-<td>Bridge structure triangle meshes</td>
+<td>Bridge Constructed Triangle Surface</td>
 <td><code>123;324;345;546;</code></td>
 <td>triangle bridge</td>
 </tr>
 <tr>
 <td>triangler</td>
-<td>Radial structure triangle meshes</td>
+<td>Radially Constructed Triangle Surface</td>
 <td><code>123;134;145;156;</code></td>
 <td>triangle radial</td>
 </tr>
 </tbody>
 </table>
-<h2 id="the-structure-of-obj">The structure of obj</h2>
-<p>The obj structure is defined by the following steps: </p>
+<h2 id="constructing-obj">Constructing obj</h2>
+<p>We define the details of <code>obj</code> in the following steps.</p>
 <ul>
-<li><code>obj</code> is a table. </li>
-<li><code>obj</code> contains 4 keys: <code>point</code>,<code>vertex</code>,<code>prim</code>,<code>detail</code>. </li>
-<li>The 4 keys in <code>obj</code> have their value called <code>pointArray</code>, <code>vertexArray</code>, <code>primArray</code>, <code>detailList</code>. </li>
-<li><code>pointArray</code> is required. </li>
-<li><code>vertexArray</code> is optional. </li>
-<li><code>primArray</code> is required. </li>
-<li><code>detailList</code> is optional. </li>
-<li>The above-mentioned value names that are <code>Array</code> suffixed holds N sub-tables, where N can be defined by users. </li>
-<li>The kth sub-table of <code>pointArray</code> is called <code>point[k]</code> or <code>&quot;The kth point&quot;</code>. </li>
-<li>The kth sub-table of <code>vertexArray</code> is called <code>vertex[k]</code> or <code>&quot;The kth child-point&quot;</code>.</li>
-<li>The kth sub-table of <code>primArray</code> is called <code>prim[k]</code> or <code>&quot;The kth primitive&quot;</code>. </li>
-<li>The <code>detailList</code> and <code>Points, child-points, primitives</code>, have some non-subdividable units&#xFF1A;the Key-value pairs. We call these keys <code>K</code>, and values <code>V</code>.</li>
-<li><code>K</code> should only contain alphabets, numbers, and underlines. And <code>K</code> shouldn&apos;t be all numbers. </li>
-<li><code>V</code> has 7 types: <code>1D</code>, <code>2D</code>, <code>3D</code>, <code>4D</code>, string, <code>texture id</code> and <code>index serial</code>. </li>
-<li>For all double floating numbers <code>x,y,z,w</code></li>
-<li><code>x</code> or <code>{x}</code> is <code>1D V</code>.</li>
-<li><code>{x,y}</code> is <code>2D V</code>.</li>
-<li><code>{x,y,z}</code> is <code>3D V</code>.</li>
-<li><code>{x,y,z,w}</code> is <code>4D V</code>.</li>
-<li><code>&quot;Hello! PixelsWorld!&quot;</code> is <code>string V</code>.</li>
-<li>When (<code>K</code> ends up with <code>&quot;_tex&quot;</code>) and (<code>V</code> is an integer and the corresponding texture exists), it is <code>texture id V</code>.</li>
-<li>For integer serial <code>a1,...,an</code>,<code>{a1,a2,a3,...,an}</code> is <code>index serial V</code>.</li>
-<li>For all <code>point[k]</code>, there must be a <code>K</code> named <code>&quot;p&quot;</code> to represents the location, or it is an invalid point.</li>
-<li>For all <code>vertex[k]</code>, there must be a <code>K</code> named <code>&quot;pref&quot;</code> and its <code>V</code> is an integer to represent the reference point id, or it is an invalid child-point.</li>
-<li>For all <code>prim[k]</code>, there must be a <code>K</code> named <code>&quot;type&quot;</code> and its <code>V</code> is <code>string</code> to represents the type of the primitive. And there also must be a <code>K</code> named <code>&quot;vref&quot;</code>or <code>&quot;pref&quot;</code> and its <code>V</code> is <code>index serial</code> to represent the order of points drawing.</li>
+<li><code>obj</code> is a table.</li>
+<li><code>obj</code> can include four keys: <code>point</code>, <code>vertex</code>, <code>prim</code>, <code>detail</code>.</li>
+<li>These keys correspond to four tables, named <code>pointArray</code>, <code>vertexArray</code>, <code>primArray</code>, and <code>detailList</code>.</li>
+<li><code>pointArray</code> must exist.</li>
+<li><code>vertexArray</code> is optional.</li>
+<li><code>primArray</code> must exist.</li>
+<li><code>detailList</code> is optional.</li>
+<li>Tables with the suffix <code>Array</code> can contain N sub-tables, where N can be freely defined.</li>
+<li>The k-th sub-table in <code>pointArray</code> is called <code>point[k]</code> or &quot;the k-th point&quot;.</li>
+<li>The k-th sub-table in <code>vertexArray</code> is called <code>vertex[k]</code> or &quot;the k-th sub-point&quot;.</li>
+<li>The k-th sub-table in <code>primArray</code> is called <code>prim[k]</code> or &quot;the k-th primitive&quot;.</li>
+<li><code>detailList</code> and the aforementioned points, sub-points, and primitives contain several indivisible units: key-value pairs. These keys are temporarily called <code>K</code>, and the values are <code>V</code>.</li>
+<li><code>K</code> is recommended to contain only English letters, numbers, and underscores, and should not be purely numeric.</li>
+<li><code>V</code> can be one-dimensional, two-dimensional, three-dimensional, four-dimensional, string, texture ID, or index group.</li>
+<li>For any floating precision numbers <code>x, y, z, w</code>:<ul>
+<li><code>x</code> or <code>{x}</code> is a one-dimensional <code>V</code>.</li>
+<li><code>{x, y}</code> is a two-dimensional <code>V</code>.</li>
+<li><code>{x, y, z}</code> is a three-dimensional <code>V</code>.</li>
+<li><code>{x, y, z, w}</code> is a four-dimensional <code>V</code>.</li>
+<li><code>&quot;Hello! PixelsWorld!&quot;</code> is a string <code>V</code>.</li>
+<li>When the last four characters of <code>K</code> are <code>&quot;_tex&quot;</code> and <code>V</code> is an integer corresponding to a valid texture, it is called a texture ID <code>V</code>.</li>
+<li>For an integer sequence <code>a1,...,an</code>, <code>{a1,a2,a3,...,an}</code> is called an index group <code>V</code>.</li>
 </ul>
-<h2 id="override-priority">Override priority</h2>
-<p>For same <code>K</code>, the following override priority is defined: </p>
+</li>
+<li>For each point <code>point[k]</code>, a key named <code>&quot;p&quot;</code> must exist to represent the point&apos;s location. Otherwise, it is an invalid point.</li>
+<li>For each sub-point <code>vertex[k]</code>, a key named <code>&quot;pref&quot;</code> with a one-dimensional <code>V</code> must exist to indicate the reference point ID. Otherwise, it is an invalid sub-point.</li>
+<li>For each primitive <code>prim[k]</code>, a <code>&quot;type&quot;</code> key must exist with a string <code>V</code> to indicate the primitive type. Additionally, <code>&quot;vref&quot;</code> or <code>&quot;pref&quot;</code> keys with an index group <code>V</code> must exist to indicate the drawing point order of the primitive.</li>
+</ul>
+<h2 id="overriding-priority">Overriding Priority</h2>
+<p>For a <code>K</code> with the same name, we define the following overriding priorities:</p>
 <blockquote>
-<p>Same with <code>Houdini</code>. </p>
+<p>Similar to <code>Houdini</code></p>
 </blockquote>
 <ol>
 <li>vertex</li>
@@ -920,123 +922,123 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <li>prim</li>
 <li>detail</li>
 </ol>
-<p>Example: </p>
-<p>The following <code>obj</code>&apos;s <code>prim</code> contains a color attribute (Red), So we will get a red triangle. </p>
+<p>Example of use:</p>
+<p>In the <code>obj</code> below, the <code>prim</code> contains color information (red), resulting in a solid red triangle.</p>
 <p><img src="polyPrimColor.png" alt="PrimColor"></p>
 <div><p class="code-filename">PrimColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
 <hr>
-<p>This time, both <code>prim</code> and <code>point</code> contain <code>color</code>, and because the priority of <code>point</code> is higher, so the color attribute in <code>point</code> will be used, then we will get a colorful triangle. </p>
+<p>In the <code>obj</code> below, both <code>prim</code> and <code>point</code> have <code>color</code>. Since <code>point</code> has a higher priority, the triangle uses the data provided by <code>point</code>, resulting in a colorful triangle.</p>
 <p><img src="polyPointColor.png" alt="PointColor"></p>
 <div><p class="code-filename">PointColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="usage-of-vertex">Usage of vertex</h2>
-<p>Vertex (child-point) inherits all attributes from <code>point</code>.</p>
+<h2 id="use-of-vertices">Use of Vertices</h2>
+<p>Vertices (sub-points) can inherit the information of points.</p>
 <p><img src="polyVertexTest.png" alt="Vertex"></p>
 <div><p class="code-filename">VertexColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    vertex<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>pref<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    vertex <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>pref <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>vref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span> vref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
 <blockquote>
 <ul>
-<li><code>pref</code> is used to define which point to be referenced, the full name of <code>pref</code> is <code>Point reference</code>.</li>
-<li>So the <code>vref</code> means <code>Vertex reference</code>.</li>
-<li>Note: The index in Lua starts from 1, not 0. </li>
+<li><code>pref</code> indicates which point the current vertex is referencing. It stands for <code>Point reference</code>.</li>
+<li><code>vref</code> in <code>prim</code> stands for <code>Vertex reference</code>.</li>
+<li>Note: In Lua tables, the first element index is 1, not 0.</li>
 </ul>
 </blockquote>
 <hr>
-<p>Without vertex, the triangle looks like this: </p>
+<p>Without using vertices, the situation turns into the one below:</p>
 <p><img src="polyNoVertexTest.png" alt="NoVertexRes"></p>
 <div><p class="code-filename">NoVertex.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span> pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="extra-shader">Extra shader</h2>
-<p>Yes! You can even write a shader to an obj. </p>
+<h2 id="using-shaders">Using Shaders</h2>
+<p>You can even use shader language within Poly.</p>
 <p><img src="polyVertexFragTest.png" alt="FragColorRes"></p>
 <div><p class="code-filename">FragColor.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>myattribute<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>myattribute<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>myattribute<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>myattribute<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> myattribute <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> myattribute <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> myattribute <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> myattribute <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token punctuation">{</span>
-            type<span class="token operator">=</span><span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>
-            pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            frag<span class="token operator">=</span><span class="token string">[==[
+            type <span class="token operator">=</span> <span class="token string">&quot;triangle&quot;</span><span class="token punctuation">,</span>
+            pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            frag <span class="token operator">=</span> <span class="token string">[==[
                 #define t ]==]</span> <span class="token operator">..</span> <span class="token function">tostring</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">[==[
 
                 void main(){
@@ -1048,32 +1050,32 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 <span class="token function">poly</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
 </code></pre>
-<h2 id="use-texture">Use texture</h2>
+<h2 id="using-textures">Using Textures</h2>
 <blockquote>
 <ul>
-<li>Here is an example of how to use texture. </li>
-<li>The integer that its key name ends up with <code>_tex</code> is treated as a texture id. </li>
-<li>Using an extra shader in a prim can handle more than one texture. </li>
-<li><a href="Texture.html">More information about texture...</a></li>
+<li>The following <code>obj</code> will use the input layer as a texture output to the scene.</li>
+<li>When the key name suffix of an integer property value has <code>_tex</code>, it is considered a texture ID.</li>
+<li>By using custom shaders, multiple textures can be used simultaneously within a single primitive.</li>
+<li><a href="Texture.html">More information about textures</a></li>
 </ul>
 </blockquote>
 <div><p class="code-filename">UVTex.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">background</span><span class="token punctuation">(</span><span class="token number">0.95</span><span class="token punctuation">)</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">dim3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-obj<span class="token operator">=</span><span class="token punctuation">{</span>
-    point<span class="token operator">=</span><span class="token punctuation">{</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>uv<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>uv<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>uv<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>uv<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    point <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> uv <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> uv <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> uv <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> uv <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    prim<span class="token operator">=</span><span class="token punctuation">{</span>
+    prim <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token punctuation">{</span>
-            type<span class="token operator">=</span><span class="token string">&quot;triangler&quot;</span><span class="token punctuation">,</span>
-            pref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            my_tex<span class="token operator">=</span>INPUT<span class="token punctuation">,</span>
+            type <span class="token operator">=</span> <span class="token string">&quot;triangler&quot;</span><span class="token punctuation">,</span>
+            pref <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            my_tex <span class="token operator">=</span> INPUT<span class="token punctuation">,</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
@@ -1113,7 +1115,7 @@ obj<span class="token operator">=</span><span class="token punctuation">{</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Poly function","level":"4.1.9","depth":2,"next":{"title":"Transparency render","level":"4.1.10","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"Physics simulation","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2021-04-05T12:37:11.204Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Poly function","level":"4.1.9","depth":2,"next":{"title":"Transparency render","level":"4.1.10","depth":2,"path":"contents/Lua/TransparencyRender.md","ref":"contents/Lua/TransparencyRender.md","articles":[]},"previous":{"title":"Physics simulation","level":"4.1.8","depth":2,"path":"contents/Lua/Simulation.md","ref":"contents/Lua/Simulation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Poly.md","mtime":"2025-01-01T08:36:15.427Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

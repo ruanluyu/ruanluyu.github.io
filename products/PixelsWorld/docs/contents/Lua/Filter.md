@@ -1,28 +1,26 @@
-# Filter system
+# Filter System
 ---
 
-> Before reading, please make sure you update PixelsWorld to `v3.6.0+`
+> Please ensure you have PixelsWorld `v3.6.0+`
 
-Filter system is a kind of encapsulation of quad shader, it allows you to build post-processing shader fast. 
+The filter system is an encapsulation of rectangle shaders, allowing you to quickly develop post-processing shaders for overall image effects.
 
-By reading this section, you will learn how to use Filter system in PixelsWorld. 
+Through this chapter, you can quickly understand and learn how to use the filter system of `PixelsWorld`.
 
+- [newFilter Create Filter](#create-filter)
+- [runFilter Run Filter](#run-filter)
+- [delFilter Delete Filter](#delete-filter)
+- [setFilterUniform Set Filter Uniforms](#set-filter-uniforms)
+- [setFilterDrawto Set Output Image](#set-output-image)
+- [newFilterModule Create Filter Module](#create-filter-module)
+- [Advanced Application](#advanced-application)
 
-- [newFilter](#create-a-filter)
-- [runFilter](#run-a-filter)
-- [delFilter](#delete-a-filter)
-- [setFilterUniform](#set-uniforms-of-filter)
-- [setFilterDrawto](#set-output-texture)
-- [newFilterModule](#create-a-filter-module)
-- [Advanced application](#advanced-application)
+## Create Filter
 
+Use `newFilter(glslCode)` to create a filter program.
+- Return: A random integer representing the filter program (Filter ID)
 
-## Create a filter
-
-Call `newFilter(glslCode)` to create a filter program. 
-- Return: a random integer that represents the filter. (filterID)
-
-`glslCode` will be inserted into the following context: 
+`glslCode` will be inserted into the following context:
 
 ```c:glslcode_context.glsl
 
@@ -34,7 +32,7 @@ out vec4 outColor;
 ```
 
 ### Example
-> Note: In lua, we use `[[...]]` to quote a multiple-line-string. 
+> Note: In Lua, we use double square brackets `[[...]]` to denote multiline strings
 ```lua:newFilter.lua
 version3()
 filterID = newFilter([[
@@ -44,11 +42,8 @@ filterID = newFilter([[
 ]])
 ```
 
-
-
-## Run a filter
-
-Call `runFilter(filterID)` to run a filter program. 
+## Run Filter
+Use `runFilter(filterID)` to run a filter program.
 
 ### Example
 
@@ -64,11 +59,11 @@ filterID = newFilter([[
 runFilter(filterID)
 ```
 
-## Delete a filter
+## Delete Filter
 
-Call `delFilter(filterID)` to delete a filter. 
+Use `delFilter(filterID)` to delete a filter.
 
-> Normally, you don't have to delete filters. PixelsWorld deletes all filters at the end of every frame automatically. However, it's still a nice habit to delete filters by hand when it's not in used. 
+> Usually, you don't need to delete filters, as PixelsWorld automatically deletes all filters at the end of each frame. However, it's still a good practice to delete a filter when it's no longer needed.
 
 ### Example
 
@@ -82,14 +77,14 @@ filterID = newFilter([[
 delFilter(filterID)
 ```
 
-## Set uniforms of filter
+## Set Filter Uniforms
 
-Call `setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)` to set the value of `uniform` data. 
+Use `setFilterUniform(filterID, uniformType, uniformName, data0, data1, data2, ...)` to set the `uniform` properties you defined in a filter.
 
-- `filterID`: Id of the filter. 
-- `uniformType`: A string that represents the data type. It can be 1d-data (`"int","float","bool"`), vectors (`"vec2","vec3","vec4","ivec2"...`), matrices (`"mat2, mat4x3, ..."`), or texture (`"sampler2D"`)
-- `uniformName`: Name of the data you want to set. 
-- `data0,data1,...`: Float data. (See example)
+- `filterID`: Filter ID, integer.
+- `uniformType`: String representing the variable type. Supports one-dimensional data (`"int","float","bool"`), vectors (`"vec2","vec3","vec4","ivec2"...`), matrices (`"mat2, mat4x3, ..."`), textures (`"sampler2D"`)
+- `uniformName`: Variable name string.
+- `data0,data1,...`: Floating point data. (See example for details)
 
 ### Example
 
@@ -129,27 +124,24 @@ runFilter(filterID)
 
 ```
 
-## Set output texture
+## Set Output Image
 
-Call `setFilterDrawto(filterID, texID)` to specify the output texture the result will be written. About `texID`, see also: [Texture system](Texture.md)
+Use `setFilterDrawto(filterID, texID)` to specify which texture the result of the filter should be placed on. For `texID`, refer to the [Texture System](Texture.md).
 
-> The default Drawto is `OUTPUT`
+> The default output texture is `OUTPUT`.
 
+You can even perform iterative shading on an image.
 
-You can even apply a filter iteratively to a texture. 
+See [Advanced Application](#advanced-application) for details.
 
-See also: [Advanced application](#advanced-application)
+## Create Filter Module
 
+Use `newFilterModule(glslCode)` to create a filter module.
+- Return: A table containing the filter ID and some utility functions.
 
+The purpose of a filter module is to simplify your code.
 
-## Create a filter module
-
-Call `newFilterModule(glslCode)` to create a filter module. 
-- Return: A table contains filterID and some utility functions. 
-
-The main usage of the filter module is to simplify your code. 
-
-Normally, if you don't use the filter module, you should create and apply a filter in this way: 
+If you do not use a filter module, normally you need to write a filter like this:
 
 ```lua:no_module.lua
 
@@ -175,7 +167,7 @@ delFilter(filterID)
 
 ```
 
-Things will be easier if you use the filter module. 
+With a filter module, you can write it like this:
 
 ```lua:no_module.lua
 
@@ -200,15 +192,12 @@ filter.run()
 filter.del()
 
 ```
+## Advanced Application
 
+Below is a code example for channel blur:
 
-
-## Advanced application
-
-Here is a example of the famous channel blur effect. 
-
-- `slider 0`: Blur intensity. 
-- `layer 0`: Blur mask layer. 
+- `slider 0`: Blur intensity
+- `layer 0`: Blur mask
 
 ![channel blur preview](channel-blur-preview.png)
 
@@ -216,12 +205,11 @@ Here is a example of the famous channel blur effect.
 
 version3()
 
--- Create a temp texture
-tempTexID = newTex(width,height)
+-- Create a temporary texture
+tempTexID = newTex(width, height)
 
 -- Copy input to temp texture
 castTex(tempTexID, INPUT)
-
 
 -- Blur code
 blurGLSLCode = [[
@@ -243,7 +231,6 @@ blurGLSLCode = [[
         outColor = res;
     }
 ]]
-
 
 -- Combine code
 combineGLSLCode = [[
@@ -268,7 +255,7 @@ combineGLSLCode = [[
 
 blurFilter = newFilterModule(blurGLSLCode)
 
--- Set the kernel data of 3x3 gaussian blur 
+-- Set the kernel data of 3x3 Gaussian blur 
 -- The data can be found at https://en.wikipedia.org/wiki/Kernel_(image_processing)
 blurFilter.set("mat3", "kernel", 
     1.0/16, 2.0/16, 1.0/16, -- kernel[0][0], kernel[0][1], kernel[0][2]
@@ -283,24 +270,21 @@ blurFilter.set("sampler2D", "in_tex", tempTexID)
 -- Set the temp texture as the Drawto
 blurFilter.drawto(tempTexID)
 
-
 middleResultTex = {}
 for i=1,3 do
-    middleResultTex[i] = newTex(width,height)
+    middleResultTex[i] = newTex(width, height)
 end
 
-
--- blur power
+-- Blur power
 substep = slider(0)
 
 -- Iterate filter 3*substep times
-for i=1,3*substep do
+for i=1, 3*substep do
     blurFilter.run()
     if i % substep == 0 then
         castTex(middleResultTex[i//substep], tempTexID)
     end
 end
-
 
 combineFilter = newFilterModule(combineGLSLCode)
 
@@ -311,11 +295,10 @@ combineFilter.set("sampler2D", "images",
     middleResultTex[3]
     )
 
-combineFilter.set("sampler2D", "masktex",  PARAM0)
+combineFilter.set("sampler2D", "masktex", PARAM0)
 
 combineFilter.drawto(OUTPUT)
 
 combineFilter.run()
-
 
 ```

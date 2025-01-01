@@ -1,16 +1,15 @@
-# Creation origin: Poly function
+# 創世神啓示録——Poly関数
 
-`poly(obj)` analyzes the inputted `obj`, then draws it to the scene. 
+`poly(obj)`関数は、objを解析して物体を描画します。
 
 
+## 使用例
 
-## Usage
+> Houdiniをご使用の方は、`obj`の構造プロセスがHoudiniのスプレッドシートを埋めるのに似ていることを確認できます。
 
-> If you are familiar with `Houdini`, constructing an `obj` is basically to fill a SpreadSheet. 
+以下の例では、特異な三角形の`obj`を構築しています。
 
-Here is an example of constructing an `obj` of an unusual colorful triangle. 
-
-![Res](poly_test1.png)
+![結果](poly_test1.png)
 
 ```lua:PolyTest1.lua
 version3()
@@ -34,77 +33,79 @@ obj={
 poly(obj)
 ```
 
-## Supporting primitives
 
-Assume`pref={1,2,3,4,5,6}`. 
+## サポートするプリミティブと名前
 
-> - `pref` means `point reference`. 
-> - The semicolon (`;`) is the end mark of one primitive drawing. 
+以下に`pref={1,2,3,4,5,6}`を例として説明します。
 
-| type name | Corresponding primitive | Drawing order | full type name |
+> - `pref`は`point reference`の意味で、参照点の番号を指し、プリミティブは送られた番号の順に描画されます。
+> - セミコロン（`;`）は1回のプリミティブ描画の終わりを示します。
+
+| 標準名称(type name) | 対応するプリミティブ | 描画順序 | 全称 |
 |---|---|---|---|
-|points|Points|`1;2;3;4;5;6;`|points|
-|pointd|2d point|`1;2;3;4;5;6;`|point disc|
-|pointb|3d point|`1;2;3;4;5;6;`|point ball|
-|line|Single line|`123456;`|single line|
-|linef|Single 2d line|`123456;`|line flat|
-|linec|Single 3d line|`123456;`|line capsule|
-|linel|Loop line|`1234561;`|line loop|
-|linelf|Loop 2d line|`1234561;`|line loop flat|
-|linelc|Loop 3d line|`1234561;`|line loop capsule|
-|lines|Lines|`12;34;56;`|lines|
-|linesf|2d lines|`12;34;56;`|lines flat|
-|linesc|3d lines|`12;34;56;`|lines capsule|
-|triangles|Triangle meshes|`123;456;`|triangles|
-|triangleb|Bridge structure triangle meshes|`123;324;345;546;`|triangle bridge|
-|triangler|Radial structure triangle meshes|`123;134;145;156;`|triangle radial|
+|points|点|`1;2;3;4;5;6;`|points|
+|pointd|平面点|`1;2;3;4;5;6;`|point disc|
+|pointb|球点|`1;2;3;4;5;6;`|point ball|
+|line|1本の線|`123456;`|single line|
+|linef|平面線|`123456;`|line flat|
+|linec|立体線|`123456;`|line capsule|
+|linel|ループ線|`1234561;`|line loop|
+|linelf|ループ平面線|`1234561;`|line loop flat|
+|linelc|ループ立体線|`1234561;`|line loop capsule|
+|lines|複数本の線|`12;34;56;`|lines|
+|linesf|複数本の平面線|`12;34;56;`|lines flat|
+|linesc|複数本の立体線|`12;34;56;`|lines capsule|
+|triangles|三角面|`123;456;`|triangles|
+|triangleb|橋状三角面|`123;324;345;546;`|triangle bridge|
+|triangler|放射状三角面|`123;134;145;156;`|triangle radial|
 
 
 
-## The structure of obj
 
-The obj structure is defined by the following steps: 
+## objの構築
 
-- `obj` is a table. 
-- `obj` contains 4 keys: `point`,`vertex`,`prim`,`detail`. 
-- The 4 keys in `obj` have their value called `pointArray`, `vertexArray`, `primArray`, `detailList`. 
-- `pointArray` is required. 
-- `vertexArray` is optional. 
-- `primArray` is required. 
-- `detailList` is optional. 
-- The above-mentioned value names that are `Array` suffixed holds N sub-tables, where N can be defined by users. 
-- The kth sub-table of `pointArray` is called `point[k]` or `"The kth point"`. 
-- The kth sub-table of `vertexArray` is called `vertex[k]` or `"The kth child-point"`.
-- The kth sub-table of `primArray` is called `prim[k]` or `"The kth primitive"`. 
-- The `detailList` and `Points, child-points, primitives`, have some non-subdividable units：the Key-value pairs. We call these keys `K`, and values `V`.
-- `K` should only contain alphabets, numbers, and underlines. And `K` shouldn't be all numbers. 
-- `V` has 7 types: `1D`, `2D`, `3D`, `4D`, string, `texture id` and `index serial`. 
-- For all double floating numbers `x,y,z,w`
-- `x` or `{x}` is `1D V`.
-- `{x,y}` is `2D V`.
-- `{x,y,z}` is `3D V`.
-- `{x,y,z,w}` is `4D V`.
-- `"Hello! PixelsWorld!"` is `string V`.
-- When (`K` ends up with `"_tex"`) and (`V` is an integer and the corresponding texture exists), it is `texture id V`.
-- For integer serial `a1,...,an`,`{a1,a2,a3,...,an}` is `index serial V`.
-- For all `point[k]`, there must be a `K` named `"p"` to represents the location, or it is an invalid point.
-- For all `vertex[k]`, there must be a `K` named `"pref"` and its `V` is an integer to represent the reference point id, or it is an invalid child-point.
-- For all `prim[k]`, there must be a `K` named `"type"` and its `V` is `string` to represents the type of the primitive. And there also must be a `K` named `"vref"`or `"pref"` and its `V` is `index serial` to represent the order of points drawing.
+ここでは、以下の順序でobjの詳細を定義します。
 
-## Override priority
+- `obj`はテーブルです。
+- `obj`は4つのキー：`point`、`vertex`、`prim`、`detail`を持つことができます。
+- `obj`の4つのキーに対応する値は、それぞれ４つのテーブルです。これを`pointArray`、`vertexArray`、`primArray`、`detailList`と呼びます。
+- `pointArray`は存在する必要があります。
+- `vertexArray`はオプションです。
+- `primArray`は存在する必要があります。
+- `detailList`はオプションです。
+- 上述した`Array`のサフィックスが付くテーブルはN個のサブテーブルを含むことができ、Nのサイズは自由に定義できます。
+- `pointArray`の第k個のサブテーブルは`point[k]`あるいは“第kの点”と呼ぶことができます。
+- `vertexArray`の第k個のサブテーブルは`vertex[k]`あるいは“第kのサブ点”と呼びます。
+- `primArray`の第k個のサブテーブルは`prim[k]`あるいは“第kのプリミティブ”と呼びます。
+- `detailList`及び、上述の点、サブ点、プリミティブには、それ以上細分可能でないユニット、すなわちキーと値のペアが含まれます。これらのキーを一時的に`K`、値を`V`と呼びます。
+- `K`は英数字とアンダースコアのみを含むことをお勧めし、純数字でないことをお勧めします。
+- `V`には一次元、二次元、三次元、四次元、文字列、テクスチャID、及びインデックス集合の7種類があります。
+- 任意の浮動小数点数`x,y,z,w`について
+- `x`または`{x}`は一次元`V`と呼びます。
+- `{x,y}`は二次元`V`と呼びます。
+- `{x,y,z}`は三次元`V`と呼びます。
+- `{x,y,z,w}`は四次元`V`と呼びます。
+- `"Hello! PixelsWorld!"`は文字列`V`として呼びます。
+- (`K`の末尾4文字`"_tex"`)かつ(`V`が整数で対応テクスチャが存在する)場合、これはテクスチャID`V`として呼びます。
+- 整数列`a1,...,an`の場合、`{a1,a2,a3,...,an}`をインデックス集合`V`として呼びます。
+- 各点`point[k]`について、点の位置を表す`K`として`"p"`が存在する必要があります。そうでなければ無効な点と見なされます。
+- 各サブ点`vertex[k]`について、参照点IDを表す`K`として`"pref"`が存在し、一次元`V`を持つ必要があります。そうでなければ無効なサブ点と見なされます。
+- 各プリミティブ`prim[k]`について、プリミティブの種類を表すために`"type"`という`K`と文字列`V`が存在する必要があり、同時にプリミティブの描画点順序を表すために`"vref"`または`"pref"`の`K`とインデックス集合`V`が存在する必要があります。
 
-For same `K`, the following override priority is defined: 
+## オーバーライド優先順位
 
-> Same with `Houdini`. 
+同じ名前の`K`に対し、次のようなオーバーライド優先順位を定義します：
+
+> `Houdini`と同様
 
 1. vertex
 2. point
 3. prim
 4. detail
 
-Example: 
+使用例：
 
-The following `obj`'s `prim` contains a color attribute (Red), So we will get a red triangle. 
+以下の`obj`の`prim`には色情報（赤色）が含まれているため、最終的に赤色のみの三角形が生成されます。
 
 ![PrimColor](polyPrimColor.png)
 
@@ -128,7 +129,7 @@ poly(obj)
 
 ---
 
-This time, both `prim` and `point` contain `color`, and because the priority of `point` is higher, so the color attribute in `point` will be used, then we will get a colorful triangle. 
+一方、こちらの`obj`では`prim`と`point`の両方に`color`があるため、`point`がより高い優先順位を持ち、最終的にカラフルな三角形が描画されます。
 
 ![PointColor](polyPointColor.png)
 ```lua:PointColor.lua
@@ -149,9 +150,9 @@ obj={
 poly(obj)
 ```
 
-## Usage of vertex
+## Vertexの使用方法
 
-Vertex (child-point) inherits all attributes from `point`.
+Vertex（サブ点）はPoint（点）の情報を継承できます。
 
 ![Vertex](polyVertexTest.png)
 
@@ -182,13 +183,13 @@ obj={
 poly(obj)
 ```
 
-> - `pref` is used to define which point to be referenced, the full name of `pref` is `Point reference`.
-> - So the `vref` means `Vertex reference`.
-> - Note: The index in Lua starts from 1, not 0. 
+> - `pref`は現在のvertexがどのpointを参照しているかを指し示します。`pref`は`Point reference`の省略形です。
+> - `prim`内の`vref`は`Vertex reference`の省略形です。
+> - 注意：Luaのテーブルでは、最初の要素の番号は0ではなく1です。
 
 ---
 
-Without vertex, the triangle looks like this: 
+Vertexを使用しない場合は、このようになります：
 
 ![NoVertexRes](polyNoVertexTest.png)
 
@@ -212,9 +213,9 @@ poly(obj)
 ```
 
 
-## Extra shader
+## シェーダーの付属
 
-Yes! You can even write a shader to an obj. 
+Polyの中でシェーダー言語を使用することも可能です。
 
 ![FragColorRes](polyVertexFragTest.png)
 
@@ -246,14 +247,12 @@ obj={
 }
 poly(obj)
 ```
+## テクスチャの使用
 
-## Use texture
-
-> - Here is an example of how to use texture. 
-> - The integer that its key name ends up with `_tex` is treated as a texture id. 
-> - Using an extra shader in a prim can handle more than one texture. 
-> - [More information about texture...](./Texture.md)
-
+> - 下記のobjは、入力レイヤーをテクスチャとして使用し、シーンに出力します。
+> - ある整数属性値のキー名に`_tex`が付いている場合、その属性はテクスチャIDとして扱われます。
+> - カスタムシェーダーを使用することで、1つのprimで複数のテクスチャを使用することが可能です。
+> - [テクスチャに関する詳細情報](./Texture.md)
 
 ```lua:UVTex.lua
 version3()

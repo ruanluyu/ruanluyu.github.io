@@ -1,68 +1,68 @@
-# Globals
+# グローバル変数
 
 ## グローバル定数
 
-PixelsWorldのグローバル定数は次のように定義されています。
+PixelsWorldはユーザーが使用できる以下のグローバル定数を提供しています：
 
 ```lua:const.lua
-PI  -- 円周率
-TPI -- 円周率二倍
-HPI -- 円周率半分
-QPI -- 円周率四分の一
-E   -- 自然数
-PHI -- 黄金比
-R2  -- ルート２
-R3  -- ルート３
-R5  -- ルート５
-R7  -- ルート７
-INPUT -- インプットテクスチャID -1
-TEMP -- 一時のテクスチャID -2
-OUTPUT -- アウトプットテクスチャID -3
-PARAM0 -- レイヤパラメーターテクスチャ 0
-PARAM1 -- レイヤパラメーターテクスチャ 1
-PARAM2 -- レイヤパラメーターテクスチャ 2
-PARAM3 -- レイヤパラメーターテクスチャ 3
-PARAM4 -- レイヤパラメーターテクスチャ 4
-PARAM5 -- レイヤパラメーターテクスチャ 5
-PARAM6 -- レイヤパラメーターテクスチャ 6
-PARAM7 -- レイヤパラメーターテクスチャ 7
-PARAM8 -- レイヤパラメーターテクスチャ 8
-PARAM9 -- レイヤパラメーターテクスチャ 9
-platform -- Windows == 0, ほかのプラットホームはまだ無し 
-host -- Ae == 0, ほかのホストはまだ無し
+PI  -- 円周率 pi
+TPI -- 二倍円周率 two pi
+HPI -- 円周率の半分 half pi
+QPI -- 円周率の四分の一 quarter pi
+E   -- 自然数 e
+PHI -- 黄金分割数 phi
+R2  -- ルート2 root 2
+R3  -- ルート3 root 3
+R5  -- ルート5 root 5
+R7  -- ルート7 root 7
+INPUT -- 入力マテリアル番号 -1
+TEMP -- キャッシュマテリアル番号 -2
+OUTPUT -- 出力マテリアル番号 -3
+PARAM0 -- 第0層マテリアル 0
+PARAM1 -- 第1層マテリアル 1
+PARAM2 -- 第2層マテリアル 2
+PARAM3 -- 第3層マテリアル 3
+PARAM4 -- 第4層マテリアル 4
+PARAM5 -- 第5層マテリアル 5
+PARAM6 -- 第6層マテリアル 6
+PARAM7 -- 第7層マテリアル 7
+PARAM8 -- 第8層マテリアル 8
+PARAM9 -- 第9層マテリアル 9
+platform -- プラットフォーム：Windows10: 0 他のプラットフォームは現在サポートされていません
+host -- ホストプログラム：Ae: 0 現在他のホストはサポートされていません
 ```
 
 ## グローバル変数
 
-グローバル変数は次のように定義されています。
+PixelsWorldは以下のいくつかのAeで取得された変数をユーザーに提供しています：
 
-> Variables marked with `[cached]` means re-render will not be triggered unless you purge the memory. 
+> `[cached]`とマークされたものはメモリがクリアされない限り再レンダリングを引き起こさないグローバル変数です。
 
 ```lua:globalvars.lua
-depth -- Dpc: 8,16,32
-width -- 画像の幅
-height -- 画像の縦
-time -- レイヤーの時間
-duration -- レイヤーの長さ [cached]
-inpoint -- レイヤーのインポイント [cached]
-compTime -- Compの時間(s)
-pluginFolder -- プラグインのフォルダー(utf8)
-projectName -- プロジェクトの名前(utf8)
-projectPath -- プロジェクトファイルのパス(utf8)
-projectFolder -- プロジェクトファイルのフォルダー位置(utf8)
-ds_width -- ダウンサンプリング時の画像の幅
-ds_height -- ダウンサンプリング時の画像の縦
-origin_x -- 入力画像の左上の原点のレイヤー座標系における相対X座標．
-origin_y -- 入力画像の左上の原点のレイヤー座標系における相対Y座標．
-layerName -- レイヤーの名前 (v3.6.4+) [cached]
-layerSourceName -- ソースの名前 (v3.6.4+) [cached]
-compName -- Compの名前 (v3.6.4+) [cached]
+depth -- カラーデプス，8，16，32
+width -- 入力レイヤーの幅
+height -- 入力レイヤーの高さ
+time -- 現在の時間(s)
+duration -- 所在レイヤーの持続時間(s) [cached]
+inpoint -- 所在レイヤーのインポイント時間(s) [cached]
+compTime -- 合成時間(s)
+pluginFolder -- プラグイン所在ディレクトリ(utf8)
+projectName -- プロジェクト名(utf8)
+projectPath -- プロジェクトパス(utf8)
+projectFolder -- プロジェクト所在フォルダのパス(utf8)
+ds_width -- ダウンサンプル後の合成幅
+ds_height -- ダウンサンプル後の合成高
+origin_x -- 入力レイヤーの左上がレイヤー座標系のX座標
+origin_y -- 入力レイヤーの左上がレイヤー座標系のY座標
+layerName -- 現在のレイヤーのレイヤー名，レイヤー名が設定されていない場合は空 (v3.6.4+) [cached]
+layerSourceName -- 現在のレイヤーのソース名、通常は空でない (v3.6.4+) [cached]
+compName -- 現在の合成名 (v3.6.4+) [cached]
 fps -- フレームレート
 ```
 
-## グローバル変数を全部プリント
+## グローバル変数の印刷
 
-次のコードを用いてグローバル変数をシーンにプリントします。
+以下のコードをLuaモードで実行してグローバル変数（グローバル関数を含む）を印刷します。
 
 ```lua:printGlobals.lua
 version3()

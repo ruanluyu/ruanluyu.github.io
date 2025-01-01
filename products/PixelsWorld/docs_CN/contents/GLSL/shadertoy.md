@@ -25,6 +25,8 @@ Shadertoy自带4个Buffers，在PixelsWorld中也可以实现Buffers。
 
 ### 非循环式Buffers
 
+![luaMode](../Lua/LuaMode.png)
+
 如果你使用的特效没有循环Buffers之间的循环调用（如上图的下半部分）。那么你的特效中的Buffers属于非循环式Buffers。你可以用如下代码模板调用它们（注意：需要切换到Lua模式）。 
 
 例如来自：https://www.shadertoy.com/view/4dVGRW 的代码：

@@ -741,35 +741,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="texture-system">Texture system</h1>
+                                <h1 id="texture-system">Texture System</h1>
 <hr>
 <blockquote>
-<p>Make sure your PixelsWorld version is <code>v3.3.0+</code></p>
+<p>Ensure you have <code>v3.3.0+</code> of PixelsWorld</p>
 </blockquote>
-<p>This section gives a detailed introduction of Texture system in PixelsWorld. </p>
- <!-- no toc -->
+<p>Through this chapter, you can quickly understand and learn how to use the texture system in <code>PixelsWorld</code>.</p>
 <ul>
 <li><a href="#create-texture">newTex</a></li>
 <li><a href="#delete-texture">delTex</a></li>
-<li><a href="#size-of-texture">getSize</a></li>
+<li><a href="#get-size">getSize</a></li>
 <li><a href="#swap-textures">swapTex</a></li>
-<li><a href="#set-drawto">drawTo</a></li>
+<li><a href="#set-draw-texture">drawTo</a></li>
 <li><a href="#cast-texture">castTex</a></li>
 <li><a href="#blend-textures">blendTex</a></li>
 <li><a href="#copy-texture">copyTex</a></li>
-<li><a href="#fetch-texture-at-any-time">fetchTex</a></li>
-<li><a href="#texture-io">savePNG,loadPNG,saveEXR,loadEXR,saveRAW,loadRAW</a></li>
-<li><a href="#edit-texture">rotateTex,flipTex,resizeTex,trimTex</a></li>
+<li><a href="#fetch-any-time-layer-pixel">fetchTex</a></li>
+<li><a href="#read-and-save-textures">savePNG, loadPNG, saveEXR, loadEXR, saveRAW, loadRAW</a></li>
+<li><a href="#adjust-texture">rotateTex, flipTex, resizeTex, trimTex</a></li>
 </ul>
-<h2 id="texture-id">Texture id</h2>
-<p>In PixelsWorld, every texture is represented as an integer. It is called <code>texId</code>. The basic texIds provided by PixelsWorld are as followed. </p>
+<h2 id="texture-id">Texture ID</h2>
+<p>In <code>PixelsWorld</code>, textures are represented by an integer (texture ID). The basic texture IDs provided by <code>PixelsWorld</code> are as follows:</p>
 <table>
 <thead>
 <tr>
-<th>texId</th>
-<th>Globals in Lua</th>
-<th>Globals in GLSL</th>
-<th>Globals Shadertoy</th>
+<th>Texture ID</th>
+<th>Lua Mode Global Constant</th>
+<th>GLSL Mode Global Constant</th>
+<th>Shadertoy Mode Global Constant</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -777,8 +776,8 @@
 <tr>
 <td><code>-3</code></td>
 <td><code>OUTPUT</code></td>
-<td>Inaccessible</td>
-<td>Inaccessible</td>
+<td>Not accessible</td>
+<td>Not accessible</td>
 <td>Output texture</td>
 </tr>
 <tr>
@@ -786,7 +785,7 @@
 <td><code>TEMP</code></td>
 <td><code>PW_TEMP_LAYER</code></td>
 <td><code>_PixelsWorld_PW_TEMP_LAYER</code></td>
-<td>Cache texture</td>
+<td>Temporary texture</td>
 </tr>
 <tr>
 <td><code>-1</code></td>
@@ -800,14 +799,14 @@
 <td><code>PARAM0</code></td>
 <td><code>0</code></td>
 <td><code>0</code></td>
-<td>Layer parameter 0 texture</td>
+<td>Parameter layer 0</td>
 </tr>
 <tr>
 <td><code>1</code></td>
 <td><code>PARAM1</code></td>
 <td><code>1</code></td>
 <td><code>1</code></td>
-<td>Layer parameter 1 texture</td>
+<td>Parameter layer 1</td>
 </tr>
 <tr>
 <td><code>...</code></td>
@@ -821,27 +820,27 @@
 <td><code>PARAM9</code></td>
 <td><code>9</code></td>
 <td><code>9</code></td>
-<td>Layer parameter 9 texture</td>
+<td>Parameter layer 9</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>You can also create your texId. The method will be covered below. </p>
+<p>You can also create your own texture ID, the method is explained later.</p>
 </blockquote>
-<h2 id="how-they-work">How they work</h2>
-<p>Normally, Ae sends a picture to PixelsWorld to process. PixelsWorld loads it to the <code>INPUT</code> texId, writes the result to <code>OUTPUT</code> texId. Finally blits all pixels to Ae. </p>
-<h2 id="what-is-temp-texid">What is TEMP texId</h2>
-<p>Because <code>OpenGL</code> doesn&apos;t support read and write to the same texture at the same time. PixelsWorld provides TEMP texId to hold the last shading results (Means the TEMP texId only makes sense in Lua mode and you called glsl function twice or more). You can use <code>getColor(PW_TEMP_LAYER,uv);</code> in glsl code to sample colors in TEMP texId. </p>
+<h2 id="basic-process">Basic Process</h2>
+<p>Usually, <code>Ae</code> sends an image to <code>PixelsWorld</code>, which first places the image in <code>INPUT</code>. After computation, the result is placed in the <code>OUTPUT</code> texture. Once all instructions are done, the <code>OUTPUT</code> texture is sent back to Ae as the result.</p>
+<h2 id="role-of-temp">Role of TEMP</h2>
+<p>Since <code>OpenGL</code> does not support reading and writing the same texture simultaneously, <code>PixelsWorld</code> provides <code>TEMP</code> to store the results drawn by functions such as <a href="FuncList.html#glsl">glsl</a>, <a href="FuncList.html#shadertoy">shadertoy</a>, etc. You can use <code>getColor(PW_TEMP_LAYER, uv);</code> to sample the color of <code>TEMP</code> in shaders.</p>
 <hr>
-<h2 id="create-texture">Create texture</h2>
-<p>Use <code>newTex(width,height)</code> to create a texture. Returns a texId. (a random integer)</p>
-<h2 id="delete-texture">Delete texture</h2>
-<p>Use <code>delTex(id)</code> to delete a texture. </p>
+<h2 id="create-texture">Create Texture</h2>
+<p>Use <code>newTex(width, height)</code> to create a texture, which returns a texture ID (a random integer value).</p>
+<h2 id="delete-texture">Delete Texture</h2>
+<p>Use <code>delTex(id)</code> to delete a specified texture.</p>
 <blockquote>
-<p>In most cases, you don&apos;t have to delete texture by yourself. PixelsWorld will release all texture memory at the end of each frame. </p>
+<p>Usually, you don&#x2019;t need to delete textures manually; PixelsWorld will delete all textures at the end of each frame. However, it&apos;s a good habit to free up video memory when a texture is no longer needed.</p>
 </blockquote>
-<h2 id="size-of-texture">Size of texture</h2>
-<p>Use <code>getSize(id)</code> to get the size of a texture. </p>
+<h2 id="get-size">Get Size</h2>
+<p>Use <code>getSize(id)</code> to get the dimensions of a texture.</p>
 <div><p class="code-filename">getSize.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 mytex <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">)</span>
@@ -850,59 +849,59 @@ w<span class="token punctuation">,</span>h <span class="token operator">=</span>
 <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Height of mytex is: &quot;</span> <span class="token operator">..</span> h<span class="token punctuation">)</span>
 </code></pre>
 <p><img src="getSizeRes.png" alt="getSizeRes"></p>
-<h2 id="swap-textures">Swap textures</h2>
-<p>Use <code>swapTex(id1,id2)</code> to swap the pixels data of <code>id1</code> and <code>id2</code>. </p>
+<h2 id="swap-textures">Swap Textures</h2>
+<p>Use <code>swapTex(id1, id2)</code> to swap the textures represented by <code>id1</code> and <code>id2</code>.</p>
 <div><p class="code-filename">swapTex.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 tex1 <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span>
 tex2 <span class="token operator">=</span> <span class="token function">newTex</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">)</span>
-w<span class="token punctuation">,</span>h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span><span class="token operator">..</span> h<span class="token punctuation">)</span>
-<span class="token function">swapTex</span><span class="token punctuation">(</span>tex1<span class="token punctuation">,</span>tex2<span class="token punctuation">)</span>
-w<span class="token punctuation">,</span>h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
-<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size after swapped: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span><span class="token operator">..</span> h<span class="token punctuation">)</span>
+w<span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> h<span class="token punctuation">)</span>
+<span class="token function">swapTex</span><span class="token punctuation">(</span>tex1<span class="token punctuation">,</span> tex2<span class="token punctuation">)</span>
+w<span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token function">getSize</span><span class="token punctuation">(</span>tex1<span class="token punctuation">)</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;tex1 size after swapped: &quot;</span> <span class="token operator">..</span> w <span class="token operator">..</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">..</span> h<span class="token punctuation">)</span>
 </code></pre>
 <p><img src="swapTexRes.png" alt="swapTex"></p>
-<h2 id="set-drawto">Set drawTo</h2>
-<p>Use <code>drawTo(id)</code> to set the texture the objs would be drawn. The default drawTo texId is <code>OUTPUT</code>. Note that PixelsWorld only blits pixels in <code>OUTPUT</code> to Ae, no matter what the drawTo texId is. Here are 3 approaches you can send pixels in other texId to <code>OUTPUT</code>:  </p>
+<h2 id="set-draw-texture">Set Draw Texture</h2>
+<p>Use <code>drawTo(id)</code> to change the draw texture. The default draw texture is <code>OUTPUT</code>. Note: PixelsWorld will ultimately use <code>OUTPUT</code> as the result to send to Ae. The following three methods can send results to <code>OUTPUT</code> from other textures:</p>
 <ol>
-<li><code>drawTo(OUTPUT)</code>+<a href="FuncList.html#image"><code>image</code></a></li>
+<li><code>drawTo(OUTPUT)</code> + <a href="FuncList.html#image"><code>image</code></a></li>
 <li><a href="#cast-texture"><code>castTex</code></a></li>
 <li><a href="#swap-textures"><code>swapTex</code></a></li>
 </ol>
-<h2 id="cast-texture">Cast texture</h2>
-<p>Use <code>castTex(toTexId,fromTexId)</code> to cast pixels data from <code>fromTexId</code> to <code>toTexId</code>. E.g. You can cast pixels in <code>PARAM0</code> to <code>OUTPUT</code>. </p>
+<h2 id="cast-texture">Cast Texture</h2>
+<p>Use <code>castTex(toTexId, fromTexId)</code> to project pixels from <code>fromTexId</code> to <code>toTexId</code>. For example, you can project parameter layer 0 <code>PARAM0</code> to the output texture <code>OUTPUT</code>:</p>
 <div><p class="code-filename">castTex.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>PARAM0<span class="token punctuation">)</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span> PARAM0<span class="token punctuation">)</span>
 </code></pre>
-<p>You can also specify the cast range. (The origin is left top corner)</p>
+<p>You can also specify the range of the cast texture (with the texture&apos;s top-left corner as the origin):</p>
 <ul>
-<li><code>castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y)</code></li>
-<li><code>castTex(toTexId,fromTexId,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)</code></li>
+<li><code>castTex(toTexId, fromTexId, to1x, to1y, to2x, to2y)</code></li>
+<li><code>castTex(toTexId, fromTexId, to1x, to1y, to2x, to2y, from1x, from1y, from2x, from2y)</code></li>
 </ul>
 <blockquote>
-<p>Cast all pixels by default. </p>
+<p>Default is to use the entire texture when the range is omitted.</p>
 </blockquote>
 <p><img src="castTexCoord.png" alt="CastTexCoord"></p>
-<h2 id="blend-textures">Blend textures</h2>
-<p>Use <code>blendTex(toTexId,fromTexId,blendRule)</code> to blend <code>fromTex</code> to <code>toTex</code> by rule <code>blendRule</code></p>
+<h2 id="blend-textures">Blend Textures</h2>
+<p>Use <code>blendTex(toTexId, fromTexId, blendRule)</code> to use blending rule <code>blendRule</code> to paste texture <code>fromTex</code> onto texture <code>toTex</code>.</p>
 <ol>
-<li><code>blendRule</code> can be one of <code>NORMAL,ADD,SUBTRACT,MULTIPLY,DIVIDE,MAX,MIN</code>. </li>
-<li><code>blendRule</code> can be blend rule(string).<ul>
-<li><code>A</code> menas input pixels of <code>toTexId</code></li>
-<li><code>B</code> means input pixels of <code>fromTexId</code></li>
-<li><code>C</code> means output pixels of <code>toTexId</code>
-E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</code>. </li>
+<li><code>blendRule</code> can be any of <code>NORMAL, ADD, SUBTRACT, MULTIPLY, DIVIDE, MAX, MIN</code>.</li>
+<li><code>blendRule</code> can also be a string, with rules as follows:<ul>
+<li><code>A</code> represents pixels from <code>toTexId</code></li>
+<li><code>B</code> represents pixels from <code>fromTexId</code></li>
+<li><code>C</code> represents output pixels to <code>toTexId</code></li>
 </ul>
 </li>
 </ol>
+<p>For example, you can use the following code to blend the image from the input texture with parameter layer 0 using addition:</p>
 <div><p class="code-filename">blendRule.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>INPUT<span class="token punctuation">)</span> <span class="token comment">-- Cast INPUT texture to OUTPUT firstly. </span>
-<span class="token function">blendTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>PARAM0<span class="token punctuation">,</span><span class="token string">&quot;C=A+B&quot;</span><span class="token punctuation">)</span> <span class="token comment">-- Blend PARAM0 to OUTPUT.</span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span> INPUT<span class="token punctuation">)</span> <span class="token comment">-- Cast INPUT texture to OUTPUT firstly. </span>
+<span class="token function">blendTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span> PARAM0<span class="token punctuation">,</span> <span class="token string">&quot;C=A+B&quot;</span><span class="token punctuation">)</span> <span class="token comment">-- Blend PARAM0 to OUTPUT.</span>
 </code></pre>
-<p>Indeed, the <code>&quot;C=A+B&quot;</code> will be processed to the following code inside PixelsWorld. </p>
+<p>Internally, this string is translated into GLSL code. The <code>&quot;C=A+B&quot;</code> translates into the following GLSL code:</p>
 <div><p class="code-filename">blendRuleGLSL.frag</p></div>
 <pre class="language-"><code class="lang-glsl"><span class="token preprocessor builtin">#version</span> <span class="token number">330</span> core
 <span class="token keyword">out</span> <span class="token keyword">vec4</span> outColor<span class="token punctuation">;</span>
@@ -911,46 +910,46 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
 <span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayerA<span class="token punctuation">;</span>
 <span class="token keyword">uniform</span> <span class="token keyword">sampler2D</span> inLayerB<span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">vec4</span> A <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerA<span class="token punctuation">,</span>uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">vec4</span> B <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerB<span class="token punctuation">,</span>uv2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">vec4</span> A <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerA<span class="token punctuation">,</span> uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">vec4</span> B <span class="token operator">=</span> <span class="token function">texture</span><span class="token punctuation">(</span>inLayerB<span class="token punctuation">,</span> uv2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">vec4</span> C <span class="token operator">=</span> A<span class="token punctuation">;</span>
     C<span class="token operator">=</span>A<span class="token operator">+</span>B <span class="token comment">// Your blend rule is combined here. </span>
     <span class="token punctuation">;</span>
     outColor <span class="token operator">=</span> C<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Same with <code>castTex</code>, <code>blendTex</code> also supports range specifying: </p>
+<p>Like <code>castTex</code>, <code>blendTex</code> also supports specifying the texture range for blending:</p>
 <ul>
-<li><code>blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y)</code></li>
-<li><code>blendTex(toTexId,fromTexId,blendRule,to1x,to1y,to2x,to2y,from1x,from1y,from2x,from2y)</code></li>
+<li><code>blendTex(toTexId, fromTexId, blendRule, to1x, to1y, to2x, to2y)</code></li>
+<li><code>blendTex(toTexId, fromTexId, blendRule, to1x, to1y, to2x, to2y, from1x, from1y, from2x, from2y)</code></li>
 </ul>
 <p><img src="castTexCoord.png" alt="CastTexCoord"></p>
-<h2 id="copy-texture">Copy texture</h2>
-<p>Use <code>copyTex(refTexId)</code> to copy texture. Returns new texId. </p>
-<h2 id="fetch-texture-at-any-time">Fetch texture at any time</h2>
-<p>Use <code>fetchTex(layerId, time)</code> to obtain the specified layer pixels at the specified time. It returns a random texture ID.</p>
+<h2 id="copy-texture">Copy Texture</h2>
+<p>Use <code>copyTex(refTexId)</code> to copy a texture and return the newly copied texture.</p>
+<h2 id="fetch-any-time-layer-pixel">Fetch Any Time Layer Pixel</h2>
+<p>Use <code>fetchTex(layerId, time)</code> to get the image at a specific time from a specified layer, returning the captured texture ID.</p>
 <ul>
-<li>layerId: Only <code>PARAM0~PARAM9</code> are accepted. </li>
-<li>time: The double layer time in seconds. </li>
+<li>layerId: Only <code>PARAM0~PARAM9</code> can be input.</li>
+<li>time: Layer time (floating point number, in seconds)</li>
 </ul>
 <blockquote>
 <ul>
-<li>Note: Use of this function would cause wrong caching. Please purge the chache while you are using this function. </li>
-<li>New in <code>v3.4.3+</code>. </li>
+<li>Note: Using this function may cause Ae&#x2019;s cache errors; please clear the cache regularly.</li>
+<li>Function added in <code>v3.4.3+</code>.</li>
 </ul>
 </blockquote>
-<h2 id="texture-io">Texture IO</h2>
-<p>Use <code>savePNG(utf8Path,texId)</code>,<code>loadPNG(utf8Path)</code> to save or load PNG image. </p>
-<p>Use <code>saveEXR(utf8Path,texId)</code>,<code>loadEXR(utf8Path)</code> to save or load EXR image. </p>
-<p>Use <code>saveRAW(utf8Path,texId)</code>,<code>loadRAW(utf8Path)</code> to save or load MiLai original raw memory image. </p>
-<p>Supported image specifications are listed below. </p>
+<h2 id="read-and-save-textures">Read and Save Textures</h2>
+<p>Use <code>savePNG(utf8Path, texId)</code>, <code>loadPNG(utf8Path)</code> to save and read PNG images.</p>
+<p>Use <code>saveEXR(utf8Path, texId)</code>, <code>loadEXR(utf8Path)</code> to save and read EXR images.</p>
+<p>Use <code>saveRAW(utf8Path, texId)</code>, <code>loadRAW(utf8Path)</code> to save and read MiLai&#x2019;s original uncompressed memory images.</p>
+<p>Here are the image specifications supported by PixelsWorld:</p>
 <table>
 <thead>
 <tr>
 <th>Format</th>
-<th>Library</th>
-<th>Supported compression algorithms</th>
-<th>Color format</th>
+<th>Library Used</th>
+<th>Supported Compression Method</th>
+<th>Image Color Specification</th>
 </tr>
 </thead>
 <tbody>
@@ -958,52 +957,52 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
 <td>PNG</td>
 <td><a href="https://github.com/RandyGaul/cute_headers" target="_blank">cute_headers</a></td>
 <td>DEFLATE compliant decompressor zlib(RFC 1950)</td>
-<td>RGBA,clamped 8bit unsigned integer per channel.</td>
+<td>RGBA, clamped 8bit unsigned integer per channel.</td>
 </tr>
 <tr>
 <td>EXR</td>
 <td><a href="https://github.com/syoyo/tinyexr" target="_blank">tinyexr</a></td>
-<td>NONE,RLE,ZIP,ZIPS,PIZ,ZFP</td>
-<td>RGBA,HDR 32bit floating point per channel.</td>
+<td>NONE, RLE, ZIP, ZIPS, PIZ, ZFP</td>
+<td>RGBA, HDR 32bit floating point per channel.</td>
 </tr>
 <tr>
 <td>RAW</td>
 <td>(None)</td>
 <td>MiLai original format. (See figure below)</td>
-<td>RGBA, HDR 32bit floating-point per channel.</td>
+<td>RGBA, HDR 32bit floating point per channel.</td>
 </tr>
 </tbody>
 </table>
 <p><img src="milaiBinaryDef.png" alt="MiLaiRAWDef"></p>
-<p>Load PNG image to scene: </p>
+<p>Read a PNG image into the scene:</p>
 <div><p class="code-filename">loadPNG.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">local</span> mypng <span class="token operator">=</span> <span class="token function">loadPNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace to your path. </span>
-<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span>mypng<span class="token punctuation">)</span> <span class="token comment">-- Cast pixels from mypng to OUTPUT.</span>
+<span class="token keyword">local</span> mypng <span class="token operator">=</span> <span class="token function">loadPNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">)</span> <span class="token comment">-- Replace with your path. </span>
+<span class="token function">castTex</span><span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span> mypng<span class="token punctuation">)</span> <span class="token comment">-- Cast pixels from mypng to OUTPUT.</span>
 </code></pre>
-<p>Save <code>OUTPUT</code> texId to local: </p>
+<p>Save a PNG image to local storage:</p>
 <div><p class="code-filename">savePNG.lua</p></div>
 <pre class="language-"><code class="lang-lua"><span class="token function">version3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment">--Draw something to OUTPUT</span>
-<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">move</span><span class="token punctuation">(</span>width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span> height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">rotate</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span>
 <span class="token function">triangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">--End drawing. </span>
 
-<span class="token function">savePNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">,</span>OUTPUT<span class="token punctuation">)</span> <span class="token comment">-- Save OUTPUT as PNG to local disc. Replace to your path here.</span>
+<span class="token function">savePNG</span><span class="token punctuation">(</span><span class="token string">[[d:\test.png]]</span><span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span> <span class="token comment">-- Save OUTPUT as PNG to local disk. Replace with your path here.</span>
 </code></pre>
 <blockquote>
 <ul>
-<li>Change <code>PNG</code> to <code>EXR</code> to read/write EXR file. </li>
-<li>Some local paths might need running Ae under the Administrator mode. </li>
+<li>Replace <code>PNG</code> with <code>EXR</code> to save and read EXR images.</li>
+<li>Saving to certain locations may require administrator permissions.</li>
 </ul>
 </blockquote>
-<h2 id="edit-texture">Edit texture</h2>
-<p>Use <code>rotateTex(texId,times)</code> to rotate texture <code>90*times</code>degrees, <code>rotateTex(texId)</code> equals to <code>rotateTex(texId,1)</code></p>
-<p>Use <code>flipTex(texId,flipV)</code> to mirror flip a image. <code>flipV</code> is a boolean. When <code>flipV</code> is <code>true</code>, flip the image vertically, and horizontally otherwise. </p>
-<p>Use <code>resizeTex(texId,width,height)</code> to resize texture. </p>
-<p>Use <code>trimTex(texId,p1x,p1y,p2x,p2y)</code> to trim texture. The origin of <code>p1x,p1y,p2x,p2y</code> is left top corner. </p>
+<h2 id="adjust-texture">Adjust Texture</h2>
+<p>Use <code>rotateTex(texId, times)</code> to rotate the texture by <code>90*times</code> degrees, where <code>rotateTex(texId)</code> is equivalent to <code>rotateTex(texId, 1)</code>.</p>
+<p>Use <code>flipTex(texId, flipV)</code> to flip the texture, where <code>flipV</code> is a boolean value. <code>flipV</code> is <code>true</code> for vertical mirroring and <code>false</code> for horizontal mirroring.</p>
+<p>Use <code>resizeTex(texId, width, height)</code> to scale the texture.</p>
+<p>Use <code>trimTex(texId, p1x, p1y, p2x, p2y)</code> to crop the texture. <code>p1x, p1y, p2x, p2y</code> are coordinates with the texture&apos;s top-left corner as the origin.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1038,7 +1037,7 @@ E.g. you can specify your rule to blend <code>PARAM0</code> and <code>INPUT</cod
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Texture system","level":"4.1.6","depth":2,"next":{"title":"Filter system","level":"4.1.7","depth":2,"path":"contents/Lua/Filter.md","ref":"contents/Lua/Filter.md","articles":[]},"previous":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2022-11-03T13:32:11.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Texture system","level":"4.1.6","depth":2,"next":{"title":"Filter system","level":"4.1.7","depth":2,"path":"contents/Lua/Filter.md","ref":"contents/Lua/Filter.md","articles":[]},"previous":{"title":"Function list","level":"4.1.5","depth":2,"path":"contents/Lua/FuncList.md","ref":"contents/Lua/FuncList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Lua/Texture.md","mtime":"2025-01-01T07:48:22.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

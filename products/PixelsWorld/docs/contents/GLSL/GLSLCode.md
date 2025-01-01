@@ -1,43 +1,38 @@
-# GPU Berserker GLSL
+# Graphics Warrior GLSL
 ---
+In this section, we will quickly learn how to run GLSL in the world of pixels.
 
-In this section, we will have a quick look at how the GLSL works in PixelsWorld. 
-
-## What is GLSL? 
+## What is GLSL?
  
-> GLSL is an abbreviation of OpenGL Shader Language, which is supported by OpenGL, run on GPU. 
+> GLSL stands for OpenGL Shader Language, which is a GPU-based rendering language supported by OpenGL.
+> It's mainly used to write pixel rendering rules and utilize the GPU for computation.
 
-## How to learn it? 
+## How to learn?
 
-We recommend [The book of shaders](https://thebookofshaders.com/)
+We recommend [The Book of Shaders](https://thebookofshaders.com/), which is available for free online reading.
 
-### Advantage of GPU render
+### Advantages of Graphics Language
 
-If we treat the CPU as a supercar, the GPU should be more like a bus. 
+If we compare the *Central Processing Unit (CPU)* on the motherboard to the *Graphics Processing Unit (GPU)* on the graphics card, the CPU is like a super sports car, while the GPU is like a large bus.
 
-![Metaphor](bus_vs_car.png)
+![Analogy](bus_vs_car.png)
 
-In the case we transport a few people, one or three, a supercar is adequate. (Handle single complicated calculation)
+For transporting a small number of people over a certain distance, a super sports car performs extraordinarily well.
 
-When it comes to thousands of people, a bus could be helpful. (Render thousands of data simultaneously)
+However, if you want to perform highly repetitive tasks—such as computing an image—where you can imagine moving hundreds or thousands of people, then choosing a large bus is clearly the wise choice.
 
-Languages like C/C++, Java, Python, etc., are almost designed to run on CPU.
+The programming languages we usually learn, such as C/C++, Java, and Python, mostly run directly on the CPU.
 
-Languages like GLSL are designed for GPU. 
+Whereas languages like GLSL are designed to run on the GPU.
 
-When we want to render a picture. 
-GPU distributes your code to many "workers" to repetitively calculate the result for each pixel. 
+When processing an image, the GPU can deploy many *"workers"* simultaneously to carry out highly repetitive tasks, with the specific work content defined by GLSL.
 
+> For more information on GLSL syntax, it is recommended to visit [shadertoy.com](https://www.shadertoy.com/). Find some interesting and simple effects to explore how they work.
 
-> If you want to learn more about GLSL, we recommend you to go to [shadertoy.com](https://www.shadertoy.com/), find some interesting arts, and make out why this works. 
+## Details:
 
-## Details
+Before running GLSL, we predefine many variables and functions. If you are a beginner, you can temporarily ignore this part.
 
-Before the GLSL is sent to OpenGL, PixelsWorld will combine pre-defined and post-defined codes to support features of Ae. If you are a beginner, you can ignore this section for the moment. 
+- **PixelsWorld V3.0.0** uses **#version 330 core**.
 
-
-- **PixelsWorld V3.0.0** use **#version 330 core**. 
-
-[Here](predefined.md) are pre-defined and post-defined codes. 
-
-<br><br><br><br><br><br><br>
+[Click here](predefined.md) to view additional predefined code.

@@ -743,39 +743,39 @@
                                 
                                 <h1 id="getcolor">getColor</h1>
 <hr>
-<p>This function has two versions: <strong>getColor(vec2)</strong> and <strong>getColor(int ,vec2)</strong>.</p>
+<p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x306B;&#x306F;2&#x3064;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<strong>getColor(vec2)</strong> &#x3068; <strong>getColor(int, vec2)</strong> &#x3067;&#x3059;&#x3002;</p>
 <h2 id="getcolorvec2">getColor(vec2)</h2>
-<p><strong>Description : </strong></p>
+<p><strong>&#x8AAC;&#x660E; : </strong></p>
 <ul>
-<li>Get the color of <strong>inLayer</strong> in specified position. </li>
+<li>&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x4F4D;&#x7F6E;&#x3067;<strong>&#x5165;&#x529B;&#x30EC;&#x30A4;&#x30E4;&#x30FC;</strong>&#x306E;&#x8272;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</li>
 </ul>
-<p><strong>Parameters : </strong></p>
+<p><strong>&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;</strong>:</p>
 <ul>
-<li>vec2 : uv position.</li>
+<li>vec2&#xFF1A;uv&#x4F4D;&#x7F6E;&#xFF08;&#x5404;&#x6B21;&#x5143;0&#x301C;1&#xFF09;</li>
 </ul>
-<p><strong>Return : </strong></p>
+<p><strong>&#x623B;&#x308A;&#x5024; : </strong></p>
 <ul>
-<li>vec4 : a RGBA color.</li>
+<li>vec4 :  RGBA&#x30AB;&#x30E9;&#x30FC;&#xFF08;&#x5404;&#x6B21;&#x5143;0&#x301C;1&#xFF09;</li>
 </ul>
-<h2 id="getcolorintvec2">getColor(int,vec2)</h2>
-<p><strong>Description : </strong></p>
+<h2 id="getcolorint-vec2">getColor(int, vec2)</h2>
+<p><strong>&#x8AAC;&#x660E; : </strong></p>
 <ul>
-<li>Get the color of <strong>specified layer</strong> in specified position. </li>
+<li><strong>&#x7279;&#x5B9A;&#x306E;&#x5165;&#x529B;&#x30EC;&#x30A4;&#x30E4;&#x30FC;</strong>&#x306E;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x4F4D;&#x7F6E;&#x306E;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</li>
 </ul>
-<p><strong>Parameters : </strong></p>
+<p><strong>&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF; : </strong></p>
 <ul>
-<li>int : layer id, -1 (or AE_INPUT_LAYER) means inLayer, number between 0 and 9 means the corresponding Layer Parameter in your plugin panel. (PW_TEMP_LAYER (which is -2) is provided in Lua render mode)</li>
-<li>vec2 : uv coordinates.</li>
+<li>int : &#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;, -1&#xFF08;&#x307E;&#x305F;&#x306F; AE_INPUT_LAYER&#xFF09;&#x306F;&#x5165;&#x529B;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x3092;&#x6307;&#x3057;&#x3001;0-9&#x306E;&#x6570;&#x5B57;&#x306F;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;0-9&#x3092;&#x6307;&#x3057;&#x307E;&#x3059;&#xFF08;PW_TEMP_LAYER (&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;-2) Lua&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;&#x30E2;&#x30FC;&#x30C9;&#x6642;&#x306B;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>vec2 : uv&#x5EA7;&#x6A19;</li>
 </ul>
-<p><strong>Return : </strong></p>
+<p><strong>&#x623B;&#x308A;&#x5024; : </strong></p>
 <ul>
-<li>vec4 : a RGBA color. </li>
+<li>vec4 : RGBA&#x30AB;&#x30E9;&#x30FC;</li>
 </ul>
 <blockquote>
-<p><strong>NOTE : </strong></p>
+<p><strong>&#x6CE8;&#x610F; : </strong></p>
 <ul>
-<li>So in other words, <code>getColor(AE_INPUT_LAYER,uv);</code> totally equals to <code>getColor(uv);</code></li>
-<li><code>getColor(n,uv);</code> can return the pixels of layer[n]. </li>
+<li>&#x3064;&#x307E;&#x308A;&#x3001;<code>getColor(AE_INPUT_LAYER, uv);</code> &#x3068;<code>getColor(uv)</code> &#x306F;&#x540C;&#x3058;&#x52B9;&#x679C;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;</li>
+<li><code>getColor(n, uv);</code> &#x306F;<code>layer[n]</code>&#x306E;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x60C5;&#x5831;&#x3092;&#x8FD4;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</li>
 </ul>
 </blockquote>
 
@@ -812,7 +812,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"getColor","level":"4.2.3.1","depth":3,"next":{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]},"previous":{"title":"内装関数","level":"4.2.3","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"4.2.3.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/getColor.md","mtime":"2020-09-06T12:51:33.250Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:41.102Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"getColor","level":"4.2.3.1","depth":3,"next":{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]},"previous":{"title":"内装関数","level":"4.2.3","depth":2,"path":"contents/GLSL/Functions.md","ref":"contents/GLSL/Functions.md","articles":[{"title":"getColor","level":"4.2.3.1","depth":3,"path":"contents/GLSL/getColor.md","ref":"contents/GLSL/getColor.md","articles":[]},{"title":"uv2xy,xy2uv","level":"4.2.3.2","depth":3,"path":"contents/GLSL/uvxy.md","ref":"contents/GLSL/uvxy.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/GLSL/getColor.md","mtime":"2025-01-01T08:05:28.276Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:52.177Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

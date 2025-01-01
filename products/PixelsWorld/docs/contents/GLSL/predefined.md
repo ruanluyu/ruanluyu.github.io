@@ -1,14 +1,12 @@
-# Predifined code
+# Predefined Code
 
-Before run shader code, PixelsWorld combines your input with some predefined code to support some features. 
+Before running, shader code is encapsulated with predefined environmental code to support various features.
+- GLSL mode only includes prelude code.
+- Shadertoy mode contains both prelude and postlude code.
 
-- GLSL mode only has pre-define code. 
-- shadertoy mode has both pre-define and post-define codes. 
+## GLSL Mode
 
-
-## GLSL mode
-
-### Pre-define code
+### Prelude Code:
 
 ```glsl:pre_frag_shader_glsl.frag
 #define gl_Position uv2xy(uv)
@@ -76,12 +74,11 @@ return myuv*resolution.xy;
 vec2 xy2uv(vec2 myxy){
 return myxy/resolution.xy;
 }
-
 ```
 
-## shadertoy mode
+## Shadertoy Code
 
-### Pre-define code
+### Prelude Code
 
 ```glsl:pre_frag_shader_shadertoy.frag
 #define gl_Position (_PixelsWorld_uv * iResolution.xy)
@@ -163,12 +160,9 @@ return myuv*_PixelsWorld_resolution.xy;
 vec2 _PixelsWorld_xy2uv(vec2 myxy){
 return myxy/_PixelsWorld_resolution.xy;
 }
-
-
-
 ```
 
-### Post-define code
+### Postlude Code
 
 ```glsl:post_frag_shader_shadertoy.frag
 void main(){

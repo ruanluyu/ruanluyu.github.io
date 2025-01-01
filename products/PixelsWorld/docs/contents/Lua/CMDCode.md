@@ -1,6 +1,6 @@
-#CMD Code
+# CMD Code
 ---
-CMD commands can be executed by function ```cmd("Your cmd commands")``` on **Lua (CPU & GPU)** language mode. 
+In **Lua (CPU & GPU)** mode, the pixel world can execute CMD commands using ```cmd("Your cmd commands")```.
 
 
 

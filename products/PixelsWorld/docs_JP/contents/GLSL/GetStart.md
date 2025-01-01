@@ -1,63 +1,55 @@
+## シェーダーコードを書くとはどんな感じ？
+シェーダーコードは、*Excelの表計算機能のようなもの*です。表に数式を入力すると、表がすべてのデータを処理してくれます。
 
+もし表のデータを入力ピクセルとし、計算後の表を出力ピクセルと考えると、**ピクセルの世界のコードはExcelの表計算式と同じように理解できます。**
 
+## 使用例：画像を明るくする
+画像を明るくする最も簡単な方法は、すべてのピクセルの赤、緑、青の数値を上げることです。Excelの表計算では、次の手順を行う必要があります：
 
-## Shader code? 
-Shader is like *The Function of Microsoft Excel*. You write a function, it will handle the form-data for you. 
+![表計算](ExcelCalculate.png)
 
-If we treat the data in the form as input pixels, the calculated form as output pixels, **Codes in PixelsWorld is the function in Microsoft Excel**
+これで、左側のすべてのピクセルデータを「明るく」できます。
 
-## E.g. Make picture brighter
-
-To make a picture brighter, the simplest approach is just to add the R, G, B by a number. If in Excel, we need to do something like this: 
-
-![Calculate the form](ExcelCalculate.png)
-
-Then we have made all pixels data "brighter"! 
-
-Here is what we need to write in PixelsWorld: 
+ピクセルの世界に変えると、次のコードを入力する必要があります：
 
 ```glsl:bright_describe.shader
 outColor=getColor(uv)+vec4(0.2);
 ```
 
-It means: Get the input pixels (*getColor*) in current location (*uv*), and add the 4D vector RGBA by (0.2,0.2,0.2,0.2) (*+vec4(0.2)*). Finally, send (*=*) the result to the output pixel(*outColor*). 
+つまり、現在の位置（*uv*）の入力ピクセルを取得し（*getColor*）、その4つのチャネル（赤、緑、青、透明）に0.2を加え（*+vec4(0.2)*）、計算結果を出力（*outColor*）に送ります（*=*）。
 
-But if we only write this single line, PixelsWorld cannot work fine. We need to add this line inside a "shell" to make it work. The complete version is this: 
-
+もちろん、この一行だけではピクセルの世界は正常に動作しないので、**外側には「シェル」を1つ被せる必要があります**。完全なコードは次のようになります：
 ```glsl:bright.shader
 void main(){
     outColor=getColor(uv)+vec4(0.2);
 }
 ```
-### How to input codes
+### 操作方法：
 
-![How to input codes](OperateTip.png)
+![操作方法](OperateTip.png)
 
-### Input picture (Right-click to save)
+### 入力画像（右クリックして保存）：
 
-![Input picture](FlowerRing.png)
+![入力画像](FlowerRing.png)
 
-([Source artist](https://www.pixiv.net/artworks/75891619))
+（[元の作者リンク](https://www.pixiv.net/artworks/75891619)）
 
-### Result
+### 効果図：
 
-![Result](EffectDemo1.png)
+![効果図](EffectDemo1.png)
 
 
-### Add more controls! 
-
-Mostly we don't just add 0.2 to the picture. We want it to be more controllable. So we can replace the `0.2` with `slider[0]`. In this way, we can change the value in the Parameters panel to change the brightness of your picture. 
-
+### さらにコントロールを追加！
+もちろん、単に0.2を加えるだけでは私たちが望む結果にはなりません。もっと制御可能にしたい場合は、`0.2`を`slider[0]`に置き換えることで、パネルのスライダーを使って効果を調整できます。
 ```glsl:bright_control.shader
 void main(){
     outColor=getColor(uv)+vec4(slider[0]);
 }
 ```
 
-![brightness](ControlBright.gif)
+![明るさコントロール](ControlBright.gif)
 
-But you can find that, if the value is negative, the picture will be transparent, we don't want this to happen. Namely, we need to avoid modifying the Alpha channel of the picture. 
-
+しかし、もし値が負の場合、透明度も小さくなることに気づくでしょうが、通常透明度を変更したくないため、そのチャンネルを避ける必要があります。そうすると、レンダリングコードは次のように書く必要があります：
 ```glsl:bright_control.shader
 void main(){
     vec4 inColor = getColor(uv);
@@ -65,26 +57,25 @@ void main(){
     outColor = inColor;
 }
 ```
-> It means: Save the input pixel into a temporary variable `inColor`, Add the value of `slider[0]` to the RGB of inColor, then send the inColor to the outColor. 
+> 説明：まず入力ピクセルを4次元(*vec4*)変数`inColor`に一時保存し、それからrgb（赤緑青）3つのチャネルに`slider[0]`の数値を加えます。最後に`inColor`の値を`outColor`に渡します。これにより、`inColor`のaチャネル（透明チャネル）はそのまま出力に送られます。
+
+![明るさコントロールアップグレード](ControlBright2.gif)
+
+### パラメータに名前を付ける
+次の操作で、パラメータパネルを整理整頓されたものにすることができます：
+
+![明るさコントロールパラメータ](ControlBright3.gif)
 
 
-![Advanced brightness](ControlBright2.gif)
-
-### Add label to the parameter
-
-![Add label to the parameter](ControlBright3.gif)
+### プリセットに保存
+最後に、作成したコードを保存して、特に後で使うかもしれないコードをプリセットに保存することができます。詳細については、[プリセット管理](../Editor/SavePresets.md)セクションを参照してください。
 
 
-### Save to preset
+## おめでとうございます！
 
-Finally, we can save the code as a preset for the next use. Go to the [Preset management](../Editor/SavePresets.md) to learn more details. 
+あなたはピクセルの世界の基本的な使用方法を習得しました！
 
-
-## Congratulations! 
-
-You have already mastered most of PixelsWorld! 
-
-In addition to writing codes by yourself, you can go to the [shadertoy](https://www.shadertoy.com/), find some interesting code, and run it in PixelsWorld. See [this](contents/GLSL/shadertoy.md) to learn how to use code from shadertoy. 
+ピクセル世界ではコードを書くことができる以外に、[shadertoy](https://www.shadertoy.com/)のサイトから面白いエフェクトを探し出して、ピクセル世界に持ち込むこともできます。shadertoyからのコードのレンダリング方法については、[こちら](shadertoy.md)を参照してください。
 
 
 

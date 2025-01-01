@@ -1,44 +1,40 @@
-#Advanced settings
----
-There are several advanced settings in the effect panel.
+# Advanced Settings
 
-##Language 
-It controls which compiler to be used. 
+This section introduces the advanced options settings available in the effects panel.
 
+## Wrap U/V Sampler
 
----
+This parameter affects the result of ```getColor()``` when the sampled pixels exceed the image boundaries.
 
-##Wrap U/V sampler
-This will affect the result of ```getColor()``` when sampler the pixels which are outside the boundary of the image.
+**Test Code (Apply on material using PixelsWorld):**
 
-**Test code (Apply PixelsWorld to a footage.): **
 ```glsl:wrap_uv_sampler.shader
-void main(){
+void main() {
     outColor = getColor(uv*10);
 }
 ```
 ---
 
-##Magnify/Minify sampler
-This will affect the behavior of ```getColor()``` when the sampler wants to do the interpolation of surrounding pixels.
+## Magnify/Minify Sampler
 
-**Test code (Apply PixelsWorld to footage.): **
+This parameter affects the behavior of ```getColor()``` when the sampler performs interpolated sampling around neighboring pixels.
+
+**Test Code (Apply on material using PixelsWorld):**
 
 ```glsl:wrap_uv_sampler.shader
-void main(){
+void main() {
     outColor = getColor(uv*0.1);
 }
 ```
 
-> If you want to build the same pixel style effect. Switch this option to **Nearest pixel**
+> If you want to achieve a similar pixel style effect, set this option to **Nearest pixel**.
 
+## Mipmap
 
-## Mipmap 
-
-Specify how the sampler sample color while the texture is scaled down. 
+Allows you to specify the color-picking method when the texture is minimized.
 
 ```glsl:wrap_uv_sampler.shader
-void main(){
+void main() {
     outColor = getColor(uv*10);
 }
 ```

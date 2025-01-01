@@ -1,14 +1,12 @@
-# Predifined code
+# プリデファインコード
 
-Before run shader code, PixelsWorld conbine your input with some predifined code to support some features. 
+シェーダーコードは実行前に、特定の機能をサポートするためにあらかじめ設定された環境コードで囲まれます。
+- GLSLモードは前置コードのみを含みます。
+- shadertoyモードは前置コードと後置コードの両方があります。
 
-- GLSL mode only has pre-define code. 
-- shadertoy mode has both pre-define and post-define code. 
+## GLSLモード
 
-
-## GLSL mode
-
-### Pre-define code
+### 前置コード：
 
 ```glsl:pre_frag_shader_glsl.frag
 #define gl_Position uv2xy(uv)
@@ -46,45 +44,42 @@ uniform mat4 camera_matrix;
 uniform vec4 camera_info; // x,y: resolution, z: distance to plane, w: distance to focus. 
 uniform bool camera_perspective;
 
-uniform sampler1D inWaveL; // Left wave samples
-uniform sampler1D inWaveR; // Right wave samples
-uniform float inWaveN; // Wave sample number
-uniform float inWaveS; // Sample rate, settings in plugin panel. Default: 44100.
-uniform vec2 inWaveT; // vec2(sampleStartTime, sampleEndTime), unit: second. New in v3.4.0
-uniform sampler1D inSpecL; // Left spectrum samples
-uniform sampler1D inSpecR; // Right spectrum samples
-uniform float inSpecN; // Spectrum sample number
-uniform vec2 inSpecF; // vec2(spectrumStartFrequency, spectrumEndFrequency), unit: hz. New in v3.4.0
+uniform sampler1D inWaveL; // 左側の波形サンプル
+uniform sampler1D inWaveR; // 右側の波形サンプル
+uniform float inWaveN; // 波形サンプル数
+uniform float inWaveS; // サンプルレート、プラグインパネルの設定。デフォルト: 44100.
+uniform vec2 inWaveT; // vec2(sampleStartTime, sampleEndTime), 単位: second. v3.4.0から新登場
+uniform sampler1D inSpecL; // 左側のスペクトラムサンプル
+uniform sampler1D inSpecR; // 右側のスペクトラムサンプル
+uniform float inSpecN; // スペクトラムサンプル数
+uniform vec2 inSpecF; // vec2(spectrumStartFrequency, spectrumEndFrequency), 単位: hz. v3.4.0から新登場
 
-vec4 getColor(int layerId,vec2 coord)
+vec4 getColor(int layerId, vec2 coord)
 {
-if(layerId==AE_INPUT_LAYER) return texture(inLayer,coord);
-if(layerId==PW_TEMP_LAYER) return texture(outLayer,coord);
-else if(layerId>=0 && layerId<=9) return texture(layer[layerId],coord);
-return vec4(0.0);
+    if(layerId==AE_INPUT_LAYER) return texture(inLayer,coord);
+    if(layerId==PW_TEMP_LAYER) return texture(outLayer,coord);
+    else if(layerId>=0 && layerId<=9) return texture(layer[layerId],coord);
+    return vec4(0.0);
 }
 
 vec4 getColor(vec2 coord)
 {
-return texture(inLayer,coord);
+    return texture(inLayer,coord);
 }
 
 vec2 uv2xy(vec2 myuv){
-return myuv*resolution.xy;
+    return myuv*resolution.xy;
 }
 
 vec2 xy2uv(vec2 myxy){
-return myxy/resolution.xy;
+    return myxy/resolution.xy;
 }
-
-
-
 
 ```
 
-## shadertoy mode
+## shadertoyコード
 
-### Pre-define code
+### 前置コード
 
 ```glsl:pre_frag_shader_shadertoy.frag
 #define gl_Position (_PixelsWorld_uv * iResolution.xy)
@@ -146,31 +141,30 @@ uniform vec2 _PixelsWorld_inSpecF;
 in vec2 _PixelsWorld_uv;
 out vec4 _PixelsWorld_outColor;
 
-vec4 _PixelsWorld_getColor(int layerId,vec2 coord)
+vec4 _PixelsWorld_getColor(int layerId, vec2 coord)
 {
-if(layerId==_PixelsWorld_AE_INPUT_LAYER) return texture(_PixelsWorld_inLayer,coord);
-if(layerId==_PixelsWorld_PW_TEMP_LAYER) return texture(_PixelsWorld_outLayer,coord);
-else if(layerId>=0 && layerId<=9) return texture(_PixelsWorld_layer[layerId],coord);
-return vec4(0.0);
+    if(layerId==_PixelsWorld_AE_INPUT_LAYER) return texture(_PixelsWorld_inLayer,coord);
+    if(layerId==_PixelsWorld_PW_TEMP_LAYER) return texture(_PixelsWorld_outLayer,coord);
+    else if(layerId>=0 && layerId<=9) return texture(_PixelsWorld_layer[layerId],coord);
+    return vec4(0.0);
 }
 
 vec4 _PixelsWorld_getColor(vec2 coord)
 {
-return texture(_PixelsWorld_inLayer,coord);
+    return texture(_PixelsWorld_inLayer,coord);
 }
 
 vec2 _PixelsWorld_uv2xy(vec2 myuv){
-return myuv*_PixelsWorld_resolution.xy;
+    return myuv*_PixelsWorld_resolution.xy;
 }
 
 vec2 _PixelsWorld_xy2uv(vec2 myxy){
-return myxy/_PixelsWorld_resolution.xy;
+    return myxy/_PixelsWorld_resolution.xy;
 }
-
 
 ```
 
-### Post-define code
+### 後置コード
 
 ```glsl:post_frag_shader_shadertoy.frag
 void main(){

@@ -739,46 +739,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="world-formula-editor">World formula editor</h1>
+                                <h1 id="world-formula-editor">World Formula Editor</h1>
 <hr>
-<h2 id="open-the-formula-editor">Open the formula editor</h2>
-<p>Click the &quot;Edit&quot; button in the plugin panel. </p>
-<p><img src="formulaEditor.png" alt="World formula editor"></p>
-<p>For demonstrating purpose, we highlight different areas with colored rectangles. </p>
-<p><img src="FE_AreaInfo.png" alt="World formula editor(colored)"></p>
-<h2 id="&#x25C6;code-area"><span style="color:rgb(255,0,0)">&#x25C6;</span>Code area</h2>
-<p>Input your creative code here. </p>
+<h2 id="how-to-open">How to Open</h2>
+<p>Click the &quot;Edit&quot; button next to &quot;World formula&quot; to open the World Formula Editor. Below is how it looks when opened.</p>
 <blockquote>
-<p><code>Language</code> in this panel overrides the Language setting in your plugin panel. <code>(default)</code> selection means current language. </p>
+<p>Note: The actual appearance may slightly differ with version updates.</p>
 </blockquote>
-<h2 id="&#x25C6;reference-list"><span style="color:rgb(56,148,228)">&#x25C6;</span>Reference list</h2>
-<p>Reference code that would help you to remind some frequently-used functions are listed here, this list is read-only currently.</p>
-<h2 id="&#x25C6;parameter-settings"><span style="color:rgb(243,27,243)">&#x25C6;</span>Parameter settings</h2>
-<p>Here you can see the labels, the default value of parameters, and the language settings. Click the <code>Parameter manager</code> button to manage them. See also <a href="ParameterWindow.html">Parameter manager</a></p>
+<p><img src="formulaEditor.png" alt="World Formula Editor"></p>
+<p>For clarification, we have outlined different functional areas in different colors, as shown below:</p>
+<p><img src="FE_AreaInfo.png" alt="World Formula Editor (with labeled boxes)"></p>
+<h2 id="&#x25C6;-code-area"><span style="color:rgb(255,0,0)">&#x25C6;</span> Code Area</h2>
+<p>You can write your creative rendering code in this area.</p>
 <blockquote>
-<p>Parameter settings are saved with code into preset. </p>
+<p>The option at <code>Language</code> will automatically change the language type on the plugin panel after you finish editing. This setting will be recorded in the preset file when saving a preset. The <code>(default)</code> option will not modify your language.</p>
 </blockquote>
-<h2 id="&#x25C6;preset-list"><span style="color:rgb(153,204,0)">&#x25C6;</span>Preset list</h2>
-<p>The pop-up menu contains all preset files in your local disc. </p>
-<p>Some definitions about presets:</p>
+<h2 id="&#x25C6;-reference-table"><span style="color:rgb(56,148,228)">&#x25C6;</span> Reference Table</h2>
+<p>This section provides some convenient code for you to copy and use. This document is currently in read-only mode and cannot be modified.</p>
+<h2 id="&#x25C6;-parameter-settings"><span style="color:rgb(243,27,243)">&#x25C6;</span> Parameter Settings</h2>
+<p>This area will display the parameter panel&apos;s name and default value, as well as language settings. If you want to modify the parameter name or default value, you can click <code>Parameter manager</code> below to enter the <a href="ParameterWindow.html">Parameter Manager</a>.</p>
+<blockquote>
+<p>Parameter settings will be recorded in the preset file when saving a preset.</p>
+</blockquote>
+<h2 id="&#x25C6;-preset-list"><span style="color:rgb(153,204,0)">&#x25C6;</span> Preset List</h2>
+<p>The dropdown list above will show all preset categories. We define presets as follows:</p>
 <ul>
-<li>A preset is a file with <code>.pwp</code> postfix, <strong>JSON</strong> format and located beside plugin. It is represented as a <strong>Preset column</strong> in PixelsWorld. Preset&apos;s file name is equal to the column name. </li>
-<li>One <strong>Preset column</strong> contains several <strong>Presets</strong></li>
-<li><strong>Presets</strong> contained in a <strong>Preset column</strong> are listed below the pop-up menu. </li>
+<li>A <strong>JSON</strong> format file with the <code>.pwp</code> suffix, placed next to the plugin, will be regarded as a <strong>preset category</strong>. The category name is the file name.</li>
+<li>A <strong>preset category</strong> contains several <strong>preset data</strong>.</li>
+<li>All <strong>preset data</strong> within a category will be listed below the dropdown menu.</li>
 </ul>
-<h2 id="&#x25C6;formula-preview"><span style="color:rgb(128,0,0)">&#x25C6;</span>Formula preview</h2>
-<p>Formula preview is where you can preview the code in the preset you selected. </p>
-<p>Click <code>Replace</code> button to apply preset code. </p>
+<h2 id="&#x25C6;-preset-formula-preview"><span style="color:rgb(128,0,0)">&#x25C6;</span> Preset Formula Preview</h2>
+<p>The code data of the <strong>preset data</strong> selected by the user in the list will be displayed here. If you are sure this preset is what you want, click the <code>Replace</code> button to replace the code in the Code Area.</p>
 <blockquote>
-<p>NOTE: Code in Code area will be overwritten. 
-By default, click <code>Replace</code> button will also apply parameter settings. If this is not expected, uncheck <code>Apply when replace</code> in <span style="color:rgb(247,136,58)">Parameter settings preview</span> area. </p>
+<p>If you only want to replace the text part, you can deselect <code>Apply when replace</code> in the <span style="color:rgb(247,136,58)">Preset Parameter Setting Preview</span> area.</p>
 </blockquote>
-<p>If you want to joint the preset code in front of your current code, click <code>&lt;&lt;Top</code> button. </p>
-<p>If you want to joint the preset code behind your current code, click <code>Bottom&gt;&gt;</code> button.  </p>
-<h2 id="&#x25C6;parameter-settings-preview"><span style="color:rgb(247,136,58)">&#x25C6;</span>Parameter settings preview</h2>
-<p>Parameter settings preview is where you can preview the parameter settings of the selected <strong>Preset</strong>. Click <code>Apply</code> button to override the current parameter settings. </p>
+<p>If you want to add the preset code before the currently edited code, you can click the <code>&lt;&lt;Top</code> button; to add it after, click the <code>Bottom&gt;&gt;</code> button.</p>
+<h2 id="&#x25C6;-preset-parameter-setting-preview"><span style="color:rgb(247,136,58)">&#x25C6;</span> Preset Parameter Setting Preview</h2>
+<p>The parameter setting data of the <strong>preset data</strong> selected by the user in the list will be displayed here. If you are sure to use the current parameters, click the <code>Apply</code> button.</p>
 <blockquote>
-<p><code>Apply when replace</code> means weather or not applies parameter settings when you click the <code>Replace</code> button in the Formula preview area. </p>
+<p>The <code>Apply when replace</code> option box will determine whether to automatically apply the parameter settings on the current preset when you click the <code>Replace</code> button above.</p>
 </blockquote>
 <p><br>
 <br>
@@ -820,7 +819,7 @@ By default, click <code>Replace</code> button will also apply parameter settings
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"World formula editor","level":"3.1","depth":1,"next":{"title":"Parameter manager","level":"3.2","depth":1,"path":"contents/Editor/ParameterWindow.md","ref":"contents/Editor/ParameterWindow.md","articles":[]},"previous":{"title":"The book of shaders","level":"2.3","depth":1,"url":"https://thebookofshaders.com/","ref":"https://thebookofshaders.com/","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ScriptWindow.md","mtime":"2022-07-20T11:16:31.123Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-29T07:06:43.736Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"World formula editor","level":"3.1","depth":1,"next":{"title":"Parameter manager","level":"3.2","depth":1,"path":"contents/Editor/ParameterWindow.md","ref":"contents/Editor/ParameterWindow.md","articles":[]},"previous":{"title":"The book of shaders","level":"2.3","depth":1,"url":"https://thebookofshaders.com/","ref":"https://thebookofshaders.com/","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-published-with","-sharing","sharing-plus","theme-api","codeblock-filename","prism","-highlight","copy-code-button","-lunr","-search","search-pro","back-to-top-button","popup","chapter-fold","heading-anchors","katex"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-monokai.css"]},"search-pro":{},"adsense":{"client":"ca-pub-7097619231360132","slot":"","format":"auto","element":".page-inner section","position":"bottom"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"hide-published-with":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":true,"theme":"light"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":true}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"contents/Editor/ScriptWindow.md","mtime":"2025-01-01T08:22:46.671Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-01T09:18:58.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

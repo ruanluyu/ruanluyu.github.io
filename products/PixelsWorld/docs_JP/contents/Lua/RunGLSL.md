@@ -1,15 +1,14 @@
 # LuaでGLSLを実行する
 ---
 
-## 使用例
+## 使用方法
 
 ```lua:glsl.lua
 version3()
 glsl(Your_code_string_here)
 ```
 
-注意：`[==[Your_code_string_here]==]`を用いてコードを囲むことがお勧めです。なぜなら、この囲み方は`\n`のような変換を阻止できるからです。
-
+注意、文字列を括る際に`[==[Your_code_string_here]==]`を使用することをお勧めします。これにより、エスケープの問題が回避されます。通常、コードは以下の形式で記述する必要があります：
 
 ```lua:glsl2.lua
 version3()
@@ -20,7 +19,7 @@ void main(){
 ]==])
 ```
 
-`shadertoy.com`からのコードもレンダーできます。
+以下のコードを使用して、`shadertoy.com`からのコードをレンダリングできます。
 
 ```lua:shadertoy.lua
 version3()
