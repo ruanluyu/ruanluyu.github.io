@@ -1688,6 +1688,7 @@ delLight(table.unpack(lightList))
 4. `...`(任意の回数のidを入力可能)
 
 > - `id`は[newLight](#newlight)関数の戻り値で取得する正の整数です。
+
 ## getActivatedLight
 
 > `3.7.0`で新たに追加された関数。
